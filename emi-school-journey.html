@@ -8,698 +8,551 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --teal:#0D9488;--teal-light:#14b8a6;--teal-50:#f0fdfa;--teal-100:#ccfbf1;--teal-200:#99f6e4;--teal-800:#115e59;
+  --teal:#0D9488;--teal-l:#14b8a6;--teal-50:#f0fdfa;--teal-100:#ccfbf1;--teal-200:#99f6e4;--teal-800:#115e59;
   --green:#16a34a;--green-50:#f0fdf4;--green-100:#dcfce7;
   --purple:#7c3aed;--purple-50:#f5f3ff;--purple-100:#ede9fe;
   --text:#0f172a;--muted:#64748b;--surface:#f8fafc;
   --red:#ef4444;--amber:#f59e0b;--amber-50:#fffbeb;
-  --radius:16px;--radius-sm:12px;
+  --r:14px;--rs:10px;
+  --header-h:56px;--step-h:72px;--nav-h:56px;
 }
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-/* BG DECORATION */
-body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,0.04) 0%,transparent 70%);pointer-events:none;z-index:0}
-body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,0.03) 0%,transparent 70%);pointer-events:none;z-index:0}
-/* HEADER */
-.top-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(0,0,0,0.06);padding:14px 32px;display:flex;align-items:center;gap:14px}
-.logo{width:38px;height:38px;background:linear-gradient(135deg,var(--teal-light),var(--teal));border-radius:11px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 2px 8px rgba(13,148,136,0.25)}
-.logo span{color:#fff;font-weight:800;font-size:18px}
-.logo::after{content:'';position:absolute;top:6px;right:6px;width:6px;height:6px;background:var(--teal-200);border-radius:50%;animation:logoPulse 2s ease-in-out infinite}
-@keyframes logoPulse{0%,100%{opacity:0.6;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
-.header-title{font-weight:700;font-size:17px;color:var(--text);letter-spacing:-0.01em}
-.header-badge{margin-left:auto;font-size:11px;color:var(--teal);background:var(--teal-50);padding:5px 14px;border-radius:20px;font-weight:600;border:1px solid var(--teal-100);letter-spacing:0.02em}
-/* STEP INDICATOR */
-.step-bar{position:fixed;top:67px;left:0;right:0;z-index:99;background:rgba(255,255,255,0.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.04);padding:18px 32px 14px;overflow-x:auto}
-.steps{display:flex;align-items:flex-start;justify-content:center;gap:0;max-width:860px;margin:0 auto;position:relative}
-.step-item{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;cursor:pointer;min-width:80px;transition:transform .2s}
-.step-item:hover{transform:translateY(-1px)}
-.step-circle{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;border:2.5px solid #d1d5db;color:#9ca3af;background:#fff;transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;z-index:2}
-.step-item.active .step-circle{border-color:var(--teal);color:#fff;background:linear-gradient(135deg,var(--teal-light),var(--teal));box-shadow:0 0 0 5px rgba(13,148,136,0.12),0 2px 8px rgba(13,148,136,0.2)}
-.step-item.done .step-circle{border-color:var(--green);background:var(--green);color:#fff;box-shadow:0 2px 6px rgba(22,163,74,0.2)}
-.step-label{font-size:10px;color:#9ca3af;margin-top:7px;text-align:center;font-weight:500;line-height:1.2;max-width:90px;transition:all .3s}
-.step-item.active .step-label{color:var(--teal);font-weight:700}
-.step-item.done .step-label{color:var(--green);font-weight:600}
-.step-line{position:absolute;top:17px;left:calc(50% + 17px);right:calc(-50% + 17px);height:2px;background:#e5e7eb;z-index:1;transition:background .3s}
-.step-item:last-child .step-line{display:none}
-.step-item.done .step-line{background:var(--green)}
-/* MAIN */
-.main-wrap{padding-top:170px;padding-bottom:90px;min-height:100vh;position:relative;z-index:1}
-.screen{display:none;animation:screenIn .5s cubic-bezier(.4,0,.2,1);max-width:1100px;margin:0 auto;padding:0 32px}
-.screen.active{display:block}
-@keyframes screenIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-/* NAV */
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.9);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border-top:1px solid rgba(0,0,0,0.06);padding:14px 32px;display:flex;align-items:center;justify-content:space-between;z-index:100}
-.nav-btn{padding:11px 28px;border-radius:var(--radius-sm);font-weight:600;font-size:14px;cursor:pointer;border:none;transition:all .25s cubic-bezier(.4,0,.2,1);letter-spacing:-0.01em}
-.nav-btn.primary{background:linear-gradient(135deg,var(--teal-light),var(--teal));color:#fff;box-shadow:0 2px 8px rgba(13,148,136,0.2)}
-.nav-btn.primary:hover{box-shadow:0 6px 20px rgba(13,148,136,0.35);transform:translateY(-1px)}
-.nav-btn.primary:active{transform:translateY(0) scale(0.98)}
-.nav-btn.secondary{background:#fff;color:var(--text);border:1.5px solid #e5e7eb;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
-.nav-btn.secondary:hover{border-color:#d1d5db;background:#fafafa;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
-.nav-btn:disabled{opacity:0.35;cursor:not-allowed;transform:none!important;box-shadow:none!important}
-.nav-counter{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:0.01em}
-/* POWERED BY */
-.powered-by{margin-top:36px;padding:14px 22px;background:linear-gradient(135deg,var(--purple-50),#faf5ff);border:1px solid var(--purple-100);border-radius:var(--radius-sm);display:flex;align-items:center;gap:10px;font-size:12px;color:var(--purple);font-weight:500;backdrop-filter:blur(4px)}
-.powered-by::before{content:'';width:18px;height:18px;background:var(--purple);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/%3E%3C/svg%3E") center/contain no-repeat;flex-shrink:0}
-/* CARDS */
-.card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:var(--radius);padding:24px;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 1px 3px rgba(0,0,0,0.02)}
-.card:hover{box-shadow:0 12px 32px rgba(0,0,0,0.06),0 2px 6px rgba(0,0,0,0.03);transform:translateY(-2px)}
-.card-grid{display:grid;gap:20px}
-.card-grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.card-grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.card-grid-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-/* STAT CARDS */
-.stat-card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:var(--radius-sm);padding:22px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.02);transition:all .3s}
-.stat-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.05);transform:translateY(-2px)}
-.stat-value{font-size:30px;font-weight:800;color:var(--teal);letter-spacing:-0.02em}
-.stat-label{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500;line-height:1.4}
-/* TAGS */
-.tag{display:inline-flex;align-items:center;gap:4px;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:0.01em}
-.tag-green{background:var(--green-100);color:var(--green)}
-.tag-amber{background:var(--amber-50);color:#b45309}
-.tag-red{background:#fef2f2;color:var(--red)}
-.tag-teal{background:var(--teal-100);color:var(--teal-800)}
-/* FORM ELEMENTS */
-.form-group{margin-bottom:18px}
-.form-label{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:7px;display:block;text-transform:uppercase;letter-spacing:0.04em}
-.form-input{width:100%;padding:11px 16px;border:1.5px solid #e5e7eb;border-radius:10px;font-size:14px;font-family:inherit;background:#fff;color:var(--text);transition:all .2s}
-.form-input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(13,148,136,0.08)}
-select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
-.checkbox-group{display:flex;gap:14px;flex-wrap:wrap}
-.checkbox-item{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:500}
-.checkbox-item input{accent-color:var(--teal);width:18px;height:18px}
-/* PROGRESS BAR */
-.progress-track{height:6px;background:#f1f5f9;border-radius:3px;overflow:hidden}
-.progress-fill{height:100%;border-radius:3px;transition:width .8s cubic-bezier(.4,0,.2,1)}
-.fill-green{background:linear-gradient(90deg,#22c55e,var(--green))}
-.fill-amber{background:linear-gradient(90deg,#fbbf24,var(--amber))}
-.fill-red{background:linear-gradient(90deg,#f87171,var(--red))}
-.fill-teal{background:linear-gradient(90deg,var(--teal-light),var(--teal))}
-/* SECTION */
-.section-title{font-size:28px;font-weight:800;margin-bottom:8px;letter-spacing:-0.03em;line-height:1.2}
-.section-sub{font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.6;max-width:600px}
-.hero-title{font-size:clamp(32px,4.5vw,48px);font-weight:900;letter-spacing:-0.04em;line-height:1.08;margin-bottom:16px}
-.hero-title .accent{background:linear-gradient(135deg,var(--teal) 0%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:18px;color:var(--muted);line-height:1.65;max-width:580px;margin-bottom:32px}
-.cta-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;background:linear-gradient(135deg,var(--teal-light),var(--teal));color:#fff;font-weight:700;font-size:16px;border:none;border-radius:var(--radius-sm);cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 4px 14px rgba(13,148,136,0.25);letter-spacing:-0.01em}
-.cta-btn:hover{box-shadow:0 8px 28px rgba(13,148,136,0.35);transform:translateY(-2px)}
-.cta-btn:active{transform:translateY(0) scale(0.98)}
-/* SPLIT */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-@media(max-width:768px){.split{grid-template-columns:1fr}}
-.split-divider{position:relative}
-.split-divider::before{content:'';position:absolute;left:50%;top:24px;bottom:24px;width:1px;background:linear-gradient(to bottom,transparent,#e5e7eb 20%,#e5e7eb 80%,transparent)}
-/* DROPZONE */
-.dropzone{border:2px dashed #d1d5db;border-radius:var(--radius-sm);padding:32px;text-align:center;color:var(--muted);background:#fafbfc;transition:all .25s}
-.dropzone.uploaded{border-color:var(--green);border-style:solid;background:var(--green-50);color:var(--green)}
-/* TABLE */
-.mini-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;margin-top:12px;border-radius:10px;overflow:hidden;border:1px solid #f1f5f9}
-.mini-table th{background:var(--surface);padding:10px 14px;text-align:left;font-weight:600;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:0.04em}
-.mini-table td{padding:10px 14px;border-top:1px solid #f1f5f9}
-.mini-table tr:hover td{background:var(--teal-50)}
-/* QUIZ MOCKUP */
-.quiz-option{padding:13px 18px;border:1.5px solid #e5e7eb;border-radius:var(--radius-sm);margin-bottom:10px;font-size:14px;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:12px}
-.quiz-option:hover{border-color:#cbd5e1;background:#fafbfc}
-.quiz-option .letter{width:30px;height:30px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:var(--muted);flex-shrink:0;transition:all .25s}
-.quiz-option.correct{border-color:var(--green);background:var(--green-50);box-shadow:0 0 0 3px rgba(22,163,74,0.08)}
-.quiz-option.correct .letter{background:var(--green);color:#fff;box-shadow:0 2px 6px rgba(22,163,74,0.2)}
-/* LEADERBOARD */
-.lb-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9;transition:background .2s}
-.lb-item:hover{background:var(--surface);margin:0 -8px;padding:12px 8px;border-radius:8px}
-.lb-rank{font-size:22px;width:36px;text-align:center}
-.lb-name{font-weight:600;font-size:14px;flex:1}
-.lb-score{font-weight:700;color:var(--teal);font-size:14px;font-variant-numeric:tabular-nums}
-/* CERT */
-.cert-preview{border:2px solid var(--teal-200);border-radius:var(--radius);padding:28px;text-align:center;background:linear-gradient(135deg,var(--teal-50),#fff,var(--purple-50));position:relative;overflow:hidden}
-.cert-preview::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;background:var(--teal-100);border-radius:50%;opacity:0.4}
-.cert-preview::after{content:'';position:absolute;bottom:-20px;left:-20px;width:70px;height:70px;background:var(--purple-100);border-radius:50%;opacity:0.3}
-.cert-preview h4{color:var(--teal);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin-bottom:10px;position:relative}
-.cert-preview h3{font-size:19px;font-weight:800;margin-bottom:6px;position:relative}
-.cert-preview p{font-size:13px;color:var(--muted);position:relative}
-/* SLIDER */
-.slider-wrap{position:relative;margin:20px 0}
-.slider-track{width:100%;height:6px;background:#e5e7eb;border-radius:3px;position:relative}
-.slider-fill-bar{height:100%;background:linear-gradient(90deg,var(--teal-light),var(--teal));border-radius:3px;width:50%;transition:width .3s}
-.slider-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--teal);box-shadow:0 2px 8px rgba(0,0,0,0.15);position:absolute;top:-8px;left:calc(50% - 11px);transition:box-shadow .2s}
-.slider-thumb:hover{box-shadow:0 2px 12px rgba(13,148,136,0.3)}
-.slider-marks{display:flex;justify-content:space-between;margin-top:10px;font-size:11px;color:#cbd5e1;font-weight:600}
-.slider-marks span.active{color:var(--teal);font-weight:700;transform:scale(1.1)}
-/* TOGGLE */
-.toggle-wrap{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600}
-.toggle{width:44px;height:24px;border-radius:12px;background:#e5e7eb;position:relative;cursor:pointer;transition:background .25s}
-.toggle.on{background:linear-gradient(135deg,var(--teal-light),var(--teal))}
-.toggle::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .25s cubic-bezier(.4,0,.2,1);box-shadow:0 1px 4px rgba(0,0,0,0.15)}
-.toggle.on::after{transform:translateX(20px)}
-/* CHAT */
-.chat-area{display:flex;flex-direction:column;gap:10px;margin:12px 0}
-.chat-bubble{max-width:85%;padding:12px 16px;border-radius:18px;font-size:13px;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
-.chat-user{align-self:flex-end;background:linear-gradient(135deg,var(--teal-light),var(--teal));color:#fff;border-bottom-right-radius:4px}
-.chat-ai{align-self:flex-start;background:#f1f5f9;color:var(--text);border-bottom-left-radius:4px}
-/* RADAR CHART */
-.radar-wrap{display:flex;justify-content:center;padding:20px 0}
-/* DOE REPORT */
-.doe-report{border:1px solid rgba(0,0,0,0.06);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,0.04)}
-.doe-header{background:linear-gradient(135deg,var(--teal),var(--teal-800));color:#fff;padding:18px 24px;display:flex;align-items:center;gap:14px}
-.doe-header h4{font-size:14px;font-weight:700;letter-spacing:-0.01em}
-.doe-body{padding:20px 24px;font-size:13px;color:var(--muted);line-height:1.8}
-.doe-body .doe-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f1f5f9}
-.doe-body .doe-row:last-of-type{border-bottom:none}
-.doe-body .doe-val{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
-/* VOCAB BOX */
-.vocab-box{background:linear-gradient(135deg,var(--teal-50),#fff);border:1px solid var(--teal-200);border-radius:var(--radius-sm);padding:16px 20px;font-size:13px;line-height:2}
-.vocab-box strong{color:var(--teal-800)}
-/* COMPONENT ICONS */
-.comp-row{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.comp-chip{display:flex;align-items:center;gap:5px;padding:7px 14px;background:var(--green-50);border:1px solid var(--green-100);border-radius:20px;font-size:12px;font-weight:600;color:var(--green);transition:all .2s}
-.comp-chip:hover{background:var(--green-100);transform:translateY(-1px)}
-/* BILINGUAL TEXT */
-.bi-text{font-size:14px;line-height:1.9;padding:18px 20px;background:linear-gradient(135deg,#fff,var(--teal-50));border:1px solid rgba(0,0,0,0.06);border-radius:var(--radius-sm)}
-.bi-text .vn{color:var(--text)}
-.bi-text .en{color:var(--teal);font-style:italic}
-/* SCRIPT CARD */
-.script-card{background:linear-gradient(135deg,var(--teal-50),#fff);border:1px solid var(--teal-200);border-radius:var(--radius-sm);padding:18px 22px;font-size:14px;line-height:1.9}
-/* FOOTER CTA */
-.footer-cta{text-align:center;padding:44px;background:linear-gradient(135deg,var(--teal-light),var(--teal),var(--teal-800));border-radius:var(--radius);color:#fff;margin-top:32px;position:relative;overflow:hidden}
-.footer-cta::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:rgba(255,255,255,0.06);border-radius:50%}
-.footer-cta::after{content:'';position:absolute;bottom:-30px;left:-30px;width:80px;height:80px;background:rgba(255,255,255,0.04);border-radius:50%}
-.footer-cta h3{font-size:24px;font-weight:800;margin-bottom:10px;position:relative;letter-spacing:-0.02em}
-.footer-cta p{font-size:15px;opacity:0.9;margin-bottom:16px;position:relative}
-.footer-cta a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-/* UTILITY */
-.mb-4{margin-bottom:16px}.mb-6{margin-bottom:24px}.mb-8{margin-bottom:32px}
-.mt-4{margin-top:16px}.mt-6{margin-top:24px}
-.text-sm{font-size:13px}.text-xs{font-size:11px}
-.text-muted{color:var(--muted)}.text-teal{color:var(--teal)}
-.font-bold{font-weight:700}.font-semibold{font-weight:600}
-.flex{display:flex}.items-center{align-items:center}.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
-.justify-between{justify-content:space-between}
-/* STAGGER ANIMATION */
-.screen.active .card,.screen.active .stat-card,.screen.active .cert-preview,.screen.active .doe-report{animation:cardIn .5s cubic-bezier(.4,0,.2,1) backwards}
-.screen.active .card:nth-child(1),.screen.active .stat-card:nth-child(1){animation-delay:.05s}
-.screen.active .card:nth-child(2),.screen.active .stat-card:nth-child(2){animation-delay:.1s}
-.screen.active .card:nth-child(3),.screen.active .stat-card:nth-child(3){animation-delay:.15s}
-.screen.active .card:nth-child(4),.screen.active .stat-card:nth-child(4){animation-delay:.2s}
-@keyframes cardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-/* SMOOTH SCROLLBAR */
-::-webkit-scrollbar{width:6px}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;overflow:hidden;height:100vh}
+body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,0.04) 0%,transparent 70%);pointer-events:none}
+body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,0.03) 0%,transparent 70%);pointer-events:none}
+
+/* === HEADER === */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.88);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(0,0,0,0.05);height:var(--header-h);padding:0 28px;display:flex;align-items:center;gap:12px}
+.logo{width:34px;height:34px;background:linear-gradient(135deg,var(--teal-l),var(--teal));border-radius:9px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 2px 8px rgba(13,148,136,0.2)}
+.logo span{color:#fff;font-weight:800;font-size:16px}
+.logo::after{content:'';position:absolute;top:5px;right:5px;width:5px;height:5px;background:var(--teal-200);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+.hdr-title{font-weight:700;font-size:15px;letter-spacing:-0.01em}
+.hdr-badge{margin-left:auto;font-size:10px;color:var(--teal);background:var(--teal-50);padding:4px 12px;border-radius:20px;font-weight:600;border:1px solid var(--teal-100);text-transform:uppercase;letter-spacing:0.05em}
+
+/* === STEPS === */
+.sbar{position:fixed;top:var(--header-h);left:0;right:0;z-index:99;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.04);height:var(--step-h);padding:0 28px;display:flex;align-items:center;overflow-x:auto}
+.steps{display:flex;align-items:center;justify-content:center;max-width:800px;margin:0 auto;width:100%}
+.si{display:flex;flex-direction:column;align-items:center;flex:1;cursor:pointer;transition:transform .15s;min-width:70px}
+.si:hover{transform:translateY(-1px)}
+.sc{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:2px solid #d1d5db;color:#a1a1aa;background:#fff;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;z-index:2}
+.si.a .sc{border-color:var(--teal);color:#fff;background:linear-gradient(135deg,var(--teal-l),var(--teal));box-shadow:0 0 0 4px rgba(13,148,136,0.1),0 2px 8px rgba(13,148,136,0.2)}
+.si.d .sc{border-color:var(--green);background:var(--green);color:#fff;box-shadow:0 1px 4px rgba(22,163,74,0.2)}
+.sl{font-size:9px;color:#a1a1aa;margin-top:5px;font-weight:500;text-align:center;transition:all .2s;white-space:nowrap}
+.si.a .sl{color:var(--teal);font-weight:700}
+.si.d .sl{color:var(--green);font-weight:600}
+.sln{flex:1;height:2px;background:#e5e7eb;margin:0 -2px;position:relative;top:-10px;z-index:1;min-width:16px;max-width:60px;transition:background .3s}
+.sln.dn{background:var(--green)}
+
+/* === CONTENT AREA === */
+.wrap{position:fixed;top:calc(var(--header-h) + var(--step-h));left:0;right:0;bottom:var(--nav-h);overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth}
+.scr{display:none;max-width:1060px;margin:0 auto;padding:20px 28px 28px;animation:fadeUp .4s cubic-bezier(.4,0,.2,1);min-height:100%}
+.scr.on{display:flex;flex-direction:column}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* === BOTTOM NAV === */
+.bnav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(0,0,0,0.05);padding:0 28px;display:flex;align-items:center;justify-content:space-between;z-index:100}
+.nb{padding:9px 24px;border-radius:var(--rs);font-weight:600;font-size:13px;cursor:pointer;border:none;transition:all .2s;letter-spacing:-0.01em}
+.nb.p{background:linear-gradient(135deg,var(--teal-l),var(--teal));color:#fff;box-shadow:0 2px 8px rgba(13,148,136,0.2)}
+.nb.p:hover{box-shadow:0 4px 16px rgba(13,148,136,0.3);transform:translateY(-1px)}
+.nb.s{background:#fff;color:var(--text);border:1.5px solid #e5e7eb}
+.nb.s:hover{background:#fafafa;border-color:#d1d5db}
+.nb:disabled{opacity:.3;cursor:not-allowed;transform:none!important;box-shadow:none!important}
+.nc{font-size:12px;color:var(--muted);font-weight:600}
+
+/* === POWERED BY === */
+.pb{margin-top:auto;padding:10px 16px;background:linear-gradient(135deg,var(--purple-50),#faf5ff);border:1px solid var(--purple-100);border-radius:var(--rs);font-size:11px;color:var(--purple);font-weight:500;display:flex;align-items:center;gap:6px}
+.pb::before{content:'⚡';font-size:12px}
+
+/* === SHARED COMPONENTS === */
+.card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:var(--r);padding:18px;transition:all .25s;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.05);transform:translateY(-1px)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}
+@media(max-width:768px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.st{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:var(--rs);padding:14px;text-align:center;transition:all .25s}
+.st:hover{box-shadow:0 4px 12px rgba(0,0,0,0.04);transform:translateY(-1px)}
+.sv{font-size:24px;font-weight:800;color:var(--teal);letter-spacing:-0.02em}
+.slb{font-size:10px;color:var(--muted);margin-top:3px;font-weight:500;line-height:1.3}
+.tag{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;border-radius:16px;font-size:10px;font-weight:600;letter-spacing:0.01em}
+.tg{background:var(--green-100);color:var(--green)}
+.ta{background:var(--amber-50);color:#b45309}
+.tr{background:#fef2f2;color:var(--red)}
+.tt{background:var(--teal-100);color:var(--teal-800)}
+.pt{height:5px;background:#f1f5f9;border-radius:3px;overflow:hidden}
+.pf{height:100%;border-radius:3px;transition:width .6s ease}
+.fg{background:linear-gradient(90deg,#22c55e,var(--green))}
+.fa{background:linear-gradient(90deg,#fbbf24,var(--amber))}
+.fr{background:linear-gradient(90deg,#f87171,var(--red))}
+.ft{background:linear-gradient(90deg,var(--teal-l),var(--teal))}
+.sec-t{font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px}
+.sec-s{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5}
+.cta{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,var(--teal-l),var(--teal));color:#fff;font-weight:700;font-size:14px;border:none;border-radius:var(--rs);cursor:pointer;transition:all .25s;box-shadow:0 3px 12px rgba(13,148,136,0.2)}
+.cta:hover{box-shadow:0 6px 20px rgba(13,148,136,0.3);transform:translateY(-1px)}
+.fi{width:100%;padding:9px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:13px;font-family:inherit;background:#fff;color:var(--text);transition:all .2s}
+.fi:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,148,136,0.08)}
+select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.fl{font-size:10px;font-weight:600;color:var(--muted);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:0.05em}
+/* Animations */
+.scr.on .card,.scr.on .st{animation:cardIn .4s cubic-bezier(.4,0,.2,1) backwards}
+.scr.on .card:nth-child(2),.scr.on .st:nth-child(2){animation-delay:.06s}
+.scr.on .card:nth-child(3),.scr.on .st:nth-child(3){animation-delay:.12s}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* Chat */
+.chat{display:flex;flex-direction:column;gap:8px}
+.cb{max-width:82%;padding:10px 14px;border-radius:14px;font-size:12px;line-height:1.5;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.cu{align-self:flex-end;background:linear-gradient(135deg,var(--teal-l),var(--teal));color:#fff;border-bottom-right-radius:3px}
+.ca{align-self:flex-start;background:#f1f5f9;color:var(--text);border-bottom-left-radius:3px}
+/* Scrollbar */
+::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:#9ca3af}
+/* FAQ */
+.faq-item{border:1px solid rgba(0,0,0,0.06);border-radius:var(--rs);overflow:hidden;transition:all .2s}
+.faq-item:hover{box-shadow:0 4px 12px rgba(0,0,0,0.04)}
+.faq-q{padding:14px 18px;font-size:13px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#fff;transition:background .2s;user-select:none}
+.faq-q:hover{background:var(--surface)}
+.faq-arr{font-size:16px;color:var(--muted);transition:transform .25s}
+.faq-item.open .faq-arr{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;padding:0 18px;font-size:12px;color:var(--muted);line-height:1.7;background:var(--surface)}
+.faq-item.open .faq-a{max-height:200px;padding:12px 18px}
+/* Split divider */
+.g2.dv{position:relative}
+.g2.dv::before{content:'';position:absolute;left:50%;top:16px;bottom:16px;width:1px;background:linear-gradient(to bottom,transparent,#e5e7eb 20%,#e5e7eb 80%,transparent)}
+/* Footer CTA */
+.fcta{text-align:center;padding:28px;background:linear-gradient(135deg,var(--teal-l),var(--teal),var(--teal-800));border-radius:var(--r);color:#fff;position:relative;overflow:hidden}
+.fcta::before{content:'';position:absolute;top:-30px;right:-30px;width:80px;height:80px;background:rgba(255,255,255,0.06);border-radius:50%}
+.fcta h3{font-size:18px;font-weight:800;margin-bottom:6px;position:relative;letter-spacing:-0.02em}
+.fcta p{font-size:13px;opacity:.9;margin-bottom:4px;position:relative}
+.fcta a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:2px}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
-<header class="top-header">
+<header class="hdr">
   <div class="logo"><span>L</span></div>
-  <span class="header-title">Learneris EMI</span>
-  <span class="header-badge">Demo Prototype</span>
+  <span class="hdr-title">Learneris EMI</span>
+  <span class="hdr-badge">Interactive Demo</span>
 </header>
 
-<!-- STEP INDICATOR -->
-<div class="step-bar">
-  <div class="steps" id="stepBar"></div>
+<!-- STEPS -->
+<div class="sbar"><div class="steps" id="stepBar"></div></div>
+
+<!-- CONTENT -->
+<div class="wrap">
+
+<!-- ===== 1. DISCOVER ===== -->
+<div class="scr on" data-s="1">
+  <div style="text-align:center;padding:8px 0 0">
+    <div class="tag tt" style="margin-bottom:12px">QD 2371/QD-TTg &bull; Nghị quyết 71-NQ/TW</div>
+    <h1 style="font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:10px">Đưa Tiếng Anh Thành<br><span style="background:linear-gradient(135deg,var(--teal),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Ngôn Ngữ Thứ Hai</span></h1>
+    <p style="font-size:15px;color:var(--muted);line-height:1.6;max-width:520px;margin:0 auto 20px">Learneris giúp trường triển khai EMI — từ đánh giá, bồi dưỡng GV, tạo nội dung CLIL đến giám sát báo cáo.</p>
+    <button class="cta" onclick="goTo(2)">Bắt Đầu Hành Trình EMI →</button>
+  </div>
+  <div class="g3" style="margin-top:20px">
+    <div class="card" style="border-top:3px solid var(--teal-l);text-align:center;padding:16px">
+      <div style="font-size:24px;margin-bottom:6px">🌱</div>
+      <h3 style="font-size:14px;font-weight:700;margin-bottom:4px">Mức Độ 1</h3>
+      <p style="font-size:11px;color:var(--muted);line-height:1.4">Môi trường tiếng Anh — biển hiệu, thông báo, sinh hoạt</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--green);text-align:center;padding:16px">
+      <div style="font-size:24px;margin-bottom:6px">📚</div>
+      <h3 style="font-size:14px;font-weight:700;margin-bottom:4px">Mức Độ 2</h3>
+      <p style="font-size:11px;color:var(--muted);line-height:1.4">Dạy tích hợp song ngữ — CLIL cho Toán, Khoa Học</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--purple);text-align:center;padding:16px">
+      <div style="font-size:24px;margin-bottom:6px">🌍</div>
+      <h3 style="font-size:14px;font-weight:700;margin-bottom:4px">Mức Độ 3</h3>
+      <p style="font-size:11px;color:var(--muted);line-height:1.4">Tiếng Anh là ngôn ngữ thứ hai — tự nhiên trong mọi hoạt động</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:16px">
+    <p style="font-size:11px;color:var(--muted);margin-bottom:8px">📄 Bộ Hồ Sơ Chuẩn Hóa — sẵn sàng nộp Sở GD&ĐT</p>
+    <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap">
+      <span class="tag tt">📋 Tờ Trình</span><span class="tag tt">📑 Đề Án</span><span class="tag tt">📎 Phụ Lục</span><span class="tag tt">📄 Template</span>
+    </div>
+  </div>
+  <div class="pb">Powered by: Learneris Landing + Standardized Kit</div>
 </div>
 
-<!-- SCREENS -->
-<div class="main-wrap">
-
-<!-- ========== SCREEN 1 ========== -->
-<div class="screen active" data-screen="1">
-  <div style="text-align:center;padding:20px 0 10px">
-    <div class="tag tag-teal mb-4" style="display:inline-flex">QD 2371/QD-TTg &bull; Nghị quyết 71-NQ/TW</div>
-    <h1 class="hero-title">Đưa Tiếng Anh Thành<br><span class="accent">Ngôn Ngữ Thứ Hai</span><br>Tại Trường Của Bạn</h1>
-    <p class="hero-sub" style="margin:0 auto 28px">Learneris giúp trường của bạn triển khai EMI theo đúng lộ trình quốc gia — từ đánh giá, bồi dưỡng giáo viên, tạo nội dung CLIL đến giám sát báo cáo.</p>
-    <button class="cta-btn" onclick="goTo(2)">Bắt Đầu Hành Trình EMI →</button>
-  </div>
-  <div class="card-grid card-grid-3 mt-6">
-    <div class="card" style="border-top:3px solid var(--teal-light)">
-      <div style="font-size:28px;margin-bottom:8px">🌱</div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:6px">Mức Độ 1</h3>
-      <p class="text-sm text-muted">Tạo môi trường tiếng Anh — biển hiệu, thông báo, sinh hoạt bằng tiếng Anh</p>
-    </div>
-    <div class="card" style="border-top:3px solid var(--green)">
-      <div style="font-size:28px;margin-bottom:8px">📚</div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:6px">Mức Độ 2</h3>
-      <p class="text-sm text-muted">Dạy tích hợp song ngữ — một số môn dạy bằng tiếng Anh (CLIL)</p>
-    </div>
-    <div class="card" style="border-top:3px solid var(--purple)">
-      <div style="font-size:28px;margin-bottom:8px">🌍</div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:6px">Mức Độ 3</h3>
-      <p class="text-sm text-muted">Tiếng Anh là ngôn ngữ thứ hai — sử dụng tự nhiên trong mọi hoạt động</p>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:28px">
-    <p class="text-sm text-muted mb-4">📄 Tải Bộ Hồ Sơ Chuẩn Hóa (4 mẫu DOCX sẵn sàng nộp Sở GD&ĐT)</p>
-    <div class="flex gap-2" style="justify-content:center;flex-wrap:wrap">
-      <span class="tag tag-teal">📋 Tờ Trình</span>
-      <span class="tag tag-teal">📑 Đề Án</span>
-      <span class="tag tag-teal">📎 Phụ Lục Đối Tác</span>
-      <span class="tag tag-teal">📄 Template Chung</span>
-    </div>
-  </div>
-  <div class="powered-by">Powered by: Learneris Landing + Standardized Kit</div>
-</div>
-
-<!-- ========== SCREEN 2 ========== -->
-<div class="screen" data-screen="2">
-  <h2 class="section-title">🏫 Thiết Lập Trường Học</h2>
-  <p class="section-sub">Nhập thông tin trường, import danh sách và tự động tạo tổ chức trên Learneris.</p>
-  <div class="split">
+<!-- ===== 2. ONBOARD ===== -->
+<div class="scr" data-s="2">
+  <h2 class="sec-t">🏫 Thiết Lập Trường Học</h2>
+  <p class="sec-s">Nhập thông tin, import danh sách và tự động tạo tổ chức trên Learneris.</p>
+  <div class="g2">
     <div>
-      <div class="form-group">
-        <label class="form-label">Tên Trường</label>
-        <input class="form-input" value="Trường THCS Nguyễn Du" readonly>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Quận / Huyện</label>
-        <input class="form-input" value="Quận 1, TP.HCM" readonly>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Khối lớp triển khai</label>
-        <div class="checkbox-group">
-          <label class="checkbox-item"><input type="checkbox"> Lớp 6</label>
-          <label class="checkbox-item"><input type="checkbox" checked> Lớp 7</label>
-          <label class="checkbox-item"><input type="checkbox" checked> Lớp 8</label>
-          <label class="checkbox-item"><input type="checkbox"> Lớp 9</label>
+      <div style="margin-bottom:12px"><label class="fl">Tên Trường</label><input class="fi" value="Trường THCS Nguyễn Du" readonly></div>
+      <div style="margin-bottom:12px"><label class="fl">Quận / Huyện</label><input class="fi" value="Quận 1, TP.HCM" readonly></div>
+      <div style="margin-bottom:12px">
+        <label class="fl">Khối lớp triển khai</label>
+        <div style="display:flex;gap:12px;font-size:13px">
+          <label style="display:flex;align-items:center;gap:5px"><input type="checkbox" style="accent-color:var(--teal)"> Lớp 6</label>
+          <label style="display:flex;align-items:center;gap:5px"><input type="checkbox" checked style="accent-color:var(--teal)"> Lớp 7</label>
+          <label style="display:flex;align-items:center;gap:5px"><input type="checkbox" checked style="accent-color:var(--teal)"> Lớp 8</label>
+          <label style="display:flex;align-items:center;gap:5px"><input type="checkbox" style="accent-color:var(--teal)"> Lớp 9</label>
         </div>
       </div>
-      <div class="form-group">
-        <label class="form-label">Import Danh Sách</label>
-        <div class="dropzone uploaded">
-          📎 <strong>roster_thcs_nguyen_du.xlsx</strong> — đã tải lên
-        </div>
+      <div style="border:2px solid var(--green);border-radius:var(--rs);padding:16px;text-align:center;background:var(--green-50);color:var(--green);font-size:13px;font-weight:600">
+        📎 <strong>roster_thcs_nguyen_du.xlsx</strong> — đã tải lên
       </div>
     </div>
     <div>
-      <div class="card mb-4" style="font-size:13px">
-        <p class="font-bold mb-4" style="font-size:14px">📊 Tự động nhận diện cột</p>
-        <table class="mini-table">
-          <tr><th>Họ Tên</th><th>Email</th><th>Lớp</th><th>Vai Trò</th></tr>
-          <tr><td>Nguyễn Thị Lan</td><td>lan.nt@...edu.vn</td><td>7A1</td><td>Giáo viên</td></tr>
-          <tr><td>Trần Văn Minh</td><td>minh.tv@...edu.vn</td><td>8A2</td><td>Giáo viên</td></tr>
-          <tr><td>Lê Hồng Anh</td><td>anh.lh@...edu.vn</td><td>7A1</td><td>Học sinh</td></tr>
+      <div class="card" style="padding:14px;font-size:12px;margin-bottom:12px">
+        <p style="font-weight:700;font-size:13px;margin-bottom:8px">📊 Tự động nhận diện cột</p>
+        <table style="width:100%;border-collapse:separate;border-spacing:0;border-radius:8px;overflow:hidden;border:1px solid #f1f5f9;font-size:11px">
+          <tr style="background:var(--surface)"><th style="padding:7px 10px;text-align:left;font-weight:600;color:var(--muted)">Họ Tên</th><th style="padding:7px 10px;text-align:left;font-weight:600;color:var(--muted)">Email</th><th style="padding:7px 10px;text-align:left;font-weight:600;color:var(--muted)">Lớp</th><th style="padding:7px 10px;text-align:left;font-weight:600;color:var(--muted)">Vai Trò</th></tr>
+          <tr><td style="padding:7px 10px;border-top:1px solid #f1f5f9">Nguyễn Thị Lan</td><td style="padding:7px 10px;border-top:1px solid #f1f5f9">lan.nt@edu.vn</td><td style="padding:7px 10px;border-top:1px solid #f1f5f9">7A1</td><td style="padding:7px 10px;border-top:1px solid #f1f5f9">GV</td></tr>
+          <tr><td style="padding:7px 10px;border-top:1px solid #f1f5f9">Trần Văn Minh</td><td style="padding:7px 10px;border-top:1px solid #f1f5f9">minh.tv@edu.vn</td><td style="padding:7px 10px;border-top:1px solid #f1f5f9">8A2</td><td style="padding:7px 10px;border-top:1px solid #f1f5f9">GV</td></tr>
         </table>
       </div>
-      <div class="card-grid" style="grid-template-columns:1fr 1fr 1fr;gap:10px">
-        <div class="stat-card"><div class="stat-value">45</div><div class="stat-label">Giáo viên</div></div>
-        <div class="stat-card"><div class="stat-value">620</div><div class="stat-label">Học sinh</div></div>
-        <div class="stat-card"><div class="stat-value">18</div><div class="stat-label">Lớp</div></div>
+      <div class="g3" style="margin-bottom:12px">
+        <div class="st"><div class="sv">45</div><div class="slb">Giáo viên</div></div>
+        <div class="st"><div class="sv">620</div><div class="slb">Học sinh</div></div>
+        <div class="st"><div class="sv">18</div><div class="slb">Lớp</div></div>
       </div>
-      <div class="flex gap-2 mt-4" style="flex-wrap:wrap">
-        <span class="tag tag-green">✓ Tổ chức đã tạo</span>
-        <span class="tag tag-green">✓ 45 tài khoản GV</span>
-        <span class="tag tag-green">✓ 620 tài khoản HS</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <span class="tag tg">✓ Tổ chức đã tạo</span>
+        <span class="tag tg">✓ 45 tài khoản GV</span>
+        <span class="tag tg">✓ 620 tài khoản HS</span>
       </div>
     </div>
   </div>
-  <div class="powered-by">Powered by: Credits-Management Onboarding Pipeline</div>
+  <div class="pb">Powered by: Credits-Management Onboarding Pipeline</div>
 </div>
 
-<!-- ========== SCREEN 3 ========== -->
-<div class="screen" data-screen="3">
-  <h2 class="section-title">📊 Đánh Giá Mức Độ Sẵn Sàng EMI</h2>
-  <p class="section-sub">Công cụ chẩn đoán giúp trường tự đánh giá mức độ sẵn sàng triển khai EMI theo khung 3 cấp độ.</p>
-  <div class="split">
+<!-- ===== 3. ASSESS ===== -->
+<div class="scr" data-s="3">
+  <h2 class="sec-t">📊 Đánh Giá Mức Độ Sẵn Sàng</h2>
+  <p class="sec-s">Chẩn đoán mức độ sẵn sàng EMI theo khung 3 cấp độ quốc gia.</p>
+  <div class="g2">
+    <div style="text-align:center">
+      <svg width="260" height="220" viewBox="0 0 260 220" style="margin:0 auto;display:block">
+        <g transform="translate(130,110)">
+          <polygon points="0,-85 81,-26 50,69 -50,69 -81,-26" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+          <polygon points="0,-56 54,-17 33,46 -33,46 -54,-17" fill="none" stroke="#f1f5f9" stroke-width="1"/>
+          <polygon points="0,-64 35,-12 30,42 -40,42 -57,-12" fill="rgba(13,148,136,0.12)" stroke="var(--teal)" stroke-width="2"/>
+          <circle cx="0" cy="-64" r="3.5" fill="var(--teal)"/><circle cx="35" cy="-12" r="3.5" fill="var(--teal)"/>
+          <circle cx="30" cy="42" r="3.5" fill="var(--teal)"/><circle cx="-40" cy="42" r="3.5" fill="var(--teal)"/>
+          <circle cx="-57" cy="-12" r="3.5" fill="var(--teal)"/>
+        </g>
+        <text x="130" y="14" text-anchor="middle" font-size="10" font-weight="600">CSVC 75%</text>
+        <text x="238" y="95" text-anchor="start" font-size="10" font-weight="600">CN 70%</text>
+        <text x="198" y="185" text-anchor="middle" font-size="10" font-weight="600" fill="var(--green)">LĐ 80%</text>
+        <text x="62" y="185" text-anchor="middle" font-size="10" font-weight="600" fill="var(--red)">GV 45%</text>
+        <text x="18" y="95" text-anchor="end" font-size="10" font-weight="600" fill="var(--amber)">CT 60%</text>
+      </svg>
+      <div style="font-size:40px;font-weight:900;color:var(--teal)">66<span style="font-size:16px;color:var(--muted)">/100</span></div>
+      <div class="tag tt" style="margin-top:6px">Sẵn sàng cho Level 1</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="card" style="padding:14px;border-left:3px solid var(--red)">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span class="tag tr">Ưu tiên</span><strong style="font-size:12px">Năng lực GV</strong></div>
+        <p style="font-size:11px;color:var(--muted);line-height:1.5">15/45 GV đạt B2+. Cần bồi dưỡng 30 GV về năng lực TA và phương pháp CLIL.</p>
+      </div>
+      <div class="card" style="padding:14px;border-left:3px solid var(--amber)">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span class="tag ta">Đang phát triển</span><strong style="font-size:12px">Chương trình</strong></div>
+        <p style="font-size:11px;color:var(--muted);line-height:1.5">Chưa có tài liệu CLIL cho Toán và Khoa Học.</p>
+      </div>
+      <div class="card" style="padding:14px;border-left:3px solid var(--green)">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span class="tag tg">Đạt chuẩn</span><strong style="font-size:12px">Lãnh đạo</strong></div>
+        <p style="font-size:11px;color:var(--muted);line-height:1.5">Ban giám hiệu cam kết. Đã cử 3 CBQL tham gia tập huấn.</p>
+      </div>
+      <button class="cta" style="width:100%;justify-content:center;padding:10px" onclick="goTo(4)">Xem Lộ Trình Cải Thiện →</button>
+    </div>
+  </div>
+  <div class="pb">Powered by: PD-Slides Quiz Engine + LMS Assessment</div>
+</div>
+
+<!-- ===== 4. TRAIN ===== -->
+<div class="scr" data-s="4">
+  <h2 class="sec-t">👩‍🏫 Bồi Dưỡng Giáo Viên</h2>
+  <p class="sec-s">Đào tạo với bài kiểm tra, bảng xếp hạng và chứng nhận tự động.</p>
+  <div class="g3" style="margin-bottom:14px">
+    <div class="card" style="padding:14px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><span class="tag tg">71%</span><span style="font-size:10px;color:var(--muted)">60p</span></div>
+      <h4 style="font-size:13px;font-weight:700">Phương Pháp CLIL</h4>
+      <p style="font-size:10px;color:var(--muted);margin:4px 0 8px">CLIL Methodology</p>
+      <div class="pt"><div class="pf fg" style="width:71%"></div></div>
+      <p style="font-size:10px;color:var(--muted);margin-top:6px">32/45 GV</p>
+    </div>
+    <div class="card" style="padding:14px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><span class="tag ta">40%</span><span style="font-size:10px;color:var(--muted)">60p</span></div>
+      <h4 style="font-size:13px;font-weight:700">Tiếng Anh Lớp Học</h4>
+      <p style="font-size:10px;color:var(--muted);margin:4px 0 8px">Classroom English</p>
+      <div class="pt"><div class="pf fa" style="width:40%"></div></div>
+      <p style="font-size:10px;color:var(--muted);margin-top:6px">18/45 GV</p>
+    </div>
+    <div class="card" style="padding:14px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><span class="tag tr">11%</span><span style="font-size:10px;color:var(--muted)">45p</span></div>
+      <h4 style="font-size:13px;font-weight:700">Toán Bằng Tiếng Anh</h4>
+      <p style="font-size:10px;color:var(--muted);margin:4px 0 8px">Math in English</p>
+      <div class="pt"><div class="pf fr" style="width:11%"></div></div>
+      <p style="font-size:10px;color:var(--muted);margin-top:6px">5/45 GV</p>
+    </div>
+  </div>
+  <div class="g2">
+    <div class="card" style="padding:14px">
+      <p style="font-weight:700;font-size:12px;margin-bottom:8px">❓ Quiz mẫu: "CLIL" là gì?</p>
+      <div style="padding:9px 14px;border:1.5px solid #e5e7eb;border-radius:8px;margin-bottom:6px;font-size:12px;display:flex;align-items:center;gap:8px"><span style="width:24px;height:24px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:10px;color:var(--muted);flex-shrink:0">A</span>Computer Language Integrated Learning</div>
+      <div style="padding:9px 14px;border:1.5px solid var(--green);border-radius:8px;margin-bottom:6px;font-size:12px;display:flex;align-items:center;gap:8px;background:var(--green-50)"><span style="width:24px;height:24px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:10px;color:#fff;flex-shrink:0">C</span>Content and Language Integrated Learning</div>
+      <div style="padding:9px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:12px;display:flex;align-items:center;gap:8px"><span style="width:24px;height:24px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:10px;color:var(--muted);flex-shrink:0">D</span>Comprehensive Linguistic Integration</div>
+    </div>
     <div>
-      <div class="radar-wrap">
-        <svg width="300" height="280" viewBox="0 0 300 280">
-          <!-- Grid -->
-          <g transform="translate(150,140)">
-            <polygon points="0,-100 95,-31 59,81 -59,81 -95,-31" fill="none" stroke="#e5e7eb" stroke-width="1"/>
-            <polygon points="0,-70 66,-22 41,57 -41,57 -66,-22" fill="none" stroke="#f1f5f9" stroke-width="1"/>
-            <polygon points="0,-40 38,-12 24,32 -24,32 -38,-12" fill="none" stroke="#f1f5f9" stroke-width="1"/>
-            <!-- Data -->
-            <polygon points="0,-75 43,-14 35,49 -47,49 -67,-14" fill="rgba(13,148,136,0.15)" stroke="var(--teal)" stroke-width="2"/>
-            <circle cx="0" cy="-75" r="4" fill="var(--teal)"/>
-            <circle cx="43" cy="-14" r="4" fill="var(--teal)"/>
-            <circle cx="35" cy="49" r="4" fill="var(--teal)"/>
-            <circle cx="-47" cy="49" r="4" fill="var(--teal)"/>
-            <circle cx="-67" cy="-14" r="4" fill="var(--teal)"/>
-          </g>
-          <!-- Labels -->
-          <text x="150" y="22" text-anchor="middle" font-size="11" font-weight="600" fill="#0f172a">Cơ sở vật chất 75%</text>
-          <text x="272" y="120" text-anchor="start" font-size="11" font-weight="600" fill="#0f172a">Công nghệ 70%</text>
-          <text x="232" y="228" text-anchor="middle" font-size="11" font-weight="600" fill="#0f172a">Lãnh đạo 80%</text>
-          <text x="68" y="228" text-anchor="middle" font-size="11" font-weight="600" fill="#ef4444">GV 45%</text>
-          <text x="18" y="120" text-anchor="end" font-size="11" font-weight="600" fill="#f59e0b">CT 60%</text>
+      <div class="card" style="padding:14px;margin-bottom:10px">
+        <p style="font-weight:700;font-size:12px;margin-bottom:8px">🏆 Bảng Xếp Hạng</p>
+        <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f1f5f9"><span style="font-size:18px;width:28px;text-align:center">🥇</span><span style="font-weight:600;font-size:13px;flex:1">Nguyễn Thị Lan</span><span style="font-weight:700;color:var(--teal);font-size:13px">950đ</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #f1f5f9"><span style="font-size:18px;width:28px;text-align:center">🥈</span><span style="font-weight:600;font-size:13px;flex:1">Trần Văn Minh</span><span style="font-weight:700;color:var(--teal);font-size:13px">920đ</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:7px 0"><span style="font-size:18px;width:28px;text-align:center">🥉</span><span style="font-weight:600;font-size:13px;flex:1">Lê Hoàng Anh</span><span style="font-weight:700;color:var(--teal);font-size:13px">890đ</span></div>
+      </div>
+      <div style="border:2px solid var(--teal-200);border-radius:var(--r);padding:18px;text-align:center;background:linear-gradient(135deg,var(--teal-50),#fff,var(--purple-50));position:relative;overflow:hidden">
+        <p style="color:var(--teal);font-size:9px;text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-bottom:6px">Chứng Nhận</p>
+        <p style="font-size:16px;font-weight:800;margin-bottom:3px">Cô Nguyễn Thị Lan</p>
+        <p style="font-size:12px;color:var(--muted)">CLIL Methodology</p>
+        <p style="font-size:10px;color:var(--teal);margin-top:6px">🔗 learneris.ai/verify/CERT-2026-0412</p>
+      </div>
+    </div>
+  </div>
+  <div class="pb">Powered by: PD-Slides + Training Pipeline</div>
+</div>
+
+<!-- ===== 5. CONTENT ===== -->
+<div class="scr" data-s="5">
+  <h2 class="sec-t">✨ Tạo Nội Dung CLIL</h2>
+  <p class="sec-s">AI tạo bài giảng song ngữ — chỉ 3 phút, ~2.000đ/bài.</p>
+  <div class="g2">
+    <div class="card" style="padding:16px">
+      <div style="margin-bottom:10px"><label class="fl">Môn học</label><select class="fi"><option selected>📐 Toán (Math)</option><option>🔬 Khoa Học</option></select></div>
+      <div style="margin-bottom:10px"><label class="fl">Lớp</label><select class="fi"><option>Lớp 6</option><option selected>Lớp 7</option><option>Lớp 8</option></select></div>
+      <div style="margin-bottom:10px"><label class="fl">Chủ đề</label><input class="fi" value="Phương trình bậc nhất một ẩn"></div>
+      <div style="margin-bottom:14px">
+        <label class="fl">Tỷ lệ Tiếng Anh</label>
+        <div style="position:relative;margin:12px 0">
+          <div style="width:100%;height:5px;background:#e5e7eb;border-radius:3px;position:relative">
+            <div style="height:100%;background:linear-gradient(90deg,var(--teal-l),var(--teal));border-radius:3px;width:50%"></div>
+            <div style="width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--teal);box-shadow:0 2px 6px rgba(0,0,0,0.15);position:absolute;top:-7px;left:calc(50% - 9px)"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:#cbd5e1;font-weight:600"><span>20%</span><span style="color:var(--teal);font-weight:700">50%</span><span>80%</span><span>100%</span></div>
+        </div>
+      </div>
+      <button class="cta" style="width:100%;justify-content:center;padding:10px">✨ Tạo Bài Giảng Song Ngữ</button>
+      <p style="text-align:center;margin-top:8px"><span class="tag tt">~2.000đ / bài (~$0.08)</span></p>
+    </div>
+    <div>
+      <div class="card" style="padding:14px;margin-bottom:10px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <p style="font-weight:700;font-size:12px">📄 Preview</p>
+          <div style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600"><span>VN</span><div style="width:36px;height:20px;border-radius:10px;background:linear-gradient(135deg,var(--teal-l),var(--teal));position:relative"><div style="width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;top:2px;right:2px;box-shadow:0 1px 3px rgba(0,0,0,0.15)"></div></div><span>EN</span></div>
+        </div>
+        <div style="font-size:13px;line-height:1.8;padding:14px;background:linear-gradient(135deg,#fff,var(--teal-50));border:1px solid rgba(0,0,0,0.05);border-radius:8px">
+          <p><strong>Phương trình bậc nhất / <span style="color:var(--teal);font-style:italic">Linear Equations</span></strong></p>
+          <p style="margin-top:6px">Có dạng <code style="background:var(--surface);padding:1px 4px;border-radius:3px">ax + b = 0</code>, trong đó <code style="background:var(--surface);padding:1px 4px;border-radius:3px">a ≠ 0</code>.</p>
+          <p style="color:var(--teal);font-style:italic;font-size:12px">A linear equation has the form ax + b = 0, where a ≠ 0.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+        <span style="padding:5px 10px;background:var(--green-50);border:1px solid var(--green-100);border-radius:16px;font-size:11px;font-weight:600;color:var(--green)">📘 Study Guide ✓</span>
+        <span style="padding:5px 10px;background:var(--green-50);border:1px solid var(--green-100);border-radius:16px;font-size:11px;font-weight:600;color:var(--green)">📊 Slides ✓</span>
+        <span style="padding:5px 10px;background:var(--green-50);border:1px solid var(--green-100);border-radius:16px;font-size:11px;font-weight:600;color:var(--green)">👩‍🏫 TG ✓</span>
+        <span style="padding:5px 10px;background:var(--green-50);border:1px solid var(--green-100);border-radius:16px;font-size:11px;font-weight:600;color:var(--green)">❓ Quiz ✓</span>
+        <span style="padding:5px 10px;background:var(--green-50);border:1px solid var(--green-100);border-radius:16px;font-size:11px;font-weight:600;color:var(--green)">🎮 Interactive ✓</span>
+      </div>
+      <div class="card" style="text-align:center;padding:12px;background:var(--surface)">
+        <p style="font-size:10px;color:var(--muted)">5 thành phần — <strong>~3 phút</strong></p>
+        <div class="pt" style="margin-top:6px"><div class="pf ft" style="width:100%"></div></div>
+        <p style="font-size:10px;color:var(--green);font-weight:600;margin-top:6px">✓ Sẵn sàng giao cho giáo viên</p>
+      </div>
+    </div>
+  </div>
+  <div class="pb">Powered by: lesson-agent + HCAI Engine Bilingual Mode</div>
+</div>
+
+<!-- ===== 6. TEACH ===== -->
+<div class="scr" data-s="6">
+  <h2 class="sec-t">🎓 Dạy & Học</h2>
+  <p class="sec-s">GV có kịch bản song ngữ, HS tương tác với AI và hoạt động thực hành.</p>
+  <div class="g2 dv">
+    <div>
+      <div class="tag tt" style="margin-bottom:8px">👩‍🏫 Giáo Viên</div>
+      <h4 style="font-size:14px;font-weight:700;margin-bottom:4px">Bài 5: Phương Trình Bậc Nhất</h4>
+      <p style="font-size:12px;color:var(--teal);font-style:italic;margin-bottom:10px">Linear Equations</p>
+      <div style="background:linear-gradient(135deg,var(--teal-50),#fff);border:1px solid var(--teal-200);border-radius:var(--rs);padding:12px 16px;font-size:13px;line-height:1.8;margin-bottom:10px">
+        <p>"Các em mở sách trang 42."</p>
+        <p style="color:var(--teal);font-style:italic">"Please open your book to page 42."</p>
+      </div>
+      <div style="background:var(--teal-50);border:1px solid var(--teal-200);border-radius:var(--rs);padding:12px 16px;font-size:12px;line-height:2">
+        <strong style="color:var(--teal-800)">phương trình</strong> = equation<br>
+        <strong style="color:var(--teal-800)">ẩn số</strong> = variable<br>
+        <strong style="color:var(--teal-800)">giải</strong> = solve
+      </div>
+    </div>
+    <div>
+      <div class="tag tg" style="margin-bottom:8px">🎒 Học Sinh</div>
+      <div class="card" style="padding:12px;margin-bottom:10px">
+        <p style="font-weight:700;font-size:11px;margin-bottom:8px">🤖 AI Math Tutor</p>
+        <div class="chat">
+          <div class="cb cu">How do I solve 2x + 3 = 7?</div>
+          <div class="cb ca"><strong>Step 1:</strong> 2x = 7 - 3 = 4<br><strong>Step 2:</strong> x = 4 ÷ 2 = <strong>2</strong> ✓<br><em style="font-size:11px">💡 Mẹo: Cùng phép tính ở cả hai vế!</em></div>
+        </div>
+      </div>
+      <div class="card" style="padding:12px;background:var(--surface)">
+        <p style="font-weight:700;font-size:11px;margin-bottom:8px">🎮 Sorting: Ghép từ vựng</p>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px">
+          <span style="padding:6px 10px;background:var(--teal-100);border-radius:6px;font-size:11px;font-weight:600">equation</span>
+          <span style="padding:6px 10px;background:var(--purple-50);border-radius:6px;font-size:11px;font-weight:600">phương trình</span>
+          <span style="padding:6px 10px;background:var(--teal-100);border-radius:6px;font-size:11px;font-weight:600">variable</span>
+          <span style="padding:6px 10px;background:var(--purple-50);border-radius:6px;font-size:11px;font-weight:600">ẩn số</span>
+        </div>
+        <div style="display:flex;gap:6px">
+          <div style="flex:1;border:2px dashed var(--teal-200);border-radius:8px;padding:8px;text-align:center;font-size:10px;color:var(--teal)">🇬🇧 English</div>
+          <div style="flex:1;border:2px dashed #c4b5fd;border-radius:8px;padding:8px;text-align:center;font-size:10px;color:var(--purple)">🇻🇳 Tiếng Việt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pb">Powered by: LMS + AI-Course-fresh + ai-gateway</div>
+</div>
+
+<!-- ===== 7. REPORT ===== -->
+<div class="scr" data-s="7">
+  <h2 class="sec-t">📈 Theo Dõi & Báo Cáo</h2>
+  <p class="sec-s">Dashboard EMI và báo cáo tự động cho Sở GD&ĐT.</p>
+  <div class="g4" style="margin-bottom:14px">
+    <div class="st"><div style="font-size:10px;color:var(--muted);margin-bottom:2px">EMI Level</div><div style="font-size:24px;font-weight:900"><span style="color:#d1d5db">0</span><span style="color:var(--teal);margin:0 3px">→</span><span style="color:var(--teal)">1</span></div></div>
+    <div class="st"><div class="sv">71%</div><div class="slb">GV Chứng Nhận</div></div>
+    <div class="st"><div class="sv" style="color:var(--green)">1,240</div><div class="slb">Giờ Tiếng Anh</div></div>
+    <div class="st"><div class="sv" style="color:var(--purple)">65%</div><div class="slb">CLIL 156/240</div></div>
+  </div>
+  <div class="g2">
+    <div>
+      <div class="card" style="padding:14px;margin-bottom:10px">
+        <p style="font-weight:700;font-size:11px;margin-bottom:8px">📊 Chứng Nhận GV theo Module</p>
+        <svg width="100%" height="120" viewBox="0 0 340 120">
+          <rect x="15" y="10" width="45" height="90" rx="5" fill="var(--teal-100)"/><rect x="15" y="10" width="45" height="64" rx="5" fill="var(--teal)"/><text x="37" y="5" text-anchor="middle" font-size="9" fill="var(--teal)" font-weight="700">71%</text><text x="37" y="112" text-anchor="middle" font-size="8" fill="#64748b" font-weight="600">CLIL</text>
+          <rect x="80" y="10" width="45" height="90" rx="5" fill="var(--teal-100)"/><rect x="80" y="46" width="45" height="54" rx="5" fill="var(--amber)"/><text x="102" y="41" text-anchor="middle" font-size="9" fill="#b45309" font-weight="700">40%</text><text x="102" y="112" text-anchor="middle" font-size="8" fill="#64748b" font-weight="600">English</text>
+          <rect x="145" y="10" width="45" height="90" rx="5" fill="var(--teal-100)"/><rect x="145" y="80" width="45" height="20" rx="5" fill="var(--red)"/><text x="167" y="75" text-anchor="middle" font-size="9" fill="var(--red)" font-weight="700">11%</text><text x="167" y="112" text-anchor="middle" font-size="8" fill="#64748b" font-weight="600">Math</text>
+          <rect x="210" y="10" width="45" height="90" rx="5" fill="var(--teal-100)"/><rect x="210" y="40" width="45" height="60" rx="5" fill="var(--green)"/><text x="232" y="35" text-anchor="middle" font-size="9" fill="var(--green)" font-weight="700">56%</text><text x="232" y="112" text-anchor="middle" font-size="8" fill="#64748b" font-weight="600">Science</text>
+          <rect x="275" y="10" width="45" height="90" rx="5" fill="var(--teal-100)"/><rect x="275" y="66" width="45" height="34" rx="5" fill="var(--purple)"/><text x="297" y="61" text-anchor="middle" font-size="9" fill="var(--purple)" font-weight="700">27%</text><text x="297" y="112" text-anchor="middle" font-size="8" fill="#64748b" font-weight="600">Ethics</text>
         </svg>
       </div>
-      <div style="text-align:center">
-        <div style="font-size:48px;font-weight:900;color:var(--teal)">66<span style="font-size:20px;color:var(--muted)">/100</span></div>
-        <div class="tag tag-teal" style="margin-top:8px;display:inline-flex">Sẵn sàng cho Level 1</div>
+      <div class="card" style="text-align:center;padding:14px">
+        <p style="font-weight:700;font-size:11px;margin-bottom:6px">🎯 Mục Tiêu Level 1</p>
+        <svg width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#e5e7eb" stroke-width="7"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--teal)" stroke-width="7" stroke-dasharray="251" stroke-dashoffset="85" stroke-linecap="round" transform="rotate(-90 50 50)"/><text x="50" y="47" text-anchor="middle" font-size="20" font-weight="900" fill="var(--teal)">66%</text><text x="50" y="60" text-anchor="middle" font-size="8" fill="#64748b">hoàn thành</text></svg>
       </div>
     </div>
     <div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Phân Tích Khoảng Cách</h3>
-      <div class="card mb-4" style="border-left:4px solid var(--red)">
-        <div class="flex items-center gap-2 mb-4"><span class="tag tag-red">Cần cải thiện</span><strong class="text-sm">Năng lực Giáo viên</strong></div>
-        <p class="text-sm text-muted">15/45 giáo viên đạt B2+. Cần bồi dưỡng thêm 30 GV về năng lực tiếng Anh và phương pháp CLIL.</p>
-      </div>
-      <div class="card mb-4" style="border-left:4px solid var(--amber)">
-        <div class="flex items-center gap-2 mb-4"><span class="tag tag-amber">Đang phát triển</span><strong class="text-sm">Chương trình</strong></div>
-        <p class="text-sm text-muted">Chưa có tài liệu CLIL cho Toán và Khoa Học. Cần tạo nội dung song ngữ cho 2 môn trọng điểm.</p>
-      </div>
-      <div class="card" style="border-left:4px solid var(--green)">
-        <div class="flex items-center gap-2 mb-4"><span class="tag tag-green">Đạt chuẩn</span><strong class="text-sm">Lãnh đạo</strong></div>
-        <p class="text-sm text-muted">Ban giám hiệu cam kết triển khai EMI. Đã cử 3 CBQL tham gia tập huấn.</p>
-      </div>
-      <button class="cta-btn mt-4" style="width:100%;justify-content:center" onclick="goTo(4)">Xem Lộ Trình Cải Thiện →</button>
-    </div>
-  </div>
-  <div class="powered-by">Powered by: PD-Slides Quiz Engine + LMS Assessment</div>
-</div>
-
-<!-- ========== SCREEN 4 ========== -->
-<div class="screen" data-screen="4">
-  <h2 class="section-title">👩‍🏫 Bồi Dưỡng Giáo Viên</h2>
-  <p class="section-sub">Hệ thống đào tạo với bài kiểm tra, bảng xếp hạng và chứng nhận tự động.</p>
-  <div class="card-grid card-grid-3 mb-6">
-    <div class="card">
-      <div class="flex items-center justify-between mb-4">
-        <span class="tag tag-green">71%</span><span class="text-xs text-muted">60 phút</span>
-      </div>
-      <h4 style="font-size:15px;font-weight:700;margin-bottom:4px">Phương Pháp CLIL</h4>
-      <p class="text-xs text-muted mb-4">CLIL Methodology</p>
-      <div class="progress-track"><div class="progress-fill fill-green" style="width:71%"></div></div>
-      <p class="text-xs text-muted mt-4">32/45 GV hoàn thành</p>
-    </div>
-    <div class="card">
-      <div class="flex items-center justify-between mb-4">
-        <span class="tag tag-amber">40%</span><span class="text-xs text-muted">60 phút</span>
-      </div>
-      <h4 style="font-size:15px;font-weight:700;margin-bottom:4px">Tiếng Anh Trong Lớp Học</h4>
-      <p class="text-xs text-muted mb-4">Classroom English</p>
-      <div class="progress-track"><div class="progress-fill fill-amber" style="width:40%"></div></div>
-      <p class="text-xs text-muted mt-4">18/45 GV hoàn thành</p>
-    </div>
-    <div class="card">
-      <div class="flex items-center justify-between mb-4">
-        <span class="tag tag-red">11%</span><span class="text-xs text-muted">45 phút</span>
-      </div>
-      <h4 style="font-size:15px;font-weight:700;margin-bottom:4px">Dạy Toán Bằng Tiếng Anh</h4>
-      <p class="text-xs text-muted mb-4">Teaching Math in English</p>
-      <div class="progress-track"><div class="progress-fill fill-red" style="width:11%"></div></div>
-      <p class="text-xs text-muted mt-4">5/45 GV hoàn thành</p>
-    </div>
-  </div>
-  <div class="split">
-    <div>
-      <div class="card">
-        <p class="font-bold mb-4" style="font-size:14px">❓ Câu hỏi mẫu</p>
-        <p class="text-sm mb-4" style="font-weight:600">"CLIL" là viết tắt của cụm từ nào?</p>
-        <div class="quiz-option"><span class="letter">A</span>Computer Language Integrated Learning</div>
-        <div class="quiz-option correct"><span class="letter">C</span>Content and Language Integrated Learning</div>
-        <div class="quiz-option"><span class="letter">B</span>Classroom Language Instruction Level</div>
-        <div class="quiz-option"><span class="letter">D</span>Comprehensive Linguistic Integration Layer</div>
-      </div>
-    </div>
-    <div>
-      <div class="card mb-4">
-        <p class="font-bold mb-4" style="font-size:14px">🏆 Bảng Xếp Hạng</p>
-        <div class="lb-item"><span class="lb-rank">🥇</span><span class="lb-name">Nguyễn Thị Lan</span><span class="lb-score">950đ</span></div>
-        <div class="lb-item"><span class="lb-rank">🥈</span><span class="lb-name">Trần Văn Minh</span><span class="lb-score">920đ</span></div>
-        <div class="lb-item"><span class="lb-rank">🥉</span><span class="lb-name">Lê Hoàng Anh</span><span class="lb-score">890đ</span></div>
-      </div>
-      <div class="cert-preview">
-        <h4>Chứng Nhận</h4>
-        <h3>Cô Nguyễn Thị Lan</h3>
-        <p>Hoàn thành module<br><strong>CLIL Methodology</strong></p>
-        <p class="text-xs mt-4" style="color:var(--teal)">🔗 learneris.ai/verify/CERT-2026-0412</p>
-      </div>
-    </div>
-  </div>
-  <div class="powered-by">Powered by: PD-Slides + Credits-Management Training Pipeline</div>
-</div>
-
-<!-- ========== SCREEN 5 ========== -->
-<div class="screen" data-screen="5">
-  <h2 class="section-title">✨ Tạo Nội Dung CLIL</h2>
-  <p class="section-sub">AI tạo bài giảng song ngữ từ chuẩn chương trình Việt Nam — chỉ 3 phút, ~2.000đ/bài.</p>
-  <div class="split">
-    <div>
-      <div class="card">
-        <div class="form-group">
-          <label class="form-label">Môn học</label>
-          <select class="form-input"><option selected>📐 Toán (Math)</option><option>🔬 Khoa Học (Science)</option><option>🌍 Lịch Sử (History)</option></select>
+      <div style="border:1px solid rgba(0,0,0,0.06);border-radius:var(--r);overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.04);margin-bottom:10px">
+        <div style="background:linear-gradient(135deg,var(--teal),var(--teal-800));color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px">
+          <div style="width:24px;height:24px;background:rgba(255,255,255,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-weight:800;font-size:12px">L</span></div>
+          <div><p style="font-size:12px;font-weight:700">Báo Cáo — Sở GD&ĐT TP.HCM</p><p style="font-size:9px;opacity:0.8">THCS Nguyễn Du — HK I, 2026-2027</p></div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Lớp</label>
-          <select class="form-input"><option>Lớp 6</option><option selected>Lớp 7</option><option>Lớp 8</option><option>Lớp 9</option></select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Chủ đề</label>
-          <input class="form-input" value="Phương trình bậc nhất một ẩn">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Tỷ lệ Tiếng Anh</label>
-          <div class="slider-wrap">
-            <div class="slider-track"><div class="slider-fill-bar"></div><div class="slider-thumb"></div></div>
-            <div class="slider-marks"><span>20%</span><span class="active">50%</span><span>80%</span><span>100%</span></div>
-          </div>
-        </div>
-        <button class="cta-btn" style="width:100%;justify-content:center">✨ Tạo Bài Giảng Song Ngữ</button>
-        <div style="text-align:center;margin-top:12px">
-          <span class="tag tag-teal">Chi phí: ~2.000đ / bài (~$0.08 USD)</span>
+        <div style="padding:12px 16px;font-size:11px;color:var(--muted)">
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f1f5f9"><span>Mức độ EMI</span><strong style="color:var(--text)">Level 0 → 1</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f1f5f9"><span>GV chứng nhận CLIL</span><strong style="color:var(--text)">32/45 (71%)</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f1f5f9"><span>Giờ tiếp xúc TA</span><strong style="color:var(--text)">1,240h</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f1f5f9"><span>Bài CLIL triển khai</span><strong style="color:var(--text)">156 bài</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:5px 0"><span>Học sinh tham gia</span><strong style="color:var(--text)">620 HS</strong></div>
+          <div style="text-align:center;margin-top:8px"><button style="padding:7px 16px;background:var(--teal);color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer">📥 Tải PDF</button></div>
         </div>
       </div>
-    </div>
-    <div>
-      <div class="card mb-4">
-        <div class="flex items-center justify-between mb-4">
-          <p class="font-bold" style="font-size:14px">📄 Preview</p>
-          <div class="toggle-wrap"><span>VN</span><div class="toggle on"></div><span>EN</span></div>
-        </div>
-        <div class="bi-text">
-          <p><strong style="font-size:16px">Phương trình bậc nhất / <span class="en">Linear Equations</span></strong></p>
-          <p class="mt-4"><span class="vn">Phương trình bậc nhất một ẩn có dạng </span><code>ax + b = 0</code><span class="vn">, trong đó </span><code>a ≠ 0</code>.</p>
-          <p><span class="en">A linear equation in one variable has the form ax + b = 0, where a ≠ 0.</span></p>
-          <p class="mt-4"><span class="vn"><strong>Ví dụ / </strong></span><span class="en"><strong>Example:</strong></span> <span class="vn">Giải phương trình</span> 2x + 3 = 7</p>
-        </div>
-      </div>
-      <div class="comp-row">
-        <span class="comp-chip">📘 Study Guide ✓</span>
-        <span class="comp-chip">📊 Slides ✓</span>
-        <span class="comp-chip">👩‍🏫 Teaching Guide ✓</span>
-        <span class="comp-chip">❓ Quiz ✓</span>
-        <span class="comp-chip">🎮 Interactive ✓</span>
-      </div>
-      <div class="card" style="text-align:center;background:var(--surface)">
-        <p class="text-xs text-muted">5 thành phần được tạo trong <strong>~3 phút</strong></p>
-        <div class="progress-track mt-4"><div class="progress-fill fill-teal" style="width:100%"></div></div>
-        <p class="text-xs mt-4" style="color:var(--green);font-weight:600">✓ Hoàn thành — sẵn sàng giao cho giáo viên</p>
-      </div>
-    </div>
-  </div>
-  <div class="powered-by">Powered by: lesson-agent + HCAI Engine Bilingual Mode</div>
-</div>
-
-<!-- ========== SCREEN 6 ========== -->
-<div class="screen" data-screen="6">
-  <h2 class="section-title">🎓 Dạy & Học</h2>
-  <p class="section-sub">Giáo viên có kịch bản song ngữ, học sinh tương tác với AI và hoạt động thực hành.</p>
-  <div class="split split-divider">
-    <div>
-      <div class="tag tag-teal mb-4" style="display:inline-flex">👩‍🏫 Giáo Viên</div>
-      <h4 style="font-size:15px;font-weight:700;margin-bottom:12px">Bài 5: Phương Trình Bậc Nhất<br><span class="text-sm en" style="color:var(--teal)">Linear Equations</span></h4>
-      <div class="tag tag-amber mb-4" style="display:inline-flex">⏱ Hình Thành Kiến Thức — 30 phút</div>
-      <div class="script-card mb-4">
-        <p><span class="vn">"Các em mở sách trang 42."</span></p>
-        <p><span class="en">"Please open your book to page 42."</span></p>
-        <p class="mt-4"><span class="vn">"Hôm nay chúng ta sẽ học về phương trình bậc nhất."</span></p>
-        <p><span class="en">"Today we will learn about linear equations."</span></p>
-      </div>
-      <div class="vocab-box">
-        <p><strong>phương trình</strong> = equation</p>
-        <p><strong>ẩn số</strong> = variable</p>
-        <p><strong>giải</strong> = solve</p>
-        <p><strong>vế trái / vế phải</strong> = left side / right side</p>
-      </div>
-    </div>
-    <div>
-      <div class="tag tag-green mb-4" style="display:inline-flex">🎒 Học Sinh</div>
-      <div class="card mb-4">
-        <p class="font-bold text-sm mb-4">🤖 AI Math Tutor</p>
-        <div class="chat-area">
-          <div class="chat-bubble chat-user">How do I solve 2x + 3 = 7?</div>
-          <div class="chat-bubble chat-ai">Great question! Let's solve step by step:<br><br><strong>Step 1:</strong> Subtract 3 from both sides<br>2x + 3 - 3 = 7 - 3<br>2x = 4<br><br><strong>Step 2:</strong> Divide both sides by 2<br>x = 2 ✓<br><br><em>💡 Mẹo: Luôn thực hiện cùng phép tính ở cả hai vế!</em></div>
-          <div class="chat-bubble chat-user">Can you give me another example?</div>
-        </div>
-      </div>
-      <div class="card" style="background:var(--surface)">
-        <p class="font-bold text-sm mb-4">🎮 Sorting Activity</p>
-        <div class="flex gap-2" style="flex-wrap:wrap;margin-bottom:12px">
-          <span style="padding:8px 14px;background:var(--teal-100);border-radius:8px;font-size:13px;font-weight:600;cursor:grab">equation</span>
-          <span style="padding:8px 14px;background:var(--purple-50);border-radius:8px;font-size:13px;font-weight:600;cursor:grab">phương trình</span>
-          <span style="padding:8px 14px;background:var(--teal-100);border-radius:8px;font-size:13px;font-weight:600;cursor:grab">variable</span>
-          <span style="padding:8px 14px;background:var(--purple-50);border-radius:8px;font-size:13px;font-weight:600;cursor:grab">ẩn số</span>
-        </div>
-        <div class="flex gap-2">
-          <div style="flex:1;border:2px dashed var(--teal-200);border-radius:10px;padding:10px;text-align:center;font-size:12px;color:var(--teal)">🇬🇧 English</div>
-          <div style="flex:1;border:2px dashed #c4b5fd;border-radius:10px;padding:10px;text-align:center;font-size:12px;color:var(--purple)">🇻🇳 Tiếng Việt</div>
-        </div>
-      </div>
-      <div class="flex items-center justify-between mt-4">
-        <span class="text-sm text-muted">Hoạt động 3/5 hoàn thành</span>
-        <div class="progress-track" style="width:120px"><div class="progress-fill fill-teal" style="width:60%"></div></div>
-      </div>
-    </div>
-  </div>
-  <div class="powered-by">Powered by: LMS + AI-Course-fresh + ai-gateway</div>
-</div>
-
-<!-- ========== SCREEN 7 ========== -->
-<div class="screen" data-screen="7">
-  <h2 class="section-title">📈 Theo Dõi & Báo Cáo</h2>
-  <p class="section-sub">Dashboard EMI cho ban giám hiệu và báo cáo tự động cho Sở GD&ĐT.</p>
-  <div class="card-grid card-grid-4 mb-6">
-    <div class="stat-card">
-      <div style="font-size:13px;color:var(--muted);margin-bottom:4px">EMI Level</div>
-      <div style="font-size:32px;font-weight:900"><span style="color:#d1d5db">0</span><span style="color:var(--teal);margin:0 4px">→</span><span style="color:var(--teal)">1</span></div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value">71%</div>
-      <div class="stat-label">GV Đạt Chứng Nhận<br>32/45</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--green)">1,240</div>
-      <div class="stat-label">Giờ Tiếp Xúc TA</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value" style="color:var(--purple)">65%</div>
-      <div class="stat-label">Bài CLIL Hoàn Thành<br>156/240</div>
-    </div>
-  </div>
-  <div class="split">
-    <div>
-      <div class="card mb-4">
-        <p class="font-bold text-sm mb-4">📊 Tiến Độ Chứng Nhận GV</p>
-        <svg width="100%" height="180" viewBox="0 0 400 180">
-          <g transform="translate(0,10)">
-            <!-- bars -->
-            <rect x="30" y="28" width="50" height="122" rx="6" fill="var(--teal-100)"/>
-            <rect x="30" y="28" width="50" height="87" rx="6" fill="var(--teal)"/>
-            <text x="55" y="170" text-anchor="middle" font-size="10" fill="#64748b" font-weight="600">CLIL</text>
-            <text x="55" y="22" text-anchor="middle" font-size="10" fill="var(--teal)" font-weight="700">71%</text>
-
-            <rect x="105" y="28" width="50" height="122" rx="6" fill="var(--teal-100)"/>
-            <rect x="105" y="77" width="50" height="73" rx="6" fill="var(--amber)"/>
-            <text x="130" y="170" text-anchor="middle" font-size="10" fill="#64748b" font-weight="600">English</text>
-            <text x="130" y="71" text-anchor="middle" font-size="10" fill="#b45309" font-weight="700">40%</text>
-
-            <rect x="180" y="28" width="50" height="122" rx="6" fill="var(--teal-100)"/>
-            <rect x="180" y="120" width="50" height="30" rx="6" fill="var(--red)"/>
-            <text x="205" y="170" text-anchor="middle" font-size="10" fill="#64748b" font-weight="600">Math</text>
-            <text x="205" y="114" text-anchor="middle" font-size="10" fill="var(--red)" font-weight="700">11%</text>
-
-            <rect x="255" y="28" width="50" height="122" rx="6" fill="var(--teal-100)"/>
-            <rect x="255" y="55" width="50" height="95" rx="6" fill="var(--green)"/>
-            <text x="280" y="170" text-anchor="middle" font-size="10" fill="#64748b" font-weight="600">Science</text>
-            <text x="280" y="49" text-anchor="middle" font-size="10" fill="var(--green)" font-weight="700">56%</text>
-
-            <rect x="330" y="28" width="50" height="122" rx="6" fill="var(--teal-100)"/>
-            <rect x="330" y="95" width="50" height="55" rx="6" fill="var(--purple)"/>
-            <text x="355" y="170" text-anchor="middle" font-size="10" fill="#64748b" font-weight="600">Ethics</text>
-            <text x="355" y="89" text-anchor="middle" font-size="10" fill="var(--purple)" font-weight="700">27%</text>
-          </g>
-        </svg>
-      </div>
-      <div class="card" style="text-align:center">
-        <p class="font-bold text-sm mb-4">🎯 Mục Tiêu EMI Level 1</p>
-        <svg width="140" height="140" viewBox="0 0 140 140">
-          <circle cx="70" cy="70" r="58" fill="none" stroke="#e5e7eb" stroke-width="10"/>
-          <circle cx="70" cy="70" r="58" fill="none" stroke="var(--teal)" stroke-width="10" stroke-dasharray="365" stroke-dashoffset="124" stroke-linecap="round" transform="rotate(-90 70 70)"/>
-          <text x="70" y="66" text-anchor="middle" font-size="28" font-weight="900" fill="var(--teal)">66%</text>
-          <text x="70" y="84" text-anchor="middle" font-size="11" fill="#64748b">hoàn thành</text>
-        </svg>
-      </div>
-    </div>
-    <div>
-      <div class="doe-report mb-4">
-        <div class="doe-header">
-          <div class="logo" style="width:28px;height:28px;background:rgba(255,255,255,0.2)"><span style="font-size:14px">L</span></div>
-          <div>
-            <h4>Báo Cáo EMI — Sở GD&ĐT TP.HCM</h4>
-            <p style="font-size:10px;opacity:0.8">Trường THCS Nguyễn Du — Học kỳ I, 2026-2027</p>
-          </div>
-        </div>
-        <div class="doe-body">
-          <div class="doe-row"><span>Mức độ EMI hiện tại</span><span class="doe-val">Level 0 → Level 1</span></div>
-          <div class="doe-row"><span>GV đạt chứng nhận CLIL</span><span class="doe-val">32/45 (71%)</span></div>
-          <div class="doe-row"><span>Tổng giờ tiếp xúc TA</span><span class="doe-val">1,240 giờ</span></div>
-          <div class="doe-row"><span>Bài giảng CLIL đã triển khai</span><span class="doe-val">156 bài</span></div>
-          <div class="doe-row"><span>Khối lớp triển khai</span><span class="doe-val">Lớp 7, Lớp 8</span></div>
-          <div class="doe-row"><span>Môn CLIL</span><span class="doe-val">Toán, Khoa Học</span></div>
-          <div class="doe-row"><span>HS tham gia</span><span class="doe-val">620 học sinh</span></div>
-          <div style="text-align:center;margin-top:16px">
-            <button style="padding:8px 20px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">📥 Tải Xuống PDF</button>
-          </div>
-        </div>
-      </div>
-      <div class="footer-cta">
+      <div class="fcta">
         <h3>Sẵn sàng bắt đầu?</h3>
-        <p>Liên hệ đội ngũ Learneris để triển khai EMI tại trường của bạn.</p>
         <p>📧 <a href="mailto:support@learneris.com">support@learneris.com</a></p>
-        <p>🌐 <a href="https://learneris.com" target="_blank">learneris.com</a></p>
+        <p>🌐 <a href="https://learneris.com">learneris.com</a></p>
       </div>
     </div>
   </div>
-  <div class="powered-by">Powered by: LMS Analytics + Credits-Management Dashboard + School Portal</div>
+  <div class="pb">Powered by: LMS Analytics + Admin Dashboard</div>
 </div>
 
-</div><!-- /main-wrap -->
+<!-- ===== 8. FAQ ===== -->
+<div class="scr" data-s="8">
+  <h2 class="sec-t">❓ Câu Hỏi Thường Gặp</h2>
+  <p class="sec-s">Giải đáp các thắc mắc phổ biến về triển khai EMI với Learneris.</p>
+  <div class="g2">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="faq-item open" onclick="this.classList.toggle('open')">
+        <div class="faq-q">EMI là gì và khác gì dạy tiếng Anh truyền thống?<span class="faq-arr">▾</span></div>
+        <div class="faq-a">EMI (English as a Medium of Instruction) là sử dụng tiếng Anh làm ngôn ngữ giảng dạy cho các môn học khác, không chỉ dạy tiếng Anh như một môn học riêng. Theo QD 2371, mục tiêu là chuyển từ mô hình EFL sang ESL — tiếng Anh trở thành công cụ học tập hàng ngày.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">GV chưa giỏi tiếng Anh có triển khai được không?<span class="faq-arr">▾</span></div>
+        <div class="faq-a">Có. Learneris cung cấp kịch bản song ngữ cho từng bài giảng, từ vựng chuyên ngành, và AI hỗ trợ real-time. GV bắt đầu từ tỷ lệ 20% tiếng Anh rồi tăng dần. Module bồi dưỡng CLIL chỉ cần 60 phút để hoàn thành.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Chi phí triển khai cho trường là bao nhiêu?<span class="faq-arr">▾</span></div>
+        <div class="faq-a">Tạo nội dung CLIL chỉ ~2.000đ/bài (~$0.08 USD). Bồi dưỡng GV trên nền tảng miễn phí. Chi phí chủ yếu là license sử dụng LMS cho HS, tùy quy mô trường.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Mất bao lâu để trường đạt EMI Level 1?<span class="faq-arr">▾</span></div>
+        <div class="faq-a">Với lộ trình chuẩn: onboard (1 ngày), bồi dưỡng GV (1-2 tuần), tạo nội dung (tự động ~3 phút/bài), triển khai dạy (1 học kỳ). Hầu hết trường đạt Level 1 trong 1 năm học.</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Learneris có đạt chứng nhận bảo mật không?<span class="faq-arr">▾</span></div>
+        <div class="faq-a">Có. Learneris đạt chứng nhận An toàn Thông tin Cấp 3 (Thông tư 12/2022/TT-BTTTT) — yêu cầu bắt buộc để cung cấp dịch vụ cho trường công lập tại Việt Nam. Nội dung AI Literacy đã được Viện KHGD Việt Nam thẩm định.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Hỗ trợ những môn học nào?<span class="faq-arr">▾</span></div>
+        <div class="faq-a">Hiện tại: Toán, Khoa Học, và AI Literacy (đã có 80+ bài). Nền tảng lesson-agent có thể tạo nội dung CLIL cho bất kỳ môn nào thuộc GDPT 2018 — chỉ cần thêm YAML prompt flow mới.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Có phải thay đổi chương trình học không?<span class="faq-arr">▾</span></div>
+        <div class="faq-a">Không. EMI hoạt động trên nền chương trình GDPT 2018 hiện hành. Nội dung CLIL là lớp tích hợp bổ sung, không thay thế SGK hay chương trình chính quy. Không ảnh hưởng đến kiểm tra, đánh giá.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Sở GD&ĐT cần hồ sơ gì để phê duyệt?<span class="faq-arr">▾</span></div>
+        <div class="faq-a">Learneris cung cấp Bộ Hồ Sơ Chuẩn Hóa gồm 4 mẫu DOCX: Tờ Trình, Đề Án, Phụ Lục Đối Tác, và Template Chung. Trường chỉ cần điền thông tin và nộp cho Sở GD&ĐT.</div>
+      </div>
+    </div>
+  </div>
+  <div class="fcta" style="margin-top:16px">
+    <h3>Bắt đầu hành trình EMI ngay hôm nay</h3>
+    <p style="margin-bottom:12px">Liên hệ đội ngũ Learneris để được tư vấn miễn phí.</p>
+    <p>📧 <a href="mailto:support@learneris.com">support@learneris.com</a> &nbsp;·&nbsp; 🌐 <a href="https://learneris.com">learneris.com</a></p>
+  </div>
+  <div class="pb">Learneris Pte. Ltd. (Singapore) &bull; Vietlearn JSC (Vietnam)</div>
+</div>
+
+</div><!-- /wrap -->
 
 <!-- BOTTOM NAV -->
-<nav class="bottom-nav">
-  <button class="nav-btn secondary" id="prevBtn" onclick="prev()" disabled>← Trước</button>
-  <span class="nav-counter" id="navCounter">Bước 1 / 7</span>
-  <button class="nav-btn primary" id="nextBtn" onclick="next()">Tiếp Theo →</button>
+<nav class="bnav">
+  <button class="nb s" id="prevBtn" onclick="prev()" disabled>← Trước</button>
+  <span class="nc" id="navC">1 / 8</span>
+  <button class="nb p" id="nextBtn" onclick="next()">Tiếp Theo →</button>
 </nav>
 
 <script>
-const STEPS = [
-  {label:'Khám Phá',short:'Khám Phá'},
-  {label:'Thiết Lập',short:'Thiết Lập'},
-  {label:'Đánh Giá',short:'Đánh Giá'},
-  {label:'Bồi Dưỡng',short:'Bồi Dưỡng'},
-  {label:'Nội Dung',short:'Nội Dung'},
-  {label:'Dạy & Học',short:'Dạy & Học'},
-  {label:'Báo Cáo',short:'Báo Cáo'}
-];
-let current = 1;
-const total = 7;
-
-function buildSteps(){
-  const bar = document.getElementById('stepBar');
-  bar.innerHTML = STEPS.map((s,i)=>{
-    const n = i+1;
-    return `<div class="step-item${n<current?' done':''}${n===current?' active':''}" onclick="goTo(${n})">
-      <div class="step-circle">${n<current?'✓':n}</div>
-      <div class="step-label">${s.label}</div>
-      ${i<total-1?'<div class="step-line"></div>':''}
-    </div>`;
-  }).join('');
+const S=[{l:'Khám Phá'},{l:'Thiết Lập'},{l:'Đánh Giá'},{l:'Bồi Dưỡng'},{l:'Nội Dung'},{l:'Dạy & Học'},{l:'Báo Cáo'},{l:'FAQ'}];
+let c=1;const T=8;
+function buildS(){
+  const b=document.getElementById('stepBar');
+  let h='';
+  S.forEach((s,i)=>{
+    const n=i+1;
+    h+=`<div class="si${n<c?' d':''}${n===c?' a':''}" onclick="goTo(${n})"><div class="sc">${n<c?'✓':n}</div><div class="sl">${s.l}</div></div>`;
+    if(i<T-1) h+=`<div class="sln${n<c?' dn':''}"></div>`;
+  });
+  b.innerHTML=h;
 }
-
 function goTo(n){
-  if(n<1||n>total) return;
-  current = n;
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.querySelector(`[data-screen="${n}"]`).classList.add('active');
-  document.getElementById('prevBtn').disabled = n===1;
-  document.getElementById('nextBtn').textContent = n===total?'✓ Hoàn Tất':'Tiếp Theo →';
-  document.getElementById('navCounter').textContent = `Bước ${n} / ${total}`;
-  buildSteps();
-  window.scrollTo({top:0,behavior:'smooth'});
+  if(n<1||n>T)return;c=n;
+  document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));
+  document.querySelector(`[data-s="${n}"]`).classList.add('on');
+  document.getElementById('prevBtn').disabled=n===1;
+  const nb=document.getElementById('nextBtn');
+  nb.textContent=n===T?'✓ Hoàn Tất':'Tiếp Theo →';
+  nb.disabled=n===T;
+  document.getElementById('navC').textContent=`${n} / ${T}`;
+  buildS();
+  document.querySelector('.wrap').scrollTop=0;
 }
-
-function next(){if(current<total) goTo(current+1);}
-function prev(){if(current>1) goTo(current-1);}
-
-document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight') next();
-  if(e.key==='ArrowLeft') prev();
-});
-
-buildSteps();
+function next(){if(c<T)goTo(c+1)}
+function prev(){if(c>1)goTo(c-1)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
+buildS();
 </script>
 </body>
 </html>
