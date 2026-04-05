@@ -1,0 +1,6 @@
+.DS_Store
+*.zip
+*.pdf
+*.docx
+.claude/
+node_modules/
