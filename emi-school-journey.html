@@ -27,16 +27,16 @@ body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;heig
 .logo::after{content:'';position:absolute;top:4px;right:4px;width:5px;height:5px;background:var(--t200);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
 .hdr-t{font-weight:700;font-size:15px;letter-spacing:-0.01em}
-.hdr-b{margin-left:auto;font-size:10px;color:var(--teal);background:var(--t50);padding:4px 12px;border-radius:20px;font-weight:600;border:1px solid var(--t100);text-transform:uppercase;letter-spacing:0.05em}
+.hdr-b{margin-left:auto;font-size:12px;color:var(--teal);background:var(--t50);padding:4px 12px;border-radius:20px;font-weight:600;border:1px solid var(--t100);text-transform:uppercase;letter-spacing:0.05em}
 
 .sbar{position:fixed;top:var(--hh);left:0;right:0;z-index:99;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.04);height:var(--sh);padding:0 28px;display:flex;align-items:center;overflow-x:auto}
 .steps{display:flex;align-items:center;justify-content:center;max-width:780px;margin:0 auto;width:100%}
 .si{display:flex;flex-direction:column;align-items:center;flex:1;cursor:pointer;transition:transform .15s;min-width:68px}
 .si:hover{transform:translateY(-1px)}
-.sc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;border:2px solid #d1d5db;color:#a1a1aa;background:#fff;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;z-index:2}
+.sc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;border:2px solid #d1d5db;color:#a1a1aa;background:#fff;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;z-index:2}
 .si.a .sc{border-color:var(--teal);color:#fff;background:linear-gradient(135deg,var(--tl),var(--teal));box-shadow:0 0 0 4px rgba(13,148,136,0.1),0 2px 8px rgba(13,148,136,0.2)}
 .si.d .sc{border-color:var(--grn);background:var(--grn);color:#fff;box-shadow:0 1px 4px rgba(22,163,74,0.2)}
-.sl{font-size:9px;color:#a1a1aa;margin-top:4px;font-weight:500;text-align:center;transition:all .2s;white-space:nowrap}
+.sl{font-size:11px;color:#a1a1aa;margin-top:4px;font-weight:500;text-align:center;transition:all .2s;white-space:nowrap}
 .si.a .sl{color:var(--teal);font-weight:700}
 .si.d .sl{color:var(--grn);font-weight:600}
 .sln{flex:1;height:2px;background:#e5e7eb;margin:0 -2px;position:relative;top:-9px;z-index:1;min-width:14px;max-width:55px;transition:background .3s}
@@ -59,7 +59,7 @@ body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;heig
 .pb{margin-top:auto;padding:10px 16px;background:linear-gradient(135deg,var(--p50),#faf5ff);border:1px solid var(--p100);border-radius:var(--rs);font-size:11px;color:var(--pur);font-weight:500;display:flex;align-items:center;gap:8px}
 .pb i[data-lucide]{width:14px;height:14px}
 
-.card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:var(--r);padding:16px;transition:all .25s;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:var(--r);padding:18px;transition:all .25s;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
 .card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.05);transform:translateY(-1px)}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
@@ -67,40 +67,40 @@ body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;heig
 @media(max-width:768px){.g2,.g3,.g4{grid-template-columns:1fr}}
 .st{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:var(--rs);padding:14px;text-align:center;transition:all .25s}
 .st:hover{box-shadow:0 4px 12px rgba(0,0,0,0.04);transform:translateY(-1px)}
-.sv{font-size:24px;font-weight:800;color:var(--teal);letter-spacing:-0.02em}
-.slb{font-size:10px;color:var(--mut);margin-top:3px;font-weight:500;line-height:1.3}
-.tag{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;border-radius:16px;font-size:10px;font-weight:600}
+.sv{font-size:26px;font-weight:800;color:var(--teal);letter-spacing:-0.02em}
+.slb{font-size:12px;color:var(--mut);margin-top:3px;font-weight:500;line-height:1.3}
+.tag{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;border-radius:16px;font-size:12px;font-weight:600}
 .tg{background:var(--g100);color:var(--grn)}.ta{background:var(--a50);color:#b45309}.tr{background:#fef2f2;color:var(--red)}.tt{background:var(--t100);color:var(--t800)}
 .pt{height:5px;background:#f1f5f9;border-radius:3px;overflow:hidden}
 .pf{height:100%;border-radius:3px;transition:width .6s ease}
 .fg{background:linear-gradient(90deg,#22c55e,var(--grn))}.fa{background:linear-gradient(90deg,#fbbf24,var(--amb))}.fr{background:linear-gradient(90deg,#f87171,var(--red))}.ft{background:linear-gradient(90deg,var(--tl),var(--teal))}
-.sec-t{font-size:22px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;display:flex;align-items:center;gap:8px}
-.sec-t i[data-lucide]{width:22px;height:22px;color:var(--teal)}
-.sec-s{font-size:13px;color:var(--mut);margin-bottom:16px;line-height:1.5}
+.sec-t{font-size:24px;font-weight:800;letter-spacing:-0.03em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.sec-t i[data-lucide]{width:24px;height:24px;color:var(--teal)}
+.sec-s{font-size:15px;color:var(--mut);margin-bottom:18px;line-height:1.55}
 .cta{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:linear-gradient(135deg,var(--tl),var(--teal));color:#fff;font-weight:700;font-size:14px;border:none;border-radius:var(--rs);cursor:pointer;transition:all .25s;box-shadow:0 3px 12px rgba(13,148,136,0.2)}
 .cta:hover{box-shadow:0 6px 20px rgba(13,148,136,0.3);transform:translateY(-1px)}
 .cta i[data-lucide]{width:16px;height:16px}
 .fi{width:100%;padding:9px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:13px;font-family:inherit;background:#fff;color:var(--txt);transition:all .2s}
 .fi:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,148,136,0.08)}
 select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
-.fl{font-size:10px;font-weight:600;color:var(--mut);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:0.05em}
+.fl{font-size:12px;font-weight:600;color:var(--mut);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:0.05em}
 .scr.on .card,.scr.on .st{animation:cardIn .4s cubic-bezier(.4,0,.2,1) backwards}
 .scr.on .card:nth-child(2),.scr.on .st:nth-child(2){animation-delay:.06s}
 .scr.on .card:nth-child(3),.scr.on .st:nth-child(3){animation-delay:.12s}
 @keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .chat{display:flex;flex-direction:column;gap:8px}
-.cb{max-width:82%;padding:10px 14px;border-radius:14px;font-size:12px;line-height:1.5;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.cb{max-width:82%;padding:11px 15px;border-radius:14px;font-size:13px;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
 .cu{align-self:flex-end;background:linear-gradient(135deg,var(--tl),var(--teal));color:#fff;border-bottom-right-radius:3px}
 .ca{align-self:flex-start;background:#f1f5f9;color:var(--txt);border-bottom-left-radius:3px}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
 .faq-item{border:1px solid rgba(0,0,0,0.06);border-radius:var(--rs);overflow:hidden;transition:all .2s}
 .faq-item:hover{box-shadow:0 4px 12px rgba(0,0,0,0.04)}
-.faq-q{padding:12px 16px;font-size:13px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#fff;transition:background .2s;user-select:none;gap:8px}
+.faq-q{padding:14px 18px;font-size:14px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#fff;transition:background .2s;user-select:none;gap:8px}
 .faq-q:hover{background:var(--srf)}
 .faq-q i[data-lucide]{width:16px;height:16px;color:var(--mut);transition:transform .25s;flex-shrink:0}
 .faq-item.open .faq-q i[data-lucide]{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;padding:0 16px;font-size:12px;color:var(--mut);line-height:1.7;background:var(--srf)}
-.faq-item.open .faq-a{max-height:200px;padding:12px 16px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;padding:0 18px;font-size:13px;color:var(--mut);line-height:1.7;background:var(--srf)}
+.faq-item.open .faq-a{max-height:240px;padding:14px 18px}
 .g2.dv{position:relative}
 .g2.dv::before{content:'';position:absolute;left:50%;top:16px;bottom:16px;width:1px;background:linear-gradient(to bottom,transparent,#e5e7eb 20%,#e5e7eb 80%,transparent)}
 .fcta{text-align:center;padding:24px;background:linear-gradient(135deg,var(--tl),var(--teal),var(--t800));border-radius:var(--r);color:#fff;position:relative;overflow:hidden}
@@ -117,7 +117,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mock-browser{border:1px solid rgba(0,0,0,0.08);border-radius:var(--r);overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
 .mock-bar{background:#f9fafb;border-bottom:1px solid rgba(0,0,0,0.06);padding:8px 12px;display:flex;align-items:center;gap:6px}
 .mock-dot{width:8px;height:8px;border-radius:50%}
-.mock-url{flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:5px;padding:3px 10px;font-size:9px;color:var(--mut);font-family:inherit;margin-left:8px}
+.mock-url{flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:5px;padding:3px 10px;font-size:11px;color:var(--mut);font-family:inherit;margin-left:8px}
 .mock-body{padding:14px;background:#fff;font-size:11px}
 /* CLIL callout */
 .clil-box{background:linear-gradient(135deg,var(--t50),#fff);border:1px solid var(--t200);border-radius:var(--r);padding:14px 18px;position:relative}
@@ -150,48 +150,48 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       <div class="ic" style="width:36px;height:36px;background:var(--t100);color:var(--teal);margin-top:2px"><i data-lucide="languages"></i></div>
       <div style="flex:1">
         <p style="font-size:12px;font-weight:700;margin-bottom:3px">Phương pháp CLIL <span style="color:var(--mut);font-weight:500">(Content and Language Integrated Learning — Coyle, 2010)</span></p>
-        <p style="font-size:10px;color:var(--mut);line-height:1.5">Thay vì dạy TA riêng biệt, CLIL tích hợp TA vào các môn Toán, Khoa Học — HS học ngôn ngữ qua nội dung thực tế. Sở GD&ĐT HCMC mô tả Đề án 5695 (2014-2024) là "mô hình thành công điển hình" cho CLIL tại trường công lập.</p>
+        <p style="font-size:12px;color:var(--mut);line-height:1.5">Thay vì dạy TA riêng biệt, CLIL tích hợp TA vào các môn Toán, Khoa Học — HS học ngôn ngữ qua nội dung thực tế. Sở GD&ĐT HCMC mô tả Đề án 5695 (2014-2024) là "mô hình thành công điển hình" cho CLIL tại trường công lập.</p>
       </div>
     </div>
     <!-- 4Cs Framework -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px">
       <div style="background:#fff;border:1px solid rgba(0,0,0,0.05);border-radius:8px;padding:8px;text-align:center">
         <div class="ic-sm" style="background:var(--t50);color:var(--teal);margin:0 auto 4px"><i data-lucide="book-open"></i></div>
-        <p style="font-size:9px;font-weight:700">Content</p>
-        <p style="font-size:8px;color:var(--mut);line-height:1.3;margin-top:2px">Nội dung môn học dẫn dắt bài giảng</p>
+        <p style="font-size:11px;font-weight:700">Content</p>
+        <p style="font-size:11px;color:var(--mut);line-height:1.3;margin-top:2px">Nội dung môn học dẫn dắt bài giảng</p>
       </div>
       <div style="background:#fff;border:1px solid rgba(0,0,0,0.05);border-radius:8px;padding:8px;text-align:center">
         <div class="ic-sm" style="background:var(--g50);color:var(--grn);margin:0 auto 4px"><i data-lucide="message-circle"></i></div>
-        <p style="font-size:9px;font-weight:700">Communication</p>
-        <p style="font-size:8px;color:var(--mut);line-height:1.3;margin-top:2px">HS dùng TA để trao đổi ý tưởng</p>
+        <p style="font-size:11px;font-weight:700">Communication</p>
+        <p style="font-size:11px;color:var(--mut);line-height:1.3;margin-top:2px">HS dùng TA để trao đổi ý tưởng</p>
       </div>
       <div style="background:#fff;border:1px solid rgba(0,0,0,0.05);border-radius:8px;padding:8px;text-align:center">
         <div class="ic-sm" style="background:var(--p50);color:var(--pur);margin:0 auto 4px"><i data-lucide="brain"></i></div>
-        <p style="font-size:9px;font-weight:700">Cognition</p>
-        <p style="font-size:8px;color:var(--mut);line-height:1.3;margin-top:2px">Tư duy bậc cao — phân tích, đánh giá</p>
+        <p style="font-size:11px;font-weight:700">Cognition</p>
+        <p style="font-size:11px;color:var(--mut);line-height:1.3;margin-top:2px">Tư duy bậc cao — phân tích, đánh giá</p>
       </div>
       <div style="background:#fff;border:1px solid rgba(0,0,0,0.05);border-radius:8px;padding:8px;text-align:center">
         <div class="ic-sm" style="background:var(--a50);color:var(--amb);margin:0 auto 4px"><i data-lucide="globe"></i></div>
-        <p style="font-size:9px;font-weight:700">Culture</p>
-        <p style="font-size:8px;color:var(--mut);line-height:1.3;margin-top:2px">Nhận thức đa văn hóa, công dân toàn cầu</p>
+        <p style="font-size:11px;font-weight:700">Culture</p>
+        <p style="font-size:11px;color:var(--mut);line-height:1.3;margin-top:2px">Nhận thức đa văn hóa, công dân toàn cầu</p>
       </div>
     </div>
   </div>
   <div class="g3" style="margin-top:12px">
     <div class="card" style="border-top:3px solid var(--tl);padding:14px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--t50);color:var(--teal)"><i data-lucide="sprout"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 1</h3></div>
-      <p style="font-size:10px;color:var(--mut);line-height:1.4">Môi trường TA cơ bản — biển hiệu song ngữ, sinh hoạt, GV bắt đầu dùng TA</p>
-      <p style="font-size:9px;color:var(--teal);margin-top:5px;font-weight:600">2030: 30% trường HCMC &middot; 20% quốc gia</p>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">Môi trường TA cơ bản — biển hiệu song ngữ, sinh hoạt, GV bắt đầu dùng TA</p>
+      <p style="font-size:11px;color:var(--teal);margin-top:5px;font-weight:600">2030: 30% trường HCMC &middot; 20% quốc gia</p>
     </div>
     <div class="card" style="border-top:3px solid var(--grn);padding:14px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--g50);color:var(--grn)"><i data-lucide="book-open"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 2</h3></div>
-      <p style="font-size:10px;color:var(--mut);line-height:1.4">CLIL tích hợp — Toán, Khoa Học dạy bằng TA; GV đạt B2+; học liệu số</p>
-      <p style="font-size:9px;color:var(--grn);margin-top:5px;font-weight:600">2030: 20% trường HCMC &middot; 5% quốc gia</p>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">CLIL tích hợp — Toán, Khoa Học dạy bằng TA; GV đạt B2+; học liệu số</p>
+      <p style="font-size:11px;color:var(--grn);margin-top:5px;font-weight:600">2030: 20% trường HCMC &middot; 5% quốc gia</p>
     </div>
     <div class="card" style="border-top:3px solid var(--pur);padding:14px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--p50);color:var(--pur)"><i data-lucide="globe"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 3</h3></div>
-      <p style="font-size:10px;color:var(--mut);line-height:1.4">TA tự nhiên — mọi hoạt động; hợp tác quốc tế; nghiên cứu bằng TA</p>
-      <p style="font-size:9px;color:var(--pur);margin-top:5px;font-weight:600">2030: 10% trường HCMC &middot; 2% quốc gia</p>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">TA tự nhiên — mọi hoạt động; hợp tác quốc tế; nghiên cứu bằng TA</p>
+      <p style="font-size:11px;color:var(--pur);margin-top:5px;font-weight:600">2030: 10% trường HCMC &middot; 2% quốc gia</p>
     </div>
   </div>
   <div class="pb"><i data-lucide="zap"></i> Powered by: Learneris Landing + Standardized Kit (4 mẫu DOCX)</div>
@@ -225,7 +225,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         <div class="mock-bar"><span class="mock-dot" style="background:#f87171"></span><span class="mock-dot" style="background:#fbbf24"></span><span class="mock-dot" style="background:#4ade80"></span><span class="mock-url">admin.learneris.com/onboarding</span></div>
         <div class="mock-body">
           <p style="font-weight:700;font-size:12px;margin-bottom:8px;display:flex;align-items:center;gap:6px"><i data-lucide="table-2" style="width:14px;height:14px;color:var(--teal)"></i> Tự động nhận diện cột</p>
-          <table style="width:100%;border-collapse:separate;border-spacing:0;border-radius:6px;overflow:hidden;border:1px solid #f1f5f9;font-size:10px">
+          <table style="width:100%;border-collapse:separate;border-spacing:0;border-radius:6px;overflow:hidden;border:1px solid #f1f5f9;font-size:12px">
             <tr style="background:var(--srf)"><th style="padding:6px 8px;text-align:left;font-weight:600;color:var(--mut)">Họ Tên</th><th style="padding:6px 8px;text-align:left;font-weight:600;color:var(--mut)">Email</th><th style="padding:6px 8px;text-align:left;font-weight:600;color:var(--mut)">Lớp</th><th style="padding:6px 8px;text-align:left;font-weight:600;color:var(--mut)">Vai Trò</th></tr>
             <tr><td style="padding:6px 8px;border-top:1px solid #f1f5f9">Nguyễn Thị Lan</td><td style="padding:6px 8px;border-top:1px solid #f1f5f9">lan.nt@edu.vn</td><td style="padding:6px 8px;border-top:1px solid #f1f5f9">7A1</td><td style="padding:6px 8px;border-top:1px solid #f1f5f9">GV</td></tr>
             <tr><td style="padding:6px 8px;border-top:1px solid #f1f5f9">Trần Văn Minh</td><td style="padding:6px 8px;border-top:1px solid #f1f5f9">minh.tv@edu.vn</td><td style="padding:6px 8px;border-top:1px solid #f1f5f9">8A2</td><td style="padding:6px 8px;border-top:1px solid #f1f5f9">GV</td></tr>
@@ -258,7 +258,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         <div class="mock-bar"><span class="mock-dot" style="background:#f87171"></span><span class="mock-dot" style="background:#fbbf24"></span><span class="mock-dot" style="background:#4ade80"></span><span class="mock-url">lms.learneris.com/emi/assessment</span></div>
         <div class="mock-body" style="text-align:center;padding:10px">
           <svg width="260" height="210" viewBox="0 0 260 210" style="margin:0 auto;display:block">
-            <defs><style>text.rl{font-size:8px;font-weight:600;font-family:Inter,sans-serif}</style></defs>
+            <defs><style>text.rl{font-size:11px;font-weight:600;font-family:Inter,sans-serif}</style></defs>
             <g transform="translate(130,105)">
               <polygon points="0,-80 70,-55 86,8 50,68 -50,68 -86,8 -70,-55" fill="none" stroke="#e5e7eb" stroke-width="1"/>
               <polygon points="0,-53 47,-37 57,5 33,45 -33,45 -57,5 -47,-37" fill="none" stroke="#f1f5f9" stroke-width="1"/>
@@ -282,20 +282,20 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     <div style="display:flex;flex-direction:column;gap:8px">
       <p style="font-size:12px;font-weight:700;margin-bottom:2px;display:flex;align-items:center;gap:6px"><i data-lucide="list-checks" style="width:14px;height:14px;color:var(--teal)"></i> Phân tích 7 tiêu chí</p>
       <div class="card" style="padding:10px 14px;border-left:3px solid var(--red)">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag tr" style="font-size:9px">Ưu tiên</span><strong style="font-size:11px">5. Đội ngũ — 45%</strong></div>
-        <p style="font-size:10px;color:var(--mut);line-height:1.4">15/45 GV đạt B2+. Cần bồi dưỡng CLIL cho 30 GV.</p>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag tr" style="font-size:11px">Ưu tiên</span><strong style="font-size:11px">5. Đội ngũ — 45%</strong></div>
+        <p style="font-size:12px;color:var(--mut);line-height:1.4">15/45 GV đạt B2+. Cần bồi dưỡng CLIL cho 30 GV.</p>
       </div>
       <div class="card" style="padding:10px 14px;border-left:3px solid var(--red)">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag tr" style="font-size:9px">Ưu tiên</span><strong style="font-size:11px">6. Hợp tác quốc tế — 30%</strong></div>
-        <p style="font-size:10px;color:var(--mut);line-height:1.4">Chưa có đối tác hay chương trình trao đổi.</p>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag tr" style="font-size:11px">Ưu tiên</span><strong style="font-size:11px">6. Hợp tác quốc tế — 30%</strong></div>
+        <p style="font-size:12px;color:var(--mut);line-height:1.4">Chưa có đối tác hay chương trình trao đổi.</p>
       </div>
       <div class="card" style="padding:10px 14px;border-left:3px solid var(--amb)">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag ta" style="font-size:9px">Phát triển</span><strong style="font-size:11px">3. Học liệu — 40%</strong></div>
-        <p style="font-size:10px;color:var(--mut);line-height:1.4">Chưa có tài liệu CLIL cho Toán và Khoa Học.</p>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag ta" style="font-size:11px">Phát triển</span><strong style="font-size:11px">3. Học liệu — 40%</strong></div>
+        <p style="font-size:12px;color:var(--mut);line-height:1.4">Chưa có tài liệu CLIL cho Toán và Khoa Học.</p>
       </div>
       <div class="card" style="padding:10px 14px;border-left:3px solid var(--grn)">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag tg" style="font-size:9px">Tốt</span><strong style="font-size:11px">4. Số hóa & AI — 75%</strong></div>
-        <p style="font-size:10px;color:var(--mut);line-height:1.4">Hạ tầng CNTT tốt. Đã dùng nền tảng Learneris.</p>
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag tg" style="font-size:11px">Tốt</span><strong style="font-size:11px">4. Số hóa & AI — 75%</strong></div>
+        <p style="font-size:12px;color:var(--mut);line-height:1.4">Hạ tầng CNTT tốt. Đã dùng nền tảng Learneris.</p>
       </div>
       <button class="cta" style="width:100%;justify-content:center;padding:9px;font-size:13px" onclick="goTo(4)"><i data-lucide="arrow-right"></i> Lộ Trình Cải Thiện</button>
     </div>
@@ -309,25 +309,25 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <p class="sec-s">Đào tạo CLIL với bài kiểm tra, bảng xếp hạng và chứng nhận tự động.</p>
   <div class="g3" style="margin-bottom:12px">
     <div class="card" style="padding:12px">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><span class="tag tg">71%</span><span style="font-size:10px;color:var(--mut)">60p</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><span class="tag tg">71%</span><span style="font-size:12px;color:var(--mut)">60p</span></div>
       <h4 style="font-size:12px;font-weight:700">Phương Pháp CLIL</h4>
-      <p style="font-size:9px;color:var(--mut);margin:3px 0 6px">Content & Language Integrated Learning</p>
+      <p style="font-size:11px;color:var(--mut);margin:3px 0 6px">Content & Language Integrated Learning</p>
       <div class="pt"><div class="pf fg" style="width:71%"></div></div>
-      <p style="font-size:9px;color:var(--mut);margin-top:5px">32/45 GV</p>
+      <p style="font-size:11px;color:var(--mut);margin-top:5px">32/45 GV</p>
     </div>
     <div class="card" style="padding:12px">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><span class="tag ta">40%</span><span style="font-size:10px;color:var(--mut)">60p</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><span class="tag ta">40%</span><span style="font-size:12px;color:var(--mut)">60p</span></div>
       <h4 style="font-size:12px;font-weight:700">Tiếng Anh Lớp Học</h4>
-      <p style="font-size:9px;color:var(--mut);margin:3px 0 6px">Classroom English for Teachers</p>
+      <p style="font-size:11px;color:var(--mut);margin:3px 0 6px">Classroom English for Teachers</p>
       <div class="pt"><div class="pf fa" style="width:40%"></div></div>
-      <p style="font-size:9px;color:var(--mut);margin-top:5px">18/45 GV</p>
+      <p style="font-size:11px;color:var(--mut);margin-top:5px">18/45 GV</p>
     </div>
     <div class="card" style="padding:12px">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><span class="tag tr">11%</span><span style="font-size:10px;color:var(--mut)">45p</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><span class="tag tr">11%</span><span style="font-size:12px;color:var(--mut)">45p</span></div>
       <h4 style="font-size:12px;font-weight:700">Toán Bằng Tiếng Anh</h4>
-      <p style="font-size:9px;color:var(--mut);margin:3px 0 6px">Math in English (CLIL)</p>
+      <p style="font-size:11px;color:var(--mut);margin:3px 0 6px">Math in English (CLIL)</p>
       <div class="pt"><div class="pf fr" style="width:11%"></div></div>
-      <p style="font-size:9px;color:var(--mut);margin-top:5px">5/45 GV</p>
+      <p style="font-size:11px;color:var(--mut);margin-top:5px">5/45 GV</p>
     </div>
   </div>
   <div class="g2">
@@ -337,9 +337,9 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         <div class="mock-bar"><span class="mock-dot" style="background:#f87171"></span><span class="mock-dot" style="background:#fbbf24"></span><span class="mock-dot" style="background:#4ade80"></span><span class="mock-url">learneris.com/pd/clil-methodology</span></div>
         <div class="mock-body" style="padding:12px">
           <p style="font-weight:700;font-size:11px;margin-bottom:6px;display:flex;align-items:center;gap:6px"><i data-lucide="help-circle" style="width:13px;height:13px;color:var(--pur)"></i> CLIL là gì?</p>
-          <div style="padding:8px 12px;border:1.5px solid #e5e7eb;border-radius:7px;margin-bottom:5px;font-size:11px;display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:var(--srf);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:9px;color:var(--mut)">A</span>Computer Language Learning</div>
-          <div style="padding:8px 12px;border:1.5px solid var(--grn);border-radius:7px;margin-bottom:5px;font-size:11px;display:flex;align-items:center;gap:8px;background:var(--g50)"><span style="width:22px;height:22px;border-radius:50%;background:var(--grn);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:9px;color:#fff">C</span>Content & Language Integrated Learning</div>
-          <div style="padding:8px 12px;border:1.5px solid #e5e7eb;border-radius:7px;font-size:11px;display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:var(--srf);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:9px;color:var(--mut)">D</span>Comprehensive Linguistic Layer</div>
+          <div style="padding:8px 12px;border:1.5px solid #e5e7eb;border-radius:7px;margin-bottom:5px;font-size:11px;display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:var(--srf);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:var(--mut)">A</span>Computer Language Learning</div>
+          <div style="padding:8px 12px;border:1.5px solid var(--grn);border-radius:7px;margin-bottom:5px;font-size:11px;display:flex;align-items:center;gap:8px;background:var(--g50)"><span style="width:22px;height:22px;border-radius:50%;background:var(--grn);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:#fff">C</span>Content & Language Integrated Learning</div>
+          <div style="padding:8px 12px;border:1.5px solid #e5e7eb;border-radius:7px;font-size:11px;display:flex;align-items:center;gap:8px"><span style="width:22px;height:22px;border-radius:50%;background:var(--srf);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:var(--mut)">D</span>Comprehensive Linguistic Layer</div>
         </div>
       </div>
     </div>
@@ -351,10 +351,10 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         <div style="display:flex;align-items:center;gap:8px;padding:6px 0;font-size:12px"><span style="width:24px;text-align:center;font-size:16px">3</span><span style="font-weight:600;flex:1">Lê Hoàng Anh</span><span style="font-weight:700;color:var(--teal)">890đ</span></div>
       </div>
       <div style="border:1.5px solid var(--t200);border-radius:var(--r);padding:16px;text-align:center;background:linear-gradient(135deg,var(--t50),#fff,var(--p50));position:relative;overflow:hidden">
-        <p style="color:var(--teal);font-size:8px;text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-bottom:4px">Chứng Nhận</p>
+        <p style="color:var(--teal);font-size:11px;text-transform:uppercase;letter-spacing:3px;font-weight:600;margin-bottom:4px">Chứng Nhận</p>
         <p style="font-size:15px;font-weight:800;margin-bottom:2px">Cô Nguyễn Thị Lan</p>
         <p style="font-size:11px;color:var(--mut)">CLIL Methodology</p>
-        <p style="font-size:9px;color:var(--teal);margin-top:5px;display:flex;align-items:center;justify-content:center;gap:3px"><i data-lucide="external-link" style="width:10px;height:10px"></i> learneris.ai/verify/CERT-2026-0412</p>
+        <p style="font-size:11px;color:var(--teal);margin-top:5px;display:flex;align-items:center;justify-content:center;gap:3px"><i data-lucide="external-link" style="width:10px;height:10px"></i> learneris.ai/verify/CERT-2026-0412</p>
       </div>
     </div>
   </div>
@@ -374,11 +374,11 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         <label class="fl">Tỷ lệ Tiếng Anh trong bài</label>
         <div style="position:relative;margin:10px 0">
           <div style="width:100%;height:5px;background:#e5e7eb;border-radius:3px;position:relative"><div style="height:100%;background:linear-gradient(90deg,var(--tl),var(--teal));border-radius:3px;width:50%"></div><div style="width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--teal);box-shadow:0 2px 6px rgba(0,0,0,0.15);position:absolute;top:-6px;left:calc(50% - 8px)"></div></div>
-          <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:9px;color:#cbd5e1;font-weight:600"><span>20%</span><span style="color:var(--teal);font-weight:700">50%</span><span>80%</span><span>100%</span></div>
+          <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:11px;color:#cbd5e1;font-weight:600"><span>20%</span><span style="color:var(--teal);font-weight:700">50%</span><span>80%</span><span>100%</span></div>
         </div>
       </div>
       <button class="cta" style="width:100%;justify-content:center;padding:9px"><i data-lucide="sparkles"></i> Tạo Bài Giảng Song Ngữ</button>
-      <p style="text-align:center;margin-top:6px"><span class="tag tt" style="font-size:9px">~2.000đ / bài (~$0.08)</span></p>
+      <p style="text-align:center;margin-top:6px"><span class="tag tt" style="font-size:11px">~2.000đ / bài (~$0.08)</span></p>
     </div>
     <div>
       <!-- Mockup: content preview -->
@@ -387,7 +387,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         <div class="mock-body" style="padding:12px">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
             <p style="font-weight:700;font-size:11px;display:flex;align-items:center;gap:5px"><i data-lucide="file-text" style="width:12px;height:12px;color:var(--teal)"></i> Preview</p>
-            <div style="display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600"><span>VN</span><div style="width:32px;height:18px;border-radius:9px;background:linear-gradient(135deg,var(--tl),var(--teal));position:relative"><div style="width:14px;height:14px;border-radius:50%;background:#fff;position:absolute;top:2px;right:2px;box-shadow:0 1px 2px rgba(0,0,0,0.15)"></div></div><span>EN</span></div>
+            <div style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600"><span>VN</span><div style="width:32px;height:18px;border-radius:9px;background:linear-gradient(135deg,var(--tl),var(--teal));position:relative"><div style="width:14px;height:14px;border-radius:50%;background:#fff;position:absolute;top:2px;right:2px;box-shadow:0 1px 2px rgba(0,0,0,0.15)"></div></div><span>EN</span></div>
           </div>
           <div style="font-size:12px;line-height:1.7;padding:10px;background:linear-gradient(135deg,#fff,var(--t50));border:1px solid rgba(0,0,0,0.05);border-radius:6px">
             <p><strong>Phương trình bậc nhất / <span style="color:var(--teal);font-style:italic">Linear Equations</span></strong></p>
@@ -397,16 +397,16 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         </div>
       </div>
       <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px">
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:10px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="book-open" style="width:10px;height:10px"></i> Study Guide</span>
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:10px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="presentation" style="width:10px;height:10px"></i> Slides</span>
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:10px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="graduation-cap" style="width:10px;height:10px"></i> TG</span>
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:10px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="file-question" style="width:10px;height:10px"></i> Quiz</span>
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:10px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="gamepad-2" style="width:10px;height:10px"></i> Interactive</span>
+        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="book-open" style="width:10px;height:10px"></i> Study Guide</span>
+        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="presentation" style="width:10px;height:10px"></i> Slides</span>
+        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="graduation-cap" style="width:10px;height:10px"></i> TG</span>
+        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="file-question" style="width:10px;height:10px"></i> Quiz</span>
+        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="gamepad-2" style="width:10px;height:10px"></i> Interactive</span>
       </div>
       <div class="card" style="text-align:center;padding:10px;background:var(--srf)">
-        <p style="font-size:9px;color:var(--mut)">5 thành phần — <strong>~3 phút</strong></p>
+        <p style="font-size:11px;color:var(--mut)">5 thành phần — <strong>~3 phút</strong></p>
         <div class="pt" style="margin-top:5px"><div class="pf ft" style="width:100%"></div></div>
-        <p style="font-size:9px;color:var(--grn);font-weight:600;margin-top:5px;display:flex;align-items:center;justify-content:center;gap:3px"><i data-lucide="check" style="width:10px;height:10px"></i> Sẵn sàng giao cho giáo viên</p>
+        <p style="font-size:11px;color:var(--grn);font-weight:600;margin-top:5px;display:flex;align-items:center;justify-content:center;gap:3px"><i data-lucide="check" style="width:10px;height:10px"></i> Sẵn sàng giao cho giáo viên</p>
       </div>
     </div>
   </div>
@@ -427,30 +427,30 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         <p style="color:var(--teal);font-style:italic">"Please open your book to page 42."</p>
       </div>
       <div style="background:var(--t50);border:1px solid var(--t200);border-radius:var(--rs);padding:10px 14px;font-size:11px;line-height:1.9">
-        <p style="font-weight:700;font-size:10px;color:var(--t800);margin-bottom:4px;display:flex;align-items:center;gap:4px"><i data-lucide="book-a" style="width:12px;height:12px"></i> Từ vựng CLIL</p>
+        <p style="font-weight:700;font-size:12px;color:var(--t800);margin-bottom:4px;display:flex;align-items:center;gap:4px"><i data-lucide="book-a" style="width:12px;height:12px"></i> Từ vựng CLIL</p>
         <strong style="color:var(--t800)">phương trình</strong> = equation &middot; <strong style="color:var(--t800)">ẩn số</strong> = variable &middot; <strong style="color:var(--t800)">giải</strong> = solve
       </div>
     </div>
     <div>
       <div class="tag tg" style="margin-bottom:8px;display:flex;align-items:center;gap:4px;width:fit-content"><i data-lucide="backpack" style="width:10px;height:10px"></i> Học Sinh</div>
       <div class="card" style="padding:10px;margin-bottom:8px">
-        <p style="font-weight:700;font-size:10px;margin-bottom:6px;display:flex;align-items:center;gap:5px"><i data-lucide="bot" style="width:12px;height:12px;color:var(--teal)"></i> AI Math Tutor</p>
+        <p style="font-weight:700;font-size:12px;margin-bottom:6px;display:flex;align-items:center;gap:5px"><i data-lucide="bot" style="width:12px;height:12px;color:var(--teal)"></i> AI Math Tutor</p>
         <div class="chat">
           <div class="cb cu">How do I solve 2x + 3 = 7?</div>
-          <div class="cb ca"><strong>Step 1:</strong> 2x = 7 - 3 = 4<br><strong>Step 2:</strong> x = 4 ÷ 2 = <strong>2</strong><br><em style="font-size:10px">Mẹo: Cùng phép tính ở cả hai vế!</em></div>
+          <div class="cb ca"><strong>Step 1:</strong> 2x = 7 - 3 = 4<br><strong>Step 2:</strong> x = 4 ÷ 2 = <strong>2</strong><br><em style="font-size:12px">Mẹo: Cùng phép tính ở cả hai vế!</em></div>
         </div>
       </div>
       <div class="card" style="padding:10px;background:var(--srf)">
-        <p style="font-weight:700;font-size:10px;margin-bottom:6px;display:flex;align-items:center;gap:5px"><i data-lucide="gamepad-2" style="width:12px;height:12px;color:var(--pur)"></i> Ghép từ vựng CLIL</p>
+        <p style="font-weight:700;font-size:12px;margin-bottom:6px;display:flex;align-items:center;gap:5px"><i data-lucide="gamepad-2" style="width:12px;height:12px;color:var(--pur)"></i> Ghép từ vựng CLIL</p>
         <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px">
-          <span style="padding:5px 9px;background:var(--t100);border-radius:5px;font-size:10px;font-weight:600">equation</span>
-          <span style="padding:5px 9px;background:var(--p50);border-radius:5px;font-size:10px;font-weight:600">phương trình</span>
-          <span style="padding:5px 9px;background:var(--t100);border-radius:5px;font-size:10px;font-weight:600">variable</span>
-          <span style="padding:5px 9px;background:var(--p50);border-radius:5px;font-size:10px;font-weight:600">ẩn số</span>
+          <span style="padding:5px 9px;background:var(--t100);border-radius:5px;font-size:12px;font-weight:600">equation</span>
+          <span style="padding:5px 9px;background:var(--p50);border-radius:5px;font-size:12px;font-weight:600">phương trình</span>
+          <span style="padding:5px 9px;background:var(--t100);border-radius:5px;font-size:12px;font-weight:600">variable</span>
+          <span style="padding:5px 9px;background:var(--p50);border-radius:5px;font-size:12px;font-weight:600">ẩn số</span>
         </div>
         <div style="display:flex;gap:5px">
-          <div style="flex:1;border:2px dashed var(--t200);border-radius:7px;padding:7px;text-align:center;font-size:9px;color:var(--teal);font-weight:600">English</div>
-          <div style="flex:1;border:2px dashed #c4b5fd;border-radius:7px;padding:7px;text-align:center;font-size:9px;color:var(--pur);font-weight:600">Tiếng Việt</div>
+          <div style="flex:1;border:2px dashed var(--t200);border-radius:7px;padding:7px;text-align:center;font-size:11px;color:var(--teal);font-weight:600">English</div>
+          <div style="flex:1;border:2px dashed #c4b5fd;border-radius:7px;padding:7px;text-align:center;font-size:11px;color:var(--pur);font-weight:600">Tiếng Việt</div>
         </div>
       </div>
     </div>
@@ -463,7 +463,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <h2 class="sec-t"><i data-lucide="bar-chart-3"></i> Theo Dõi & Báo Cáo</h2>
   <p class="sec-s">Dashboard EMI và báo cáo tự động cho Sở GD&ĐT.</p>
   <div class="g4" style="margin-bottom:12px">
-    <div class="st"><div style="font-size:10px;color:var(--mut);margin-bottom:2px">EMI Level</div><div style="font-size:22px;font-weight:900"><span style="color:#d1d5db">0</span><span style="color:var(--teal);margin:0 2px">→</span><span style="color:var(--teal)">1</span></div></div>
+    <div class="st"><div style="font-size:12px;color:var(--mut);margin-bottom:2px">EMI Level</div><div style="font-size:22px;font-weight:900"><span style="color:#d1d5db">0</span><span style="color:var(--teal);margin:0 2px">→</span><span style="color:var(--teal)">1</span></div></div>
     <div class="st"><div class="sv">71%</div><div class="slb">GV Chứng Nhận</div></div>
     <div class="st"><div class="sv" style="color:var(--grn)">1,240</div><div class="slb">Giờ Tiếng Anh</div></div>
     <div class="st"><div class="sv" style="color:var(--pur)">65%</div><div class="slb">CLIL 156/240</div></div>
@@ -474,7 +474,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       <div class="mock-browser">
         <div class="mock-bar"><span class="mock-dot" style="background:#f87171"></span><span class="mock-dot" style="background:#fbbf24"></span><span class="mock-dot" style="background:#4ade80"></span><span class="mock-url">portal.learneris.com/emi/dashboard</span></div>
         <div class="mock-body" style="padding:10px">
-          <p style="font-weight:700;font-size:10px;margin-bottom:6px;display:flex;align-items:center;gap:5px"><i data-lucide="bar-chart-3" style="width:12px;height:12px;color:var(--teal)"></i> Chứng Nhận GV</p>
+          <p style="font-weight:700;font-size:12px;margin-bottom:6px;display:flex;align-items:center;gap:5px"><i data-lucide="bar-chart-3" style="width:12px;height:12px;color:var(--teal)"></i> Chứng Nhận GV</p>
           <svg width="100%" height="100" viewBox="0 0 300 100">
             <rect x="10" y="5" width="40" height="80" rx="4" fill="var(--t100)"/><rect x="10" y="5" width="40" height="57" rx="4" fill="var(--teal)"/><text x="30" y="100" text-anchor="middle" font-size="8" fill="#64748b" font-weight="600">CLIL</text>
             <rect x="65" y="5" width="40" height="80" rx="4" fill="var(--t100)"/><rect x="65" y="37" width="40" height="48" rx="4" fill="var(--amb)"/><text x="85" y="100" text-anchor="middle" font-size="8" fill="#64748b" font-weight="600">English</text>
@@ -485,7 +485,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         </div>
       </div>
       <div class="card" style="text-align:center;padding:12px;margin-top:10px">
-        <p style="font-weight:700;font-size:10px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:5px"><i data-lucide="target" style="width:12px;height:12px;color:var(--teal)"></i> Mục Tiêu Level 1</p>
+        <p style="font-weight:700;font-size:12px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:5px"><i data-lucide="target" style="width:12px;height:12px;color:var(--teal)"></i> Mục Tiêu Level 1</p>
         <svg width="90" height="90" viewBox="0 0 90 90"><circle cx="45" cy="45" r="36" fill="none" stroke="#e5e7eb" stroke-width="6"/><circle cx="45" cy="45" r="36" fill="none" stroke="var(--teal)" stroke-width="6" stroke-dasharray="226" stroke-dashoffset="77" stroke-linecap="round" transform="rotate(-90 45 45)"/><text x="45" y="43" text-anchor="middle" font-size="18" font-weight="900" fill="var(--teal)">66%</text><text x="45" y="54" text-anchor="middle" font-size="7" fill="#64748b">hoàn thành</text></svg>
       </div>
     </div>
@@ -493,15 +493,15 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       <div style="border:1px solid rgba(0,0,0,0.06);border-radius:var(--r);overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.04);margin-bottom:10px">
         <div style="background:linear-gradient(135deg,var(--teal),var(--t800));color:#fff;padding:10px 14px;display:flex;align-items:center;gap:8px">
           <div class="logo" style="width:22px;height:22px;border-radius:5px;background:rgba(255,255,255,0.15)"><span style="font-size:11px">L</span></div>
-          <div><p style="font-size:11px;font-weight:700">Báo Cáo — Sở GD&ĐT TP.HCM</p><p style="font-size:8px;opacity:0.8">THCS Nguyễn Du — HK I, 2026-2027</p></div>
+          <div><p style="font-size:11px;font-weight:700">Báo Cáo — Sở GD&ĐT TP.HCM</p><p style="font-size:11px;opacity:0.8">THCS Nguyễn Du — HK I, 2026-2027</p></div>
         </div>
-        <div style="padding:10px 14px;font-size:10px;color:var(--mut)">
+        <div style="padding:10px 14px;font-size:12px;color:var(--mut)">
           <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f1f5f9"><span>Mức độ EMI</span><strong style="color:var(--txt)">Level 0 → 1</strong></div>
           <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f1f5f9"><span>GV chứng nhận CLIL</span><strong style="color:var(--txt)">32/45 (71%)</strong></div>
           <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f1f5f9"><span>Giờ tiếp xúc TA</span><strong style="color:var(--txt)">1,240h</strong></div>
           <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f1f5f9"><span>Bài CLIL triển khai</span><strong style="color:var(--txt)">156 bài</strong></div>
           <div style="display:flex;justify-content:space-between;padding:4px 0"><span>Học sinh tham gia</span><strong style="color:var(--txt)">620 HS</strong></div>
-          <div style="text-align:center;margin-top:8px"><button style="padding:6px 14px;background:var(--teal);color:#fff;border:none;border-radius:6px;font-size:10px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:4px"><i data-lucide="download" style="width:11px;height:11px"></i> Tải PDF</button></div>
+          <div style="text-align:center;margin-top:8px"><button style="padding:6px 14px;background:var(--teal);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:4px"><i data-lucide="download" style="width:11px;height:11px"></i> Tải PDF</button></div>
         </div>
       </div>
       <div class="fcta">
