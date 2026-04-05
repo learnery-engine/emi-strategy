@@ -2,7 +2,7 @@
 
 ## Strategy: "Regulatory Wedge + Platform Lock-in"
 
-Learneris's GTM strategy leverages its unique position as the only platform named in government EMI documents. The playbook:
+Learneris's GTM strategy leverages its prepared school onboarding kit and existing government certifications to become the default EMI technology partner. The playbook:
 
 1. **Free tool** (EMI Readiness Assessment) gets schools on the platform
 2. **Standardized document kit** makes Learneris the path of least resistance for EMI approval
@@ -58,7 +58,7 @@ Learneris's GTM strategy leverages its unique position as the only platform name
 ## Messaging Framework
 
 ### For School Principals
-"Learneris is the only platform approved in official EMI pilot documents. We help you implement EMI without disrupting your existing curriculum or overwhelming your teachers."
+"Learneris gives you everything you need to launch an EMI pilot — the application documents, the technology platform, the teacher training, and the bilingual content. We help you implement EMI without disrupting your existing curriculum or overwhelming your teachers."
 
 ### For Department of Education
 "Learneris provides the monitoring, reporting, and quality assurance tools the Department needs to track EMI implementation across all schools in the province."
@@ -67,4 +67,4 @@ Learneris's GTM strategy leverages its unique position as the only platform name
 "You don't need perfect English to teach with EMI. Learneris gives you real-time support, bilingual lesson plans, and a pronunciation guide so you can confidently integrate English into your subjects."
 
 ### For YC / Investors
-"Vietnam just launched a 20-year national plan to make English the second language in every school. We're the only platform named in the government's implementation documents. We're building the infrastructure layer for the entire initiative."
+"Vietnam just launched a 20-year national plan to make English the second language in every school. We have government certifications, existing school contracts, and a turnkey onboarding kit that makes us the default choice for schools. We're building the infrastructure layer for the entire initiative."

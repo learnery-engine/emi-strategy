@@ -31,14 +31,16 @@ The policy explicitly calls for:
 
 ## Why Learneris Is Uniquely Positioned
 
-### Already Embedded in the Regulatory Framework
+### Prepared Go-to-Market Kit for Schools
 
-Learneris is **the only technology platform named** in the Hanoi EMI Standardized Kit — the official document package that schools submit to the Department of Education for EMI pilot approval. The kit includes:
+Learneris has developed a **Hanoi EMI Standardized Kit** — a ready-to-submit document package designed to help schools apply for EMI pilot approval with their Department of Education. The kit is a Learneris-created asset (not a government document) that positions Learneris as the default technology partner:
 
-1. **To Trinh** (Petition) — names Learneris as the support tool
-2. **De An** (Implementation Plan) — names Learneris as the technical platform
-3. **Phu Luc** (Partner Annex) — names Vietlearn/AVS as delivery partners for Learneris
-4. **Template** — standardized shell for any school to submit
+1. **To Trinh** (Petition template) — names Learneris as the support tool
+2. **De An** (Implementation Plan template) — names Learneris as the technical platform
+3. **Phu Luc** (Partner Annex template) — names Vietlearn/AVS as delivery partners for Learneris
+4. **Template** — standardized shell for any school to customize and submit
+
+The goal is to make Learneris the **path of least resistance** for schools seeking EMI approval — a turnkey package that solves both the bureaucratic and technical hurdles simultaneously.
 
 ### Existing Product-Policy Alignment
 
@@ -57,7 +59,7 @@ Learneris is **the only technology platform named** in the Hanoi EMI Standardize
 
 ### Competitive Moats
 
-1. **Regulatory entrenchment** — Named in official government document templates
+1. **Ready-made school onboarding kit** — Turnkey document package that embeds Learneris into EMI pilot applications
 2. **Government certifications** — InfoSec Level 3 + VNIES curriculum approval (barriers competitors must clear)
 3. **AI content production cost** — $0.10/lesson at 3 min vs 45 min manual
 4. **Full-stack ownership** — Content + Platform + Training + Assessment in one vendor
@@ -167,7 +169,7 @@ Learneris is **the only technology platform named** in the Hanoi EMI Standardize
 | HCMC De An (draft) | UBND HCMC | 2026 | HCMC EMI plan 2025-2035 |
 | SGDDT-GDMN 2551 | SGDDT HCMC | 2026 | Preschool English integration pilot |
 | KH 18/KH-BGDDT | MOET | 2026 | Teacher English proficiency survey |
-| Hanoi Standardized Kit | Schools/Learneris | Jan 2026 | Ready-to-submit EMI pilot application |
+| Hanoi Standardized Kit | Learneris (internal) | Jan 2026 | Learneris-created template kit for school EMI applications |
 
 ## Repository Structure
 

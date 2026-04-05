@@ -33,7 +33,7 @@
 ## Learneris Competitive Advantages
 
 ### Unmatched Advantages
-1. **Named in government documents** — No other platform has this
+1. **Ready-made school onboarding kit** — Turnkey EMI pilot application package that embeds Learneris as the default platform
 2. **Government certifications** (InfoSec Level 3 + VNIES) — 6-12 month barrier for competitors
 3. **Full-stack solution** — Content + Platform + Training + Assessment
 4. **Existing school contracts** — Dai Nam (3yr), KDI (100K+ students), Nguyen Sieu

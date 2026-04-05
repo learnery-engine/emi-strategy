@@ -90,7 +90,7 @@ A national teacher English proficiency survey covering:
 
 ## Regulatory Risk Factors
 
-1. **Platform role limitation**: Documents carefully state technology "does not replace teachers" and "does not participate in education management" — Learneris must maintain this positioning
+1. **Platform role limitation**: The Learneris-created school kit carefully states technology "does not replace teachers" and "does not participate in education management" — this framing must be maintained in all government-facing materials
 2. **No curriculum changes**: EMI must work within existing GDPT 2018 curriculum
 3. **No teacher proficiency assessment**: The policy explicitly states teacher English proficiency is NOT evaluated (politically sensitive)
 4. **Public school budget constraints**: Especially in newly-merged outer districts; socialization (xa hoi hoa) funding model required
