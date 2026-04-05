@@ -122,6 +122,44 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 /* CLIL callout */
 .clil-box{background:linear-gradient(135deg,var(--t50),#fff);border:1px solid var(--t200);border-radius:var(--r);padding:14px 18px;position:relative}
 .clil-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--pur));border-radius:var(--r) var(--r) 0 0}
+/* === ANIMATIONS === */
+/* Typing cursor */
+.typing-cursor{display:inline-block;width:2px;height:1em;background:var(--teal);margin-left:2px;animation:blink .7s step-end infinite;vertical-align:text-bottom}
+@keyframes blink{50%{opacity:0}}
+/* Reveal items stagger */
+.reveal-item{opacity:0;transform:translateY(10px);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.reveal-item.show{opacity:1;transform:translateY(0)}
+/* Fade in from left/right */
+.reveal-left{opacity:0;transform:translateX(-16px);transition:all .5s cubic-bezier(.4,0,.2,1)}
+.reveal-right{opacity:0;transform:translateX(16px);transition:all .5s cubic-bezier(.4,0,.2,1)}
+.reveal-left.show,.reveal-right.show{opacity:1;transform:translateX(0)}
+/* Scale pop */
+.reveal-pop{opacity:0;transform:scale(0.85);transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+.reveal-pop.show{opacity:1;transform:scale(1)}
+/* Click pulse */
+.click-dot{position:absolute;width:28px;height:28px;border-radius:50%;background:rgba(13,148,136,0.25);border:2px solid var(--teal);pointer-events:none;opacity:0;transform:scale(0);z-index:50}
+.click-dot.fire{animation:clickPulse .6s ease forwards}
+@keyframes clickPulse{0%{opacity:1;transform:scale(0)}40%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.5)}}
+/* Progress fill animation */
+.anim-fill{width:0!important;transition:width 1.2s cubic-bezier(.4,0,.2,1) .3s}
+.anim-fill.go{width:var(--tw)!important}
+/* Typing text */
+.type-text{border-right:2px solid var(--teal);padding-right:2px;white-space:nowrap;overflow:hidden;display:inline-block;max-width:0;animation:none;vertical-align:bottom}
+.type-text.go{animation:typeIn 1.5s steps(30) forwards,blink .7s step-end infinite 1.5s;animation-fill-mode:forwards,none}
+@keyframes typeIn{to{max-width:500px}}
+/* Radar draw */
+.radar-data{opacity:0;transition:opacity .8s ease .2s}
+.radar-data.show{opacity:1}
+.radar-data polygon{stroke-dasharray:500;stroke-dashoffset:500;transition:stroke-dashoffset 1.5s ease .4s}
+.radar-data.show polygon{stroke-dashoffset:0}
+/* Chat bubble entry */
+.chat-entry{opacity:0;transform:translateY(8px) scale(0.95);transition:all .35s cubic-bezier(.4,0,.2,1)}
+.chat-entry.show{opacity:1;transform:translateY(0) scale(1)}
+/* Shimmer loading */
+.shimmer{background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 50%,#f1f5f9 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+/* Counter animation helper */
+.count-up{font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
@@ -145,7 +183,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     <button class="cta" onclick="goTo(2)"><i data-lucide="arrow-right"></i> Bắt Đầu Hành Trình EMI</button>
   </div>
   <!-- CLIL Explainer: What, Why, How -->
-  <div class="clil-box" style="margin-top:14px">
+  <div class="clil-box reveal-item" style="margin-top:14px">
     <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px">
       <div class="ic" style="width:36px;height:36px;background:var(--t100);color:var(--teal);margin-top:2px"><i data-lucide="languages"></i></div>
       <div style="flex:1">
@@ -178,17 +216,17 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     </div>
   </div>
   <div class="g3" style="margin-top:12px">
-    <div class="card" style="border-top:3px solid var(--tl);padding:14px">
+    <div class="card reveal-item" style="border-top:3px solid var(--tl);padding:14px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--t50);color:var(--teal)"><i data-lucide="sprout"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 1</h3></div>
       <p style="font-size:12px;color:var(--mut);line-height:1.4">Môi trường TA cơ bản — biển hiệu song ngữ, sinh hoạt, GV bắt đầu dùng TA</p>
       <p style="font-size:11px;color:var(--teal);margin-top:5px;font-weight:600">2030: 30% trường HCMC &middot; 20% quốc gia</p>
     </div>
-    <div class="card" style="border-top:3px solid var(--grn);padding:14px">
+    <div class="card reveal-item" style="border-top:3px solid var(--grn);padding:14px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--g50);color:var(--grn)"><i data-lucide="book-open"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 2</h3></div>
       <p style="font-size:12px;color:var(--mut);line-height:1.4">CLIL tích hợp — Toán, Khoa Học dạy bằng TA; GV đạt B2+; học liệu số</p>
       <p style="font-size:11px;color:var(--grn);margin-top:5px;font-weight:600">2030: 20% trường HCMC &middot; 5% quốc gia</p>
     </div>
-    <div class="card" style="border-top:3px solid var(--pur);padding:14px">
+    <div class="card reveal-item" style="border-top:3px solid var(--pur);padding:14px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--p50);color:var(--pur)"><i data-lucide="globe"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 3</h3></div>
       <p style="font-size:12px;color:var(--mut);line-height:1.4">TA tự nhiên — mọi hoạt động; hợp tác quốc tế; nghiên cứu bằng TA</p>
       <p style="font-size:11px;color:var(--pur);margin-top:5px;font-weight:600">2030: 10% trường HCMC &middot; 2% quốc gia</p>
@@ -203,7 +241,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <p class="sec-s">Nhập thông tin, import danh sách và tự động tạo tổ chức trên Learneris.</p>
   <div class="g2">
     <div>
-      <div style="margin-bottom:10px"><label class="fl">Tên Trường</label><input class="fi" value="Trường THCS Nguyễn Du" readonly></div>
+      <div style="margin-bottom:10px"><label class="fl">Tên Trường</label><div class="fi type-field" style="min-height:36px"></div></div>
       <div style="margin-bottom:10px"><label class="fl">Quận / Huyện</label><input class="fi" value="Quận 1, TP.HCM" readonly></div>
       <div style="margin-bottom:10px">
         <label class="fl">Khối lớp triển khai</label>
@@ -215,7 +253,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         </div>
       </div>
       <!-- Mockup: file upload -->
-      <div style="border:2px solid var(--grn);border-radius:var(--rs);padding:14px;background:var(--g50);color:var(--grn);font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px">
+      <div class="click-target" style="border:2px solid var(--grn);border-radius:var(--rs);padding:14px;background:var(--g50);color:var(--grn);font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px">
         <i data-lucide="file-check" style="width:18px;height:18px"></i> roster_thcs_nguyen_du.xlsx — đã tải lên
       </div>
     </div>
@@ -238,9 +276,9 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         <div class="st"><div class="sv">18</div><div class="slb">Lớp</div></div>
       </div>
       <div style="display:flex;gap:6px;flex-wrap:wrap">
-        <span class="tag tg" style="display:flex;align-items:center;gap:3px"><i data-lucide="check-circle" style="width:10px;height:10px"></i> Tổ chức đã tạo</span>
-        <span class="tag tg" style="display:flex;align-items:center;gap:3px"><i data-lucide="check-circle" style="width:10px;height:10px"></i> 45 GV</span>
-        <span class="tag tg" style="display:flex;align-items:center;gap:3px"><i data-lucide="check-circle" style="width:10px;height:10px"></i> 620 HS</span>
+        <span class="tag tg reveal-item" style="display:flex;align-items:center;gap:3px"><i data-lucide="check-circle" style="width:10px;height:10px"></i> Tổ chức đã tạo</span>
+        <span class="tag tg reveal-item" style="display:flex;align-items:center;gap:3px"><i data-lucide="check-circle" style="width:10px;height:10px"></i> 45 GV</span>
+        <span class="tag tg reveal-item" style="display:flex;align-items:center;gap:3px"><i data-lucide="check-circle" style="width:10px;height:10px"></i> 620 HS</span>
       </div>
     </div>
   </div>
@@ -262,6 +300,8 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
             <g transform="translate(130,105)">
               <polygon points="0,-80 70,-55 86,8 50,68 -50,68 -86,8 -70,-55" fill="none" stroke="#e5e7eb" stroke-width="1"/>
               <polygon points="0,-53 47,-37 57,5 33,45 -33,45 -57,5 -47,-37" fill="none" stroke="#f1f5f9" stroke-width="1"/>
+            </g>
+            <g transform="translate(130,105)" class="radar-data">
               <polygon points="0,-56 38,-30 34,6 15,51 -15,34 -26,3 -49,-39" fill="rgba(13,148,136,0.12)" stroke="var(--teal)" stroke-width="2" stroke-linejoin="round"/>
               <circle cx="0" cy="-56" r="3" fill="var(--teal)"/><circle cx="38" cy="-30" r="3" fill="var(--teal)"/><circle cx="34" cy="6" r="3" fill="var(--amb)"/>
               <circle cx="15" cy="51" r="3" fill="var(--teal)"/><circle cx="-15" cy="34" r="3" fill="var(--red)"/><circle cx="-26" cy="3" r="3" fill="var(--red)"/><circle cx="-49" cy="-39" r="3" fill="var(--amb)"/>
@@ -274,26 +314,26 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
             <text x="10" y="120" text-anchor="end" class="rl" fill="var(--red)">Quốc tế 30%</text>
             <text x="22" y="55" text-anchor="end" class="rl" fill="var(--amb)">NC&CN 35%</text>
           </svg>
-          <div style="font-size:32px;font-weight:900;color:var(--teal)">50<span style="font-size:14px;color:var(--mut)">/100</span></div>
+          <div style="font-size:32px;font-weight:900;color:var(--teal)"><span class="count-target">0</span><span style="font-size:14px;color:var(--mut)">/100</span></div>
           <div class="tag tt" style="margin-top:4px">Đang tiến tới Level 1</div>
         </div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:8px">
       <p style="font-size:12px;font-weight:700;margin-bottom:2px;display:flex;align-items:center;gap:6px"><i data-lucide="list-checks" style="width:14px;height:14px;color:var(--teal)"></i> Phân tích 7 tiêu chí</p>
-      <div class="card" style="padding:10px 14px;border-left:3px solid var(--red)">
+      <div class="card reveal-item" style="padding:10px 14px;border-left:3px solid var(--red)">
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag tr" style="font-size:11px">Ưu tiên</span><strong style="font-size:11px">5. Đội ngũ — 45%</strong></div>
         <p style="font-size:12px;color:var(--mut);line-height:1.4">15/45 GV đạt B2+. Cần bồi dưỡng CLIL cho 30 GV.</p>
       </div>
-      <div class="card" style="padding:10px 14px;border-left:3px solid var(--red)">
+      <div class="card reveal-item" style="padding:10px 14px;border-left:3px solid var(--red)">
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag tr" style="font-size:11px">Ưu tiên</span><strong style="font-size:11px">6. Hợp tác quốc tế — 30%</strong></div>
         <p style="font-size:12px;color:var(--mut);line-height:1.4">Chưa có đối tác hay chương trình trao đổi.</p>
       </div>
-      <div class="card" style="padding:10px 14px;border-left:3px solid var(--amb)">
+      <div class="card reveal-item" style="padding:10px 14px;border-left:3px solid var(--amb)">
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag ta" style="font-size:11px">Phát triển</span><strong style="font-size:11px">3. Học liệu — 40%</strong></div>
         <p style="font-size:12px;color:var(--mut);line-height:1.4">Chưa có tài liệu CLIL cho Toán và Khoa Học.</p>
       </div>
-      <div class="card" style="padding:10px 14px;border-left:3px solid var(--grn)">
+      <div class="card reveal-item" style="padding:10px 14px;border-left:3px solid var(--grn)">
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px"><span class="tag tg" style="font-size:11px">Tốt</span><strong style="font-size:11px">4. Số hóa & AI — 75%</strong></div>
         <p style="font-size:12px;color:var(--mut);line-height:1.4">Hạ tầng CNTT tốt. Đã dùng nền tảng Learneris.</p>
       </div>
@@ -397,16 +437,16 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         </div>
       </div>
       <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px">
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="book-open" style="width:10px;height:10px"></i> Study Guide</span>
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="presentation" style="width:10px;height:10px"></i> Slides</span>
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="graduation-cap" style="width:10px;height:10px"></i> TG</span>
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="file-question" style="width:10px;height:10px"></i> Quiz</span>
-        <span style="padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="gamepad-2" style="width:10px;height:10px"></i> Interactive</span>
+        <span class="gen-item" style="opacity:0;transform:scale(0.85);transition:all .35s cubic-bezier(.34,1.56,.64,1);padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="book-open" style="width:10px;height:10px"></i> Study Guide</span>
+        <span class="gen-item" style="opacity:0;transform:scale(0.85);transition:all .35s cubic-bezier(.34,1.56,.64,1);padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="presentation" style="width:10px;height:10px"></i> Slides</span>
+        <span class="gen-item" style="opacity:0;transform:scale(0.85);transition:all .35s cubic-bezier(.34,1.56,.64,1);padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="graduation-cap" style="width:10px;height:10px"></i> TG</span>
+        <span class="gen-item" style="opacity:0;transform:scale(0.85);transition:all .35s cubic-bezier(.34,1.56,.64,1);padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="file-question" style="width:10px;height:10px"></i> Quiz</span>
+        <span class="gen-item" style="opacity:0;transform:scale(0.85);transition:all .35s cubic-bezier(.34,1.56,.64,1);padding:4px 9px;background:var(--g50);border:1px solid var(--g100);border-radius:14px;font-size:12px;font-weight:600;color:var(--grn);display:flex;align-items:center;gap:3px"><i data-lucide="gamepad-2" style="width:10px;height:10px"></i> Interactive</span>
       </div>
       <div class="card" style="text-align:center;padding:10px;background:var(--srf)">
         <p style="font-size:11px;color:var(--mut)">5 thành phần — <strong>~3 phút</strong></p>
-        <div class="pt" style="margin-top:5px"><div class="pf ft" style="width:100%"></div></div>
-        <p style="font-size:11px;color:var(--grn);font-weight:600;margin-top:5px;display:flex;align-items:center;justify-content:center;gap:3px"><i data-lucide="check" style="width:10px;height:10px"></i> Sẵn sàng giao cho giáo viên</p>
+        <div class="pt" style="margin-top:5px"><div class="gen-progress pf ft" style="width:0%;transition:width 2.5s cubic-bezier(.4,0,.2,1)"></div></div>
+        <p class="gen-item" style="opacity:0;transform:scale(0.85);transition:all .35s cubic-bezier(.34,1.56,.64,1);font-size:11px;color:var(--grn);font-weight:600;margin-top:5px;display:flex;align-items:center;justify-content:center;gap:3px"><i data-lucide="check" style="width:10px;height:10px"></i> Sẵn sàng giao cho giáo viên</p>
       </div>
     </div>
   </div>
@@ -456,8 +496,8 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       <div class="card" style="padding:12px;margin-bottom:8px">
         <p style="font-weight:700;font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:5px"><i data-lucide="bot" style="width:14px;height:14px;color:var(--teal)"></i> AI Math Tutor</p>
         <div class="chat">
-          <div class="cb cu">How do I solve 2x + 3 = 7?</div>
-          <div class="cb ca"><strong>Step 1:</strong> 2x = 7 - 3 = 4<br><strong>Step 2:</strong> x = 2<br><em style="font-size:12px">Mẹo: Cùng phép tính ở cả hai vế!</em></div>
+          <div class="cb cu chat-entry">How do I solve 2x + 3 = 7?</div>
+          <div class="cb ca chat-entry"><strong>Step 1:</strong> 2x = 7 - 3 = 4<br><strong>Step 2:</strong> x = 2<br><em style="font-size:12px">Mẹo: Cùng phép tính ở cả hai vế!</em></div>
         </div>
       </div>
       <div style="background:linear-gradient(135deg,var(--p50),#fff);border:1px solid var(--p100);border-radius:var(--rs);padding:10px 14px;margin-bottom:8px">
@@ -593,28 +633,165 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <script>
 const S=[{l:'Khám Phá'},{l:'Thiết Lập'},{l:'Đánh Giá'},{l:'Bồi Dưỡng'},{l:'Nội Dung'},{l:'Dạy & Học'},{l:'Báo Cáo'},{l:'FAQ'}];
 let c=1;const T=8;
+let screenAnimated={};
+
 function buildS(){
   const b=document.getElementById('stepBar');
   let h='';
   S.forEach((s,i)=>{const n=i+1;h+=`<div class="si${n<c?' d':''}${n===c?' a':''}" onclick="goTo(${n})"><div class="sc">${n<c?'✓':n}</div><div class="sl">${s.l}</div></div>`;if(i<T-1)h+=`<div class="sln${n<c?' dn':''}"></div>`;});
   b.innerHTML=h;
 }
+
 function goTo(n){
   if(n<1||n>T)return;c=n;
   document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));
-  document.querySelector(`[data-s="${n}"]`).classList.add('on');
+  const scr=document.querySelector(`[data-s="${n}"]`);
+  scr.classList.add('on');
   document.getElementById('prevBtn').disabled=n===1;
-  const nb=document.getElementById('nextBtn');nb.innerHTML=n===T?'<i data-lucide="check" style="width:14px;height:14px"></i> Hoàn Tất':'Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i>';
+  const nb=document.getElementById('nextBtn');
+  nb.innerHTML=n===T?'<i data-lucide="check" style="width:14px;height:14px"></i> Hoàn Tất':'Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i>';
   nb.disabled=n===T;
   document.getElementById('navC').textContent=`${n} / ${T}`;
   buildS();document.querySelector('.wrap').scrollTop=0;
   lucide.createIcons();
+  // Run screen animations
+  if(!screenAnimated[n]){screenAnimated[n]=true;runScreenAnim(n,scr);}
 }
+
+// === ANIMATION ENGINE ===
+
+// Staggered reveal: find all .reveal-item in a screen and show them sequentially
+function revealStagger(scr,delay=150,startDelay=200){
+  const items=scr.querySelectorAll('.reveal-item:not(.show)');
+  items.forEach((el,i)=>{setTimeout(()=>el.classList.add('show'),startDelay+i*delay);});
+}
+
+// Typing effect into an element
+function typeInto(el,text,speed=40,startDelay=0){
+  el.textContent='';
+  const cursor=document.createElement('span');
+  cursor.className='typing-cursor';
+  el.appendChild(cursor);
+  let i=0;
+  setTimeout(()=>{
+    const iv=setInterval(()=>{
+      if(i<text.length){el.insertBefore(document.createTextNode(text[i]),cursor);i++;}
+      else{clearInterval(iv);setTimeout(()=>cursor.remove(),800);}
+    },speed);
+  },startDelay);
+}
+
+// Click pulse at a position relative to an element
+function clickAt(parent,x,y,delay=0){
+  setTimeout(()=>{
+    const dot=document.createElement('div');
+    dot.className='click-dot';
+    dot.style.left=(x-14)+'px';dot.style.top=(y-14)+'px';
+    parent.style.position='relative';
+    parent.appendChild(dot);
+    requestAnimationFrame(()=>dot.classList.add('fire'));
+    setTimeout(()=>dot.remove(),700);
+  },delay);
+}
+
+// Animate progress bars
+function animateFills(scr,delay=400){
+  const fills=scr.querySelectorAll('.anim-fill');
+  fills.forEach((f,i)=>{setTimeout(()=>f.classList.add('go'),delay+i*200);});
+}
+
+// Count up number animation
+function countUp(el,target,duration=800,startDelay=0){
+  setTimeout(()=>{
+    const start=0;const startTime=performance.now();
+    const isPercent=el.dataset.suffix||'';
+    function tick(now){
+      const elapsed=now-startTime;
+      const progress=Math.min(elapsed/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      el.textContent=Math.round(start+eased*(target-start))+isPercent;
+      if(progress<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  },startDelay);
+}
+
+// Animate radar chart data
+function animateRadar(scr,delay=300){
+  const rd=scr.querySelector('.radar-data');
+  if(rd)setTimeout(()=>rd.classList.add('show'),delay);
+}
+
+// Sequential chat bubbles
+function animateChat(scr,delay=200){
+  const bubbles=scr.querySelectorAll('.chat-entry');
+  bubbles.forEach((b,i)=>{setTimeout(()=>b.classList.add('show'),delay+i*600);});
+}
+
+// Per-screen animation sequences
+function runScreenAnim(n,scr){
+  switch(n){
+    case 1:
+      revealStagger(scr,180,100);
+      break;
+    case 2:
+      // Type school name, then reveal success items
+      const nameField=scr.querySelector('.type-field');
+      if(nameField)typeInto(nameField,'Trường THCS Nguyễn Du',45,300);
+      // Click on file upload area
+      const dropzone=scr.querySelector('.click-target');
+      if(dropzone)clickAt(dropzone,dropzone.offsetWidth/2,dropzone.offsetHeight/2,1800);
+      // Reveal success badges
+      revealStagger(scr,250,2400);
+      animateFills(scr,2600);
+      break;
+    case 3:
+      animateRadar(scr,400);
+      revealStagger(scr,200,800);
+      // Count up score
+      const scoreEl=scr.querySelector('.count-target');
+      if(scoreEl)countUp(scoreEl,50,1000,600);
+      break;
+    case 4:
+      revealStagger(scr,150,100);
+      animateFills(scr,400);
+      break;
+    case 5:
+      // Simulate AI generation
+      revealStagger(scr,200,100);
+      const genBar=scr.querySelector('.gen-progress');
+      if(genBar){
+        genBar.style.width='0%';
+        setTimeout(()=>{genBar.style.transition='width 2.5s cubic-bezier(.4,0,.2,1)';genBar.style.width='100%';},800);
+      }
+      const genItems=scr.querySelectorAll('.gen-item');
+      genItems.forEach((g,i)=>{setTimeout(()=>g.classList.add('show'),1200+i*500);});
+      break;
+    case 6:
+      animateChat(scr,300);
+      revealStagger(scr,200,100);
+      break;
+    case 7:
+      revealStagger(scr,120,100);
+      // Count up stat values
+      const stats=scr.querySelectorAll('.count-stat');
+      stats.forEach((s,i)=>{
+        const target=parseInt(s.dataset.target);
+        if(target)countUp(s,target,900,200+i*200);
+      });
+      animateFills(scr,400);
+      break;
+    case 8:
+      revealStagger(scr,100,100);
+      break;
+  }
+}
+
 function next(){if(c<T)goTo(c+1)}
 function prev(){if(c>1)goTo(c-1)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
 buildS();
-document.addEventListener('DOMContentLoaded',()=>lucide.createIcons());
+document.addEventListener('DOMContentLoaded',()=>{lucide.createIcons();runScreenAnim(1,document.querySelector('[data-s="1"]'));screenAnimated[1]=true;});
 lucide.createIcons();
 </script>
 </body>
