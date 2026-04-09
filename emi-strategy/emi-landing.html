@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learneris EMI — Nền Tảng Công Nghệ Dạy và Học Bằng Tiếng Anh</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+      colors: {
+        primary: { 50:'#f0f9ff', 100:'#e0f2fe', 200:'#bae6fd', 300:'#7dd3fc', 400:'#38bdf8', 500:'#0ea5e9', 600:'#0284c7', 700:'#0369a1', 800:'#075985', 900:'#0c4a6e' },
+        accent: { 50:'#f0fdfa', 100:'#ccfbf1', 200:'#99f6e4', 400:'#2dd4bf', 500:'#14b8a6', 600:'#0d9488', 700:'#0f766e', 800:'#115e59' },
+      }
+    }
+  }
+}
+</script>
+<style>
+  .fade-section { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; min-height: 20px; }
+  .fade-section.visible { opacity: 1; transform: translateY(0); }
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+  .en { font-style: italic; opacity: 0.55; }
+</style>
+</head>
+<body class="font-sans text-slate-800 bg-white overflow-x-hidden">
+
+<!-- ================================================================== -->
+<!-- 1. STICKY NAV                                                       -->
+<!-- ================================================================== -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2.5 shrink-0">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center shadow-sm">
+        <span class="text-white font-bold text-sm">L</span>
+      </div>
+      <div class="flex items-baseline gap-1.5">
+        <span class="text-xs font-semibold tracking-[0.18em] uppercase text-slate-400">LEARNERIS</span>
+        <span class="text-lg font-bold text-primary-700 leading-none">EMI</span>
+      </div>
+    </div>
+    <nav class="hidden md:flex items-center gap-7">
+      <a href="#products" class="text-sm font-medium text-slate-600 hover:text-primary-700 transition-colors">Sản Phẩm</a>
+      <a href="#opportunity" class="text-sm font-medium text-slate-600 hover:text-primary-700 transition-colors">Cơ Hội</a>
+      <a href="#platform" class="text-sm font-medium text-slate-600 hover:text-primary-700 transition-colors">Nền Tảng</a>
+      <a href="#how-it-works" class="text-sm font-medium text-slate-600 hover:text-primary-700 transition-colors">Quy Trình</a>
+      <a href="#why-learneris" class="text-sm font-medium text-slate-600 hover:text-primary-700 transition-colors">Lợi Thế</a>
+      <a href="#roadmap" class="text-sm font-medium text-slate-600 hover:text-primary-700 transition-colors">Lộ Trình</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-3">
+      <a href="#contact" class="text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 px-5 py-2.5 rounded-lg transition-colors shadow-sm">
+        Liên Hệ Hợp Tác
+      </a>
+    </div>
+    <button id="menu-toggle" class="md:hidden text-slate-700" aria-label="Menu">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 pb-5 pt-2 flex flex-col gap-3">
+    <a href="#products" class="text-sm font-medium text-slate-700 py-1" onclick="closeMobile()">Sản Phẩm <span class="en text-xs">Products</span></a>
+    <a href="#opportunity" class="text-sm font-medium text-slate-700 py-1" onclick="closeMobile()">Cơ Hội <span class="en text-xs">Opportunity</span></a>
+    <a href="#platform" class="text-sm font-medium text-slate-700 py-1" onclick="closeMobile()">Nền Tảng <span class="en text-xs">Platform</span></a>
+    <a href="#how-it-works" class="text-sm font-medium text-slate-700 py-1" onclick="closeMobile()">Quy Trình <span class="en text-xs">Process</span></a>
+    <a href="#why-learneris" class="text-sm font-medium text-slate-700 py-1" onclick="closeMobile()">Lợi Thế <span class="en text-xs">Advantages</span></a>
+    <a href="#roadmap" class="text-sm font-medium text-slate-700 py-1" onclick="closeMobile()">Lộ Trình <span class="en text-xs">Roadmap</span></a>
+    <a href="#contact" class="text-sm font-semibold text-white bg-primary-600 px-4 py-2.5 rounded-lg text-center mt-1" onclick="closeMobile()">Liên Hệ Hợp Tác <span class="text-xs opacity-80">/ Contact Us</span></a>
+  </div>
+</header>
+
+<!-- ================================================================== -->
+<!-- 2. HERO                                                              -->
+<!-- ================================================================== -->
+<section class="relative pt-28 pb-20 px-6 lg:px-10 overflow-hidden bg-gradient-to-b from-primary-50 via-white to-white">
+  <!-- Subtle decorative shapes -->
+  <div class="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-primary-100/50 blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 -left-20 w-[300px] h-[300px] rounded-full bg-accent-100/40 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
+      <div class="lg:w-[55%] shrink-0">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-primary-700 bg-primary-100 border border-primary-200 px-3 py-1.5 rounded-full mb-8">
+          <i data-lucide="landmark" class="w-3 h-3"></i>
+          QĐ 2371 / Tiếng Anh Là Ngôn Ngữ Thứ Hai 2025–2035
+        </span>
+
+        <h1 class="text-4xl lg:text-5xl xl:text-[3.4rem] font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-3">
+          Nền Tảng Công Nghệ
+          <br>
+          <span class="text-primary-600">Dạy và Học </span><span class="text-accent-600">Bằng Tiếng Anh</span>
+        </h1>
+        <p class="text-base text-slate-400 mb-7 font-medium en not-italic" style="opacity:0.5">The Technology Platform for English as a Medium of Instruction</p>
+
+        <p class="text-lg text-slate-600 leading-relaxed mb-2 max-w-xl">
+          Learneris cung cấp nền tảng công nghệ trọn gói giúp Sở GD&ĐT và trường học triển khai
+          Đề Án EMI — từ đánh giá sẵn sàng, nộp hồ sơ, đào tạo giáo viên, đến triển khai nội dung CLIL trên lớp.
+        </p>
+        <p class="text-sm text-slate-400 leading-relaxed mb-10 max-w-xl en">
+          Learneris provides a turnkey technology platform for DoET and schools to implement EMI — from readiness assessment, Đề Án submission, teacher training, to CLIL content delivery.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="inline-flex items-center gap-2 text-base font-semibold text-white bg-primary-600 hover:bg-primary-700 px-7 py-3.5 rounded-xl transition-colors shadow-md shadow-primary-200">
+            Liên Hệ Hợp Tác Thí Điểm
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#how-it-works" class="inline-flex items-center gap-2 text-base font-semibold text-slate-700 border-2 border-slate-200 hover:border-primary-300 px-7 py-3.5 rounded-xl transition-colors">
+            Xem Quy Trình Triển Khai
+          </a>
+        </div>
+
+        <!-- Trust strip -->
+        <div class="mt-8 pt-6 border-t border-slate-200 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <div class="flex items-center gap-2">
+            <i data-lucide="shield-check" class="w-4 h-4 text-primary-500"></i>
+            <div class="text-sm text-slate-600">Chương trình được VNIES thẩm định<br><span class="en text-xs">VNIES Curriculum Certified</span></div>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="lock" class="w-4 h-4 text-primary-500"></i>
+            <div class="text-sm text-slate-600">An toàn thông tin Cấp 3<br><span class="en text-xs">InfoSec Level 3 Certified</span></div>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="cpu" class="w-4 h-4 text-primary-500"></i>
+            <div class="text-sm text-slate-600">AI đa mô hình (GPT-4o, Claude, Gemini)<br><span class="en text-xs">Multi-model AI Powered</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: dashboard mockup -->
+      <div class="flex-1 relative">
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl shadow-slate-200/50">
+          <div class="flex items-center gap-3 mb-5 pb-4 border-b border-slate-100">
+            <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center">
+              <span class="text-white font-bold text-[10px]">L</span>
+            </div>
+            <div>
+              <span class="text-sm font-semibold text-slate-800">Bảng Điều Khiển EMI</span>
+              <span class="text-xs text-slate-400 ml-1 en">EMI Dashboard</span>
+            </div>
+            <span class="ml-auto text-[10px] font-semibold text-accent-600 bg-accent-50 border border-accent-200 px-2 py-0.5 rounded-full">TRỰC TUYẾN</span>
+          </div>
+          <div class="grid grid-cols-3 gap-3 mb-5">
+            <div class="bg-primary-50 rounded-xl p-3 text-center border border-primary-100">
+              <div class="text-2xl font-extrabold text-primary-700">12</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Trường Đã Triển Khai<br><span class="en text-[9px]">Schools Onboarded</span></div>
+            </div>
+            <div class="bg-accent-50 rounded-xl p-3 text-center border border-accent-100">
+              <div class="text-2xl font-extrabold text-accent-700">340</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Giáo Viên Được Đào Tạo<br><span class="en text-[9px]">Teachers Trained</span></div>
+            </div>
+            <div class="bg-emerald-50 rounded-xl p-3 text-center border border-emerald-100">
+              <div class="text-2xl font-extrabold text-emerald-700">2.4K</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Bài Học Đã Tạo<br><span class="en text-[9px]">Lessons Generated</span></div>
+            </div>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+            <div class="flex items-center gap-2 mb-3">
+              <i data-lucide="book-open" class="w-4 h-4 text-primary-500"></i>
+              <span class="text-xs font-semibold text-slate-700">Toán CLIL — Lớp 3 <span class="en text-[10px]">CLIL Math — Grade 3</span></span>
+              <span class="ml-auto text-[9px] bg-accent-100 text-accent-700 border border-accent-200 px-2 py-0.5 rounded-full font-semibold">Song Ngữ</span>
+            </div>
+            <div class="space-y-2">
+              <div class="bg-primary-50 border border-primary-100 rounded-lg px-3 py-2">
+                <div class="text-[10px] font-bold text-primary-600 mb-0.5">EN</div>
+                <div class="text-[11px] text-slate-600">Addition with carrying: When the sum of digits exceeds 9...</div>
+              </div>
+              <div class="bg-accent-50 border border-accent-100 rounded-lg px-3 py-2">
+                <div class="text-[10px] font-bold text-accent-600 mb-0.5">VI</div>
+                <div class="text-[11px] text-slate-600">Phép cộng có nhớ: Khi tổng các chữ số vượt quá 9...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 3. STATS BAR                                                        -->
+<!-- ================================================================== -->
+<div class="bg-primary-700 py-14 px-6 lg:px-10">
+  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10">
+    <div class="text-center">
+      <div class="flex justify-center mb-2"><i data-lucide="school" class="w-6 h-6 text-primary-200"></i></div>
+      <div class="text-3xl font-extrabold text-white">70%</div>
+      <div class="text-sm text-primary-200 mt-1">Trường mầm non đến 2030<br><span class="en text-xs text-primary-300">Preschools targeted by 2030</span></div>
+    </div>
+    <div class="text-center">
+      <div class="flex justify-center mb-2"><i data-lucide="zap" class="w-6 h-6 text-primary-200"></i></div>
+      <div class="text-3xl font-extrabold text-white">$0.10</div>
+      <div class="text-sm text-primary-200 mt-1">Mỗi bài học AI tạo<br><span class="en text-xs text-primary-300">Per AI-generated lesson</span></div>
+    </div>
+    <div class="text-center">
+      <div class="flex justify-center mb-2"><i data-lucide="clock" class="w-6 h-6 text-primary-200"></i></div>
+      <div class="text-3xl font-extrabold text-white">3 phút</div>
+      <div class="text-sm text-primary-200 mt-1">Mỗi gói bài học hoàn chỉnh<br><span class="en text-xs text-primary-300">Per complete lesson package</span></div>
+    </div>
+    <div class="text-center">
+      <div class="flex justify-center mb-2"><i data-lucide="shield-check" class="w-6 h-6 text-primary-200"></i></div>
+      <div class="text-3xl font-extrabold text-white">2x</div>
+      <div class="text-sm text-primary-200 mt-1">Chứng nhận Chính phủ<br><span class="en text-xs text-primary-300">Gov certifications (InfoSec + VNIES)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<!-- 3b. PRODUCT ECOSYSTEM SHOWCASE                                      -->
+<!-- ================================================================== -->
+<section id="products" class="py-24 px-6 lg:px-10 bg-white">
+  <div class="fade-section max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1.5 rounded-full mb-4">
+        <i data-lucide="globe" class="w-3 h-3"></i>
+        Hệ Sinh Thái Sản Phẩm <span class="en text-[10px]">Product Ecosystem</span>
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+        Đã Vận Hành, Đã Chứng Nhận, Sẵn Sàng Triển Khai
+      </h2>
+      <p class="text-lg text-slate-400 mb-4 en">Live, Certified, Ready to Deploy</p>
+      <p class="text-base text-slate-500 max-w-2xl mx-auto">
+        Learneris không phải ý tưởng — mà là hệ sinh thái sản phẩm đang phục vụ hơn 10,000 nhà giáo dục, được Chính phủ chứng nhận và sẵn sàng cho EMI.
+      </p>
+      <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-2 en">
+        Learneris is not an idea — it's a live product ecosystem serving 10,000+ educators, government-certified and EMI-ready.
+      </p>
+    </div>
+
+    <!-- Product cards with screenshots -->
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
+
+      <!-- learneris.com -->
+      <div class="bg-white rounded-2xl border-2 border-slate-200 overflow-hidden hover:shadow-xl transition-shadow group">
+        <div class="relative overflow-hidden">
+          <img src="assets/screenshots/learneris-com-hero.png" alt="learneris.com — Nền tảng chính" class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500">
+          <div class="absolute top-3 left-3 flex gap-2">
+            <span class="text-[10px] font-bold text-white bg-emerald-500 px-2.5 py-1 rounded-full shadow-sm">TRỰC TUYẾN</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center border border-emerald-200">
+              <i data-lucide="layout-grid" class="w-4 h-4 text-emerald-600"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900">learneris.com</h3>
+              <p class="text-xs text-slate-400">Nền tảng AI giáo dục chính <span class="en">Main AI Education Platform</span></p>
+            </div>
+          </div>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>14+ công cụ AI chuyên dụng <span class="en text-xs">14+ specialized AI tools</span></li>
+            <li class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>10,000+ nhà giáo dục <span class="en text-xs">10,000+ educators</span></li>
+            <li class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>"Học Cùng AI" — VNIES thẩm định <span class="en text-xs">VNIES certified curriculum</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- studio.learneris.com -->
+      <div class="bg-white rounded-2xl border-2 border-slate-200 overflow-hidden hover:shadow-xl transition-shadow group">
+        <div class="relative overflow-hidden">
+          <img src="assets/screenshots/studio-learneris-hero.png" alt="studio.learneris.com — Sản xuất nội dung" class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500">
+          <div class="absolute top-3 left-3 flex gap-2">
+            <span class="text-[10px] font-bold text-white bg-emerald-500 px-2.5 py-1 rounded-full shadow-sm">TRỰC TUYẾN</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center border border-primary-200">
+              <i data-lucide="flask-conical" class="w-4 h-4 text-primary-600"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900">studio.learneris.com</h3>
+              <p class="text-xs text-slate-400">Sản xuất nội dung quy mô <span class="en">Content Production at Scale</span></p>
+            </div>
+          </div>
+          <ul class="space-y-1.5">
+            <li class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>Tạo 7 loại nội dung K-12 <span class="en text-xs">7 K-12 content types</span></li>
+            <li class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>QA AI 5 chiều tự động <span class="en text-xs">5-dimension AI QA scoring</span></li>
+            <li class="flex items-center gap-2 text-sm text-slate-600"><i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>Xuất Google Docs, DOCX, PPTX <span class="en text-xs">Export to Docs, DOCX, PPTX</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second row: smaller cards -->
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Học Cùng AI Curriculum -->
+      <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="relative overflow-hidden h-40">
+          <img src="assets/screenshots/learneris-com-section-programs.png" alt="Học Cùng AI — Chương trình" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500">
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-bold text-white bg-amber-500 px-2.5 py-1 rounded-full shadow-sm">VNIES CHỨNG NHẬN</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-sm text-slate-900 mb-1">Chương Trình "Học Cùng AI"</h3>
+          <p class="text-xs text-slate-400 en mb-2">"Học Cùng AI" Certified Curriculum</p>
+          <p class="text-xs text-slate-500">Tiểu học, THCS, THPT — được Viện Khoa học Giáo dục VN thẩm định 07/2025</p>
+          <p class="text-[10px] text-slate-400 en mt-1">Primary, Lower & Upper Secondary — VNIES certified Jul 2025</p>
+        </div>
+      </div>
+
+      <!-- AI QA Scoring -->
+      <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="relative overflow-hidden h-40">
+          <img src="assets/screenshots/studio-learneris-section-features.png" alt="AI QA — Chấm điểm 5 chiều" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500">
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-bold text-white bg-primary-600 px-2.5 py-1 rounded-full shadow-sm">KIỂM SOÁT CHẤT LƯỢNG</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-sm text-slate-900 mb-1">Kiểm Soát Chất Lượng AI</h3>
+          <p class="text-xs text-slate-400 en mb-2">AI Quality Assurance</p>
+          <p class="text-xs text-slate-500">Chấm điểm 5 chiều: Chính xác, Sư phạm, Rõ ràng, Phù hợp chuẩn, Dễ đọc</p>
+          <p class="text-[10px] text-slate-400 en mt-1">5-dimension scoring: Accuracy, Pedagogy, Clarity, Alignment, Readability</p>
+        </div>
+      </div>
+
+      <!-- AI Tools -->
+      <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow group">
+        <div class="relative overflow-hidden h-40">
+          <img src="assets/screenshots/learneris-com-section-features.png" alt="14+ Công cụ AI" class="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500">
+          <div class="absolute top-3 left-3">
+            <span class="text-[10px] font-bold text-white bg-accent-600 px-2.5 py-1 rounded-full shadow-sm">14+ CÔNG CỤ</span>
+          </div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-sm text-slate-900 mb-1">Bộ Công Cụ AI Giáo Dục</h3>
+          <p class="text-xs text-slate-400 en mb-2">AI Education Toolkit</p>
+          <p class="text-xs text-slate-500">Tạo nội dung tương tác, bài kiểm tra, sơ đồ, bài giảng, đánh giá — tất cả bằng AI</p>
+          <p class="text-[10px] text-slate-400 en mt-1">Interactive content, quizzes, diagrams, lesson plans, assessments — all AI-powered</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trusted by strip -->
+    <div class="mt-12 bg-primary-50 rounded-2xl p-6 border border-primary-100">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+        <div class="text-center">
+          <div class="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-3">Được tin dùng bởi <span class="en">Backed by</span></div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+          <span class="text-sm font-semibold text-slate-500">Microsoft for Startups</span>
+          <span class="text-slate-300">|</span>
+          <span class="text-sm font-semibold text-slate-500">Google for Startups</span>
+          <span class="text-slate-300">|</span>
+          <span class="text-sm font-semibold text-slate-500">KDI Education</span>
+          <span class="text-slate-300">|</span>
+          <span class="text-sm font-semibold text-slate-500">VNIES</span>
+          <span class="text-slate-300">|</span>
+          <span class="text-sm font-semibold text-slate-500">Google Digital School</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 4. THE OPPORTUNITY                                                  -->
+<!-- ================================================================== -->
+<section id="opportunity" class="py-24 px-6 lg:px-10 bg-white">
+  <div class="fade-section max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1.5 rounded-full mb-4">
+        <i data-lucide="trending-up" class="w-3 h-3"></i>
+        Chính Sách Quốc Gia <span class="en text-[10px]">National Policy</span>
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+        Cải Cách Giáo Dục Tiếng Anh<br>Lớn Nhất Lịch Sử Việt Nam
+      </h2>
+      <p class="text-lg text-slate-400 mb-4 en">Vietnam's Most Ambitious English Education Reform</p>
+      <p class="text-base text-slate-500 max-w-2xl mx-auto">
+        QĐ 2371/QĐ-TTg (10/2025) của Thủ tướng yêu cầu Tiếng Anh trở thành ngôn ngữ thứ hai trong mọi trường học đến 2035 — tạo nhu cầu lớn về công nghệ, nội dung và đào tạo giáo viên.
+      </p>
+      <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-2 en">
+        The PM's Decision QĐ 2371 mandates English as a second language in all schools by 2035 — creating massive demand for technology, content, and teacher training.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center">
+            <i data-lucide="landmark" class="w-5 h-5 text-primary-700"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">Văn Bản Chỉ Đạo</h3>
+            <p class="text-xs text-slate-400 en">National Mandates</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="w-2 h-2 rounded-full bg-primary-500 mt-2 shrink-0"></div>
+            <div>
+              <div class="font-semibold text-sm text-slate-800">QĐ 2371/QĐ-TTg</div>
+              <div class="text-sm text-slate-600">Đề án "Tiếng Anh là ngôn ngữ thứ hai" 2025–2035, Tầm nhìn 2045</div>
+              <div class="text-xs text-slate-400 en">National plan "English as Second Language" 2025–2035, Vision 2045</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-2 h-2 rounded-full bg-accent-500 mt-2 shrink-0"></div>
+            <div>
+              <div class="font-semibold text-sm text-slate-800">NQ 71-NQ/TW</div>
+              <div class="text-sm text-slate-600">Nghị quyết Bộ Chính trị về phát triển đột phá giáo dục</div>
+              <div class="text-xs text-slate-400 en">Politburo Resolution on breakthrough education development</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <div class="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0"></div>
+            <div>
+              <div class="font-semibold text-sm text-slate-800">Đề Án TPHCM (2026)</div>
+              <div class="text-sm text-slate-600">Kế hoạch triển khai EMI từ mầm non đến đại học tại TPHCM</div>
+              <div class="text-xs text-slate-400 en">HCMC EMI implementation from preschool to university</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 rounded-xl bg-accent-100 flex items-center justify-center">
+            <i data-lucide="target" class="w-5 h-5 text-accent-700"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">Chính Sách Yêu Cầu Cụ Thể</h3>
+            <p class="text-xs text-slate-400 en">The Policy Explicitly Requires</p>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-slate-100">
+            <i data-lucide="cpu" class="w-5 h-5 text-primary-500 shrink-0"></i>
+            <div><span class="text-sm font-medium text-slate-700">Tích hợp AI trong dạy Tiếng Anh</span><br><span class="en text-xs">AI integration in English teaching</span></div>
+          </div>
+          <div class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-slate-100">
+            <i data-lucide="monitor" class="w-5 h-5 text-primary-500 shrink-0"></i>
+            <div><span class="text-sm font-medium text-slate-700">Nền tảng học trực tuyến & nội dung số</span><br><span class="en text-xs">Online learning platforms & digital content</span></div>
+          </div>
+          <div class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-slate-100">
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-primary-500 shrink-0"></i>
+            <div><span class="text-sm font-medium text-slate-700">Đánh giá trình độ giáo viên quy mô lớn</span><br><span class="en text-xs">Teacher proficiency assessment at scale</span></div>
+          </div>
+          <div class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-slate-100">
+            <i data-lucide="languages" class="w-5 h-5 text-primary-500 shrink-0"></i>
+            <div><span class="text-sm font-medium text-slate-700">Áp dụng phương pháp CLIL</span><br><span class="en text-xs">CLIL methodology adoption</span></div>
+          </div>
+          <div class="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-slate-100">
+            <i data-lucide="handshake" class="w-5 h-5 text-primary-500 shrink-0"></i>
+            <div><span class="text-sm font-medium text-slate-700">Xã hội hóa — Hợp tác công tư</span><br><span class="en text-xs">Public-private partnership</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mt-12 bg-primary-50 rounded-2xl p-8 border border-primary-100">
+      <h3 class="text-lg font-bold text-center mb-1 text-slate-900">Lộ Trình Triển Khai Quốc Gia</h3>
+      <p class="text-sm text-slate-400 text-center mb-8 en">National Implementation Timeline</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary-100 border-2 border-primary-200 text-primary-700 font-extrabold text-lg mb-3">1</div>
+          <div class="font-bold text-primary-800">2025 – 2030</div>
+          <div class="text-sm text-slate-600 mt-1">Nền tảng & thí điểm — 30% trường đạt EMI Cấp 1, Tiếng Anh từ Lớp 1</div>
+          <div class="text-xs text-slate-400 mt-1 en">Foundation & pilot — 30% schools at Level 1 EMI, English from Grade 1</div>
+        </div>
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent-100 border-2 border-accent-200 text-accent-700 font-extrabold text-lg mb-3">2</div>
+          <div class="font-bold text-accent-800">2030 – 2040</div>
+          <div class="text-sm text-slate-600 mt-1">Mở rộng & nâng cao — triển khai EMI toàn quốc, mọi cấp học</div>
+          <div class="text-xs text-slate-400 mt-1 en">Scale & deepen — expand EMI across all provinces and levels</div>
+        </div>
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-emerald-100 border-2 border-emerald-200 text-emerald-700 font-extrabold text-lg mb-3">3</div>
+          <div class="font-bold text-emerald-800">2040 – 2045</div>
+          <div class="text-sm text-slate-600 mt-1">Tầm nhìn — Tiếng Anh là ngôn ngữ thứ hai cả nước</div>
+          <div class="text-xs text-slate-400 mt-1 en">Vision — English as a functional second language nationwide</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 5. PLATFORM CAPABILITIES                                            -->
+<!-- ================================================================== -->
+<section id="platform" class="py-24 px-6 lg:px-10 bg-slate-50 border-y border-slate-100">
+  <div class="fade-section max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1.5 rounded-full mb-4">
+        <i data-lucide="layers" class="w-3 h-3"></i>
+        Nền Tảng Trọn Gói <span class="en text-[10px]">Full-Stack Platform</span>
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+        Tất Cả Những Gì Trường Học Cần Cho EMI
+      </h2>
+      <p class="text-lg text-slate-400 mb-4 en">Everything Schools Need for EMI</p>
+      <p class="text-base text-slate-500 max-w-2xl mx-auto">
+        Một nền tảng tích hợp: nội dung, đào tạo, đánh giá và quản lý. Xây trên các sản phẩm đã hoạt động và được Chính phủ chứng nhận.
+      </p>
+      <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-1 en">
+        One integrated platform: content, training, assessment, and administration. Built on live, government-certified products.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
+          <i data-lucide="cpu" class="w-5 h-5 text-primary-600"></i>
+        </div>
+        <h3 class="text-slate-900 font-bold mb-1">Học Tập Với AI</h3>
+        <p class="text-xs text-slate-400 mb-2 en">AI-Powered Learning</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Cổng AI đa mô hình (GPT-4o, Claude, Gemini) cho luyện hội thoại, tạo nội dung và học thích ứng.</p>
+        <p class="text-xs text-slate-400 mt-1 en">Multi-model AI gateway for conversation practice, content generation, and adaptive learning.</p>
+        <div class="mt-3 text-xs text-primary-600 font-semibold">ai-gateway — Đang hoạt động</div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-accent-100 flex items-center justify-center mb-4">
+          <i data-lucide="languages" class="w-5 h-5 text-accent-600"></i>
+        </div>
+        <h3 class="text-slate-900 font-bold mb-1">Nội Dung CLIL Song Ngữ</h3>
+        <p class="text-xs text-slate-400 mb-2 en">CLIL Bilingual Content</p>
+        <p class="text-sm text-slate-600 leading-relaxed">AI tạo bài Toán, Khoa học song ngữ với chi phí $0.10/bài, tỷ lệ Tiếng Anh tùy chỉnh 20–100%.</p>
+        <p class="text-xs text-slate-400 mt-1 en">AI produces bilingual Math, Science lessons at $0.10/lesson with adjustable English ratio.</p>
+        <div class="mt-3 text-xs text-accent-600 font-semibold">lesson-agent — Đang hoạt động</div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center mb-4">
+          <i data-lucide="graduation-cap" class="w-5 h-5 text-emerald-600"></i>
+        </div>
+        <h3 class="text-slate-900 font-bold mb-1">Đào Tạo Giáo Viên</h3>
+        <p class="text-xs text-slate-400 mb-2 en">Teacher Training & Certification</p>
+        <p class="text-sm text-slate-600 leading-relaxed">8 mô-đun bồi dưỡng với bài kiểm tra, bảng xếp hạng, chứng chỉ song ngữ và quy trình cấp chứng nhận EMI.</p>
+        <p class="text-xs text-slate-400 mt-1 en">8 PD modules with quizzes, leaderboard, bilingual certificates, and EMI certification pipeline.</p>
+        <div class="mt-3 text-xs text-emerald-600 font-semibold">PD-Slides + Credits-Mgmt — Đang hoạt động</div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center mb-4">
+          <i data-lucide="layout-dashboard" class="w-5 h-5 text-blue-600"></i>
+        </div>
+        <h3 class="text-slate-900 font-bold mb-1">Hệ Thống Quản Lý Học Tập</h3>
+        <p class="text-xs text-slate-400 mb-2 en">Learning Management System (LMS)</p>
+        <p class="text-sm text-slate-600 leading-relaxed">LMS đầy đủ với 6 loại khối nội dung, tạo bài kiểm tra AI, phân tích và giao diện song ngữ EN/VI.</p>
+        <p class="text-xs text-slate-400 mt-1 en">Full LMS with 6 content block types, AI quiz generation, analytics, and EN/VI bilingual UI.</p>
+        <div class="mt-3 text-xs text-blue-600 font-semibold">LMS — Đang hoạt động</div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-fuchsia-100 flex items-center justify-center mb-4">
+          <i data-lucide="gamepad-2" class="w-5 h-5 text-fuchsia-600"></i>
+        </div>
+        <h3 class="text-slate-900 font-bold mb-1">Hoạt Động Tương Tác</h3>
+        <p class="text-xs text-slate-400 mb-2 en">Interactive Activities</p>
+        <p class="text-sm text-slate-600 leading-relaxed">25+ loại hoạt động — sắp xếp, nối cặp, trắc nghiệm, flashcard, điền từ, ghi nhớ — hỗ trợ song ngữ.</p>
+        <p class="text-xs text-slate-400 mt-1 en">25+ activity types — sorting, matching, quiz, flashcard, fill-blank, memory — with bilingual support.</p>
+        <div class="mt-3 text-xs text-fuchsia-600 font-semibold">AI-Course-fresh — Đang hoạt động</div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-0.5 transition-all">
+        <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center mb-4">
+          <i data-lucide="building-2" class="w-5 h-5 text-amber-600"></i>
+        </div>
+        <h3 class="text-slate-900 font-bold mb-1">Cổng Quản Lý Trường Học</h3>
+        <p class="text-xs text-slate-400 mb-2 en">School Admin Portal</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Tự quản lý người dùng, lớp học, thống kê sử dụng, xuất CSV, từ hợp đồng đến lớp học tự động.</p>
+        <p class="text-xs text-slate-400 mt-1 en">Self-service user, class management, usage stats, CSV export, contract-to-classroom automation.</p>
+        <div class="mt-3 text-xs text-amber-600 font-semibold">Credits-Management — Đang hoạt động</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 6. HOW IT WORKS                                                     -->
+<!-- ================================================================== -->
+<section id="how-it-works" class="py-24 px-6 lg:px-10 bg-white">
+  <div class="fade-section max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1.5 rounded-full mb-4">
+        <i data-lucide="route" class="w-3 h-3"></i>
+        Hành Trình Trường Học <span class="en text-[10px]">School Journey</span>
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+        Từ Đánh Giá Đến Lớp Học Trong 5 Bước
+      </h2>
+      <p class="text-lg text-slate-400 mb-4 en">From Assessment to Classroom in 5 Steps</p>
+      <p class="text-base text-slate-500 max-w-2xl mx-auto">
+        Quy trình trọn gói giải quyết cả thủ tục hành chính và yêu cầu kỹ thuật của việc triển khai EMI.
+      </p>
+      <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-1 en">
+        A turnkey pathway handling both bureaucratic and technical requirements of EMI adoption.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-5 gap-4">
+      <div class="bg-white rounded-2xl p-5 border-2 border-primary-100 text-center hover:shadow-lg hover:-translate-y-1 transition-all relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-primary-600 text-white text-xs font-bold flex items-center justify-center shadow-sm">1</div>
+        <div class="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mx-auto mb-3 mt-2">
+          <i data-lucide="clipboard-check" class="w-6 h-6 text-primary-600"></i>
+        </div>
+        <h3 class="font-bold text-sm mb-0.5 text-slate-800">Đánh Giá Sẵn Sàng</h3>
+        <p class="text-[10px] text-slate-400 en mb-1.5">EMI Readiness Assessment</p>
+        <p class="text-xs text-slate-500">Tự đánh giá theo khung 3 cấp của QĐ 2371</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border-2 border-accent-100 text-center hover:shadow-lg hover:-translate-y-1 transition-all relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-accent-600 text-white text-xs font-bold flex items-center justify-center shadow-sm">2</div>
+        <div class="w-12 h-12 rounded-xl bg-accent-50 flex items-center justify-center mx-auto mb-3 mt-2">
+          <i data-lucide="file-text" class="w-6 h-6 text-accent-600"></i>
+        </div>
+        <h3 class="font-bold text-sm mb-0.5 text-slate-800">Nộp Bộ Hồ Sơ Chuẩn</h3>
+        <p class="text-[10px] text-slate-400 en mb-1.5">Submit Standardized Kit</p>
+        <p class="text-xs text-slate-500">Tờ Trình, Đề Án, Phụ Lục — sẵn sàng nộp Sở GD&ĐT</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border-2 border-emerald-100 text-center hover:shadow-lg hover:-translate-y-1 transition-all relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center shadow-sm">3</div>
+        <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mx-auto mb-3 mt-2">
+          <i data-lucide="graduation-cap" class="w-6 h-6 text-emerald-600"></i>
+        </div>
+        <h3 class="font-bold text-sm mb-0.5 text-slate-800">Đào Tạo Giáo Viên</h3>
+        <p class="text-[10px] text-slate-400 en mb-1.5">Teacher Training</p>
+        <p class="text-xs text-slate-500">Phương pháp CLIL, Tiếng Anh trên lớp, PD chuyên môn</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border-2 border-blue-100 text-center hover:shadow-lg hover:-translate-y-1 transition-all relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center shadow-sm">4</div>
+        <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mx-auto mb-3 mt-2">
+          <i data-lucide="rocket" class="w-6 h-6 text-blue-600"></i>
+        </div>
+        <h3 class="font-bold text-sm mb-0.5 text-slate-800">Triển Khai Nội Dung</h3>
+        <p class="text-[10px] text-slate-400 en mb-1.5">Deploy CLIL Content</p>
+        <p class="text-xs text-slate-500">Bài học song ngữ, hoạt động tương tác trên LMS</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-5 border-2 border-amber-100 text-center hover:shadow-lg hover:-translate-y-1 transition-all relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-amber-600 text-white text-xs font-bold flex items-center justify-center shadow-sm">5</div>
+        <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mx-auto mb-3 mt-2">
+          <i data-lucide="bar-chart-3" class="w-6 h-6 text-amber-600"></i>
+        </div>
+        <h3 class="font-bold text-sm mb-0.5 text-slate-800">Giám Sát & Báo Cáo</h3>
+        <p class="text-[10px] text-slate-400 en mb-1.5">Monitor & Report</p>
+        <p class="text-xs text-slate-500">Dashboard phân tích và báo cáo cho Sở GD&ĐT</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 7. WHY LEARNERIS                                                    -->
+<!-- ================================================================== -->
+<section id="why-learneris" class="py-24 px-6 lg:px-10 bg-slate-50 border-y border-slate-100">
+  <div class="fade-section max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1.5 rounded-full mb-4">
+        <i data-lucide="trophy" class="w-3 h-3"></i>
+        Lợi Thế Cạnh Tranh <span class="en text-[10px]">Competitive Advantage</span>
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+        Tại Sao Chọn Learneris
+      </h2>
+      <p class="text-lg text-slate-400 en">Why Schools Choose Learneris</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-primary-600 flex items-center justify-center mb-4 shadow-sm">
+          <i data-lucide="package" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-1 text-slate-900">Bộ Hồ Sơ Trọn Gói</h3>
+        <p class="text-xs text-slate-400 mb-2 en">Turnkey Onboarding Kit</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Tờ Trình, Đề Án, Phụ Lục sẵn sàng — trường chỉ cần nộp, không cần xây dựng từ đầu.</p>
+        <p class="text-xs text-slate-400 mt-1 en">Pre-built documents — schools submit, not build from scratch.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-accent-600 flex items-center justify-center mb-4 shadow-sm">
+          <i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-1 text-slate-900">Chứng Nhận Chính Phủ</h3>
+        <p class="text-xs text-slate-400 mb-2 en">Government Certifications</p>
+        <p class="text-sm text-slate-600 leading-relaxed">An toàn thông tin Cấp 3 (TT 12/2022) + VNIES thẩm định chương trình (07/2025) — rào cản đối thủ chưa vượt qua.</p>
+        <p class="text-xs text-slate-400 mt-1 en">InfoSec Level 3 + VNIES curriculum approval — barriers competitors must still clear.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center mb-4 shadow-sm">
+          <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-1 text-slate-900">Lợi Thế Chi Phí AI</h3>
+        <p class="text-xs text-slate-400 mb-2 en">AI Cost Advantage</p>
+        <p class="text-sm text-slate-600 leading-relaxed">$0.10/bài học trong 3 phút so với 45 phút làm thủ công. Mở khóa sản xuất nội dung quy mô lớn.</p>
+        <p class="text-xs text-slate-400 mt-1 en">$0.10/lesson in 3 min vs. 45 min manual. Unlocks content at scale.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center mb-4 shadow-sm">
+          <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-1 text-slate-900">Sở Hữu Toàn Bộ Hệ Thống</h3>
+        <p class="text-xs text-slate-400 mb-2 en">Full-Stack Ownership</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Nội dung + Nền tảng + Đào tạo + Đánh giá trong một nhà cung cấp. Một hợp đồng, một đối tác.</p>
+        <p class="text-xs text-slate-400 mt-1 en">Content + Platform + Training + Assessment in one vendor. One contract, one partner.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-amber-600 flex items-center justify-center mb-4 shadow-sm">
+          <i data-lucide="list-checks" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-1 text-slate-900">Tuân Thủ Chuẩn YCCD</h3>
+        <p class="text-xs text-slate-400 mb-2 en">Standards Compliance</p>
+        <p class="text-sm text-slate-600 leading-relaxed">Đối chiếu từng yếu tố theo chuẩn YCCD (QĐ 3439) — hệ thống tuân thủ sâu nhất thị trường.</p>
+        <p class="text-xs text-slate-400 mt-1 en">Element-by-element YCCD mapping (QĐ 3439) — deepest compliance tracking available.</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-slate-700 flex items-center justify-center mb-4 shadow-sm">
+          <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-1 text-slate-900">Chương Trình Được Chứng Nhận</h3>
+        <p class="text-xs text-slate-400 mb-2 en">Certified Curriculum</p>
+        <p class="text-sm text-slate-600 leading-relaxed">"Học Cùng AI" được VNIES thẩm định (07/2025) cho Tiểu học, THCS và THPT.</p>
+        <p class="text-xs text-slate-400 mt-1 en">"Học Cùng AI" curriculum certified by VNIES across primary, lower & upper secondary.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 8. ROADMAP                                                          -->
+<!-- ================================================================== -->
+<section id="roadmap" class="py-24 px-6 lg:px-10 bg-primary-700">
+  <div class="fade-section max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-primary-200 bg-primary-600/50 border border-primary-500/30 px-3 py-1.5 rounded-full mb-4">
+        <i data-lucide="map" class="w-3 h-3"></i>
+        Lộ Trình <span class="en text-[10px]">Roadmap</span>
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-2">
+        Từ Thí Điểm Đến Quy Mô Quốc Gia
+      </h2>
+      <p class="text-lg text-primary-300 en">From Pilot to National Scale</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-7 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-accent-400"></div>
+        <div class="text-sm font-bold text-accent-300 mb-1">Hiện Tại <span class="en text-xs">Now</span></div>
+        <div class="text-xs text-primary-300 mb-5">Tháng 4–5/2026</div>
+        <div class="space-y-3">
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5 shrink-0"></i>
+            <div><span class="text-sm text-white">Triển khai Bộ Hồ Sơ Chuẩn cho các trường mục tiêu</span><br><span class="en text-xs text-primary-300">Deploy Standardized Kit to target schools</span></div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5 shrink-0"></i>
+            <div><span class="text-sm text-white">Liên hệ Sở GD&ĐT TPHCM qua mạng lưới trường</span><br><span class="en text-xs text-primary-300">Engage HCMC DoET through school networks</span></div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5 shrink-0"></i>
+            <div><span class="text-sm text-white">Đánh giá EMI miễn phí cho trường thí điểm</span><br><span class="en text-xs text-primary-300">Free EMI Readiness Assessment for pilots</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-7 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-primary-300"></div>
+        <div class="text-sm font-bold text-primary-200 mb-1">Sắp Tới <span class="en text-xs">Next</span></div>
+        <div class="text-xs text-primary-300 mb-5">Q3–Q4 2026</div>
+        <div class="space-y-3">
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="circle" class="w-4 h-4 text-primary-300 mt-0.5 shrink-0"></i>
+            <div><span class="text-sm text-white">Ra mắt chế độ CLIL song ngữ trong lesson-agent</span><br><span class="en text-xs text-primary-300">Ship CLIL bilingual mode in lesson-agent</span></div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="circle" class="w-4 h-4 text-primary-300 mt-0.5 shrink-0"></i>
+            <div><span class="text-sm text-white">Mẫu khóa học EMI với 5 trường thí điểm</span><br><span class="en text-xs text-primary-300">EMI course templates with 5 pilot schools</span></div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="circle" class="w-4 h-4 text-primary-300 mt-0.5 shrink-0"></i>
+            <div><span class="text-sm text-white">Chỉ số EMI trong Cổng Quản Lý Trường Học</span><br><span class="en text-xs text-primary-300">EMI metrics in School Admin Portal</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-7 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-amber-400"></div>
+        <div class="text-sm font-bold text-amber-300 mb-1">Mở Rộng <span class="en text-xs">Scale</span></div>
+        <div class="text-xs text-primary-300 mb-5">2027</div>
+        <div class="space-y-3">
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="circle" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
+            <div><span class="text-sm text-white">100+ trường trên nền tảng EMI</span><br><span class="en text-xs text-primary-300">100+ schools on EMI platform</span></div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="circle" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
+            <div><span class="text-sm text-white">Hợp tác Sở GD&ĐT tại 5+ tỉnh thành</span><br><span class="en text-xs text-primary-300">DoET partnerships in 5+ provinces</span></div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <i data-lucide="circle" class="w-4 h-4 text-amber-400 mt-0.5 shrink-0"></i>
+            <div><span class="text-sm text-white">Thí điểm Đông Nam Á (Philippines)</span><br><span class="en text-xs text-primary-300">Southeast Asia pilot (Philippines)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 9. TEAM                                                             -->
+<!-- ================================================================== -->
+<section class="py-24 px-6 lg:px-10 bg-white">
+  <div class="fade-section max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1.5 rounded-full mb-4">
+        <i data-lucide="users" class="w-3 h-3"></i>
+        Đội Ngũ <span class="en text-[10px]">Team</span>
+      </span>
+      <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 mb-2">
+        Đội Ngũ Vận Hành Thực Tế
+      </h2>
+      <p class="text-lg text-slate-400 en">Built by Operators, Not Outsiders</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="w-20 h-20 rounded-2xl bg-primary-100 flex items-center justify-center mx-auto mb-4 border border-primary-200">
+          <span class="text-2xl font-extrabold text-primary-700">KN</span>
+        </div>
+        <div class="font-bold text-sm">Kelsie Nguyen</div>
+        <div class="text-xs text-slate-500 mt-0.5">CPO / Chiến lược <span class="en">Strategy</span></div>
+        <div class="text-[10px] text-slate-400 mt-1">ex-Recruit Holdings / Quipper</div>
+      </div>
+      <div class="text-center">
+        <div class="w-20 h-20 rounded-2xl bg-accent-100 flex items-center justify-center mx-auto mb-4 border border-accent-200">
+          <span class="text-2xl font-extrabold text-accent-700">QL</span>
+        </div>
+        <div class="font-bold text-sm">Quoc Le</div>
+        <div class="text-xs text-slate-500 mt-0.5">CEO / Kinh doanh <span class="en">Business</span></div>
+        <div class="text-[10px] text-slate-400 mt-1">ex-Instamo / Polariis</div>
+      </div>
+      <div class="text-center">
+        <div class="w-20 h-20 rounded-2xl bg-emerald-100 flex items-center justify-center mx-auto mb-4 border border-emerald-200">
+          <span class="text-2xl font-extrabold text-emerald-700">CP</span>
+        </div>
+        <div class="font-bold text-sm">Calvin Phan</div>
+        <div class="text-xs text-slate-500 mt-0.5">Quản lý Dự án <span class="en">Project Mgmt</span></div>
+        <div class="text-[10px] text-slate-400 mt-1">ex-StarHub Singapore</div>
+      </div>
+      <div class="text-center">
+        <div class="w-20 h-20 rounded-2xl bg-amber-100 flex items-center justify-center mx-auto mb-4 border border-amber-200">
+          <span class="text-2xl font-extrabold text-amber-700">MN</span>
+        </div>
+        <div class="font-bold text-sm">Mi Nguyen</div>
+        <div class="text-xs text-slate-500 mt-0.5">Chiến lược / Vận hành <span class="en">Strategy & Ops</span></div>
+      </div>
+    </div>
+    <div class="mt-8 text-center">
+      <p class="text-sm text-slate-500">
+        <span class="font-semibold text-slate-600">Cố vấn <span class="en text-xs">Advisors</span>:</span> Giáo sư chính sách công Harvard/NUS, Cựu lãnh đạo Gen AI Engineering OpenAI
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== -->
+<!-- 10. CTA FOOTER                                                      -->
+<!-- ================================================================== -->
+<section id="contact" class="py-28 px-6 lg:px-10 bg-gradient-to-br from-primary-600 via-primary-700 to-accent-700 relative overflow-hidden">
+  <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-white/5 blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-white/5 blur-3xl pointer-events-none"></div>
+  <div class="fade-section relative max-w-3xl mx-auto text-center">
+    <h2 class="text-3xl lg:text-5xl font-extrabold tracking-tight text-white mb-2 leading-tight">
+      Sẵn Sàng Triển Khai EMI<br>Tại Trường Của Bạn?
+    </h2>
+    <p class="text-xl text-primary-200 mb-4 en">Ready to Bring EMI to Your School?</p>
+    <p class="text-base text-primary-200 mb-3 max-w-xl mx-auto">
+      Dù là Sở GD&ĐT đang lên kế hoạch, trường học muốn thí điểm, hay nhà đầu tư tìm hiểu cơ hội — hãy trao đổi với chúng tôi.
+    </p>
+    <p class="text-sm text-primary-300 mb-10 max-w-xl mx-auto en">
+      Whether you're a DoET planning implementation, a school seeking EMI pilot, or an investor exploring the opportunity — let's talk.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="mailto:hello@learneris.com" class="inline-flex items-center gap-2 text-base font-semibold text-primary-700 bg-white hover:bg-primary-50 px-8 py-4 rounded-xl transition-colors shadow-lg">
+        <i data-lucide="mail" class="w-5 h-5"></i>
+        Liên Hệ <span class="en text-sm">Contact Us</span>
+      </a>
+      <a href="#" class="inline-flex items-center gap-2 text-base font-semibold text-white border-2 border-white/30 hover:border-white/60 px-8 py-4 rounded-xl transition-colors" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+        Về Đầu Trang
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-primary-900 py-8 px-6 lg:px-10 border-t border-primary-800">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 rounded-md bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center">
+        <span class="text-white font-bold text-[10px]">L</span>
+      </div>
+      <span class="text-sm text-primary-400">Learneris Pte. Ltd. (Singapore)</span>
+    </div>
+    <div class="text-sm text-primary-500">
+      Đồng hành cùng Việt Nam chuyển đổi giáo dục Tiếng Anh với AI
+      <span class="en text-xs">Powering Vietnam's English education transformation with AI</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================================== -->
+<!-- SCRIPTS                                                             -->
+<!-- ================================================================== -->
+<script>
+lucide.createIcons();
+
+// Mobile menu
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+let menuOpen = false;
+menuToggle.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  mobileMenu.classList.toggle('hidden', !menuOpen);
+});
+function closeMobile() {
+  menuOpen = false;
+  mobileMenu.classList.add('hidden');
+}
+
+// Scroll-fade animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.01, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
