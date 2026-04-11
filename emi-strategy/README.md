@@ -2,6 +2,16 @@
 
 Strategic positioning and product roadmap for Learneris as the leading EdTech platform for Vietnam's national EMI (English as a Medium of Instruction) initiative.
 
+> **Deployment & editing guide:** see [HANDOVER.md](HANDOVER.md) for live URLs, deploy pipeline, content guardrails, and how to edit the public pages.
+
+## Live Pages
+
+- **Landing**: https://emi.learneris.com/
+- **HCMC DoET Proposal**: https://emi.learneris.com/sgddt
+- **Interactive Demo**: https://emi.learneris.com/demo
+
+Any push to `main` auto-deploys to Azure Static Web Apps in ~1 minute.
+
 ## The Opportunity
 
 Vietnam's government has launched the most ambitious English education reform in the country's history:
