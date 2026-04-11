@@ -444,6 +444,76 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mk-gf-progress-fill.animate{width:100%}
 .mk-clil-demo .mk-clil-anim{opacity:0;transform:translateY(8px) scale(0.96);transition:all .4s cubic-bezier(.34,1.56,.64,1)}
 .mk-clil-demo .mk-clil-anim.show{opacity:1;transform:translateY(0) scale(1)}
+/* === NV 06 Sở dashboard === */
+.mk-dash-bar{background:linear-gradient(180deg,#fafdfc,#fff);padding:11px 13px}
+.mk-dash-hd{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.mk-dash-row{display:flex;justify-content:space-around;margin-top:6px;padding-top:6px;border-top:1px dashed #e5e7eb}
+.mk-dr-stat{text-align:center;font-size:9px;color:var(--mut);line-height:1.3}
+.mk-dr-stat strong{display:block;font-size:14px;color:var(--teal);font-weight:900}
+.mk-soreport{padding:0;overflow:hidden;border:1px solid #cbd5e1}
+.mk-soreport-hd{background:linear-gradient(135deg,var(--teal),var(--t800));color:#fff;padding:9px 12px;display:flex;align-items:center;gap:8px}
+.mk-soreport-logo{width:24px;height:24px;border-radius:6px;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0}
+.mk-sr-t1{font-size:11px;font-weight:800;line-height:1.2}
+.mk-sr-t2{font-size:9px;opacity:0.85;margin-top:1px}
+.mk-soreport-body{padding:8px 12px 10px 12px;font-size:10px;color:var(--mut)}
+.mk-sr-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #f1f5f9}
+.mk-sr-row:last-of-type{border-bottom:none}
+.mk-sr-row strong{color:var(--txt);font-weight:700;font-size:10px}
+.mk-sr-row strong em{color:var(--teal);font-style:normal}
+.mk-sr-pct{color:var(--teal);font-weight:700}
+.mk-sr-btn{margin-top:6px;width:100%;padding:6px;background:var(--teal);color:#fff;border:none;border-radius:5px;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:4px;cursor:default}
+/* === NV 03 PD modules + quiz === */
+.mk-pdmod{background:linear-gradient(180deg,#fafdfc,#fff);padding:11px 13px}
+.mk-pdmod-hd{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:4px;padding-bottom:5px;border-bottom:1px dashed #e5e7eb}
+.mk-pdmod-hd em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500}
+.mk-pd-item{margin-bottom:8px}
+.mk-pd-item:last-child{margin-bottom:0}
+.mk-pd-row{display:flex;justify-content:space-between;align-items:center;font-size:11px;margin-bottom:3px}
+.mk-pd-row strong{color:var(--txt);font-weight:700}
+.mk-pd-pct{font-weight:800;font-size:10px}
+.mk-pd-grn{color:var(--grn)}
+.mk-pd-amb{color:var(--amb)}
+.mk-pd-red{color:var(--red)}
+.mk-pd-bar{height:5px;background:#e5e7eb;border-radius:3px;overflow:hidden}
+.mk-pd-fill{height:100%;border-radius:3px}
+.mk-pd-fg{background:linear-gradient(90deg,#34d399,var(--grn))}
+.mk-pd-fa{background:linear-gradient(90deg,#fbbf24,var(--amb))}
+.mk-pd-fr{background:linear-gradient(90deg,#fca5a5,var(--red))}
+.mk-pd-item small{display:block;font-size:9px;color:var(--mut);margin-top:3px}
+.mk-quiz{background:#fff;border:1px solid #e5e7eb;padding:11px 13px}
+.mk-quiz-hd{font-size:9px;font-weight:800;color:var(--pur);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.mk-quiz-hd em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500}
+.mk-quiz-q{font-size:11px;font-weight:700;margin:0 0 6px 0;color:var(--txt)}
+.mk-quiz-opt{padding:5px 8px;border:1px solid #e5e7eb;border-radius:5px;font-size:10px;color:var(--mut);margin-bottom:4px}
+.mk-quiz-correct{background:var(--g50);border-color:var(--grn);color:var(--txt);font-weight:600}
+.mk-quiz-leader{margin-top:8px;padding-top:8px;border-top:1px dashed #e5e7eb;font-size:10px;color:var(--mut)}
+.mk-quiz-leader strong{display:block;color:var(--amb);font-weight:800;margin-bottom:4px;font-size:9px;letter-spacing:0.04em}
+.mk-ql-row{display:flex;align-items:center;gap:6px;padding:2px 0;font-size:10px;color:var(--txt);font-weight:600}
+.mk-ql-row span:first-child{width:14px;text-align:center;font-weight:800;color:var(--mut)}
+.mk-ql-row .mk-ql-sc{margin-left:auto;color:var(--teal);font-weight:800}
+.mk-quiz-note{margin-top:7px;padding:5px 7px;background:var(--srf);border-radius:4px;font-size:9px;color:var(--mut);display:flex;align-items:center;gap:4px;line-height:1.3}
+/* === NV 05 AI Math Tutor + pronunciation === */
+.mk-mathtutor{background:#fff;padding:11px 13px}
+.mk-mt-hd{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:4px;padding-bottom:5px;border-bottom:1px dashed #e5e7eb}
+.mk-mt-hd em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500}
+.mk-mt-chat{display:flex;flex-direction:column;gap:5px;margin-bottom:7px}
+.mk-mt-bub{padding:7px 10px;border-radius:9px;font-size:10px;line-height:1.45;max-width:88%}
+.mk-mt-user{background:var(--srf);color:var(--txt);align-self:flex-end;border-bottom-right-radius:3px}
+.mk-mt-ai{background:var(--t50);color:var(--txt);align-self:flex-start;border-bottom-left-radius:3px;border:1px solid var(--t100)}
+.mk-mt-ai em{font-style:italic;color:var(--mut);font-size:9px;display:block;margin-top:3px}
+.mk-mt-rubric{margin-top:6px;padding:6px 8px;background:var(--g50);border-left:2px solid var(--grn);border-radius:4px;font-size:10px;color:var(--txt)}
+.mk-mt-rubric strong{color:var(--grn);font-weight:700}
+.mk-pron{background:linear-gradient(180deg,#fdf4ff,#fff);padding:11px 13px;border:1px solid var(--p100)}
+.mk-pron-hd{font-size:9px;font-weight:800;color:var(--pur);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:4px;padding-bottom:5px;border-bottom:1px dashed var(--p100)}
+.mk-pron-hd em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500}
+.mk-pron-row{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:11px}
+.mk-pron-row strong{color:var(--txt);font-weight:700;flex:1}
+.mk-pron-ipa{color:var(--mut);font-family:'SF Mono',Monaco,monospace;font-size:10px}
+.mk-pron-play{color:var(--pur);cursor:default;font-size:11px}
+.mk-pron-note{margin-top:6px;padding:5px 7px;background:var(--srf);border-radius:4px;font-size:9px;color:var(--mut);display:flex;align-items:center;gap:4px;line-height:1.4}
+.mk-pron-skills{display:flex;gap:4px;margin-top:6px}
+.mk-skill-pill{flex:1;text-align:center;font-size:9px;padding:3px 6px;border-radius:4px;background:#fff;border:1px solid #e5e7eb;color:var(--mut);font-weight:600;display:flex;align-items:center;justify-content:center;gap:3px}
+.mk-skill-active{background:var(--p50);border-color:var(--pur);color:var(--pur)}
 @media(max-width:768px){.nv-layout{grid-template-columns:1fr}.nv-tab.active::after{display:none}.nv-p-src{padding-left:0}}
 /* Nested mockups inside right panel */
 .nv-p-mockup{margin-top:14px;padding-top:12px;border-top:1px dashed #e5e7eb}
@@ -1500,13 +1570,38 @@ const NV_DATA=[
   {num:'03',task:'Phát triển đội ngũ cán bộ quản lý, giáo viên',src:'QĐ 2371 · Mục III.3 · "bồi dưỡng năng lực tiếng Anh cho đội ngũ"',
    owner:'learneris',badge:'★ Learneris hỗ trợ',name:'Micro-modules CLIL + Kịch bản Lớp + AI Luyện Nói',
    mech:'GV tự học <strong>12 khóa ngắn</strong> (phương pháp CLIL, Classroom English, từ vựng chuyên ngành) · Mỗi bài giảng kèm <strong>kịch bản 45 phút song ngữ + audio phát âm + câu lệnh quản lý lớp</strong> để GV A2-B1 đứng lớp ngay · <strong>AI Conversation Partner</strong> giúp GV luyện nói tiếng Anh 10 phút/ngày.<em>Bổ trợ — không thay chứng chỉ chính quy British Council / VNIES / đơn vị BGDĐT công nhận.</em>',
-   mockup:`<div class="mk-card mk-script">
-     <div class="mk-script-hd"><i data-lucide="clock" style="width:11px;height:11px"></i> KỊCH BẢN 45 PHÚT · <em>Lesson Script</em></div>
-     <div class="mk-script-row"><span class="mk-t">0-3p</span><span class="mk-lang en">EN</span><span>Vocabulary: <em>equation, variable, solve</em></span></div>
-     <div class="mk-script-row"><span class="mk-t">3-15p</span><span class="mk-lang vn">VN</span><span>Giảng bài chính bằng tiếng Việt</span></div>
-     <div class="mk-script-row"><span class="mk-t">15-20p</span><span class="mk-lang en">EN</span><span>GV giải mẫu: <em>"subtract from both sides"</em> <i data-lucide="volume-2" style="width:10px;height:10px"></i></span></div>
-     <div class="mk-script-row"><span class="mk-t">20-32p</span><span class="mk-lang vn">VN</span><span>HS thực hành · dùng thuật ngữ EN</span></div>
-     <div class="mk-script-row"><span class="mk-t">32-38p</span><span class="mk-lang en">EN</span><span>HS trình bày: <em>"x equals 2, I solved by..."</em></span></div>
+   mockup:`<div class="mk-grid mk-grid-2">
+     <div class="mk-card mk-pdmod">
+       <div class="mk-pdmod-hd"><i data-lucide="graduation-cap" style="width:11px;height:11px"></i> MICRO-MODULES PD · <em>Tự học thực hành</em></div>
+       <div class="mk-pd-item">
+         <div class="mk-pd-row"><strong>Phương Pháp CLIL</strong><span class="mk-pd-pct mk-pd-grn">71%</span></div>
+         <div class="mk-pd-bar"><div class="mk-pd-fill mk-pd-fg" style="width:71%"></div></div>
+         <small>32/45 GV hoàn thành</small>
+       </div>
+       <div class="mk-pd-item">
+         <div class="mk-pd-row"><strong>Tiếng Anh Lớp Học</strong><span class="mk-pd-pct mk-pd-amb">40%</span></div>
+         <div class="mk-pd-bar"><div class="mk-pd-fill mk-pd-fa" style="width:40%"></div></div>
+         <small>18/45 GV hoàn thành</small>
+       </div>
+       <div class="mk-pd-item">
+         <div class="mk-pd-row"><strong>Môn Nội Dung CLIL</strong><span class="mk-pd-pct mk-pd-red">11%</span></div>
+         <div class="mk-pd-bar"><div class="mk-pd-fill mk-pd-fr" style="width:11%"></div></div>
+         <small>5/45 GV hoàn thành</small>
+       </div>
+     </div>
+     <div class="mk-card mk-quiz">
+       <div class="mk-quiz-hd"><i data-lucide="help-circle" style="width:11px;height:11px"></i> TỰ KIỂM TRA · <em>Self-check</em></div>
+       <p class="mk-quiz-q">CLIL là gì?</p>
+       <div class="mk-quiz-opt">A. Computer Language Learning</div>
+       <div class="mk-quiz-opt mk-quiz-correct"><strong>C.</strong> Content &amp; Language Integrated Learning ✓</div>
+       <div class="mk-quiz-opt">D. Comprehensive Linguistic Layer</div>
+       <div class="mk-quiz-leader"><strong>BXH GV thực hành ↗</strong>
+         <div class="mk-ql-row"><span>1</span>Nguyễn Thị Lan<span class="mk-ql-sc">950</span></div>
+         <div class="mk-ql-row"><span>2</span>Trần Văn Minh<span class="mk-ql-sc">920</span></div>
+         <div class="mk-ql-row"><span>3</span>Lê Hoàng Anh<span class="mk-ql-sc">890</span></div>
+       </div>
+       <div class="mk-quiz-note"><i data-lucide="info" style="width:9px;height:9px"></i> Bổ trợ — không thay chứng chỉ chính quy BC/VNIES</div>
+     </div>
    </div>`},
   {num:'04',task:'Xây dựng chương trình & học liệu dạy học bằng tiếng Anh',src:'QĐ 2371 · Mục III.4.b "học liệu trực tuyến mở, ứng dụng công nghệ, đào tạo trực tuyến ở quy mô quốc gia"',
    owner:'learneris',badge:'★ Learneris',name:'AI Content Engine cho EMI Việt Nam',
@@ -1543,31 +1638,60 @@ const NV_DATA=[
   {num:'05',task:'Đổi mới phương pháp dạy học, thi, kiểm tra, đánh giá',src:'QĐ 2371 · Mục III.5.a "dạy học cả bốn kỹ năng nghe, nói, đọc và viết, chú trọng nghe và nói"',
    owner:'learneris',badge:'★ Learneris',name:'4-Skill Activity Library + AI Speaking Coach + Bilingual Rubrics',
    mech:'<strong>Thư viện hoạt động 4 kỹ năng</strong> (nghe/nói/đọc/viết) — GV chọn theo bài giảng, không cần tự soạn · <strong>AI Speaking Coach</strong> cho HS luyện phát âm + hội thoại real-time · <strong>Rubric song ngữ</strong> tự động chấm điểm bài viết + bài nói theo thang 4 kỹ năng.<em>Đánh giá formative liên tục · Thúc đẩy giao tiếp tự nhiên · Mục III.5.b: "thúc đẩy dạy học tiếng Anh một cách tự nhiên".</em>',
-   mockup:`<div class="mk-card mk-skills">
-     <div class="mk-sk-hd"><i data-lucide="sparkles" style="width:11px;height:11px"></i> 4 KỸ NĂNG · <em>Listening · Speaking · Reading · Writing</em></div>
-     <div class="mk-sk-grid">
-       <div class="mk-sk-item mk-sk-listen"><i data-lucide="ear"></i><strong>Nghe</strong><small>Dictation · Video w/ sub · Podcast quiz</small></div>
-       <div class="mk-sk-item mk-sk-speak"><i data-lucide="mic"></i><strong>Nói</strong><small>AI conversation · Role-play · Presentation</small></div>
-       <div class="mk-sk-item mk-sk-read"><i data-lucide="book"></i><strong>Đọc</strong><small>Graded reader · News article · STEM texts</small></div>
-       <div class="mk-sk-item mk-sk-write"><i data-lucide="pen"></i><strong>Viết</strong><small>Paragraph · Lab report · Word problem</small></div>
+   mockup:`<div class="mk-grid mk-grid-2">
+     <div class="mk-card mk-mathtutor">
+       <div class="mk-mt-hd"><i data-lucide="bot" style="width:11px;height:11px"></i> AI MATH TUTOR · <em>Học sinh hỏi · AI giải song ngữ</em></div>
+       <div class="mk-mt-chat">
+         <div class="mk-mt-bub mk-mt-user">How do I solve <strong>2x + 3 = 7</strong>?</div>
+         <div class="mk-mt-bub mk-mt-ai">
+           <strong>Step 1:</strong> 2x = 7 − 3 = 4<br>
+           <strong>Step 2:</strong> x = 2<br>
+           <em>Mẹo: Cùng phép tính ở cả hai vế!</em>
+         </div>
+         <div class="mk-mt-bub mk-mt-user">Cảm ơn! Test thử nhé?</div>
+       </div>
+       <div class="mk-mt-rubric"><strong>AI rubric song ngữ:</strong> Content 4/5 · Language 3/5 · Communication 5/5</div>
      </div>
-     <div class="mk-sk-rubric"><strong>AI chấm rubric song ngữ:</strong> Content 4/5 · Language 3/5 · Communication 5/5</div>
+     <div class="mk-card mk-pron">
+       <div class="mk-pron-hd"><i data-lucide="volume-2" style="width:11px;height:11px"></i> PHÁT ÂM CHUYÊN NGÀNH · <em>Speaking Coach</em></div>
+       <div class="mk-pron-row"><strong>equation</strong><span class="mk-pron-ipa">/ɪˈkweɪ.ʒən/</span><span class="mk-pron-play">▶</span></div>
+       <div class="mk-pron-row"><strong>variable</strong><span class="mk-pron-ipa">/ˈver.i.ə.bəl/</span><span class="mk-pron-play">▶</span></div>
+       <div class="mk-pron-row"><strong>subtract</strong><span class="mk-pron-ipa">/səbˈtrækt/</span><span class="mk-pron-play">▶</span></div>
+       <div class="mk-pron-row"><strong>solve</strong><span class="mk-pron-ipa">/sɒlv/</span><span class="mk-pron-play">▶</span></div>
+       <div class="mk-pron-note"><i data-lucide="info" style="width:9px;height:9px"></i> Mục tiêu: <strong>intelligibility</strong> — không cần giống bản ngữ <em>(Jenkins LFC)</em></div>
+       <div class="mk-pron-skills">
+         <span class="mk-skill-pill"><i data-lucide="ear" style="width:9px;height:9px"></i> Nghe</span>
+         <span class="mk-skill-pill mk-skill-active"><i data-lucide="mic" style="width:9px;height:9px"></i> Nói</span>
+         <span class="mk-skill-pill"><i data-lucide="book" style="width:9px;height:9px"></i> Đọc</span>
+         <span class="mk-skill-pill"><i data-lucide="pen" style="width:9px;height:9px"></i> Viết</span>
+       </div>
+     </div>
    </div>`},
   {num:'06',task:'Ứng dụng CNTT, AI, tăng cường CSVC',src:'QĐ 2371 · Mục III.6.a "phát triển các nền tảng học tập số, ứng dụng AI phân tích trình độ, cá nhân hóa"',
    owner:'learneris',badge:'★ Learneris',name:'Learneris LMS + AI Teaching Assistant',
    mech:'<strong>Mục III.6.c</strong> nêu rõ: <em>"khuyến khích hợp tác giữa ngành giáo dục và các tổ chức công nghệ, các doanh nghiệp giáo dục số"</em> — chính sách trực tiếp mời Learneris.<br><br>LMS đầy đủ: quản lý lớp + giao bài + theo dõi tiến độ · <strong>AI Teaching Assistant</strong> + <strong>Bilingual Chat</strong> · đạt chuẩn <strong>An toàn Thông tin Cấp 3</strong> (TT 12/2022/TT-BTTTT) bắt buộc cho trường công.<em>Không yêu cầu trường đầu tư thêm CSVC · Ưu tiên khu vực khó khăn (Mục III.6.b).</em>',
-   mockup:`<div class="mk-card mk-dash">
-     <div class="mk-dash-hd"><i data-lucide="layout-dashboard" style="width:11px;height:11px"></i> DASHBOARD TRƯỜNG · THCS NGUYỄN DU</div>
-     <div class="mk-dash-stats">
-       <div class="mk-stat"><div class="mk-sv">45</div><div class="mk-sl">GV</div></div>
-       <div class="mk-stat"><div class="mk-sv">620</div><div class="mk-sl">HS</div></div>
-       <div class="mk-stat"><div class="mk-sv">156</div><div class="mk-sl">Bài CLIL</div></div>
-       <div class="mk-stat"><div class="mk-sv mk-tl">71%</div><div class="mk-sl">GV active</div></div>
+   mockup:`<div class="mk-grid mk-grid-2">
+     <div class="mk-card mk-dash-bar">
+       <div class="mk-dash-hd"><i data-lucide="bar-chart-3" style="width:11px;height:11px"></i> CHỨNG NHẬN GV THEO MÔN</div>
+       <svg width="100%" height="105" viewBox="0 0 300 110" preserveAspectRatio="xMidYMid meet">
+         <rect x="14" y="8" width="42" height="80" rx="4" fill="var(--t100)"/><rect x="14" y="8" width="42" height="57" rx="4" fill="var(--teal)"/><text x="35" y="100" text-anchor="middle" font-size="9" fill="#475569" font-weight="700">CLIL</text>
+         <rect x="70" y="8" width="42" height="80" rx="4" fill="var(--t100)"/><rect x="70" y="40" width="42" height="48" rx="4" fill="var(--amb)"/><text x="91" y="100" text-anchor="middle" font-size="9" fill="#475569" font-weight="700">English</text>
+         <rect x="126" y="8" width="42" height="80" rx="4" fill="var(--t100)"/><rect x="126" y="74" width="42" height="14" rx="4" fill="var(--red)"/><text x="147" y="100" text-anchor="middle" font-size="9" fill="#475569" font-weight="700">Math</text>
+         <rect x="182" y="8" width="42" height="80" rx="4" fill="var(--t100)"/><rect x="182" y="33" width="42" height="55" rx="4" fill="var(--grn)"/><text x="203" y="100" text-anchor="middle" font-size="9" fill="#475569" font-weight="700">Science</text>
+         <rect x="238" y="8" width="42" height="80" rx="4" fill="var(--t100)"/><rect x="238" y="61" width="42" height="27" rx="4" fill="var(--pur)"/><text x="259" y="100" text-anchor="middle" font-size="9" fill="#475569" font-weight="700">Civics</text>
+       </svg>
+       <div class="mk-dash-row"><div class="mk-dr-stat"><strong>1,915</strong><span>cơ sở GD HCMC</span></div><div class="mk-dr-stat"><strong>71%</strong><span>GV active</span></div></div>
      </div>
-     <div class="mk-dash-badges">
-       <span class="mk-badge mk-b-grn2"><i data-lucide="shield-check" style="width:9px;height:9px"></i> ATTT Cấp 3</span>
-       <span class="mk-badge mk-b-pur2"><i data-lucide="bot" style="width:9px;height:9px"></i> AI Assistant</span>
-       <span class="mk-badge mk-b-tl2"><i data-lucide="message-circle" style="width:9px;height:9px"></i> Bilingual Chat</span>
+     <div class="mk-card mk-soreport">
+       <div class="mk-soreport-hd"><div class="mk-soreport-logo">L</div><div><div class="mk-sr-t1">Báo Cáo · Sở GD&amp;ĐT TP.HCM</div><div class="mk-sr-t2">THCS Nguyễn Du · HK I 2026-2027</div></div></div>
+       <div class="mk-soreport-body">
+         <div class="mk-sr-row"><span>Giai đoạn EMI</span><strong>Chuẩn bị → <em>Nền Tảng</em></strong></div>
+         <div class="mk-sr-row"><span>GV chứng nhận CLIL</span><strong>32/45 <span class="mk-sr-pct">(71%)</span></strong></div>
+         <div class="mk-sr-row"><span>Giờ tiếp xúc TA</span><strong>1,240h</strong></div>
+         <div class="mk-sr-row"><span>Bài CLIL triển khai</span><strong>156 bài</strong></div>
+         <div class="mk-sr-row"><span>Học sinh tham gia</span><strong>620 HS</strong></div>
+         <button class="mk-sr-btn"><i data-lucide="download" style="width:10px;height:10px"></i> Tải PDF</button>
+       </div>
      </div>
    </div>`},
   {num:'07',task:'Tăng cường hợp tác quốc tế, xã hội hóa',src:'QĐ 2371 · Mục III.7 · "hợp tác với các quốc gia sử dụng tiếng Anh... chia sẻ kinh nghiệm, chuyển giao công nghệ"',
