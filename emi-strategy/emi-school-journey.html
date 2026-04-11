@@ -350,7 +350,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <!-- ===== 3. ASSESS ===== -->
 <div class="scr" data-s="3">
   <h2 class="sec-t"><i data-lucide="clipboard-list"></i> Khảo Sát &amp; Đánh Giá 7 Tiêu Chí EMI</h2>
-  <p class="sec-s">Theo QĐ 2371/QĐ-TTg — 30 câu hỏi, thang 4 mức. Hệ thống tự phân công đúng người trả lời, tổng hợp thành kết quả radar.</p>
+  <p class="sec-s">Theo khung 30 chỉ báo QĐ 2371/QĐ-TTg — thang 4 mức (A/B/C/D). Hệ thống tự phân công đúng người trả lời, tổng hợp thành kết quả radar.</p>
   <div class="g2">
     <!-- LEFT: Survey assignment matrix -->
     <div style="position:relative">
@@ -828,17 +828,19 @@ const SURVEY_DATA=[
    ]},
   {tc:2,tcName:'Chương trình & Dạy học',role:'Phó HT Chuyên môn',roleCls:'r-pht',score:1,
    qs:[
-     {q:'Trường đã thí điểm CLIL cho bao nhiêu môn nội dung?',
-      opts:['Chưa thí điểm','1 môn (Toán hoặc KHTN)','2-3 môn','≥4 môn trên mọi khối'],answer:1},
+     {q:'Trường đã triển khai CLIL cho bao nhiêu môn nội dung, ở bao nhiêu khối?',
+      opts:['Chưa triển khai','1 môn ở 1 khối','2-3 môn ở ≥50% khối','≥3 môn trên mọi khối'],answer:1},
      {q:'Tỷ lệ tiếng Anh trong giờ học CLIL trung bình?',
-      opts:['0-20%','20-40%','40-70%','Trên 70%'],answer:1}
+      opts:['0-10%','10-30%','30-50%','Trên 50%'],answer:1},
+     {q:'Tổng giờ tiếp xúc tiếng Anh trung bình mỗi học sinh/tuần? (QĐ 2371 · Tiêu chí 2.4)',
+      opts:['Dưới 4 giờ','4-6 giờ','6-10 giờ','Trên 10 giờ'],answer:1}
    ]},
   {tc:3,tcName:'Học liệu',role:'Tổ trưởng EMI',roleCls:'r-tt',score:1,
    qs:[
-     {q:'Nguồn tài liệu CLIL hiện đang sử dụng?',
-      opts:['Chưa có','Tự soạn, chưa chuẩn hóa','Cambridge / Oxford','Bộ chuẩn BGDĐT'],answer:1},
-     {q:'Tải lên mẫu giáo án CLIL tiêu biểu của trường:',type:'upload',
-      fileName:'giao_an_CLIL_Toan_L7_2026.pdf',fileSize:'2.4 MB'}
+     {q:'Số môn có tài liệu CLIL chuẩn hóa (giáo án, slide, học liệu)?',
+      opts:['Chưa có môn nào','1 môn','2 môn ở nhiều khối','≥3 môn trên mọi khối'],answer:1},
+     {q:'Tỷ lệ môn có tài liệu số song ngữ trên LMS? (QĐ 2371 · Tiêu chí 3.2)',
+      opts:['Chưa có','Dưới 30% số môn','30-60% số môn','Trên 60% số môn'],answer:1}
    ]},
   {tc:4,tcName:'Số hóa & AI',role:'Cán bộ CNTT',roleCls:'r-it',score:3,
    qs:[
@@ -849,12 +851,12 @@ const SURVEY_DATA=[
    ]},
   {tc:5,tcName:'Đội ngũ',role:'Hiệu trưởng',roleCls:'r-ht',score:1,
    qs:[
-     {q:'Tỷ lệ giáo viên đạt trình độ CEFR B2 trở lên?',
-      opts:['Dưới 20%','20-40%','40-70%','Trên 70%'],answer:1},
-     {q:'Số giáo viên đã hoàn thành chứng chỉ CLIL?',
-      opts:['0 người','1-5 người','6-15 người','Trên 15 người'],answer:1},
-     {q:'Tải lên danh sách giáo viên kèm chứng chỉ CEFR:',type:'upload',
-      fileName:'danh_sach_GV_CEFR_2026.xlsx',fileSize:'156 KB'}
+     {q:'Tỷ lệ giáo viên tiếng Anh đạt CEFR B2+ (hoặc chuẩn VNEFR tương đương)? (Tiêu chí 5.1)',
+      opts:['Dưới 50%','50-70%','70-80%','Trên 80%'],answer:1},
+     {q:'Tỷ lệ giáo viên bộ môn đạt trình độ A2-B1 trở lên? (Tiêu chí 5.2)',
+      opts:['Dưới 20%','20-40%','40-60%','Trên 60%'],answer:1},
+     {q:'Số giờ bồi dưỡng EMI trung bình mỗi giáo viên/năm? (Tiêu chí 5.4)',
+      opts:['0 giờ','Dưới 20 giờ','20-40 giờ','≥40 giờ · ≥60% hoàn thành'],answer:1}
    ]},
   {tc:6,tcName:'Hợp tác quốc tế',role:'Hiệu trưởng',roleCls:'r-ht',score:0,
    qs:[
