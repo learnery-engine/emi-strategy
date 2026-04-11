@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learneris EMI — Hành Trình Trường Học</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#0D9488;--tl:#14b8a6;--t50:#f0fdfa;--t100:#ccfbf1;--t200:#99f6e4;--t800:#115e59;
+  --grn:#16a34a;--g50:#f0fdf4;--g100:#dcfce7;
+  --pur:#7c3aed;--p50:#f5f3ff;--p100:#ede9fe;
+  --txt:#0f172a;--mut:#475569;--srf:#f8fafc;
+  --red:#ef4444;--amb:#f59e0b;--a50:#fffbeb;
+  --r:14px;--rs:10px;
+  --hh:48px;--sh:58px;--nh:48px;
+}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--txt);background:#fff;-webkit-font-smoothing:antialiased;overflow:hidden;height:100vh}
+body::before{content:'';position:fixed;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(13,148,136,0.04) 0%,transparent 70%);pointer-events:none}
+body::after{content:'';position:fixed;bottom:-200px;left:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(124,58,237,0.03) 0%,transparent 70%);pointer-events:none}
+
+.hdr{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.88);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(0,0,0,0.05);height:var(--hh);padding:0 20px;display:flex;align-items:center;gap:10px}
+.logo{width:28px;height:28px;background:linear-gradient(135deg,var(--tl),var(--teal));border-radius:7px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 2px 8px rgba(13,148,136,0.2)}
+.logo span{color:#fff;font-weight:800;font-size:13px}
+.logo::after{content:'';position:absolute;top:4px;right:4px;width:5px;height:5px;background:var(--t200);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+.hdr-t{font-weight:700;font-size:15px;letter-spacing:-0.01em}
+.hdr-b{font-size:12px;color:var(--teal);background:var(--t50);padding:4px 12px;border-radius:20px;font-weight:600;border:1px solid var(--t100);text-transform:uppercase;letter-spacing:0.05em}
+
+.sbar{position:fixed;top:var(--hh);left:0;right:0;z-index:99;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.04);height:var(--sh);padding:0 16px;display:flex;align-items:center;overflow-x:auto}
+.steps{display:flex;align-items:center;justify-content:center;max-width:780px;margin:0 auto;width:100%}
+.si{display:flex;flex-direction:column;align-items:center;flex:1;cursor:pointer;transition:transform .15s;min-width:56px}
+.si:hover{transform:translateY(-1px)}
+.sc{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:2px solid #d1d5db;color:#a1a1aa;background:#fff;transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;z-index:2}
+.si.a .sc{border-color:var(--teal);color:#fff;background:linear-gradient(135deg,var(--tl),var(--teal));box-shadow:0 0 0 4px rgba(13,148,136,0.1),0 2px 8px rgba(13,148,136,0.2)}
+.si.d .sc{border-color:var(--grn);background:var(--grn);color:#fff;box-shadow:0 1px 4px rgba(22,163,74,0.2)}
+.sl{font-size:10px;color:#a1a1aa;margin-top:3px;font-weight:500;text-align:center;transition:all .2s;white-space:nowrap}
+.si.a .sl{color:var(--teal);font-weight:700}
+.si.d .sl{color:var(--grn);font-weight:600}
+.sln{flex:1;height:2px;background:#e5e7eb;margin:0 -2px;position:relative;top:-9px;z-index:1;min-width:14px;max-width:55px;transition:background .3s}
+.sln.dn{background:var(--grn)}
+
+.wrap{position:fixed;top:calc(var(--hh) + var(--sh));left:0;right:0;bottom:var(--nh);overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth}
+.scr{display:none;max-width:1060px;margin:0 auto;padding:14px 20px 18px;animation:fadeUp .4s cubic-bezier(.4,0,.2,1)}
+.scr.on{display:flex;flex-direction:column}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+.bnav{position:fixed;bottom:0;left:0;right:0;height:var(--nh);background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(0,0,0,0.05);padding:0 20px;display:flex;align-items:center;justify-content:space-between;z-index:100}
+.nb{padding:8px 22px;border-radius:var(--rs);font-weight:600;font-size:13px;cursor:pointer;border:none;transition:all .2s}
+.nb.p{background:linear-gradient(135deg,var(--tl),var(--teal));color:#fff;box-shadow:0 4px 16px rgba(13,148,136,0.35);padding:10px 28px;font-size:14px;animation:nudge 2.4s ease-in-out infinite}
+.nb.p:hover{box-shadow:0 6px 20px rgba(13,148,136,0.45);transform:translateY(-1px);animation:none}
+@keyframes nudge{0%,85%,100%{transform:translateX(0)}90%{transform:translateX(3px)}95%{transform:translateX(0)}}
+.nb.s{background:#fff;color:var(--txt);border:1.5px solid #e5e7eb}
+.nb.s:hover{background:#fafafa;border-color:#d1d5db}
+.nb:disabled{opacity:.3;cursor:not-allowed;transform:none!important;box-shadow:none!important}
+.nc{font-size:12px;color:var(--mut);font-weight:600}
+
+.pb{margin-top:14px;padding:8px 14px;background:linear-gradient(135deg,var(--p50),#faf5ff);border:1px solid var(--p100);border-radius:var(--rs);font-size:11px;color:var(--pur);font-weight:500;display:flex;align-items:center;gap:8px}
+.pb i[data-lucide]{width:14px;height:14px}
+
+.card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:var(--r);padding:14px;transition:all .25s;box-shadow:0 1px 2px rgba(0,0,0,0.02)}
+.card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.05);transform:translateY(-1px)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}
+@media(max-width:768px){.g2,.g3,.g4{grid-template-columns:1fr}.scr{padding:10px 14px 14px}.hdr{padding:0 14px;height:42px}.sbar{padding:0 10px;height:50px}.si{min-width:42px}.sc{width:24px;height:24px;font-size:10px}.sl{font-size:9px;margin-top:2px}.sln{min-width:8px;max-width:30px}.bnav{padding:0 14px;height:42px}.nb{padding:6px 14px;font-size:12px}.sec-t{font-size:18px}.sec-s{font-size:13px;margin-bottom:12px}.card{padding:12px}.st{padding:10px}.sv{font-size:20px}.slb{font-size:11px}.wrap{top:calc(42px + 50px);bottom:42px}}
+.st{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:var(--rs);padding:12px;text-align:center;transition:all .25s}
+.st:hover{box-shadow:0 4px 12px rgba(0,0,0,0.04);transform:translateY(-1px)}
+.sv{font-size:22px;font-weight:800;color:var(--teal);letter-spacing:-0.02em}
+.slb{font-size:11px;color:var(--mut);margin-top:2px;font-weight:500;line-height:1.3}
+.tag{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;border-radius:16px;font-size:12px;font-weight:600}
+.tg{background:var(--g100);color:var(--grn)}.ta{background:var(--a50);color:#b45309}.tr{background:#fef2f2;color:var(--red)}.tt{background:var(--t100);color:var(--t800)}
+.pt{height:5px;background:#f1f5f9;border-radius:3px;overflow:hidden}
+.pf{height:100%;border-radius:3px;transition:width .6s ease}
+.fg{background:linear-gradient(90deg,#22c55e,var(--grn))}.fa{background:linear-gradient(90deg,#fbbf24,var(--amb))}.fr{background:linear-gradient(90deg,#f87171,var(--red))}.ft{background:linear-gradient(90deg,var(--tl),var(--teal))}
+.sec-t{font-size:20px;font-weight:800;letter-spacing:-0.03em;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.sec-t i[data-lucide]{width:20px;height:20px;color:var(--teal)}
+.sec-s{font-size:13px;color:var(--mut);margin-bottom:14px;line-height:1.5}
+.cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;background:linear-gradient(135deg,var(--tl),var(--teal));color:#fff;font-weight:700;font-size:13px;border:none;border-radius:var(--rs);cursor:pointer;transition:all .25s;box-shadow:0 3px 12px rgba(13,148,136,0.2)}
+.cta:hover{box-shadow:0 6px 20px rgba(13,148,136,0.3);transform:translateY(-1px)}
+.cta i[data-lucide]{width:16px;height:16px}
+.fi{width:100%;padding:9px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:13px;font-family:inherit;background:#fff;color:var(--txt);transition:all .2s}
+.fi:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,148,136,0.08)}
+select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.fl{font-size:12px;font-weight:600;color:var(--mut);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:0.05em}
+.lvl-chips{display:flex;gap:6px;flex-wrap:wrap}
+.lvl-chip{padding:7px 12px;border:1.5px solid #e5e7eb;background:#fff;border-radius:8px;font-size:12px;font-weight:600;color:var(--txt);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:5px;font-family:inherit}
+.lvl-chip:hover{border-color:var(--tl);background:#f0fdfa}
+.lvl-chip.active{background:linear-gradient(135deg,var(--tl),var(--teal));color:#fff;border-color:var(--teal);box-shadow:0 2px 8px rgba(13,148,136,0.25)}
+.lvl-chip.pulse{animation:chipPulse 1s ease}
+@keyframes chipPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08);box-shadow:0 4px 16px rgba(13,148,136,0.4)}}
+.class-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:6px}
+.cbx{display:flex;align-items:center;gap:6px;padding:7px 10px;border:1.5px solid #e5e7eb;border-radius:6px;font-size:12px;cursor:pointer;transition:all .15s;background:#fff}
+.cbx:hover{border-color:var(--tl);background:#f0fdfa}
+.cbx input{accent-color:var(--teal);margin:0}
+.cbx.on{border-color:var(--teal);background:#f0fdfa;color:var(--teal);font-weight:600}
+.detect-hint{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--teal);margin-top:6px;padding:5px 10px;background:var(--g50);border-radius:6px;opacity:0;transition:opacity .3s}
+.detect-hint.show{opacity:1}
+.svy-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:11px;table-layout:auto}
+.svy-tbl thead th{padding:5px 6px;text-align:left;font-weight:700;color:var(--mut);text-transform:uppercase;font-size:9px;letter-spacing:0.04em;border-bottom:1px solid #e5e7eb}
+.svy-tbl tbody td{padding:6px;border-top:1px solid #f1f5f9;vertical-align:middle}
+.svy-tbl tbody td:first-child{color:var(--mut);font-weight:600;font-variant-numeric:tabular-nums}
+.svy-tbl .wt{text-align:center;font-weight:700;color:var(--teal);font-variant-numeric:tabular-nums}
+.svy-tbl .wt.hi{color:var(--pur)}
+.r-tag{display:inline-flex;align-items:center;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:700;margin-right:2px;white-space:nowrap;line-height:1.5}
+.r-ht{background:#fef3c7;color:#92400e}
+.r-pht{background:#dbeafe;color:#1e40af}
+.r-tt{background:#d1fae5;color:#065f46}
+.r-gv{background:#e0e7ff;color:#3730a3}
+.r-it{background:#fce7f3;color:#9f1239}
+/* Survey animation styles */
+.svy-row{transition:background .3s ease}
+.svy-row.active{background:#fef9c3;box-shadow:inset 3px 0 0 #f59e0b}
+.svy-row.done{background:#f0fdf4}
+.svy-row.done td{color:var(--mut)}
+.svy-row.done td:nth-child(2){text-decoration:line-through;text-decoration-color:#a7f3d0}
+.svy-check{text-align:center}
+.svy-row.done .svy-check::after{content:"✓";color:var(--grn);font-weight:900;font-size:13px;display:inline-block;animation:checkPop .4s cubic-bezier(.34,1.56,.64,1)}
+@keyframes checkPop{0%{transform:scale(0) rotate(-45deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+.svy-cursor{position:absolute;width:18px;height:18px;top:0;left:0;opacity:0;pointer-events:none;transition:top .45s cubic-bezier(.4,0,.2,1),left .45s cubic-bezier(.4,0,.2,1),opacity .2s;z-index:10;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.25))}
+.svy-cursor i[data-lucide]{width:18px;height:18px;stroke-width:2.5;color:#1e293b;fill:#fff}
+.svy-cursor.on{opacity:1}
+.svy-cursor.click::after{content:"";position:absolute;top:9px;left:9px;width:0;height:0;border:2px solid var(--teal);border-radius:50%;transform:translate(-50%,-50%);animation:cursorPulse .5s ease-out}
+@keyframes cursorPulse{0%{width:0;height:0;opacity:1}100%{width:28px;height:28px;opacity:0}}
+.svy-panel{transition:opacity .35s ease,transform .35s ease}
+.svy-panel.fade-out{opacity:0;transform:scale(0.97)}
+.svy-panel.fade-in{opacity:1;transform:scale(1)}
+.svy-opt{display:block;padding:6px 10px;border:1.5px solid #e5e7eb;border-radius:6px;color:var(--txt);background:#fff;cursor:pointer;transition:all .2s;line-height:1.3}
+.svy-opt.sel{border-color:var(--teal);background:#ecfdf5;color:var(--teal);font-weight:700;box-shadow:0 1px 4px rgba(13,148,136,0.15)}
+.svy-submit{width:100%;padding:7px 12px;background:linear-gradient(135deg,var(--tl),var(--teal));color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:5px;transition:all .2s;font-family:inherit}
+.svy-submit:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(13,148,136,0.25)}
+.svy-submit.flash{animation:submitFlash .4s ease}
+@keyframes submitFlash{0%,100%{transform:scale(1)}50%{transform:scale(0.96);filter:brightness(1.2)}}
+.q-dot{width:6px;height:6px;border-radius:50%;background:#e5e7eb;transition:all .25s}
+.q-dot.done{background:var(--grn)}
+.q-dot.cur{background:var(--teal);transform:scale(1.3);box-shadow:0 0 0 2px rgba(13,148,136,0.2)}
+.svy-upload{border:2px dashed var(--t100);background:#f0fdfa;border-radius:8px;padding:16px 10px;text-align:center;transition:all .3s}
+.svy-upload.done{border:2px solid var(--grn);background:var(--g50);border-style:solid}
+.scr.on .card,.scr.on .st{animation:cardIn .4s cubic-bezier(.4,0,.2,1) backwards}
+.scr.on .card:nth-child(2),.scr.on .st:nth-child(2){animation-delay:.06s}
+.scr.on .card:nth-child(3),.scr.on .st:nth-child(3){animation-delay:.12s}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.chat{display:flex;flex-direction:column;gap:8px}
+.cb{max-width:82%;padding:11px 15px;border-radius:14px;font-size:13px;line-height:1.55;box-shadow:0 1px 2px rgba(0,0,0,0.03)}
+.cu{align-self:flex-end;background:linear-gradient(135deg,var(--tl),var(--teal));color:#fff;border-bottom-right-radius:3px}
+.ca{align-self:flex-start;background:#f1f5f9;color:var(--txt);border-bottom-left-radius:3px}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:3px}
+.faq-item{border:1px solid rgba(0,0,0,0.06);border-radius:var(--rs);overflow:hidden;transition:all .2s}
+.faq-item:hover{box-shadow:0 4px 12px rgba(0,0,0,0.04)}
+.faq-q{padding:14px 18px;font-size:14px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#fff;transition:background .2s;user-select:none;gap:8px}
+.faq-q:hover{background:var(--srf)}
+.faq-q i[data-lucide]{width:16px;height:16px;color:var(--mut);transition:transform .25s;flex-shrink:0}
+.faq-item.open .faq-q i[data-lucide]{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 18px;font-size:13px;color:var(--mut);line-height:1.65;background:var(--srf)}
+.faq-a p{margin:0 0 9px 0}
+.faq-a p:last-child{margin-bottom:0}
+.faq-a a{color:var(--teal);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.faq-a a:hover{color:var(--t800)}
+.faq-a strong{color:var(--txt)}
+.faq-a em{color:#475569;font-style:italic}
+.faq-a .kw{background:linear-gradient(transparent 60%,#fef3c7 60%);padding:0 2px;font-weight:700;color:var(--txt)}
+.faq-item.open .faq-a{max-height:600px;padding:14px 18px}
+.g2.dv{position:relative}
+.g2.dv::before{content:'';position:absolute;left:50%;top:16px;bottom:16px;width:1px;background:linear-gradient(to bottom,transparent,#e5e7eb 20%,#e5e7eb 80%,transparent)}
+.fcta{text-align:center;padding:24px;background:linear-gradient(135deg,var(--tl),var(--teal),var(--t800));border-radius:var(--r);color:#fff;position:relative;overflow:hidden}
+.fcta::before{content:'';position:absolute;top:-30px;right:-30px;width:80px;height:80px;background:rgba(255,255,255,0.06);border-radius:50%}
+.fcta h3{font-size:17px;font-weight:800;margin-bottom:5px;position:relative}
+.fcta p{font-size:12px;opacity:.9;margin-bottom:4px;position:relative}
+.fcta a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:2px}
+/* Icon containers */
+.ic{display:flex;align-items:center;justify-content:center;border-radius:10px;flex-shrink:0}
+.ic i[data-lucide]{width:18px;height:18px}
+.ic-sm{width:32px;height:32px;border-radius:8px}
+.ic-sm i[data-lucide]{width:16px;height:16px}
+/* Mockup browser */
+.mock-browser{border:1px solid rgba(0,0,0,0.08);border-radius:var(--r);overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.mock-bar{background:#f9fafb;border-bottom:1px solid rgba(0,0,0,0.06);padding:8px 12px;display:flex;align-items:center;gap:6px}
+.mock-dot{width:8px;height:8px;border-radius:50%}
+.mock-url{flex:1;background:#fff;border:1px solid #e5e7eb;border-radius:5px;padding:3px 10px;font-size:11px;color:var(--mut);font-family:inherit;margin-left:8px}
+.mock-body{padding:14px;background:#fff;font-size:11px}
+/* CLIL callout */
+.clil-box{background:linear-gradient(135deg,var(--t50),#fff);border:1px solid var(--t200);border-radius:var(--r);padding:14px 18px;position:relative}
+.clil-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--pur));border-radius:var(--r) var(--r) 0 0}
+/* === ANIMATIONS === */
+/* Typing cursor */
+.typing-cursor{display:inline-block;width:2px;height:1em;background:var(--teal);margin-left:2px;animation:blink .7s step-end infinite;vertical-align:text-bottom}
+@keyframes blink{50%{opacity:0}}
+/* Reveal items stagger */
+.reveal-item{opacity:0;transform:translateY(10px);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.reveal-item.show{opacity:1;transform:translateY(0)}
+/* Fade in from left/right */
+.reveal-left{opacity:0;transform:translateX(-16px);transition:all .5s cubic-bezier(.4,0,.2,1)}
+.reveal-right{opacity:0;transform:translateX(16px);transition:all .5s cubic-bezier(.4,0,.2,1)}
+.reveal-left.show,.reveal-right.show{opacity:1;transform:translateX(0)}
+/* Scale pop */
+.reveal-pop{opacity:0;transform:scale(0.85);transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+.reveal-pop.show{opacity:1;transform:scale(1)}
+/* Click pulse */
+.click-dot{position:absolute;width:28px;height:28px;border-radius:50%;background:rgba(13,148,136,0.25);border:2px solid var(--teal);pointer-events:none;opacity:0;transform:scale(0);z-index:50}
+.click-dot.fire{animation:clickPulse .6s ease forwards}
+@keyframes clickPulse{0%{opacity:1;transform:scale(0)}40%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.5)}}
+/* Progress fill animation */
+.anim-fill{width:0!important;transition:width 1.2s cubic-bezier(.4,0,.2,1) .3s}
+.anim-fill.go{width:var(--tw)!important}
+/* Typing text */
+.type-text{border-right:2px solid var(--teal);padding-right:2px;white-space:nowrap;overflow:hidden;display:inline-block;max-width:0;animation:none;vertical-align:bottom}
+.type-text.go{animation:typeIn 1.5s steps(30) forwards,blink .7s step-end infinite 1.5s;animation-fill-mode:forwards,none}
+@keyframes typeIn{to{max-width:500px}}
+/* Radar draw */
+.radar-data{opacity:0;transition:opacity .8s ease .2s}
+.radar-data.show{opacity:1}
+.radar-data polygon{stroke-dasharray:500;stroke-dashoffset:500;transition:stroke-dashoffset 1.5s ease .4s}
+.radar-data.show polygon{stroke-dashoffset:0}
+/* Chat bubble entry */
+.chat-entry{opacity:0;transform:translateY(8px) scale(0.95);transition:all .35s cubic-bezier(.4,0,.2,1)}
+.chat-entry.show{opacity:1;transform:translateY(0) scale(1)}
+/* Shimmer loading */
+.shimmer{background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 50%,#f1f5f9 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+/* Counter animation helper */
+.count-up{font-variant-numeric:tabular-nums}
+/* === DEMO 2 PHASE-DRIVEN STYLES === */
+.phase-banner{padding:14px 18px;border-radius:12px;border-left:4px solid var(--tl)}
+.phase-banner.phase-tl{background:linear-gradient(135deg,var(--t50),#fff);border-left-color:var(--teal)}
+.phase-banner.phase-grn{background:linear-gradient(135deg,var(--g50),#fff);border-left-color:var(--grn)}
+.phase-banner.phase-pur{background:linear-gradient(135deg,var(--p50),#fff);border-left-color:var(--pur)}
+.phase-hd{display:flex;align-items:center;gap:14px}
+.phase-ic{width:48px;height:48px;border-radius:12px;background:var(--t100);color:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.phase-ic i[data-lucide]{width:24px;height:24px}
+.phase-meta{flex:1;min-width:0}
+.phase-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);background:var(--t50);padding:3px 8px;border-radius:4px;margin-bottom:4px}
+.phase-title{font-size:22px;font-weight:900;letter-spacing:-0.02em;margin:0 0 3px 0;line-height:1.1}
+.phase-title .phase-en{font-size:14px;color:var(--mut);font-weight:500;font-style:italic}
+.phase-quote{font-size:11px;color:var(--teal);font-style:italic;margin:0;line-height:1.4}
+.phase-quote a{color:inherit;text-decoration:underline}
+.phase-stat{text-align:right;flex-shrink:0}
+.phase-stat .sv{font-size:28px;font-weight:900;line-height:1}
+.phase-stat .slb{font-size:10px;color:var(--mut);margin-top:2px}
+.sub-t{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;color:var(--txt)}
+.sub-t i[data-lucide]{width:14px;height:14px;color:var(--teal)}
+.sub-t .badge-soon,.sub-t .badge-future{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:0.05em;text-transform:uppercase;background:var(--a50);color:#92400e;margin-left:auto}
+.sub-t .badge-future{background:var(--p50);color:var(--pur)}
+.task-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+.task-list li{display:flex;gap:10px;padding:9px 11px;background:#fff;border:1px solid #f1f5f9;border-radius:8px;font-size:12px;line-height:1.45}
+.task-list .task-ic{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border-radius:5px;background:var(--srf);color:var(--mut);font-size:10px;font-weight:800;font-variant-numeric:tabular-nums;flex-shrink:0}
+.task-list li strong{color:var(--txt);display:block}
+.task-list li small{display:block;color:var(--mut);font-size:10px;margin-top:2px;font-weight:400}
+.ler-list{display:flex;flex-direction:column;gap:8px}
+.ler-item{display:flex;gap:10px;padding:10px 12px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;transition:all .2s}
+.ler-item:hover{border-color:var(--t200);box-shadow:0 2px 8px rgba(13,148,136,0.08)}
+.ler-ic{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ler-ic i[data-lucide]{width:16px;height:16px}
+.ler-item strong{font-size:12px;font-weight:700;color:var(--txt);display:block}
+.ler-item small{font-size:11px;color:var(--mut);line-height:1.45;display:block;margin-top:2px}
+.cta-card{padding:16px;border:1.5px solid #e5e7eb;border-radius:10px;background:#fff;position:relative;display:flex;flex-direction:column}
+.cta-card.cta-primary{border:2px solid var(--teal);background:linear-gradient(135deg,var(--t50),#fff)}
+.cta-badge{position:absolute;top:-9px;left:14px;background:var(--teal);color:#fff;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;padding:3px 8px;border-radius:4px}
+.cta-hd{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.cta-n{width:28px;height:28px;border-radius:7px;background:var(--srf);color:var(--txt);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px}
+.cta-primary .cta-n{background:var(--teal);color:#fff}
+.cta-card h3{font-size:14px;font-weight:800;margin:0}
+.cta-card p{font-size:12px;color:var(--mut);line-height:1.5;margin:0 0 10px 0;flex:1}
+.cta-link{color:var(--teal);font-weight:700;font-size:12px;text-decoration:none}
+.cta-link:hover{text-decoration:underline}
+.cta-note{font-size:10px;color:var(--mut);font-style:italic}
+.why-box{margin-top:14px;padding:14px 16px;background:var(--srf);border-radius:10px;border:1px solid #e5e7eb}
+.why-hd{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--mut);margin-bottom:8px}
+.why-grid{gap:6px 18px}
+.why-grid > div{font-size:11px;color:var(--mut);line-height:1.5}
+.why-grid strong{color:var(--txt)}
+.why-grid .en{font-family:inherit;font-size:inherit;color:var(--mut)}
+@media(max-width:768px){.phase-title{font-size:18px}.phase-stat .sv{font-size:22px}.phase-hd{gap:10px}.phase-ic{width:40px;height:40px}.phase-ic i[data-lucide]{width:20px;height:20px}}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="logo"><span>L</span></div>
+  <span class="hdr-t">Learneris EMI</span>
+  <span class="hdr-b">Interactive Demo</span>
+</header>
+
+<div class="sbar"><div class="steps" id="stepBar"></div></div>
+
+<div class="wrap">
+
+<!-- ===== 1. DISCOVER ===== -->
+<div class="scr on" data-s="1">
+  <div style="text-align:center;padding:4px 0 0">
+    <div class="tag tt" style="margin-bottom:10px"><a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank" style="color:inherit;text-decoration:none">QĐ 2371/QĐ-TTg</a> &middot; NQ 71-NQ/TW</div>
+    <h1 style="font-size:clamp(24px,3.8vw,38px);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:10px">Đưa Tiếng Anh Thành<br><span style="background:linear-gradient(135deg,var(--teal),var(--pur));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Ngôn Ngữ Thứ Hai</span></h1>
+    <p style="font-size:14px;color:var(--mut);line-height:1.6;max-width:500px;margin:0 auto 16px">Learneris giúp trường triển khai EMI theo lộ trình quốc gia — <strong>đánh giá sẵn sàng</strong>, <strong>tạo nội dung song ngữ</strong>, <strong>hỗ trợ giáo viên</strong>, <strong>giám sát báo cáo Sở</strong>.</p>
+  </div>
+  <!-- CLIL Explainer: What, Why, How -->
+  <div class="clil-box reveal-item" style="margin-top:14px">
+    <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px">
+      <div class="ic" style="width:36px;height:36px;background:var(--t100);color:var(--teal);margin-top:2px"><i data-lucide="languages"></i></div>
+      <div style="flex:1">
+        <p style="font-size:12px;font-weight:700;margin-bottom:3px">Phương pháp <strong>CLIL</strong> <span style="color:var(--mut);font-weight:500">(Content and Language Integrated Learning — <a href="https://www.cambridge.org/elt/blog/2018/03/19/clil-what-is-it/" target="_blank" style="color:inherit">Coyle, 2010</a>)</span></p>
+        <p style="font-size:12px;color:var(--mut);line-height:1.55">Thay vì dạy tiếng Anh riêng biệt, CLIL tích hợp tiếng Anh vào <strong>các môn nội dung</strong> — học sinh học ngôn ngữ qua bối cảnh thực tế.</p>
+        <p style="font-size:12px;color:var(--mut);line-height:1.55;margin-top:6px">Khởi điểm lịch sử là <strong>Đề án 5695</strong> (HCMC, 2014-2024): thí điểm Toán + Khoa Học. <strong>Nghị định 222/2025/NĐ-CP</strong> mở rộng sang Toán, KHTN, Công nghệ, Tin học. Dự thảo <strong>Đề án HCMC 2025-2035</strong> cho phép <em>tất cả môn phù hợp</em> theo cấp học.</p>
+      </div>
+    </div>
+    <!-- 4Cs Framework -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px">
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.05);border-radius:8px;padding:8px;text-align:center">
+        <div class="ic-sm" style="background:var(--t50);color:var(--teal);margin:0 auto 4px"><i data-lucide="book-open"></i></div>
+        <p style="font-size:11px;font-weight:700">Content</p>
+        <p style="font-size:11px;color:var(--mut);line-height:1.3;margin-top:2px">Nội dung môn học dẫn dắt bài giảng</p>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.05);border-radius:8px;padding:8px;text-align:center">
+        <div class="ic-sm" style="background:var(--g50);color:var(--grn);margin:0 auto 4px"><i data-lucide="message-circle"></i></div>
+        <p style="font-size:11px;font-weight:700">Communication</p>
+        <p style="font-size:11px;color:var(--mut);line-height:1.3;margin-top:2px">HS dùng TA để trao đổi ý tưởng</p>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.05);border-radius:8px;padding:8px;text-align:center">
+        <div class="ic-sm" style="background:var(--p50);color:var(--pur);margin:0 auto 4px"><i data-lucide="brain"></i></div>
+        <p style="font-size:11px;font-weight:700">Cognition</p>
+        <p style="font-size:11px;color:var(--mut);line-height:1.3;margin-top:2px">Tư duy bậc cao — phân tích, đánh giá</p>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(0,0,0,0.05);border-radius:8px;padding:8px;text-align:center">
+        <div class="ic-sm" style="background:var(--a50);color:var(--amb);margin:0 auto 4px"><i data-lucide="globe"></i></div>
+        <p style="font-size:11px;font-weight:700">Culture</p>
+        <p style="font-size:11px;color:var(--mut);line-height:1.3;margin-top:2px">Nhận thức đa văn hóa, công dân toàn cầu</p>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:11px;color:var(--mut);text-align:center;margin:12px 0 6px;font-style:italic">Ba giai đoạn triển khai — tên và mô tả theo ngôn ngữ <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank" style="color:var(--teal)">QĐ 2371</a></p>
+  <div class="g3">
+    <div class="card reveal-item" style="border-top:3px solid var(--tl);padding:14px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div class="ic-sm" style="background:var(--t50);color:var(--teal)"><i data-lucide="sprout"></i></div><h3 style="font-size:13px;font-weight:700">GĐ Nền Tảng <span style="color:var(--mut);font-weight:500;font-size:11px">· Foundation</span></h3></div>
+      <p style="font-size:10px;color:var(--teal);font-style:italic;margin-bottom:6px;line-height:1.4">"Xây dựng nền tảng và chuẩn hóa" — QĐ 2371, giai đoạn 2025-2030</p>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">Môi trường TA cơ bản · biển hiệu song ngữ · GV bắt đầu dùng TA trong lớp</p>
+      <p style="font-size:11px;color:var(--teal);margin-top:5px;font-weight:600">Mục tiêu HCMC 2030: <strong>30%</strong> trường · quốc gia: 20%</p>
+      <div style="margin-top:8px;padding-top:8px;border-top:1px dashed var(--t200);font-size:10px;color:var(--t700);line-height:1.45"><strong style="color:var(--teal)">Learneris hỗ trợ:</strong> đánh giá sẵn sàng 7 tiêu chí · tạo nội dung CLIL song ngữ · kịch bản hỗ trợ GV A2-B1 · onboarding trường thí điểm</div>
+    </div>
+    <div class="card reveal-item" style="border-top:3px solid var(--grn);padding:14px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div class="ic-sm" style="background:var(--g50);color:var(--grn)"><i data-lucide="book-open"></i></div><h3 style="font-size:13px;font-weight:700">GĐ Mở Rộng <span style="color:var(--mut);font-weight:500;font-size:11px">· Expansion</span></h3></div>
+      <p style="font-size:10px;color:var(--grn);font-style:italic;margin-bottom:6px;line-height:1.4">"Mở rộng và tăng cường" — QĐ 2371, giai đoạn 2030-2035</p>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">CLIL tích hợp ≥2 môn (Toán, KHTN, Công nghệ, Tin học…); GV đạt CEFR B2+; học liệu số</p>
+      <p style="font-size:11px;color:var(--grn);margin-top:5px;font-weight:600">Mục tiêu HCMC 2030: <strong>20%</strong> trường · quốc gia: 5%</p>
+      <div style="margin-top:8px;padding-top:8px;border-top:1px dashed #a7f3d0;font-size:10px;color:#065f46;line-height:1.45"><strong style="color:var(--grn)">Learneris hỗ trợ:</strong> scale đa trường · benchmarking toàn Sở · AI tutor cho HS · portfolio song ngữ · coaching tools cho GV CLIL</div>
+    </div>
+    <div class="card reveal-item" style="border-top:3px solid var(--pur);padding:14px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><div class="ic-sm" style="background:var(--p50);color:var(--pur)"><i data-lucide="globe"></i></div><h3 style="font-size:13px;font-weight:700">GĐ Tự Nhiên <span style="color:var(--mut);font-weight:500;font-size:11px">· Natural</span></h3></div>
+      <p style="font-size:10px;color:var(--pur);font-style:italic;margin-bottom:6px;line-height:1.4">"Sử dụng một cách tự nhiên" — QĐ 2371, tầm nhìn 2035-2045</p>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">TA là ngôn ngữ hằng ngày · hợp tác quốc tế · nghiên cứu bằng TA</p>
+      <p style="font-size:11px;color:var(--pur);margin-top:5px;font-weight:600">Mục tiêu HCMC 2030: <strong>10%</strong> trường · quốc gia: 2%</p>
+      <div style="margin-top:8px;padding-top:8px;border-top:1px dashed #e9d5ff;font-size:10px;color:#6b21a8;line-height:1.45"><strong style="color:var(--pur)">Learneris hỗ trợ:</strong> AI research assistant · bilingual analytics · curriculum mapping IB/Cambridge · tracking outcome dài hạn</div>
+    </div>
+  </div>
+  <div class="pb"><i data-lucide="zap"></i> Chuẩn đánh giá chi tiết cho mỗi mức độ do BGDĐT ban hành · Ngày 10/4/2026 BGDĐT + ĐH Nguyễn Tất Thành đã tổ chức tọa đàm xây dựng khung cho đại học</div>
+</div>
+
+<!-- ===== 2. GIAI ĐOẠN NỀN TẢNG ===== -->
+<div class="scr" data-s="2">
+  <div class="phase-banner phase-tl">
+    <div class="phase-hd">
+      <div class="phase-ic"><i data-lucide="sprout"></i></div>
+      <div class="phase-meta">
+        <div class="phase-tag">Giai đoạn 2025-2030</div>
+        <h2 class="phase-title">GĐ Nền Tảng <span class="phase-en">· Foundation</span></h2>
+        <p class="phase-quote">"Xây dựng nền tảng và chuẩn hóa" — <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a></p>
+      </div>
+      <div class="phase-stat"><div class="sv" style="color:var(--teal)">30%</div><div class="slb">Mục tiêu HCMC 2030</div></div>
+    </div>
+  </div>
+  <div class="g2" style="margin-top:12px">
+    <div>
+      <h3 class="sub-t"><i data-lucide="file-check"></i> Nhiệm vụ theo QĐ 2371</h3>
+      <ul class="task-list">
+        <li><span class="task-ic">01</span><div><strong>Nâng cao nhận thức xã hội</strong> về vai trò tiếng Anh<small>Mục III.1 QĐ 2371</small></div></li>
+        <li><span class="task-ic">02</span><div><strong>Xây dựng thể chế</strong>: tiêu chuẩn, tiêu chí đánh giá, quy định<small>Mục III.2 QĐ 2371 — BGDĐT ban hành</small></div></li>
+        <li><span class="task-ic">03</span><div><strong>Phát triển đội ngũ</strong>: đào tạo, khảo thí, tuyển dụng GV<small>Mục III.3 · KH 18/KH-BGDĐT khảo sát 4/2026</small></div></li>
+        <li><span class="task-ic">04</span><div><strong>Phát triển chương trình & học liệu</strong> EMI<small>Mục III.4 · Nghị định 222/2025/NĐ-CP</small></div></li>
+        <li><span class="task-ic">05</span><div><strong>Chuyển đổi số, AI và cơ sở vật chất</strong><small>Mục III.6 QĐ 2371</small></div></li>
+        <li><span class="task-ic">06</span><div><strong>Thí điểm EMI tại các trường</strong><small>Đăng ký mầm non trước 14/5/2026</small></div></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub-t"><i data-lucide="check-circle-2"></i> Learneris đóng góp trực tiếp</h3>
+      <div class="ler-list">
+        <div class="ler-item"><div class="ler-ic" style="background:var(--t50);color:var(--teal)"><i data-lucide="clipboard-list"></i></div><div><strong>Đánh giá sẵn sàng 7 tiêu chí</strong><small>Khung tham chiếu QĐ 2371 · Khảo sát trực tuyến cho HT + PHT + Tổ trưởng EMI</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--g50);color:var(--grn)"><i data-lucide="school"></i></div><div><strong>Onboarding trường tự động</strong><small>5 cấp học (Mầm non → Sở) · Tự nhận diện cấu trúc lớp từ tên trường</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--p50);color:var(--pur)"><i data-lucide="sparkles"></i></div><div><strong>AI tạo nội dung CLIL song ngữ</strong><small>11 môn nội dung · Tinh chỉnh trên ngữ liệu SGK Việt Nam · ~2.000đ/bài</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--a50);color:var(--amb)"><i data-lucide="presentation"></i></div><div><strong>Kịch bản 45 phút cho GV</strong><small>Classroom English · phát âm · kỹ thuật scaffolding · hỗ trợ GV A2-B1</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--t50);color:var(--teal)"><i data-lucide="book-open"></i></div><div><strong>Micro-modules thực hành CLIL</strong><small>Tự học · không thay chứng chỉ British Council/VNIES</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--g50);color:var(--grn)"><i data-lucide="bar-chart-3"></i></div><div><strong>Báo cáo Sở GD&ĐT định kỳ</strong><small>Xuất DOCX/PDF theo mẫu Sở · Học kỳ / Năm học</small></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pb"><i data-lucide="zap"></i> Xem demo tương tác chi tiết các chức năng Giai đoạn Nền Tảng tại <a href="https://emi.learneris.com/demo" target="_blank" style="color:inherit;text-decoration:underline">emi.learneris.com/demo</a></div>
+</div>
+
+<!-- ===== 3. GIAI ĐOẠN MỞ RỘNG ===== -->
+<div class="scr" data-s="3">
+  <div class="phase-banner phase-grn">
+    <div class="phase-hd">
+      <div class="phase-ic" style="background:var(--g50);color:var(--grn)"><i data-lucide="book-open"></i></div>
+      <div class="phase-meta">
+        <div class="phase-tag" style="background:var(--g50);color:var(--grn)">Giai đoạn 2030-2035</div>
+        <h2 class="phase-title">GĐ Mở Rộng <span class="phase-en">· Expansion</span></h2>
+        <p class="phase-quote" style="color:var(--grn)">"Mở rộng và tăng cường" — <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank" style="color:var(--grn)">QĐ 2371</a></p>
+      </div>
+      <div class="phase-stat"><div class="sv" style="color:var(--grn)">20%</div><div class="slb">Mục tiêu HCMC 2035</div></div>
+    </div>
+  </div>
+  <div class="g2" style="margin-top:12px">
+    <div>
+      <h3 class="sub-t"><i data-lucide="file-check"></i> Nhiệm vụ theo QĐ 2371</h3>
+      <ul class="task-list">
+        <li><span class="task-ic">01</span><div><strong>Mở rộng môi trường ngôn ngữ</strong><small>Clubs, exchanges, events bằng tiếng Anh</small></div></li>
+        <li><span class="task-ic">02</span><div><strong>Nhân rộng mô hình thành công</strong><small>Đánh giá và nhân rộng các trường đi đầu</small></div></li>
+        <li><span class="task-ic">03</span><div><strong>Ứng dụng công nghệ và AI</strong> toàn diện<small>Mục III.6 QĐ 2371</small></div></li>
+        <li><span class="task-ic">04</span><div><strong>Đổi mới phương pháp giảng dạy</strong><small>Communicative + 4-skill integrated</small></div></li>
+        <li><span class="task-ic">05</span><div><strong>Hợp tác quốc tế</strong> thường xuyên<small>Đối tác song phương · chuyên gia nước ngoài</small></div></li>
+        <li><span class="task-ic">06</span><div><strong>20-30% trường đạt Mức Độ 2</strong><small>CLIL ≥2 môn tích cực</small></div></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub-t"><i data-lucide="rocket"></i> Learneris đang phát triển <span class="badge-soon">2027-2028</span></h3>
+      <div class="ler-list">
+        <div class="ler-item"><div class="ler-ic" style="background:var(--g50);color:var(--grn)"><i data-lucide="users"></i></div><div><strong>Dashboard toàn Sở</strong> — so sánh & benchmark<small>So sánh 100+ trường theo 7 tiêu chí · Hiển thị theo Phòng/Quận</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--g50);color:var(--grn)"><i data-lucide="bot"></i></div><div><strong>AI Tutor cho học sinh</strong><small>Cá nhân hóa lộ trình · Bài tập CLIL · Speaking practice</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--g50);color:var(--grn)"><i data-lucide="video"></i></div><div><strong>Video observation + peer coaching</strong> GV<small>Quay và góp ý chéo giữa GV CLIL · Meta-feedback từ AI</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--g50);color:var(--grn)"><i data-lucide="mail"></i></div><div><strong>Parent communication song ngữ</strong><small>Auto-translate thông báo trường · Chat với phụ huynh bằng 2 ngôn ngữ</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--g50);color:var(--grn)"><i data-lucide="folder-open"></i></div><div><strong>Student portfolio song ngữ</strong><small>Theo dõi tiến bộ từ tiểu học đến THPT · CEFR alignment</small></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pb"><i data-lucide="zap"></i> Lộ trình phát triển — chi tiết trong cuộc gặp trực tiếp với Ban Lãnh Đạo Sở</div>
+</div>
+
+<!-- ===== 4. GIAI ĐOẠN TỰ NHIÊN ===== -->
+<div class="scr" data-s="4">
+  <div class="phase-banner phase-pur">
+    <div class="phase-hd">
+      <div class="phase-ic" style="background:var(--p50);color:var(--pur)"><i data-lucide="globe"></i></div>
+      <div class="phase-meta">
+        <div class="phase-tag" style="background:var(--p50);color:var(--pur)">Giai đoạn 2035-2045</div>
+        <h2 class="phase-title">GĐ Tự Nhiên <span class="phase-en">· Natural</span></h2>
+        <p class="phase-quote" style="color:var(--pur)">"Sử dụng một cách tự nhiên" — <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank" style="color:var(--pur)">QĐ 2371</a></p>
+      </div>
+      <div class="phase-stat"><div class="sv" style="color:var(--pur)">10%</div><div class="slb">Mục tiêu HCMC 2045: 40%</div></div>
+    </div>
+  </div>
+  <div class="g2" style="margin-top:12px">
+    <div>
+      <h3 class="sub-t"><i data-lucide="file-check"></i> Tầm nhìn QĐ 2371</h3>
+      <ul class="task-list">
+        <li><span class="task-ic">01</span><div><strong>Tiếng Anh sử dụng tự nhiên</strong><small>"một cách tự nhiên, phổ biến" — toàn trường</small></div></li>
+        <li><span class="task-ic">02</span><div><strong>Chuyển hoàn toàn từ EFL sang ESL</strong><small>Không còn "môn tiếng Anh" — tiếng Anh là phương tiện</small></div></li>
+        <li><span class="task-ic">03</span><div><strong>Nghiên cứu khoa học bằng TA</strong><small>Mục III.7 QĐ 2371 · HS làm dự án bằng tiếng Anh</small></div></li>
+        <li><span class="task-ic">04</span><div><strong>Phối hợp chuẩn quốc tế</strong><small>Cambridge · IB · AP · alignment tự động</small></div></li>
+        <li><span class="task-ic">05</span><div><strong>40-50% trường đạt Mức Độ 3</strong><small>Full EMI với cộng đồng học tập song ngữ</small></div></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub-t"><i data-lucide="telescope"></i> Learneris tầm nhìn <span class="badge-future">Dài hạn</span></h3>
+      <div class="ler-list">
+        <div class="ler-item"><div class="ler-ic" style="background:var(--p50);color:var(--pur)"><i data-lucide="microscope"></i></div><div><strong>AI Research Assistant</strong> cho HS cấp 3<small>Hỗ trợ viết paper, tham khảo tài liệu, làm dự án NCKH bằng tiếng Anh</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--p50);color:var(--pur)"><i data-lucide="git-compare-arrows"></i></div><div><strong>Curriculum mapping SGK ↔ IB/Cambridge</strong><small>Tự động ánh xạ bài học chuẩn quốc gia sang chuẩn quốc tế</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--p50);color:var(--pur)"><i data-lucide="trending-up"></i></div><div><strong>Bilingual learning analytics</strong><small>ML dự đoán · đo hiệu quả EMI dài hạn · alumni outcome tracking</small></div></div>
+        <div class="ler-item"><div class="ler-ic" style="background:var(--p50);color:var(--pur)"><i data-lucide="store"></i></div><div><strong>Content marketplace cộng đồng GV</strong><small>GV Việt Nam chia sẻ & kiếm thu nhập từ nội dung CLIL</small></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pb"><i data-lucide="zap"></i> Cam kết đồng hành 20 năm · Learneris đầu tư vào hệ sinh thái EMI Việt Nam, không chỉ bán sản phẩm</div>
+</div>
+
+<!-- ===== 5. BƯỚC TIẾP THEO ===== -->
+<div class="scr" data-s="5">
+  <h2 class="sec-t"><i data-lucide="calendar-check"></i> Bước Tiếp Theo</h2>
+  <p class="sec-s">Demo chỉ thể hiện nền tảng tiêu chuẩn. Triển khai thực tế tại HCMC cần <strong>tùy chỉnh theo đặc thù Sở và chính sách địa phương</strong> — bước này cần một cuộc trao đổi trực tiếp.</p>
+  <div class="g3" style="margin-top:8px">
+    <div class="cta-card cta-primary">
+      <div class="cta-badge">Đề xuất</div>
+      <div class="cta-hd"><div class="cta-n">1</div><h3>Gặp 30 phút</h3></div>
+      <p>Trao đổi trực tiếp với Ban Lãnh Đạo Sở về lộ trình EMI tại HCMC — không yêu cầu cam kết.</p>
+      <a href="mailto:hello@learneris.com?subject=Đặt%20lịch%20gặp%20—%20Sở%20GD%26ĐT%20TPHCM" class="cta-link">Đặt lịch ngay →</a>
+    </div>
+    <div class="cta-card">
+      <div class="cta-hd"><div class="cta-n">2</div><h3>Pilot 1 trường</h3></div>
+      <p>Triển khai thử nghiệm miễn phí 1 học kỳ tại 1 trường do Sở chỉ định — thu thập số liệu thực tế theo 7 tiêu chí QĐ 2371.</p>
+      <div class="cta-note">Cần Sở ký biên bản giới thiệu</div>
+    </div>
+    <div class="cta-card">
+      <div class="cta-hd"><div class="cta-n">3</div><h3>Đề xuất riêng</h3></div>
+      <p>Nhận đề xuất hợp tác chi tiết (quy mô, kinh phí, lộ trình 2-3 năm) tùy chỉnh cho Sở HCMC.</p>
+      <div class="cta-note">~1-2 tuần sau cuộc gặp đầu</div>
+    </div>
+  </div>
+  <div class="why-box">
+    <div class="why-hd">Vì sao Learneris · <span class="en" style="font-style:normal">Why Learneris</span></div>
+    <div class="g2 why-grid">
+      <div>▸ <strong>Mô hình AI riêng</strong> cho EMI tiếng Việt — không phải ChatGPT gói lại</div>
+      <div>▸ <strong>Căn chỉnh sẵn</strong> theo QĐ 2371 · NĐ 222/2025 · Đề án HCMC 2025-2035</div>
+      <div>▸ <strong>Khung tham chiếu 7 tiêu chí</strong> chạy được ngay, không chờ chuẩn BGDĐT</div>
+      <div>▸ <strong>Báo cáo chuẩn Sở</strong> — DOCX/PDF theo mẫu Sở GD&ĐT</div>
+      <div>▸ <strong>Cam kết 20 năm</strong> — phát triển theo 3 giai đoạn QĐ 2371</div>
+      <div>▸ <strong>Tham chiếu quốc tế</strong> — Macaro EMI Oxford · CLIL Compendium · CEFR</div>
+    </div>
+  </div>
+  <div class="pb"><i data-lucide="zap"></i> Learneris Pte. Ltd. (Singapore) · Vietlearn JSC (Vietnam) · hello@learneris.com</div>
+</div>
+
+<!-- ===== 6. FAQ ===== -->
+<div class="scr" data-s="6">
+  <h2 class="sec-t"><i data-lucide="message-circle-question"></i> Câu Hỏi Thường Gặp</h2>
+  <p class="sec-s">Giải đáp về EMI, CLIL và triển khai với Learneris.</p>
+  <div class="g2">
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="faq-item open" onclick="this.classList.toggle('open')">
+        <div class="faq-q">CLIL là gì, tại sao dùng, và triển khai thế nào?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>Là gì:</strong> <span class="kw">CLIL</span> <em>(Content and Language Integrated Learning, <a href="https://www.cambridge.org/elt/blog/2018/03/19/clil-what-is-it/" target="_blank">Coyle, 2010</a>)</em> — dạy <strong>nội dung môn học</strong> bằng ngoại ngữ.</p>
+          <p><strong>Tại sao:</strong> Học sinh học ngôn ngữ qua <strong>bối cảnh thực tế</strong>, hiệu quả hơn dạy tiếng Anh riêng biệt. Sở GD&ĐT HCMC mô tả <strong>Đề án 5695</strong> <em>(2014-2024, dạy Toán + Khoa học bằng tiếng Anh)</em> là <em>"mô hình thành công điển hình."</em></p>
+          <p><strong>Thế nào:</strong> Theo khung <strong>4C</strong> — <strong>C</strong>ontent (nội dung dẫn dắt) · <strong>C</strong>ommunication (HS dùng TA giao tiếp) · <strong>C</strong>ognition (tư duy bậc cao) · <strong>C</strong>ulture (đa văn hóa). Giáo viên dùng kỹ thuật <em>scaffolding</em>: từ vựng chuyên ngành trước, rồi tích hợp TA dần từ <strong>20% lên 50-100%</strong>.</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Khung 3 mức độ quốc gia đánh giá những gì?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank"><strong>QĐ 2371/QĐ-TTg</strong></a> quy định <strong>7 tiêu chí</strong>: môi trường ngôn ngữ · chương trình & dạy học · học liệu · số hóa & AI · đội ngũ · hợp tác quốc tế · nghiên cứu KH&CN.</p>
+          <p>Tiêu chuẩn chi tiết cho từng mức độ được giao <strong>BGDĐT ban hành</strong> (Điều III.2.c) — <em>đến nay chưa công bố</em>. Ngày 10/4/2026, BGDĐT vừa tổ chức tọa đàm xây dựng khung <em>7 tiêu chuẩn, 46 tiêu chí</em> cho giáo dục đại học.</p>
+          <p>Learneris xây dựng <strong>khung tham chiếu</strong> theo 7 tiêu chí QĐ 2371 để trường chuẩn bị sớm, sẵn sàng cập nhật khi BGDĐT ban hành chuẩn chính thức.</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Giáo viên chưa giỏi tiếng Anh có triển khai CLIL được không?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>Có.</strong> Learneris cung cấp <strong>kịch bản song ngữ</strong>, từ vựng chuyên ngành, và AI hỗ trợ phát âm + quản lý lớp.</p>
+          <p>Bắt đầu từ <strong>20% tiếng Anh</strong> rồi tăng dần. Theo khảo sát BGDĐT, <strong>80%+ giáo viên tiếng Anh</strong> ở HCMC đã đạt <strong>CEFR B2+</strong> — họ hỗ trợ đồng nghiệp dạy CLIL.</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Mất bao lâu để đạt giai đoạn "Nền Tảng"?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>Lộ trình điển hình 1 học kỳ:</strong></p>
+          <p>Onboard (1 ngày) → bồi dưỡng giáo viên (1-2 tuần) → tạo nội dung CLIL (~3 phút/bài) → triển khai (1 học kỳ).</p>
+          <p>Theo <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a>, mục tiêu <strong>2025-2030</strong>: 30% trường HCMC · 20% quốc gia đạt <em>Mức Độ 1</em> (Giai Đoạn Nền Tảng — <em>"xây dựng nền tảng và chuẩn hóa"</em>).</p>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Chi phí triển khai bao nhiêu?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>Nội dung CLIL:</strong> ~<strong>2.000đ/bài</strong> (~$0.08).</p>
+          <p><strong>Bồi dưỡng giáo viên</strong> qua nền tảng: miễn phí.</p>
+          <p><strong>Chi phí chính:</strong> license LMS tùy quy mô. <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> cho phép <strong>xã hội hóa</strong> — huy động nguồn lực ngoài ngân sách.</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Learneris có chứng nhận bảo mật không?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>An toàn Thông tin Cấp 3</strong> theo <em>Thông tư 12/2022/TT-BTTTT</em> — bắt buộc cho trường công.</p>
+          <p>Nội dung AI Literacy đã được <strong>Viện Khoa học Giáo dục Việt Nam</strong> thẩm định (tháng 7/2025).</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Có thay đổi chương trình GDPT 2018 không?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>Không.</strong> CLIL là lớp tích hợp bổ sung.</p>
+          <p>Không thay sách giáo khoa · không thay đổi kiểm tra. <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> nêu rõ: <em>"không điều chỉnh chương trình"</em>.</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Khi nào nên bắt đầu?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> yêu cầu triển khai EMI từ <strong>năm học 2026-2027</strong>.</p>
+          <p>Chuẩn bị sớm (đánh giá sẵn sàng, bồi dưỡng GV, tạo nội dung) giúp trường sẵn sàng khi pilot chính thức và khi BGDĐT ban hành chuẩn chi tiết.</p>
+        </div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Vì sao chọn Learneris, không dùng giải pháp khác?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>1. Mô hình AI riêng cho EMI tiếng Việt</strong> — không phải ChatGPT gói lại. Tinh chỉnh trên ngữ liệu sách giáo khoa VN, khung CLIL 4C, và phong cách dạy học Việt Nam.</p>
+          <p><strong>2. Căn chỉnh sẵn theo chính sách</strong> — 7 tiêu chí <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a>, <em>Nghị định 222/2025/NĐ-CP</em>, và dự thảo Đề án HCMC 2025-2035.</p>
+          <p><strong>3. Khung đánh giá chạy được ngay</strong> — sẵn sàng cập nhật khi BGDĐT ban hành chuẩn chi tiết, không phải chờ.</p>
+          <p><strong>4. Báo cáo mẫu Sở</strong> — xuất DOCX/PDF theo mẫu báo cáo Sở GD&ĐT, tiết kiệm công trung gian.</p>
+          <p><strong>5. Tham chiếu chuẩn quốc tế</strong> — Macaro EMI Oxford Framework · CLIL Compendium · CEFR/VNEFR.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fcta" style="margin-top:14px">
+    <h3>Bước tiếp theo — đặt lịch gặp 30 phút</h3>
+    <p>Trao đổi lộ trình EMI tùy chỉnh cho Sở HCMC &middot; hello@learneris.com</p>
+  </div>
+  <div class="pb"><i data-lucide="zap"></i> Learneris Pte. Ltd. (Singapore) &middot; Vietlearn JSC (Vietnam)</div>
+</div>
+
+</div>
+
+<nav class="bnav">
+  <button class="nb s" id="prevBtn" onclick="prev()" disabled><i data-lucide="arrow-left" style="width:14px;height:14px"></i> Trước</button>
+  <span class="nc" id="navC">1 / 6</span>
+  <button class="nb p" id="nextBtn" onclick="next()">Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
+</nav>
+
+<script>
+const S=[{l:'Khám Phá'},{l:'GĐ Nền Tảng'},{l:'GĐ Mở Rộng'},{l:'GĐ Tự Nhiên'},{l:'Bước Tiếp Theo'},{l:'FAQ'}];
+let c=1;const T=6;
+let screenAnimated={};
+
+function buildS(){
+  const b=document.getElementById('stepBar');
+  let h='';
+  S.forEach((s,i)=>{const n=i+1;h+=`<div class="si${n<c?' d':''}${n===c?' a':''}" onclick="goTo(${n})"><div class="sc">${n<c?'✓':n}</div><div class="sl">${s.l}</div></div>`;if(i<T-1)h+=`<div class="sln${n<c?' dn':''}"></div>`;});
+  b.innerHTML=h;
+}
+
+function goTo(n){
+  if(n<1||n>T)return;c=n;
+  document.querySelectorAll('.scr').forEach(s=>s.classList.remove('on'));
+  const scr=document.querySelector(`[data-s="${n}"]`);
+  scr.classList.add('on');
+  document.getElementById('prevBtn').disabled=n===1;
+  const nb=document.getElementById('nextBtn');
+  nb.innerHTML=n===T?'<i data-lucide="check" style="width:14px;height:14px"></i> Hoàn Tất':'Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i>';
+  nb.disabled=n===T;
+  document.getElementById('navC').textContent=`${n} / ${T}`;
+  buildS();document.querySelector('.wrap').scrollTop=0;
+  lucide.createIcons();
+  // Run screen animations
+  if(!screenAnimated[n]){screenAnimated[n]=true;runScreenAnim(n,scr);}
+}
+
+// === LEVEL / SCHOOL DATA ===
+const LEVELS = {
+  mn:   { name:'Mầm Non',       classes:['Nhà Trẻ','Mẫu Giáo Bé','Mẫu Giáo Nhỡ','Mẫu Giáo Lớn'], defaults:[1,2], stats:{gv:28,hs:380,lop:12,lopLbl:'Lớp'}, sample:'Trường Mầm Non Hoa Sen', roster:'roster_mn_hoa_sen.xlsx', nameLbl:'Tên Trường', classLbl:'Khối / Nhóm Lớp' },
+  th:   { name:'Tiểu Học',      classes:['Lớp 1','Lớp 2','Lớp 3','Lớp 4','Lớp 5'],             defaults:[0,1,2],   stats:{gv:52,hs:980,lop:28,lopLbl:'Lớp'}, sample:'Trường Tiểu Học Lê Ngọc Hân', roster:'roster_th_le_ngoc_han.xlsx', nameLbl:'Tên Trường', classLbl:'Khối / Lớp Triển Khai' },
+  thcs: { name:'THCS',          classes:['Lớp 6','Lớp 7','Lớp 8','Lớp 9'],                       defaults:[1,2],     stats:{gv:45,hs:620,lop:18,lopLbl:'Lớp'}, sample:'Trường THCS Nguyễn Du', roster:'roster_thcs_nguyen_du.xlsx', nameLbl:'Tên Trường', classLbl:'Khối / Lớp Triển Khai' },
+  thpt: { name:'THPT',          classes:['Lớp 10','Lớp 11','Lớp 12'],                            defaults:[0,1],     stats:{gv:68,hs:1240,lop:32,lopLbl:'Lớp'}, sample:'Trường THPT Lê Quý Đôn', roster:'roster_thpt_le_quy_don.xlsx', nameLbl:'Tên Trường', classLbl:'Khối / Lớp Triển Khai' },
+  so:   { name:'Sở / Phòng GD', classes:['Mầm Non','Tiểu Học','THCS','THPT'],                    defaults:[0,1,2,3], stats:{gv:1915,hs:50300,lop:520,lopLbl:'Trường'}, sample:'Sở GD&ĐT TPHCM', roster:'danh_sach_truong_tphcm.xlsx', nameLbl:'Tên Đơn Vị', classLbl:'Cấp Học Quản Lý' }
+};
+
+function renderClassGrid(lvl){
+  const cfg=LEVELS[lvl];if(!cfg)return;
+  const grid=document.getElementById('classGrid');if(!grid)return;
+  grid.innerHTML=cfg.classes.map((c,i)=>{
+    const on=cfg.defaults.includes(i);
+    return `<label class="cbx${on?' on':''}"><input type="checkbox" ${on?'checked':''}> ${c}</label>`;
+  }).join('');
+  // Labels + stats
+  document.getElementById('classLabel').textContent=cfg.classLbl;
+  document.getElementById('nameLabel').textContent=cfg.nameLbl;
+  document.getElementById('statGV').textContent=cfg.stats.gv;
+  document.getElementById('statHS').textContent=cfg.stats.hs.toLocaleString('vi-VN');
+  document.getElementById('statLop').textContent=cfg.stats.lop;
+  document.getElementById('statLopLbl').textContent=cfg.stats.lopLbl;
+  document.getElementById('statGVLbl').textContent=lvl==='so'?'Giáo viên (toàn Sở)':'Giáo viên';
+  document.getElementById('statHSLbl').textContent=lvl==='so'?'Học sinh (toàn Sở)':'Học sinh';
+  document.getElementById('badgeGV').textContent=`${cfg.stats.gv} ${lvl==='so'?'GV':'GV'}`;
+  document.getElementById('badgeHS').textContent=`${cfg.stats.hs.toLocaleString('vi-VN')} HS`;
+  document.getElementById('rosterName').textContent=`${cfg.roster} — đã tải lên`;
+}
+
+function selectLevel(lvl,manual){
+  document.querySelectorAll('.lvl-chip').forEach(c=>c.classList.toggle('active',c.dataset.lvl===lvl));
+  renderClassGrid(lvl);
+  const detect=document.getElementById('detectHint');
+  if(manual){
+    document.getElementById('detectedLvl').textContent=LEVELS[lvl].name+' (chọn thủ công)';
+    detect.classList.add('show');
+  }
+}
+
+function detectLevelFromName(name){
+  const n=name.toLowerCase();
+  if(n.includes('mầm non')||n.includes('mam non'))return'mn';
+  if(n.includes('tiểu học')||n.includes('tieu hoc'))return'th';
+  if(n.includes('thcs')||n.includes('trung học cơ sở'))return'thcs';
+  if(n.includes('thpt')||n.includes('trung học phổ thông'))return'thpt';
+  if(n.includes('sở gd')||n.includes('so gd')||n.includes('phòng gd'))return'so';
+  return null;
+}
+
+// === SURVEY DATA (7 criteria × multiple questions each) ===
+const SURVEY_DATA=[
+  {tc:1,tcName:'Môi trường ngôn ngữ',role:'Hiệu trưởng',roleCls:'r-ht',score:2,
+   qs:[
+     {q:'Mức độ song ngữ trong bảng hiệu, bảng tin của trường?',
+      opts:['Chỉ tiếng Việt','Dưới 30% song ngữ','30-80% song ngữ','100% song ngữ + chủ đề'],answer:2},
+     {q:'Hoạt động ngoại khóa có sử dụng tiếng Anh không?',
+      opts:['Không bao giờ','Vài sự kiện mỗi năm','Hàng tháng','Hàng tuần'],answer:1},
+     {q:'Truyền thông nội bộ (email, thông báo) có song ngữ?',
+      opts:['Không','Tự nguyện','Bắt buộc một phần','Bắt buộc toàn bộ'],answer:2}
+   ]},
+  {tc:2,tcName:'Chương trình & Dạy học',role:'Phó HT Chuyên môn',roleCls:'r-pht',score:1,
+   qs:[
+     {q:'Trường đã triển khai CLIL cho bao nhiêu môn nội dung, ở bao nhiêu khối?',
+      opts:['Chưa triển khai','1 môn ở 1 khối','2-3 môn ở ≥50% khối','≥3 môn trên mọi khối'],answer:1},
+     {q:'Tỷ lệ tiếng Anh trong giờ học CLIL trung bình?',
+      opts:['0-10%','10-30%','30-50%','Trên 50%'],answer:1},
+     {q:'Tổng giờ tiếp xúc tiếng Anh trung bình mỗi học sinh/tuần? (QĐ 2371 · Tiêu chí 2.4)',
+      opts:['Dưới 4 giờ','4-6 giờ','6-10 giờ','Trên 10 giờ'],answer:1}
+   ]},
+  {tc:3,tcName:'Học liệu',role:'Tổ trưởng EMI',roleCls:'r-tt',score:1,
+   qs:[
+     {q:'Số môn có tài liệu CLIL chuẩn hóa (giáo án, slide, học liệu)?',
+      opts:['Chưa có môn nào','1 môn','2 môn ở nhiều khối','≥3 môn trên mọi khối'],answer:1},
+     {q:'Tỷ lệ môn có tài liệu số song ngữ trên LMS? (QĐ 2371 · Tiêu chí 3.2)',
+      opts:['Chưa có','Dưới 30% số môn','30-60% số môn','Trên 60% số môn'],answer:1}
+   ]},
+  {tc:4,tcName:'Số hóa & AI',role:'Cán bộ CNTT',roleCls:'r-it',score:3,
+   qs:[
+     {q:'Nền tảng LMS hiện đang sử dụng cho EMI?',
+      opts:['Chưa có LMS','Miễn phí (Google Classroom)','LMS chuyên dụng','Đa nền tảng + AI tích hợp'],answer:3},
+     {q:'Tỷ lệ phòng học có hạ tầng CNTT đầy đủ?',
+      opts:['Dưới 30%','30-60%','60-90%','100% + thiết bị hiện đại'],answer:2}
+   ]},
+  {tc:5,tcName:'Đội ngũ',role:'Hiệu trưởng',roleCls:'r-ht',score:1,
+   qs:[
+     {q:'Tỷ lệ giáo viên tiếng Anh đạt CEFR B2+ (hoặc chuẩn VNEFR tương đương)? (Tiêu chí 5.1)',
+      opts:['Dưới 50%','50-70%','70-80%','Trên 80%'],answer:1},
+     {q:'Tỷ lệ giáo viên bộ môn đạt trình độ A2-B1 trở lên? (Tiêu chí 5.2)',
+      opts:['Dưới 20%','20-40%','40-60%','Trên 60%'],answer:1},
+     {q:'Số giờ bồi dưỡng EMI trung bình mỗi giáo viên/năm? (Tiêu chí 5.4)',
+      opts:['0 giờ','Dưới 20 giờ','20-40 giờ','≥40 giờ · ≥60% hoàn thành'],answer:1}
+   ]},
+  {tc:6,tcName:'Hợp tác quốc tế',role:'Hiệu trưởng',roleCls:'r-ht',score:0,
+   qs:[
+     {q:'Trường có đối tác nước ngoài hoặc chương trình trao đổi?',
+      opts:['Chưa có','Đang xây dựng','1-2 đối tác','≥3 đối tác, trao đổi thường xuyên'],answer:0},
+     {q:'Số hoạt động giao lưu quốc tế trong năm học gần nhất?',
+      opts:['0','1-2','3-5','Trên 5'],answer:0}
+   ]},
+  {tc:7,tcName:'Nghiên cứu khoa học & công nghệ',role:'Tổ trưởng EMI',roleCls:'r-tt',score:1,
+   qs:[
+     {q:'Trường có dự án nghiên cứu liên quan đến EMI/CLIL?',
+      opts:['Chưa có','1 dự án cá nhân giáo viên','Dự án cấp trường','Công bố quốc tế'],answer:1},
+     {q:'Số bài báo khoa học giáo dục được xuất bản (3 năm qua)?',
+      opts:['0','1-2','3-5','Trên 5'],answer:1}
+   ]}
+];
+
+// Show a specific question (qIdx) within a criterion (criterionIdx)
+function showSurveyQuestion(criterionIdx,qIdx){
+  const c=SURVEY_DATA[criterionIdx];if(!c)return;
+  const q=c.qs[qIdx];if(!q)return;
+  document.getElementById('svyFormEmpty').style.display='none';
+  document.getElementById('svyFormContent').style.display='block';
+  document.getElementById('svyFormDone').style.display='none';
+  const submitBtn=document.getElementById('svyFormSubmit');
+  submitBtn.style.display='inline-flex';
+  const isLast=qIdx===c.qs.length-1;
+  submitBtn.innerHTML=isLast
+    ?'<i data-lucide="send" style="width:11px;height:11px"></i> Nộp khảo sát'
+    :'<i data-lucide="arrow-right" style="width:11px;height:11px"></i> Câu kế tiếp';
+  submitBtn.dataset.last=isLast?'1':'0';
+  document.getElementById('svyFormTc').textContent='Tiêu chí '+c.tc;
+  document.getElementById('svyFormQnum').textContent=`Câu ${qIdx+1}/${c.qs.length}`;
+  const roleEl=document.getElementById('svyFormRole');
+  roleEl.textContent=c.role;
+  roleEl.className='r-tag '+c.roleCls;
+  document.getElementById('svyFormQ').textContent=q.q;
+  document.getElementById('svyFormUrl').textContent=`lms.learneris.com/emi/survey/tieu-chi-${c.tc}/cau-${qIdx+1}`;
+  // Progress dots
+  const dots=c.qs.map((_,i)=>`<span class="q-dot${i<qIdx?' done':''}${i===qIdx?' cur':''}"></span>`).join('');
+  let progressEl=document.getElementById('svyFormDots');
+  if(!progressEl){
+    progressEl=document.createElement('div');
+    progressEl.id='svyFormDots';
+    progressEl.style.cssText='display:flex;gap:4px;margin-bottom:8px;justify-content:center';
+    document.getElementById('svyFormQ').parentNode.insertBefore(progressEl,document.getElementById('svyFormQ'));
+  }
+  progressEl.innerHTML=dots;
+  // Options or upload
+  const optsEl=document.getElementById('svyFormOpts');
+  if(q.type==='upload'){
+    optsEl.innerHTML=`
+      <div class="svy-upload" id="svyUploadBox">
+        <i data-lucide="upload-cloud" style="width:22px;height:22px;color:var(--teal);margin-bottom:4px"></i>
+        <p style="font-size:11px;font-weight:600;color:var(--mut)">Kéo thả hoặc bấm để chọn tệp</p>
+        <p style="font-size:10px;color:#94a3b8;margin-top:2px">PDF, DOCX, XLSX — tối đa 10MB</p>
+      </div>`;
+    optsEl.dataset.upload='1';
+    optsEl.dataset.fileName=q.fileName;
+    optsEl.dataset.fileSize=q.fileSize;
+  }else{
+    optsEl.innerHTML=q.opts.map((o,i)=>`<div class="svy-opt">○ <strong>${String.fromCharCode(65+i)}.</strong> ${o}</div>`).join('');
+    optsEl.dataset.upload='';
+  }
+  lucide.createIcons();
+}
+
+function answerSurveyQuestion(criterionIdx,qIdx){
+  const c=SURVEY_DATA[criterionIdx];if(!c)return;
+  const q=c.qs[qIdx];if(!q)return;
+  if(q.type==='upload'){
+    const box=document.getElementById('svyUploadBox');
+    if(box){
+      box.innerHTML=`
+        <i data-lucide="file-check" style="width:22px;height:22px;color:var(--grn);margin-bottom:4px"></i>
+        <p style="font-size:11px;font-weight:700;color:var(--grn)">${q.fileName}</p>
+        <p style="font-size:10px;color:var(--mut);margin-top:2px">${q.fileSize} · đã tải lên</p>`;
+      box.classList.add('done');
+      lucide.createIcons();
+    }
+  }else{
+    const opts=document.querySelectorAll('#svyFormOpts .svy-opt');
+    const chosen=opts[q.answer];
+    if(chosen){
+      chosen.classList.add('sel');
+      const letter=String.fromCharCode(65+q.answer);
+      chosen.innerHTML=`● <strong>${letter}.</strong> ${q.opts[q.answer]}`;
+    }
+  }
+}
+
+function submitSurveyCriterion(criterionIdx){
+  const c=SURVEY_DATA[criterionIdx];if(!c)return;
+  const btn=document.getElementById('svyFormSubmit');
+  btn.classList.add('flash');
+  setTimeout(()=>{
+    btn.style.display='none';
+    const done=document.getElementById('svyFormDone');
+    document.getElementById('svyFormScore').textContent=c.score;
+    done.style.display='block';
+    lucide.createIcons();
+  },400);
+}
+
+function moveCursorToRow(n){
+  const cursor=document.getElementById('svyCursor');
+  const row=document.querySelector(`.svy-row[data-row="${n}"]`);
+  if(!cursor||!row)return;
+  const containerRect=cursor.parentElement.getBoundingClientRect();
+  const rowRect=row.getBoundingClientRect();
+  const x=rowRect.left-containerRect.left+rowRect.width*0.5;
+  const y=rowRect.top-containerRect.top+rowRect.height*0.5;
+  cursor.style.left=x+'px';
+  cursor.style.top=y+'px';
+  cursor.classList.add('on');
+}
+
+function pulseCursor(){
+  const cursor=document.getElementById('svyCursor');
+  if(!cursor)return;
+  cursor.classList.add('click');
+  setTimeout(()=>cursor.classList.remove('click'),500);
+}
+
+function highlightRow(n,active){
+  const row=document.querySelector(`.svy-row[data-row="${n}"]`);
+  if(!row)return;
+  row.classList.toggle('active',active);
+}
+
+function markRowDone(n){
+  const row=document.querySelector(`.svy-row[data-row="${n}"]`);
+  if(!row)return;
+  row.classList.remove('active');
+  row.classList.add('done');
+}
+
+function updateSvyProgress(done){
+  const pct=Math.round((done/7)*100);
+  document.getElementById('svyProgressBar').style.width=pct+'%';
+  document.getElementById('svyProgressLabel').textContent=`${done}/7 tiêu chí`;
+}
+
+function resetSurveyState(){
+  document.querySelectorAll('.svy-row').forEach(r=>r.classList.remove('active','done'));
+  document.getElementById('svyCursor')?.classList.remove('on','click');
+  document.getElementById('svyFormEmpty').style.display='block';
+  document.getElementById('svyFormContent').style.display='none';
+  document.getElementById('svyFormPanel').style.display='block';
+  document.getElementById('svyFormPanel').classList.remove('fade-out');
+  document.getElementById('svyResultPanel').style.display='none';
+  updateSvyProgress(0);
+}
+
+// === ANIMATION ENGINE ===
+
+// Staggered reveal: find all .reveal-item in a screen and show them sequentially
+function revealStagger(scr,delay=150,startDelay=200){
+  const items=scr.querySelectorAll('.reveal-item:not(.show)');
+  items.forEach((el,i)=>{setTimeout(()=>el.classList.add('show'),startDelay+i*delay);});
+}
+
+// Typing effect into an element
+function typeInto(el,text,speed=40,startDelay=0){
+  el.textContent='';
+  const cursor=document.createElement('span');
+  cursor.className='typing-cursor';
+  el.appendChild(cursor);
+  let i=0;
+  setTimeout(()=>{
+    const iv=setInterval(()=>{
+      if(i<text.length){el.insertBefore(document.createTextNode(text[i]),cursor);i++;}
+      else{clearInterval(iv);setTimeout(()=>cursor.remove(),800);}
+    },speed);
+  },startDelay);
+}
+
+// Click pulse at a position relative to an element
+function clickAt(parent,x,y,delay=0){
+  setTimeout(()=>{
+    const dot=document.createElement('div');
+    dot.className='click-dot';
+    dot.style.left=(x-14)+'px';dot.style.top=(y-14)+'px';
+    parent.style.position='relative';
+    parent.appendChild(dot);
+    requestAnimationFrame(()=>dot.classList.add('fire'));
+    setTimeout(()=>dot.remove(),700);
+  },delay);
+}
+
+// Animate progress bars
+function animateFills(scr,delay=400){
+  const fills=scr.querySelectorAll('.anim-fill');
+  fills.forEach((f,i)=>{setTimeout(()=>f.classList.add('go'),delay+i*200);});
+}
+
+// Count up number animation
+function countUp(el,target,duration=800,startDelay=0){
+  setTimeout(()=>{
+    const start=0;const startTime=performance.now();
+    const isPercent=el.dataset.suffix||'';
+    function tick(now){
+      const elapsed=now-startTime;
+      const progress=Math.min(elapsed/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      el.textContent=Math.round(start+eased*(target-start))+isPercent;
+      if(progress<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  },startDelay);
+}
+
+// Animate radar chart data
+function animateRadar(scr,delay=300){
+  const rd=scr.querySelector('.radar-data');
+  if(rd)setTimeout(()=>rd.classList.add('show'),delay);
+}
+
+// Sequential chat bubbles
+function animateChat(scr,delay=200){
+  const bubbles=scr.querySelectorAll('.chat-entry');
+  bubbles.forEach((b,i)=>{setTimeout(()=>b.classList.add('show'),delay+i*600);});
+}
+
+// Per-screen animation sequences (demo 2 — phase-driven, 6 screens)
+function runScreenAnim(n,scr){
+  switch(n){
+    case 1: // Khám Phá
+      revealStagger(scr,180,100);
+      break;
+    case 2: // GĐ Nền Tảng
+    case 3: // GĐ Mở Rộng
+    case 4: // GĐ Tự Nhiên
+      revealStagger(scr,120,100);
+      break;
+    case 5: // Bước Tiếp Theo
+      revealStagger(scr,150,100);
+      break;
+    case 6: // FAQ
+      revealStagger(scr,100,100);
+      break;
+  }
+}
+
+function next(){if(c<T)goTo(c+1)}
+function prev(){if(c>1)goTo(c-1)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
+buildS();
+document.addEventListener('DOMContentLoaded',()=>{lucide.createIcons();runScreenAnim(1,document.querySelector('[data-s="1"]'));screenAnimated[1]=true;});
+lucide.createIcons();
+</script>
+</body>
+</html>
