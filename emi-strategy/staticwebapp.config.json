@@ -1,0 +1,23 @@
+{
+  "routes": [
+    {
+      "route": "/",
+      "rewrite": "/emi-landing.html"
+    },
+    {
+      "route": "/sgddt",
+      "rewrite": "/emi-proposal-sgddt.html"
+    },
+    {
+      "route": "/demo",
+      "rewrite": "/emi-school-journey.html"
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/emi-landing.html",
+    "exclude": ["/assets/*", "/docs/*", "/research/*", "*.{css,js,ico,png,jpg,jpeg,gif,svg,webp,pdf}"]
+  },
+  "mimeTypes": {
+    ".json": "application/json"
+  }
+}
