@@ -36,19 +36,30 @@ Chi tiết đầy đủ kèm demo tương tác có tại: **https://emi.learneri
 
 ## 3. Đề xuất bước tiếp theo
 
-Chúng em xin đề xuất **một trong hai hướng**, tùy theo thời gian và định hướng của anh:
+Chúng em đề xuất tiếp cận **diện rộng** ngay từ đầu — tận dụng các sản phẩm Learneris đã trưởng thành (Studio, AI apps, micro-modules PD) để đặt nền tảng cho toàn Sở, thay vì làm sâu ở một trường đơn lẻ. Lý do: Sở báo cáo theo quy mô hệ thống, không theo từng trường; và triển khai diện rộng các sản phẩm đã trưởng thành có rủi ro thấp hơn nhiều so với pilot tùy chỉnh.
 
-**Hướng A — Thí điểm đánh giá (phạm vi nhỏ):**
-- Sở giới thiệu **1 trường THCS** (ưu tiên trường đã tham gia Chương trình Học cùng AI để tận dụng quan hệ có sẵn)
-- Learneris triển khai **EMI Readiness Assessment** trong Q2/2026
-- Kết quả đánh giá có thể dùng làm dữ liệu tham chiếu cho **báo cáo năm 2026 của Sở lên MOET**
-- Điều khoản hợp tác cụ thể sẽ được thảo luận trực tiếp với Sở
+**Hướng A — Đặt nền tảng diện rộng (đề xuất chính):**
 
-**Hướng B — Trao đổi sâu hơn:**
-- Xin anh bố trí **30 phút gặp trực tiếp** hoặc họp trực tuyến
-- Chúng em sẽ trình bày chi tiết lộ trình hỗ trợ EMI 2026-2030 và các cam kết tài chính/kỹ thuật cụ thể
+(a) **Mass EMI Readiness Survey** tại N trường THCS do Sở chỉ định
+- Sở có **dataset baseline toàn hệ thống** để báo cáo năm 2026 và lộ trình 2030 lên MOET
+- Triển khai nhanh, không cần custom hóa từng trường
+- Số lượng trường tham gia do Sở quyết định
 
-Em sẵn sàng chủ động theo lịch của anh.
+(b) **Mass PD enrollment cho GV THCS**
+- Mở Learneris **micro-modules CLIL** (Phương pháp CLIL · Tiếng Anh lớp học · Môn nội dung CLIL) cho toàn bộ GV THCS các trường tham gia survey
+- Sở có **dữ liệu năng lực GV** trước khi BGDĐT pilot chính thức
+- GV self-enroll qua tài khoản Learneris có sẵn
+
+(c) **Studio + AI apps sẵn có**
+- Các trường muốn tự tạo nội dung CLIL có thể dùng Learneris Studio và 14+ AI apps ngay
+- Không cần Sở đầu tư hạ tầng mới
+
+**Tổng kết Hướng A:** Sở có baseline data + GV được trang bị + công cụ sẵn sàng — tất cả dùng sản phẩm Learneris đã trưởng thành (cùng nền tảng đang phục vụ Chương trình Học cùng AI mà anh đã ký thẩm định). Rủi ro thấp, triển khai nhanh, có dữ liệu báo cáo cụ thể.
+
+**Hướng B — Trao đổi 30 phút:**
+- Xin anh bố trí 30 phút gặp trực tiếp (hoặc họp trực tuyến)
+- Trao đổi phạm vi triển khai diện rộng: số trường, timeline, dữ liệu báo cáo Sở cần
+- Em sẵn sàng theo lịch của anh.
 
 ## Tài liệu tham khảo đính kèm
 
