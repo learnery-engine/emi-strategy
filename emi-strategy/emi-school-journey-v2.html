@@ -330,9 +330,9 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .vis-tg strong{color:var(--txt)}
 @media(max-width:768px){.tm-item{grid-template-columns:26px 1fr;gap:8px}.tm-owner{grid-column:1/-1;border-left:none;border-top:1px dashed #e5e7eb;padding-left:0;padding-top:8px}.feat-grid{grid-template-columns:1fr}}
 /* === Screen 2 click-through task sidebar === */
-.nv-layout{display:grid;grid-template-columns:280px 1fr;gap:12px;margin-top:8px}
-.nv-sidebar{display:flex;flex-direction:column;gap:5px}
-.nv-tab{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid #e5e7eb;border-radius:8px;background:#fff;cursor:pointer;transition:all .2s;position:relative}
+.nv-layout{display:grid;grid-template-columns:220px 1fr;gap:14px;margin-top:8px}
+.nv-sidebar{display:flex;flex-direction:column;gap:4px}
+.nv-tab{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #e5e7eb;border-radius:7px;background:#fff;cursor:pointer;transition:all .2s;position:relative}
 .nv-tab:hover{border-color:var(--t200);background:#f0fdfa}
 .nv-tab.tm-learneris{border-left:3px solid var(--teal)}
 .nv-tab.tm-partner{border-left:3px solid #cbd5e1}
@@ -495,7 +495,75 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mk-aw-name{font-weight:600;color:var(--txt)}
 .mk-aw-sc{text-align:right;font-weight:800;color:var(--teal);font-variant-numeric:tabular-nums}
 .mk-aw-ftr{margin-top:8px;padding:6px 9px;background:var(--a50);border-radius:5px;font-size:10px;color:#92400e;line-height:1.4}
-/* === SCREEN 1 minimal hero === */
+/* === SCREEN 1: LEARNERIS INTRO === */
+.intro-hero{text-align:center;padding:12px 0 14px}
+.intro-badge{display:inline-block;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:var(--teal);background:var(--t50);padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.intro-badge em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500;letter-spacing:0.03em}
+.intro-title{font-size:clamp(22px,3.2vw,30px);font-weight:900;letter-spacing:-0.025em;line-height:1.15;margin:0 0 8px 0}
+.intro-grad{background:linear-gradient(135deg,var(--teal),var(--pur));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.intro-sub{font-size:12px;color:var(--mut);margin:0;max-width:720px;margin:0 auto}
+.intro-products{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+.intro-prod{display:block;padding:12px;border:1.5px solid #e5e7eb;border-radius:10px;text-decoration:none;color:inherit;transition:all .25s;background:#fff}
+.intro-prod:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.intro-p-core{border-top:3px solid var(--teal);background:linear-gradient(180deg,var(--t50) 0%,#fff 40%)}
+.intro-p-studio{border-top:3px solid #0f172a;background:linear-gradient(180deg,#1e293b 0%,#0f172a 100%);color:#f1f5f9}
+.intro-p-studio:hover{box-shadow:0 6px 18px rgba(15,23,42,0.25)}
+.intro-p-adapt{border-top:3px solid var(--pur);background:linear-gradient(180deg,var(--p50) 0%,#fff 40%)}
+.intro-p-hd{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.intro-p-logo{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--tl),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:15px;flex-shrink:0}
+.intro-logo-dark{background:linear-gradient(135deg,#a855f7,#7c3aed)}
+.intro-logo-pur{background:linear-gradient(135deg,#a855f7,var(--pur))}
+.intro-p-name{font-size:14px;font-weight:900;letter-spacing:-0.01em;line-height:1.1}
+.intro-p-studio .intro-p-name{color:#fff}
+.intro-p-url{font-size:10px;color:var(--mut);font-family:'SF Mono',Monaco,monospace;margin-top:1px}
+.intro-p-studio .intro-p-url{color:#94a3b8}
+.intro-p-desc{font-size:11px;color:var(--txt);line-height:1.45;margin:0 0 6px 0}
+.intro-p-studio .intro-p-desc{color:#cbd5e1}
+.intro-p-desc strong{color:var(--teal)}
+.intro-p-studio .intro-p-desc strong{color:#c4b5fd}
+.intro-p-adapt .intro-p-desc strong{color:var(--pur)}
+.intro-p-tools{font-size:10px;color:var(--mut);line-height:1.5;padding-top:6px;border-top:1px dashed #e5e7eb}
+.intro-p-studio .intro-p-tools{color:#94a3b8;border-top-color:#334155}
+.intro-proof{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px;padding:10px;background:linear-gradient(135deg,#f0fdfa,#fff);border:1px solid var(--t100);border-radius:10px}
+.intro-proof-stat{text-align:center}
+.intro-proof-stat strong{display:block;font-size:22px;font-weight:900;color:var(--teal);line-height:1;font-variant-numeric:tabular-nums}
+.intro-proof-stat span{display:block;font-size:10px;color:var(--mut);margin-top:3px;line-height:1.35}
+.intro-proof-stat span small{color:#94a3b8;font-size:9px}
+.intro-partners{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;padding:8px 10px;background:var(--srf);border-radius:8px;font-size:10px}
+.intro-partners-lbl{font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:0.08em;font-size:9px;margin-right:4px}
+.intro-partner{padding:3px 8px;background:#fff;border:1px solid #e5e7eb;border-radius:4px;color:var(--txt);font-weight:500}
+
+/* === SCREEN 2: EXECUTIVE PROPOSAL === */
+.exec-head{display:grid;grid-template-columns:1fr 2fr 1fr;gap:14px;align-items:flex-start;padding:14px 16px;background:linear-gradient(135deg,#fafbfd,#fff);border:1px solid #e5e7eb;border-radius:10px;margin-bottom:12px}
+.exec-to,.exec-from{font-size:11px}
+.exec-to-lbl{font-size:9px;font-weight:800;color:var(--mut);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px}
+.exec-to-lbl em{font-style:italic;text-transform:none;letter-spacing:0.03em}
+.exec-to-name{font-size:13px;font-weight:800;color:var(--txt)}
+.exec-to-role{font-size:10px;color:var(--mut);margin-top:1px}
+.exec-ttl{text-align:center;border-left:1px dashed #e5e7eb;border-right:1px dashed #e5e7eb;padding:0 14px}
+.exec-ttl-tag{display:inline-block;font-size:9px;font-weight:800;color:var(--teal);background:var(--t50);padding:3px 10px;border-radius:4px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.exec-ttl-tag em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500;letter-spacing:0.02em}
+.exec-ttl-h{font-size:18px;font-weight:900;letter-spacing:-0.015em;line-height:1.15;margin:0}
+.exec-ttl-grad{background:linear-gradient(135deg,var(--teal),var(--pur));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.exec-value{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+.exec-v-big{text-align:center;padding:14px 10px;background:#fff;border:1.5px solid var(--t200);border-radius:10px;background:linear-gradient(135deg,var(--t50) 0%,#fff 70%)}
+.exec-v-big strong{display:block;font-size:32px;font-weight:900;color:var(--teal);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
+.exec-v-big span{display:block;font-size:10px;color:var(--mut);margin-top:5px;line-height:1.4}
+.exec-pillars{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.exec-pillar{display:flex;gap:10px;padding:10px 12px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;align-items:flex-start}
+.exec-p-ic{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.exec-p-ic i[data-lucide]{width:16px;height:16px}
+.exec-p-body strong{display:block;font-size:12px;font-weight:800;color:var(--txt);margin-bottom:2px}
+.exec-p-body p{font-size:10px;color:var(--mut);line-height:1.4;margin:0}
+.exec-callout{display:flex;gap:10px;padding:11px 14px;background:linear-gradient(135deg,#fef3c7,#fff);border-left:3px solid var(--amb);border-radius:8px;align-items:flex-start;margin-bottom:8px}
+.exec-callout i[data-lucide]{color:var(--amb);flex-shrink:0;margin-top:2px}
+.exec-callout p{font-size:11px;color:var(--txt);line-height:1.5;margin:0}
+.exec-callout strong{color:#92400e}
+.exec-callout em{font-style:italic;color:var(--teal);font-weight:600}
+.exec-foot{text-align:center;font-size:11px;color:var(--mut);margin:0;padding:6px 12px;background:var(--srf);border-radius:6px}
+@media(max-width:768px){.intro-products{grid-template-columns:1fr}.intro-proof{grid-template-columns:1fr 1fr}.exec-head{grid-template-columns:1fr}.exec-ttl{border-left:none;border-right:none;padding:0}.exec-value{grid-template-columns:1fr}.exec-pillars{grid-template-columns:1fr}}
+
+/* === SCREEN 1 minimal hero (OLD — kept for reference) === */
 .s1-hero{text-align:center;padding:20px 0 22px}
 .s1-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--teal);background:var(--t50);padding:5px 14px;border-radius:20px;margin-bottom:16px}
 .s1-tag a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--teal)}
@@ -554,43 +622,136 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <div class="wrap">
 
 <!-- ===== 1. DISCOVER ===== -->
+<!-- ===== 1. GIỚI THIỆU LEARNERIS ===== -->
 <div class="scr on" data-s="1">
-  <div class="s1-hero">
-    <div class="s1-tag"><a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371/QĐ-TTg</a> · Đề án quốc gia 20 năm</div>
-    <h1 class="s1-title">Đưa Tiếng Anh Thành<br><span class="s1-grad">Ngôn Ngữ Thứ Hai</span></h1>
-    <p class="s1-sub"><em>3 giai đoạn · 7 tiêu chí · 30 chỉ báo đánh giá</em></p>
+  <div class="intro-hero">
+    <div class="intro-badge">GIỚI THIỆU · <em>Meet Learneris</em></div>
+    <h1 class="intro-title">Nền tảng AI Giáo dục<br><span class="intro-grad">được 10.000+ giáo viên Việt Nam tin dùng</span></h1>
+    <p class="intro-sub">Dạy — Học — Soạn bài cùng AI · Tinh chỉnh riêng cho ngữ cảnh giáo dục Việt Nam · An toàn thông tin Cấp 3</p>
   </div>
-  <div class="s1-phases">
-    <div class="s1-phase s1-p-tl">
-      <div class="s1-p-ic"><i data-lucide="sprout"></i></div>
-      <div class="s1-p-tag">2025-2030 · ĐANG KHẨN</div>
-      <div class="s1-p-name">GĐ Nền Tảng</div>
-      <div class="s1-p-en">Foundation</div>
-      <div class="s1-p-stat"><span class="s1-p-v">30%</span><span class="s1-p-l">trường HCMC</span></div>
-      <div class="s1-p-quote">"Xây dựng nền tảng và chuẩn hóa"</div>
+
+  <div class="intro-products">
+    <a href="https://learneris.com" target="_blank" class="intro-prod intro-p-core">
+      <div class="intro-p-hd">
+        <div class="intro-p-logo"><span>L</span></div>
+        <div class="intro-p-meta">
+          <div class="intro-p-name">Learneris</div>
+          <div class="intro-p-url">learneris.com</div>
+        </div>
+      </div>
+      <p class="intro-p-desc"><strong>14+ AI tools</strong> cho giáo viên · Soạn bài, tạo nội dung, đánh giá HS · Lớp học & Khóa học · Nội dung tương tác</p>
+      <div class="intro-p-tools">Lesson Plan · Quick Quiz · Interactive Content · Smart Diagram · Speaking Evaluator · Essay Master · Study Guide · AI Image Gen · TCR Assessment · Premium QuizMaker</div>
+    </a>
+
+    <a href="https://studio.learneris.com" target="_blank" class="intro-prod intro-p-studio">
+      <div class="intro-p-hd">
+        <div class="intro-p-logo intro-logo-dark"><span>L</span></div>
+        <div class="intro-p-meta">
+          <div class="intro-p-name">Learneris Studio</div>
+          <div class="intro-p-url">studio.learneris.com</div>
+        </div>
+      </div>
+      <p class="intro-p-desc"><strong>AI Content Production</strong> cho nhà xuất bản giáo dục · Từ chương trình đến nội dung xuất bản trong vài phút · Human-in-the-loop</p>
+      <div class="intro-p-tools">Bilingual content · Publisher pipeline · Google Docs integration · Quality review workflow</div>
+    </a>
+
+    <a href="https://adapt.learneris.com" target="_blank" class="intro-prod intro-p-adapt">
+      <div class="intro-p-hd">
+        <div class="intro-p-logo intro-logo-pur"><span>A</span></div>
+        <div class="intro-p-meta">
+          <div class="intro-p-name">Learneris Adapt</div>
+          <div class="intro-p-url">adapt.learneris.com</div>
+        </div>
+      </div>
+      <p class="intro-p-desc"><strong>Adaptive Testing Engine</strong> · Đánh giá thông minh · AI chấm điểm + câu hỏi tự điều chỉnh độ khó theo HS</p>
+      <div class="intro-p-tools">Adaptive Difficulty · AI-Powered Grading · Deep Analytics · Competency Tracking · Curriculum Aligned</div>
+    </a>
+  </div>
+
+  <div class="intro-proof">
+    <div class="intro-proof-stat"><strong>10.000+</strong><span>Giáo viên tin dùng</span></div>
+    <div class="intro-proof-stat"><strong>14+</strong><span>Công cụ AI</span></div>
+    <div class="intro-proof-stat"><strong>Cấp 3</strong><span>An toàn thông tin<br><small>TT 12/2022/TT-BTTTT</small></span></div>
+    <div class="intro-proof-stat"><strong>80%</strong><span>Giảm thời gian soạn bài</span></div>
+  </div>
+
+  <div class="intro-partners">
+    <span class="intro-partners-lbl">Đối tác</span>
+    <span class="intro-partner">Google for Startups</span>
+    <span class="intro-partner">Microsoft for Startups</span>
+    <span class="intro-partner">Google Digital School</span>
+    <span class="intro-partner">KDI Education</span>
+    <span class="intro-partner">LMS360</span>
+    <span class="intro-partner">ECO Vietnam</span>
+  </div>
+</div>
+
+<!-- ===== 2. ĐỀ XUẤT ĐIỀU HÀNH ===== -->
+<div class="scr" data-s="2">
+  <div class="exec-head">
+    <div class="exec-to">
+      <div class="exec-to-lbl">KÍNH GỬI · <em>TO</em></div>
+      <div class="exec-to-name">Ông Bảo Quốc</div>
+      <div class="exec-to-role">Phó Giám Đốc Sở GD&ĐT TP.HCM</div>
     </div>
-    <div class="s1-phase s1-p-grn">
-      <div class="s1-p-ic"><i data-lucide="book-open"></i></div>
-      <div class="s1-p-tag">2030-2035</div>
-      <div class="s1-p-name">GĐ Mở Rộng</div>
-      <div class="s1-p-en">Expansion</div>
-      <div class="s1-p-stat"><span class="s1-p-v">20%</span><span class="s1-p-l">trường HCMC</span></div>
-      <div class="s1-p-quote">"Mở rộng và tăng cường"</div>
+    <div class="exec-ttl">
+      <div class="exec-ttl-tag">ĐỀ XUẤT HỢP TÁC · <em>Partnership Proposal</em></div>
+      <h2 class="exec-ttl-h">Learneris hỗ trợ Sở triển khai EMI<br><span class="exec-ttl-grad">theo QĐ 2371/QĐ-TTg</span></h2>
     </div>
-    <div class="s1-phase s1-p-pur">
-      <div class="s1-p-ic"><i data-lucide="globe"></i></div>
-      <div class="s1-p-tag">2035-2045</div>
-      <div class="s1-p-name">GĐ Tự Nhiên</div>
-      <div class="s1-p-en">Natural</div>
-      <div class="s1-p-stat"><span class="s1-p-v">10%</span><span class="s1-p-l">trường HCMC</span></div>
-      <div class="s1-p-quote">"Sử dụng một cách tự nhiên"</div>
+    <div class="exec-from">
+      <div class="exec-to-lbl">TỪ · <em>FROM</em></div>
+      <div class="exec-to-name">Quốc Lê</div>
+      <div class="exec-to-role">Giám đốc Đối ngoại, Learneris</div>
     </div>
   </div>
-  <p class="s1-foot">Hôm nay tập trung <strong style="color:var(--teal)">Giai Đoạn Nền Tảng</strong> — giai đoạn đang triển khai · Bấm <strong>Tiếp Theo</strong> để xem Learneris đóng góp gì</p>
+
+  <div class="exec-value">
+    <div class="exec-v-big"><strong>8/8</strong><span>nhiệm vụ QĐ 2371 Mục III<br>có sản phẩm Learneris đáp ứng</span></div>
+    <div class="exec-v-big"><strong>30%</strong><span>mục tiêu HCMC đạt Mức 1<br>vào 2030 (QĐ 2371)</span></div>
+    <div class="exec-v-big"><strong>1 ngày</strong><span>onboard 1 trường<br>sẵn sàng deadline 14/5/2026</span></div>
+  </div>
+
+  <div class="exec-pillars">
+    <div class="exec-pillar">
+      <div class="exec-p-ic" style="background:var(--t50);color:var(--teal)"><i data-lucide="shield-check"></i></div>
+      <div class="exec-p-body">
+        <strong>Giải pháp sẵn sàng 100%</strong>
+        <p>8/8 nhiệm vụ Mục III QĐ 2371 có sản phẩm Learneris đáp ứng ngay · Không phải chờ BGDĐT ban hành chuẩn chi tiết</p>
+      </div>
+    </div>
+    <div class="exec-pillar">
+      <div class="exec-p-ic" style="background:var(--g50);color:var(--grn)"><i data-lucide="book-marked"></i></div>
+      <div class="exec-p-body">
+        <strong>Căn chỉnh sẵn theo chính sách</strong>
+        <p>QĐ 2371 · Nghị định 222/2025/NĐ-CP · Đề án HCMC 2025-2035 · ATTT Cấp 3 (TT 12/2022) — bắt buộc cho trường công</p>
+      </div>
+    </div>
+    <div class="exec-pillar">
+      <div class="exec-p-ic" style="background:var(--p50);color:var(--pur)"><i data-lucide="cpu"></i></div>
+      <div class="exec-p-body">
+        <strong>Công nghệ tự chủ Việt Nam</strong>
+        <p>Mô hình AI tinh chỉnh trên ngữ liệu SGK Việt Nam · 14+ công cụ AI sẵn có · Hạ tầng cloud tự vận hành</p>
+      </div>
+    </div>
+    <div class="exec-pillar">
+      <div class="exec-p-ic" style="background:var(--a50);color:var(--amb)"><i data-lucide="trending-up"></i></div>
+      <div class="exec-p-body">
+        <strong>Scale từ 1 trường → toàn Sở</strong>
+        <p>Onboard 1 ngày/trường · Báo cáo DOCX/PDF theo mẫu Sở · Sẵn sàng cho 1.915 cơ sở giáo dục HCMC</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="exec-callout">
+    <i data-lucide="quote" style="width:16px;height:16px"></i>
+    <p><strong>QĐ 2371 Mục III.2.đ</strong> (trích nguyên văn): <em>"đặc biệt là các giải pháp ứng dụng công nghệ tiên tiến, trí tuệ nhân tạo trong việc nâng cao chất lượng dạy học tiếng Anh"</em> — chính sách trực tiếp mời các nền tảng AI như Learneris tham gia.</p>
+  </div>
+
+  <p class="exec-foot">Bấm <strong>Tiếp Theo →</strong> để xem chi tiết Learneris đáp ứng từng nhiệm vụ QĐ 2371 như thế nào</p>
 </div>
 
 <!-- ===== 2. GĐ NỀN TẢNG — NHIỆM VỤ & ĐÓNG GÓP (click-through) ===== -->
-<div class="scr" data-s="2">
+<div class="scr" data-s="3">
   <div class="phase-banner phase-tl">
     <div class="phase-hd">
       <div class="phase-ic"><i data-lucide="sprout"></i></div>
@@ -672,7 +833,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 </div>
 
 <!-- ===== 3. GĐ NỀN TẢNG · NV 02 — ĐÁNH GIÁ INTERACTIVE ===== -->
-<div class="scr" data-s="3">
+<div class="scr" data-s="4">
   <div class="mini-banner mini-tl">
     <div class="mini-ic"><i data-lucide="sprout"></i></div>
     <div style="flex:1">
@@ -769,7 +930,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 </div>
 
 <!-- ===== 4. GĐ NỀN TẢNG · NV 04 — AI CONTENT ===== -->
-<div class="scr" data-s="4">
+<div class="scr" data-s="5">
   <div class="mini-banner mini-tl">
     <div class="mini-ic"><i data-lucide="sprout"></i></div>
     <div style="flex:1">
@@ -836,7 +997,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 
 <!-- ===== 5. BƯỚC TIẾP THEO ===== -->
-<div class="scr" data-s="5">
+<div class="scr" data-s="6">
   <h2 class="sec-t"><i data-lucide="calendar-check"></i> Bước Tiếp Theo</h2>
   <p class="sec-s">Demo chỉ thể hiện nền tảng tiêu chuẩn. Triển khai thực tế tại HCMC cần <strong>tùy chỉnh theo đặc thù Sở và chính sách địa phương</strong> — bước này cần một cuộc trao đổi trực tiếp.</p>
   <div class="g3" style="margin-top:8px">
@@ -872,7 +1033,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 </div>
 
 <!-- ===== 6. FAQ ===== -->
-<div class="scr" data-s="6">
+<div class="scr" data-s="7">
   <h2 class="sec-t"><i data-lucide="message-circle-question"></i> Câu Hỏi Thường Gặp</h2>
   <p class="sec-s">Giải đáp về EMI, CLIL và triển khai với Learneris.</p>
   <div class="g2">
@@ -962,13 +1123,13 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <nav class="bnav">
   <button class="nb s" id="prevBtn" onclick="prev()" disabled><i data-lucide="arrow-left" style="width:14px;height:14px"></i> Trước</button>
-  <span class="nc" id="navC">1 / 6</span>
+  <span class="nc" id="navC">1 / 7</span>
   <button class="nb p" id="nextBtn" onclick="next()">Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
 </nav>
 
 <script>
-const S=[{l:'Khám Phá'},{l:'GĐ1 Tổng Quan'},{l:'GĐ1 Đánh Giá'},{l:'GĐ1 Nội Dung'},{l:'Tiếp Theo'},{l:'FAQ'}];
-let c=1;const T=6;
+const S=[{l:'Giới Thiệu'},{l:'Đề Xuất'},{l:'8 Nhiệm Vụ'},{l:'Đánh Giá'},{l:'Nội Dung'},{l:'Bước Tiếp'},{l:'FAQ'}];
+let c=1;const T=7;
 let screenAnimated={};
 
 function buildS(){
@@ -987,16 +1148,16 @@ function goTo(n){
   const nb=document.getElementById('nextBtn');
   nb.innerHTML=n===T?'<i data-lucide="check" style="width:14px;height:14px"></i> Hoàn Tất':'Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i>';
   nb.disabled=n===T;
-  // Counter shows sub-step on screen 2
-  if(n===2 && typeof nvIdx!=='undefined'){
+  // Counter shows sub-step on screen 3 (8 nhiệm vụ click-through)
+  if(n===3 && typeof nvIdx!=='undefined'){
     document.getElementById('navC').textContent=`${n}.${nvIdx+1} / ${T}`;
   }else{
     document.getElementById('navC').textContent=`${n} / ${T}`;
   }
   buildS();document.querySelector('.wrap').scrollTop=0;
   lucide.createIcons();
-  // Reset to first task when entering screen 2 (unless already set)
-  if(n===2 && typeof nvIdx!=='undefined' && !scr.dataset.visited){
+  // Reset to first task when entering screen 3 (8 nhiệm vụ) unless already set
+  if(n===3 && typeof nvIdx!=='undefined' && !scr.dataset.visited){
     selectNv(0);
     scr.dataset.visited='1';
   }
@@ -1462,10 +1623,10 @@ function selectNv(idx){
   nvIdx=idx;
   document.querySelectorAll('#nvSidebar .nv-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
   renderNvPanel(idx);
-  // Update counter if we're currently on screen 2
-  if(typeof c!=='undefined' && c===2){
+  // Update counter if we're currently on screen 3 (8 nhiệm vụ)
+  if(typeof c!=='undefined' && c===3){
     const navC=document.getElementById('navC');
-    if(navC)navC.textContent=`2.${idx+1} / ${T}`;
+    if(navC)navC.textContent=`3.${idx+1} / ${T}`;
   }
 }
 
@@ -1547,23 +1708,23 @@ function runScreenAnim(n,scr){
 }
 
 function next(){
-  // On screen 2, step through the 6 sub-tasks before advancing
-  if(c===2 && nvIdx < NV_DATA.length - 1){
+  // On screen 3 (8 nhiệm vụ), step through the sub-tasks before advancing
+  if(c===3 && nvIdx < NV_DATA.length - 1){
     selectNv(nvIdx + 1);
     return;
   }
   if(c<T)goTo(c+1);
 }
 function prev(){
-  // On screen 2, step back through sub-tasks before going to screen 1
-  if(c===2 && nvIdx > 0){
+  // On screen 3, step back through sub-tasks before going to screen 2
+  if(c===3 && nvIdx > 0){
     selectNv(nvIdx - 1);
     return;
   }
   if(c>1){
     goTo(c-1);
-    // When entering screen 2 from screen 3 via Prev, jump to last sub-task
-    if(c===2)selectNv(NV_DATA.length - 1);
+    // When entering screen 3 from screen 4 via Prev, jump to last sub-task
+    if(c===3)selectNv(NV_DATA.length - 1);
   }
 }
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
