@@ -153,10 +153,15 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .faq-q:hover{background:var(--srf)}
 .faq-q i[data-lucide]{width:16px;height:16px;color:var(--mut);transition:transform .25s;flex-shrink:0}
 .faq-item.open .faq-q i[data-lucide]{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 18px;font-size:13px;color:var(--mut);line-height:1.7;background:var(--srf)}
-.faq-a p{margin:0 0 10px 0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 18px;font-size:13px;color:var(--mut);line-height:1.65;background:var(--srf)}
+.faq-a p{margin:0 0 9px 0}
 .faq-a p:last-child{margin-bottom:0}
-.faq-item.open .faq-a{max-height:500px;padding:14px 18px}
+.faq-a a{color:var(--teal);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.faq-a a:hover{color:var(--t800)}
+.faq-a strong{color:var(--txt)}
+.faq-a em{color:#475569;font-style:italic}
+.faq-a .kw{background:linear-gradient(transparent 60%,#fef3c7 60%);padding:0 2px;font-weight:700;color:var(--txt)}
+.faq-item.open .faq-a{max-height:600px;padding:14px 18px}
 .g2.dv{position:relative}
 .g2.dv::before{content:'';position:absolute;left:50%;top:16px;bottom:16px;width:1px;background:linear-gradient(to bottom,transparent,#e5e7eb 20%,#e5e7eb 80%,transparent)}
 .fcta{text-align:center;padding:24px;background:linear-gradient(135deg,var(--tl),var(--teal),var(--t800));border-radius:var(--r);color:#fff;position:relative;overflow:hidden}
@@ -233,17 +238,18 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <!-- ===== 1. DISCOVER ===== -->
 <div class="scr on" data-s="1">
   <div style="text-align:center;padding:4px 0 0">
-    <div class="tag tt" style="margin-bottom:10px">QD 2371/QD-TTg &middot; NQ 71-NQ/TW</div>
+    <div class="tag tt" style="margin-bottom:10px"><a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank" style="color:inherit;text-decoration:none">QĐ 2371/QĐ-TTg</a> &middot; NQ 71-NQ/TW</div>
     <h1 style="font-size:clamp(24px,3.8vw,38px);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:10px">Đưa Tiếng Anh Thành<br><span style="background:linear-gradient(135deg,var(--teal),var(--pur));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Ngôn Ngữ Thứ Hai</span></h1>
-    <p style="font-size:14px;color:var(--mut);line-height:1.6;max-width:500px;margin:0 auto 16px">Learneris giúp trường triển khai EMI theo lộ trình quốc gia — đánh giá, bồi dưỡng GV, tạo nội dung song ngữ, giám sát báo cáo.</p>
+    <p style="font-size:14px;color:var(--mut);line-height:1.6;max-width:500px;margin:0 auto 16px">Learneris giúp trường triển khai EMI theo lộ trình quốc gia — <strong>đánh giá sẵn sàng</strong>, <strong>tạo nội dung song ngữ</strong>, <strong>hỗ trợ giáo viên</strong>, <strong>giám sát báo cáo Sở</strong>.</p>
   </div>
   <!-- CLIL Explainer: What, Why, How -->
   <div class="clil-box reveal-item" style="margin-top:14px">
     <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px">
       <div class="ic" style="width:36px;height:36px;background:var(--t100);color:var(--teal);margin-top:2px"><i data-lucide="languages"></i></div>
       <div style="flex:1">
-        <p style="font-size:12px;font-weight:700;margin-bottom:3px">Phương pháp CLIL <span style="color:var(--mut);font-weight:500">(Content and Language Integrated Learning — Coyle, 2010)</span></p>
-        <p style="font-size:12px;color:var(--mut);line-height:1.5">Thay vì dạy TA riêng biệt, CLIL tích hợp TA vào <strong>các môn nội dung</strong> — HS học ngôn ngữ qua nội dung thực tế. Khởi điểm lịch sử là Đề án 5695 (HCMC, 2014-2024): thí điểm Toán + Khoa Học; Nghị định 222/2025 mở rộng sang <strong>Toán, KHTN, Công nghệ, Tin học</strong>; Đề án HCMC 2025-2035 cho phép <strong>tất cả môn phù hợp</strong> theo cấp học.</p>
+        <p style="font-size:12px;font-weight:700;margin-bottom:3px">Phương pháp <strong>CLIL</strong> <span style="color:var(--mut);font-weight:500">(Content and Language Integrated Learning — <a href="https://www.cambridge.org/elt/blog/2018/03/19/clil-what-is-it/" target="_blank" style="color:inherit">Coyle, 2010</a>)</span></p>
+        <p style="font-size:12px;color:var(--mut);line-height:1.55">Thay vì dạy tiếng Anh riêng biệt, CLIL tích hợp tiếng Anh vào <strong>các môn nội dung</strong> — học sinh học ngôn ngữ qua bối cảnh thực tế.</p>
+        <p style="font-size:12px;color:var(--mut);line-height:1.55;margin-top:6px">Khởi điểm lịch sử là <strong>Đề án 5695</strong> (HCMC, 2014-2024): thí điểm Toán + Khoa Học. <strong>Nghị định 222/2025/NĐ-CP</strong> mở rộng sang Toán, KHTN, Công nghệ, Tin học. Dự thảo <strong>Đề án HCMC 2025-2035</strong> cho phép <em>tất cả môn phù hợp</em> theo cấp học.</p>
       </div>
     </div>
     <!-- 4Cs Framework -->
@@ -270,24 +276,25 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       </div>
     </div>
   </div>
-  <div class="g3" style="margin-top:12px">
+  <p style="font-size:11px;color:var(--mut);text-align:center;margin:12px 0 6px;font-style:italic">Ba giai đoạn triển khai gợi ý — chờ BGDĐT ban hành chuẩn chi tiết</p>
+  <div class="g3">
     <div class="card reveal-item" style="border-top:3px solid var(--tl);padding:14px">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--t50);color:var(--teal)"><i data-lucide="sprout"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 1</h3></div>
-      <p style="font-size:12px;color:var(--mut);line-height:1.4">Môi trường TA cơ bản — biển hiệu song ngữ, sinh hoạt, GV bắt đầu dùng TA</p>
-      <p style="font-size:11px;color:var(--teal);margin-top:5px;font-weight:600">2030: 30% trường HCMC &middot; 20% quốc gia</p>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--t50);color:var(--teal)"><i data-lucide="sprout"></i></div><h3 style="font-size:13px;font-weight:700">Bước Đầu <span style="color:var(--mut);font-weight:500;font-size:11px">· Initial</span></h3></div>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">Môi trường TA cơ bản — biển hiệu song ngữ, hoạt động sinh hoạt, GV bắt đầu dùng TA trong lớp</p>
+      <p style="font-size:11px;color:var(--teal);margin-top:5px;font-weight:600">Mục tiêu HCMC 2030: <strong>30%</strong> trường · quốc gia: 20%</p>
     </div>
     <div class="card reveal-item" style="border-top:3px solid var(--grn);padding:14px">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--g50);color:var(--grn)"><i data-lucide="book-open"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 2</h3></div>
-      <p style="font-size:12px;color:var(--mut);line-height:1.4">CLIL ≥2 môn (Toán, KHTN, Công nghệ, Tin học…); GV đạt B2+; học liệu số</p>
-      <p style="font-size:11px;color:var(--grn);margin-top:5px;font-weight:600">2030: 20% trường HCMC &middot; 5% quốc gia</p>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--g50);color:var(--grn)"><i data-lucide="book-open"></i></div><h3 style="font-size:13px;font-weight:700">Tích Cực <span style="color:var(--mut);font-weight:500;font-size:11px">· Active</span></h3></div>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">CLIL tích hợp ≥2 môn (Toán, KHTN, Công nghệ, Tin học…); GV đạt CEFR B2+; học liệu số</p>
+      <p style="font-size:11px;color:var(--grn);margin-top:5px;font-weight:600">Mục tiêu HCMC 2030: <strong>20%</strong> trường · quốc gia: 5%</p>
     </div>
     <div class="card reveal-item" style="border-top:3px solid var(--pur);padding:14px">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--p50);color:var(--pur)"><i data-lucide="globe"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 3</h3></div>
-      <p style="font-size:12px;color:var(--mut);line-height:1.4">TA tự nhiên — mọi hoạt động; hợp tác quốc tế; nghiên cứu bằng TA</p>
-      <p style="font-size:11px;color:var(--pur);margin-top:5px;font-weight:600">2030: 10% trường HCMC &middot; 2% quốc gia</p>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--p50);color:var(--pur)"><i data-lucide="globe"></i></div><h3 style="font-size:13px;font-weight:700">Tự Nhiên <span style="color:var(--mut);font-weight:500;font-size:11px">· Natural</span></h3></div>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">TA là ngôn ngữ hằng ngày — mọi hoạt động; hợp tác quốc tế; nghiên cứu bằng TA</p>
+      <p style="font-size:11px;color:var(--pur);margin-top:5px;font-weight:600">Mục tiêu HCMC 2030: <strong>10%</strong> trường · quốc gia: 2%</p>
     </div>
   </div>
-  <div class="pb"><i data-lucide="zap"></i> Powered by: Learneris Landing + Standardized Kit (4 mẫu DOCX)</div>
+  <div class="pb"><i data-lucide="zap"></i> Tên giai đoạn theo ngôn ngữ của <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank" style="color:inherit;text-decoration:underline">QĐ 2371</a> và dự thảo Đề Án HCMC · Mục tiêu % trích dẫn trực tiếp từ QĐ 2371</div>
 </div>
 
 <!-- ===== 2. ONBOARD ===== -->
@@ -432,7 +439,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
             <text x="22" y="55" text-anchor="end" class="rl" fill="var(--amb)">Nghiên cứu 35%</text>
           </svg>
           <div style="font-size:28px;font-weight:900;color:var(--teal);line-height:1"><span class="count-target">0</span><span style="font-size:13px;color:var(--mut)">/100</span></div>
-          <div class="tag tt" style="margin-top:3px;font-size:10px">Đang tiến tới Mức Độ 1</div>
+          <div class="tag tt" style="margin-top:3px;font-size:10px">Giai đoạn <strong>Bước Đầu</strong> · cần củng cố 2 tiêu chí</div>
           <div style="margin-top:8px;padding:6px 8px;background:var(--t50);border-radius:6px;font-size:10px;color:var(--teal);font-weight:600;display:flex;align-items:center;justify-content:center;gap:5px">
             <i data-lucide="file-text" style="width:11px;height:11px"></i>
             <span>Báo cáo chi tiết + lộ trình cải thiện 2-3 năm</span>
@@ -441,7 +448,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       </div>
     </div>
   </div>
-  <div class="pb"><i data-lucide="zap"></i> Powered by: Thuật toán chấm điểm độc quyền theo khung 30 chỉ báo QĐ 2371 &middot; Trọng số tùy cấp học</div>
+  <div class="pb"><i data-lucide="zap"></i> Khung đánh giá tham chiếu theo 7 tiêu chí <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank" style="color:inherit;text-decoration:underline">QĐ 2371</a> · Chuẩn chi tiết do BGDĐT ban hành sau · Trọng số điều chỉnh theo cấp học</div>
 </div>
 
 <!-- ===== 4. TRAIN ===== -->
@@ -658,7 +665,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
         </div>
       </div>
       <div class="card" style="text-align:center;padding:12px;margin-top:10px">
-        <p style="font-weight:700;font-size:12px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:5px"><i data-lucide="target" style="width:12px;height:12px;color:var(--teal)"></i> Mục Tiêu Level 1</p>
+        <p style="font-weight:700;font-size:12px;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:5px"><i data-lucide="target" style="width:12px;height:12px;color:var(--teal)"></i> Tiến độ Giai Đoạn <strong>Bước Đầu</strong></p>
         <svg width="90" height="90" viewBox="0 0 90 90"><circle cx="45" cy="45" r="36" fill="none" stroke="#e5e7eb" stroke-width="6"/><circle cx="45" cy="45" r="36" fill="none" stroke="var(--teal)" stroke-width="6" stroke-dasharray="226" stroke-dashoffset="77" stroke-linecap="round" transform="rotate(-90 45 45)"/><text x="45" y="43" text-anchor="middle" font-size="18" font-weight="900" fill="var(--teal)">66%</text><text x="45" y="54" text-anchor="middle" font-size="7" fill="#64748b">hoàn thành</text></svg>
       </div>
     </div>
@@ -669,7 +676,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
           <div><p style="font-size:11px;font-weight:700">Báo Cáo — Sở GD&ĐT TP.HCM</p><p style="font-size:11px;opacity:0.8">THCS Nguyễn Du — HK I, 2026-2027</p></div>
         </div>
         <div style="padding:10px 14px;font-size:12px;color:var(--mut)">
-          <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f1f5f9"><span>Mức độ EMI</span><strong style="color:var(--txt)">Level 0 → 1</strong></div>
+          <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f1f5f9"><span>Giai đoạn EMI</span><strong style="color:var(--txt)">Chuẩn bị → Bước Đầu</strong></div>
           <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f1f5f9"><span>GV chứng nhận CLIL</span><strong style="color:var(--txt)">32/45 (71%)</strong></div>
           <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f1f5f9"><span>Giờ tiếp xúc TA</span><strong style="color:var(--txt)">1,240h</strong></div>
           <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f1f5f9"><span>Bài CLIL triển khai</span><strong style="color:var(--txt)">156 bài</strong></div>
@@ -694,41 +701,75 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     <div style="display:flex;flex-direction:column;gap:7px">
       <div class="faq-item open" onclick="this.classList.toggle('open')">
         <div class="faq-q">CLIL là gì, tại sao dùng, và triển khai thế nào?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a"><p><strong>Là gì:</strong> CLIL (Content and Language Integrated Learning, Coyle 2010) — dạy nội dung môn học bằng ngoại ngữ.</p><p><strong>Tại sao:</strong> HS học ngôn ngữ qua bối cảnh thực tế, hiệu quả hơn dạy TA riêng biệt. Sở GD&ĐT HCMC mô tả Đề án 5695 (2014-2024) là "mô hình thành công điển hình."</p><p><strong>Thế nào:</strong> Theo khung 4C — Content (nội dung dẫn dắt), Communication (HS dùng TA giao tiếp), Cognition (tư duy bậc cao), Culture (đa văn hóa). GV dùng kỹ thuật scaffolding: từ vựng chuyên ngành trước, rồi tích hợp TA dần từ 20% lên 50-100%.</p></div>
+        <div class="faq-a">
+          <p><strong>Là gì:</strong> <span class="kw">CLIL</span> <em>(Content and Language Integrated Learning, <a href="https://www.cambridge.org/elt/blog/2018/03/19/clil-what-is-it/" target="_blank">Coyle, 2010</a>)</em> — dạy <strong>nội dung môn học</strong> bằng ngoại ngữ.</p>
+          <p><strong>Tại sao:</strong> Học sinh học ngôn ngữ qua <strong>bối cảnh thực tế</strong>, hiệu quả hơn dạy tiếng Anh riêng biệt. Sở GD&ĐT HCMC mô tả <strong>Đề án 5695</strong> <em>(2014-2024, dạy Toán + Khoa học bằng tiếng Anh)</em> là <em>"mô hình thành công điển hình."</em></p>
+          <p><strong>Thế nào:</strong> Theo khung <strong>4C</strong> — <strong>C</strong>ontent (nội dung dẫn dắt) · <strong>C</strong>ommunication (HS dùng TA giao tiếp) · <strong>C</strong>ognition (tư duy bậc cao) · <strong>C</strong>ulture (đa văn hóa). Giáo viên dùng kỹ thuật <em>scaffolding</em>: từ vựng chuyên ngành trước, rồi tích hợp TA dần từ <strong>20% lên 50-100%</strong>.</p>
+        </div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Khung 3 mức độ quốc gia đánh giá gì?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a">QD 2371 quy định 7 tiêu chí: Môi trường ngôn ngữ, Chương trình & dạy học, Học liệu, Số hóa & AI, Đội ngũ, Hợp tác quốc tế, Nghiên cứu KH&CN. Tiêu chuẩn chi tiết cho từng mức sẽ do Bộ GD&ĐT ban hành — Learneris đã xây dựng khung đánh giá sẵn.</div>
+        <div class="faq-q">Khung 3 mức độ quốc gia đánh giá những gì?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank"><strong>QĐ 2371/QĐ-TTg</strong></a> quy định <strong>7 tiêu chí</strong>: môi trường ngôn ngữ · chương trình & dạy học · học liệu · số hóa & AI · đội ngũ · hợp tác quốc tế · nghiên cứu KH&CN.</p>
+          <p>Tiêu chuẩn chi tiết cho từng mức độ được giao <strong>BGDĐT ban hành</strong> (Điều III.2.c) — <em>đến nay chưa công bố</em>. Ngày 10/4/2026, BGDĐT vừa tổ chức tọa đàm xây dựng khung <em>7 tiêu chuẩn, 46 tiêu chí</em> cho giáo dục đại học.</p>
+          <p>Learneris xây dựng <strong>khung tham chiếu</strong> theo 7 tiêu chí QĐ 2371 để trường chuẩn bị sớm, sẵn sàng cập nhật khi BGDĐT ban hành chuẩn chính thức.</p>
+        </div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">GV chưa giỏi TA có triển khai CLIL được không?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a">Có. Learneris cung cấp kịch bản song ngữ, từ vựng chuyên ngành, AI hỗ trợ. Bắt đầu từ 20% TA rồi tăng dần. 80%+ GV tiếng Anh ở HCMC đã đạt B2+ — họ hỗ trợ đồng nghiệp dạy CLIL.</div>
+        <div class="faq-q">Giáo viên chưa giỏi tiếng Anh có triển khai CLIL được không?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>Có.</strong> Learneris cung cấp <strong>kịch bản song ngữ</strong>, từ vựng chuyên ngành, và AI hỗ trợ phát âm + quản lý lớp.</p>
+          <p>Bắt đầu từ <strong>20% tiếng Anh</strong> rồi tăng dần. Theo khảo sát BGDĐT, <strong>80%+ giáo viên tiếng Anh</strong> ở HCMC đã đạt <strong>CEFR B2+</strong> — họ hỗ trợ đồng nghiệp dạy CLIL.</p>
+        </div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Mất bao lâu để đạt Level 1?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a">Onboard (1 ngày) → bồi dưỡng GV (1-2 tuần) → tạo nội dung CLIL (~3 phút/bài) → triển khai (1 học kỳ). Mục tiêu: 30% trường HCMC đạt Level 1 vào 2030.</div>
+        <div class="faq-q">Mất bao lâu để đạt giai đoạn "Bước Đầu"?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>Lộ trình điển hình 1 học kỳ:</strong></p>
+          <p>Onboard (1 ngày) → bồi dưỡng giáo viên (1-2 tuần) → tạo nội dung CLIL (~3 phút/bài) → triển khai (1 học kỳ).</p>
+          <p>Theo <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a>, mục tiêu <strong>2025-2030</strong>: 30% trường HCMC · 20% quốc gia đạt <em>Mức Độ 1</em> (giai đoạn Bước Đầu).</p>
+        </div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:7px">
       <div class="faq-item" onclick="this.classList.toggle('open')">
         <div class="faq-q">Chi phí triển khai bao nhiêu?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a">Nội dung CLIL: ~2.000đ/bài ($0.08). Bồi dưỡng GV: miễn phí. Chi phí chính: license LMS tùy quy mô. QD 2371 cho phép xã hội hóa (nguồn lực ngoài ngân sách).</div>
+        <div class="faq-a">
+          <p><strong>Nội dung CLIL:</strong> ~<strong>2.000đ/bài</strong> (~$0.08).</p>
+          <p><strong>Bồi dưỡng giáo viên</strong> qua nền tảng: miễn phí.</p>
+          <p><strong>Chi phí chính:</strong> license LMS tùy quy mô. <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> cho phép <strong>xã hội hóa</strong> — huy động nguồn lực ngoài ngân sách.</p>
+        </div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Learneris có chứng nhận bảo mật?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a">An toàn Thông tin Cấp 3 (TT 12/2022) — bắt buộc cho trường công. Nội dung AI Literacy đã được Viện KHGD thẩm định (7/2025).</div>
+        <div class="faq-q">Learneris có chứng nhận bảo mật không?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>An toàn Thông tin Cấp 3</strong> theo <em>Thông tư 12/2022/TT-BTTTT</em> — bắt buộc cho trường công.</p>
+          <p>Nội dung AI Literacy đã được <strong>Viện Khoa học Giáo dục Việt Nam</strong> thẩm định (tháng 7/2025).</p>
+        </div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Có thay đổi chương trình GDPT 2018?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a">Không. CLIL là lớp tích hợp bổ sung. Không thay SGK, không thay đổi kiểm tra. QD 2371: "không điều chỉnh chương trình".</div>
+        <div class="faq-q">Có thay đổi chương trình GDPT 2018 không?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-a">
+          <p><strong>Không.</strong> CLIL là lớp tích hợp bổ sung.</p>
+          <p>Không thay sách giáo khoa · không thay đổi kiểm tra. <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> nêu rõ: <em>"không điều chỉnh chương trình"</em>.</p>
+        </div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('open')">
         <div class="faq-q">Khi nào nên bắt đầu?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a">QD 2371 yêu cầu triển khai EMI từ năm học 2026-2027. Chuẩn bị sớm (đánh giá, bồi dưỡng GV, tạo nội dung) giúp trường sẵn sàng khi pilot chính thức.</div>
+        <div class="faq-a">
+          <p><a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> yêu cầu triển khai EMI từ <strong>năm học 2026-2027</strong>.</p>
+          <p>Chuẩn bị sớm (đánh giá sẵn sàng, bồi dưỡng GV, tạo nội dung) giúp trường sẵn sàng khi pilot chính thức và khi BGDĐT ban hành chuẩn chi tiết.</p>
+        </div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('open')">
         <div class="faq-q">Vì sao chọn Learneris, không dùng giải pháp khác?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a"><strong>1. Mô hình AI riêng cho EMI tiếng Việt</strong> — không phải ChatGPT gói lại. Tinh chỉnh trên ngữ liệu sách giáo khoa VN, CLIL 4C framework, và phong cách dạy học VN. <strong>2. Căn chỉnh sẵn theo chính sách</strong> — QĐ 2371, NĐ 222/2025, Đề án HCMC 2025-2035. <strong>3. Khung 30 chỉ báo chấm điểm</strong> theo QĐ 2371, không chỉ giao diện bắt mắt. <strong>4. Báo cáo chuẩn Sở</strong> — xuất DOCX/PDF theo mẫu Sở GD&ĐT, tiết kiệm công trung gian. <strong>5. Đối tác tư vấn chuyên môn</strong> (liên hệ để biết thêm).</div>
+        <div class="faq-a">
+          <p><strong>1. Mô hình AI riêng cho EMI tiếng Việt</strong> — không phải ChatGPT gói lại. Tinh chỉnh trên ngữ liệu sách giáo khoa VN, khung CLIL 4C, và phong cách dạy học Việt Nam.</p>
+          <p><strong>2. Căn chỉnh sẵn theo chính sách</strong> — 7 tiêu chí <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a>, <em>Nghị định 222/2025/NĐ-CP</em>, và dự thảo Đề án HCMC 2025-2035.</p>
+          <p><strong>3. Khung đánh giá chạy được ngay</strong> — sẵn sàng cập nhật khi BGDĐT ban hành chuẩn chi tiết, không phải chờ.</p>
+          <p><strong>4. Báo cáo mẫu Sở</strong> — xuất DOCX/PDF theo mẫu báo cáo Sở GD&ĐT, tiết kiệm công trung gian.</p>
+          <p><strong>5. Tham chiếu chuẩn quốc tế</strong> — Macaro EMI Oxford Framework · CLIL Compendium · CEFR/VNEFR.</p>
+        </div>
       </div>
     </div>
   </div>
