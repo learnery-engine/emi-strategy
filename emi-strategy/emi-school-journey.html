@@ -153,8 +153,10 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .faq-q:hover{background:var(--srf)}
 .faq-q i[data-lucide]{width:16px;height:16px;color:var(--mut);transition:transform .25s;flex-shrink:0}
 .faq-item.open .faq-q i[data-lucide]{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;padding:0 18px;font-size:13px;color:var(--mut);line-height:1.7;background:var(--srf)}
-.faq-item.open .faq-a{max-height:240px;padding:14px 18px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 18px;font-size:13px;color:var(--mut);line-height:1.7;background:var(--srf)}
+.faq-a p{margin:0 0 10px 0}
+.faq-a p:last-child{margin-bottom:0}
+.faq-item.open .faq-a{max-height:500px;padding:14px 18px}
 .g2.dv{position:relative}
 .g2.dv::before{content:'';position:absolute;left:50%;top:16px;bottom:16px;width:1px;background:linear-gradient(to bottom,transparent,#e5e7eb 20%,#e5e7eb 80%,transparent)}
 .fcta{text-align:center;padding:24px;background:linear-gradient(135deg,var(--tl),var(--teal),var(--t800));border-radius:var(--r);color:#fff;position:relative;overflow:hidden}
@@ -692,7 +694,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     <div style="display:flex;flex-direction:column;gap:7px">
       <div class="faq-item open" onclick="this.classList.toggle('open')">
         <div class="faq-q">CLIL là gì, tại sao dùng, và triển khai thế nào?<i data-lucide="chevron-down"></i></div>
-        <div class="faq-a"><strong>Là gì:</strong> CLIL (Content and Language Integrated Learning, Coyle 2010) — dạy nội dung môn học bằng ngoại ngữ. <strong>Tại sao:</strong> HS học ngôn ngữ qua bối cảnh thực tế, hiệu quả hơn dạy TA riêng biệt. Sở GD&ĐT HCMC mô tả Đề án 5695 (2014-2024) là "mô hình thành công điển hình." <strong>Thế nào:</strong> Theo khung 4C — Content (nội dung dẫn dắt), Communication (HS dùng TA giao tiếp), Cognition (tư duy bậc cao), Culture (đa văn hóa). GV dùng kỹ thuật scaffolding: từ vựng chuyên ngành trước, rồi tích hợp TA dần từ 20% lên 50-100%.</div>
+        <div class="faq-a"><p><strong>Là gì:</strong> CLIL (Content and Language Integrated Learning, Coyle 2010) — dạy nội dung môn học bằng ngoại ngữ.</p><p><strong>Tại sao:</strong> HS học ngôn ngữ qua bối cảnh thực tế, hiệu quả hơn dạy TA riêng biệt. Sở GD&ĐT HCMC mô tả Đề án 5695 (2014-2024) là "mô hình thành công điển hình."</p><p><strong>Thế nào:</strong> Theo khung 4C — Content (nội dung dẫn dắt), Communication (HS dùng TA giao tiếp), Cognition (tư duy bậc cao), Culture (đa văn hóa). GV dùng kỹ thuật scaffolding: từ vựng chuyên ngành trước, rồi tích hợp TA dần từ 20% lên 50-100%.</p></div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('open')">
         <div class="faq-q">Khung 3 mức độ quốc gia đánh giá gì?<i data-lucide="chevron-down"></i></div>
