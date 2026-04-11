@@ -213,7 +213,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       <div class="ic" style="width:36px;height:36px;background:var(--t100);color:var(--teal);margin-top:2px"><i data-lucide="languages"></i></div>
       <div style="flex:1">
         <p style="font-size:12px;font-weight:700;margin-bottom:3px">Phương pháp CLIL <span style="color:var(--mut);font-weight:500">(Content and Language Integrated Learning — Coyle, 2010)</span></p>
-        <p style="font-size:12px;color:var(--mut);line-height:1.5">Thay vì dạy TA riêng biệt, CLIL tích hợp TA vào các môn Toán, Khoa Học — HS học ngôn ngữ qua nội dung thực tế. Sở GD&ĐT HCMC mô tả Đề án 5695 (2014-2024) là "mô hình thành công điển hình" cho CLIL tại trường công lập.</p>
+        <p style="font-size:12px;color:var(--mut);line-height:1.5">Thay vì dạy TA riêng biệt, CLIL tích hợp TA vào <strong>các môn nội dung</strong> — HS học ngôn ngữ qua nội dung thực tế. Khởi điểm lịch sử là Đề án 5695 (HCMC, 2014-2024): thí điểm Toán + Khoa Học; Nghị định 222/2025 mở rộng sang <strong>Toán, KHTN, Công nghệ, Tin học</strong>; Đề án HCMC 2025-2035 cho phép <strong>tất cả môn phù hợp</strong> theo cấp học.</p>
       </div>
     </div>
     <!-- 4Cs Framework -->
@@ -248,7 +248,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     </div>
     <div class="card reveal-item" style="border-top:3px solid var(--grn);padding:14px">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div class="ic-sm" style="background:var(--g50);color:var(--grn)"><i data-lucide="book-open"></i></div><h3 style="font-size:13px;font-weight:700">Mức Độ 2</h3></div>
-      <p style="font-size:12px;color:var(--mut);line-height:1.4">CLIL tích hợp — Toán, Khoa Học dạy bằng TA; GV đạt B2+; học liệu số</p>
+      <p style="font-size:12px;color:var(--mut);line-height:1.4">CLIL ≥2 môn (Toán, KHTN, Công nghệ, Tin học…); GV đạt B2+; học liệu số</p>
       <p style="font-size:11px;color:var(--grn);margin-top:5px;font-weight:600">2030: 20% trường HCMC &middot; 5% quốc gia</p>
     </div>
     <div class="card reveal-item" style="border-top:3px solid var(--pur);padding:14px">
@@ -422,8 +422,8 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     </div>
     <div class="card" style="padding:12px">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><span class="tag tr">11%</span><span style="font-size:12px;color:var(--mut)">45p</span></div>
-      <h4 style="font-size:12px;font-weight:700">Toán Bằng Tiếng Anh</h4>
-      <p style="font-size:11px;color:var(--mut);margin:3px 0 6px">Math in English (CLIL)</p>
+      <h4 style="font-size:12px;font-weight:700">Môn Nội Dung CLIL</h4>
+      <p style="font-size:11px;color:var(--mut);margin:3px 0 6px">Content Subjects in English</p>
       <div class="pt"><div class="pf fr" style="width:11%"></div></div>
       <p style="font-size:11px;color:var(--mut);margin-top:5px">5/45 GV</p>
     </div>
@@ -462,10 +462,22 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <!-- ===== 5. CONTENT ===== -->
 <div class="scr" data-s="5">
   <h2 class="sec-t"><i data-lucide="sparkles"></i> Tạo Nội Dung CLIL</h2>
-  <p class="sec-s">AI tạo bài giảng song ngữ (CLIL) — HS học Toán bằng tiếng Anh, chỉ 3 phút.</p>
+  <p class="sec-s">AI tạo bài giảng song ngữ (CLIL) cho mọi môn nội dung — chỉ 3 phút.</p>
   <div class="g2">
     <div class="card" style="padding:14px">
-      <div style="margin-bottom:8px"><label class="fl">Môn học</label><select class="fi"><option selected>Toán (Math)</option><option>Khoa Học (Science)</option></select></div>
+      <div style="margin-bottom:8px"><label class="fl">Môn học</label><select class="fi">
+        <option selected>Toán (Math)</option>
+        <option>Vật Lý (Physics)</option>
+        <option>Hóa Học (Chemistry)</option>
+        <option>Sinh Học (Biology)</option>
+        <option>Khoa Học Tự Nhiên (Natural Science)</option>
+        <option>Công Nghệ (Technology)</option>
+        <option>Tin Học (IT / Computer Science)</option>
+        <option>Địa Lý (Geography)</option>
+        <option>Lịch Sử (History)</option>
+        <option>Giáo Dục Công Dân (Civics)</option>
+        <option>Mỹ Thuật (Art)</option>
+      </select></div>
       <div style="margin-bottom:8px"><label class="fl">Lớp</label><select class="fi"><option>Lớp 6</option><option selected>Lớp 7</option><option>Lớp 8</option></select></div>
       <div style="margin-bottom:8px"><label class="fl">Chủ đề</label><input class="fi" value="Phương trình bậc nhất một ẩn"></div>
       <div style="margin-bottom:12px">
@@ -514,7 +526,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <!-- ===== 6. TEACH ===== -->
 <div class="scr" data-s="6">
   <h2 class="sec-t"><i data-lucide="presentation"></i> Bài Giảng CLIL 30%</h2>
-  <p class="sec-s">Toán lớp 7, 45 phút, ~14 phút tiếng Anh. GV có kịch bản + phát âm + câu quản lý lớp sẵn.</p>
+  <p class="sec-s"><em style="color:var(--teal);font-style:normal;font-weight:600">Ví dụ:</em> Toán lớp 7, 45 phút, ~14 phút tiếng Anh — hệ thống hỗ trợ mọi môn và cấp học. GV có kịch bản + phát âm + câu quản lý lớp sẵn.</p>
   <div class="g2 dv">
     <div>
       <div class="tag tt" style="margin-bottom:6px;display:flex;align-items:center;gap:4px;width:fit-content"><i data-lucide="user" style="width:12px;height:12px"></i> GV — Kịch bản 45 phút</div>
