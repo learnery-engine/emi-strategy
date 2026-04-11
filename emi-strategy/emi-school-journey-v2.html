@@ -329,6 +329,40 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .vis-tg{font-size:11px;color:var(--mut);padding-top:8px;border-top:1px dashed #e5e7eb;line-height:1.4}
 .vis-tg strong{color:var(--txt)}
 @media(max-width:768px){.tm-item{grid-template-columns:26px 1fr;gap:8px}.tm-owner{grid-column:1/-1;border-left:none;border-top:1px dashed #e5e7eb;padding-left:0;padding-top:8px}.feat-grid{grid-template-columns:1fr}}
+/* === Screen 2 click-through task sidebar === */
+.nv-layout{display:grid;grid-template-columns:280px 1fr;gap:12px;margin-top:8px}
+.nv-sidebar{display:flex;flex-direction:column;gap:5px}
+.nv-tab{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid #e5e7eb;border-radius:8px;background:#fff;cursor:pointer;transition:all .2s;position:relative}
+.nv-tab:hover{border-color:var(--t200);background:#f0fdfa}
+.nv-tab.tm-learneris{border-left:3px solid var(--teal)}
+.nv-tab.tm-partner{border-left:3px solid #cbd5e1}
+.nv-tab.active{background:linear-gradient(90deg,var(--t50) 0%,#fff 100%);border-color:var(--teal);box-shadow:0 2px 8px rgba(13,148,136,0.12)}
+.nv-tab.active::after{content:"";position:absolute;right:-7px;top:50%;transform:translateY(-50%) rotate(45deg);width:12px;height:12px;background:var(--t50);border-right:1px solid var(--teal);border-top:1px solid var(--teal);border-radius:2px}
+.nv-num{width:26px;height:26px;border-radius:6px;background:var(--srf);color:var(--mut);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;flex-shrink:0;font-variant-numeric:tabular-nums}
+.nv-tab.tm-learneris .nv-num{background:var(--teal);color:#fff}
+.nv-tab.tm-learneris.active .nv-num{background:var(--t800)}
+.nv-mini{flex:1;min-width:0}
+.nv-title{font-size:12px;font-weight:700;color:var(--txt);line-height:1.25;margin-bottom:3px}
+.nv-badge{display:inline-block;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;padding:2px 5px;border-radius:3px}
+.nv-panel{border:1.5px solid var(--teal);border-radius:12px;background:linear-gradient(135deg,var(--t50) 0%,#fff 60%);padding:18px 20px;min-height:340px;display:flex;flex-direction:column;animation:nvFadeIn .3s ease}
+.nv-panel.partner{border-color:#cbd5e1;background:linear-gradient(135deg,#f8fafc 0%,#fff 60%)}
+@keyframes nvFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.nv-p-hd{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.nv-p-num{width:40px;height:40px;border-radius:8px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;font-variant-numeric:tabular-nums}
+.nv-panel.partner .nv-p-num{background:#94a3b8}
+.nv-p-task{flex:1;font-size:16px;font-weight:800;color:var(--txt);line-height:1.2;letter-spacing:-0.01em}
+.nv-p-src{font-size:10px;color:var(--mut);font-style:italic;margin-bottom:12px;padding-left:50px}
+.nv-p-divider{height:1px;background:#e5e7eb;margin-bottom:12px}
+.nv-p-product{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.nv-p-bd{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;padding:4px 10px;border-radius:4px;background:var(--teal);color:#fff}
+.nv-panel.partner .nv-p-bd{background:#64748b}
+.nv-p-name{font-size:13px;font-weight:800;color:var(--txt)}
+.nv-p-mech{font-size:12px;color:var(--txt);line-height:1.6}
+.nv-p-mech strong{color:var(--teal);font-weight:700}
+.nv-panel.partner .nv-p-mech strong{color:#475569}
+.nv-p-mech em{font-style:italic;color:var(--mut);font-size:11px;display:block;margin-top:6px}
+.nv-p-arrow{display:inline-block;color:var(--teal);font-weight:900;margin:0 2px}
+@media(max-width:768px){.nv-layout{grid-template-columns:1fr}.nv-tab.active::after{display:none}.nv-p-src{padding-left:0}}
 /* Mini-banner for phase-framed interactive screens */
 .mini-banner{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;border-left:3px solid var(--teal);background:linear-gradient(90deg,var(--t50),#fff 60%);margin-bottom:4px}
 .mini-banner.mini-tl{border-left-color:var(--teal);background:linear-gradient(90deg,var(--t50),#fff 60%)}
@@ -422,8 +456,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <div class="pb"><i data-lucide="zap"></i> Chuẩn đánh giá chi tiết cho mỗi mức độ do BGDĐT ban hành · Ngày 10/4/2026 BGDĐT + ĐH Nguyễn Tất Thành đã tổ chức tọa đàm xây dựng khung cho đại học</div>
 </div>
 
-<!-- ===== 2. GIAI ĐOẠN NỀN TẢNG ===== -->
-<!-- ===== 2. GĐ NỀN TẢNG — NHIỆM VỤ & ĐÓNG GÓP ===== -->
+<!-- ===== 2. GĐ NỀN TẢNG — NHIỆM VỤ & ĐÓNG GÓP (click-through) ===== -->
 <div class="scr" data-s="2">
   <div class="phase-banner phase-tl">
     <div class="phase-hd">
@@ -436,81 +469,57 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       <div class="phase-stat"><div class="sv" style="color:var(--teal)">30%</div><div class="slb">trường HCMC<br>đạt chuẩn năm 2030</div></div>
     </div>
   </div>
-  <p class="sub-t" style="margin-top:14px"><i data-lucide="list-checks"></i> 6 nhiệm vụ theo QĐ 2371 — ai đóng góp gì?</p>
-  <div class="tm-list">
-
-    <div class="tm-item tm-partner">
-      <div class="tm-num">01</div>
-      <div class="tm-body">
-        <div class="tm-task">Nâng cao nhận thức xã hội về vai trò tiếng Anh</div>
-        <div class="tm-src">QĐ 2371 · Mục III.1</div>
+  <p class="sub-t" style="margin-top:10px"><i data-lucide="list-checks"></i> 6 nhiệm vụ theo QĐ 2371 — bấm để xem Learneris đóng góp như thế nào</p>
+  <div class="nv-layout">
+    <!-- LEFT: Compact task sidebar -->
+    <div class="nv-sidebar" id="nvSidebar">
+      <div class="nv-tab tm-partner" data-nv="0">
+        <div class="nv-num">01</div>
+        <div class="nv-mini">
+          <div class="nv-title">Nâng cao nhận thức xã hội</div>
+          <div class="nv-badge tm-b-partner">Đối tác khác</div>
+        </div>
       </div>
-      <div class="tm-owner">
-        <div class="tm-badge tm-b-partner">Đối tác khác</div>
-        <div class="tm-who">Sở GD&ĐT + Báo chí + Truyền thông</div>
+      <div class="nv-tab tm-learneris active" data-nv="1">
+        <div class="nv-num">02</div>
+        <div class="nv-mini">
+          <div class="nv-title">Xây dựng thể chế &amp; tiêu chí đánh giá</div>
+          <div class="nv-badge tm-b-ler">★ Learneris</div>
+        </div>
       </div>
-    </div>
-
-    <div class="tm-item tm-learneris">
-      <div class="tm-num">02</div>
-      <div class="tm-body">
-        <div class="tm-task">Xây dựng thể chế: tiêu chuẩn, tiêu chí đánh giá, quy định</div>
-        <div class="tm-src">QĐ 2371 · Mục III.2.c — BGDĐT ban hành chuẩn chính thức</div>
+      <div class="nv-tab tm-learneris" data-nv="2">
+        <div class="nv-num">03</div>
+        <div class="nv-mini">
+          <div class="nv-title">Phát triển đội ngũ giáo viên</div>
+          <div class="nv-badge tm-b-ler">★ Hỗ trợ</div>
+        </div>
       </div>
-      <div class="tm-owner">
-        <div class="tm-badge tm-b-ler">★ Learneris</div>
-        <div class="tm-who"><strong>Sản phẩm: EMI Readiness Assessment</strong><br>Hiệu trưởng tạo khảo sát → hệ thống gửi 17 câu hỏi thang 4 mức cho HT/PHT/Tổ trưởng EMI qua email → kết quả tự động tính theo 7 tiêu chí × 30 chỉ báo → xuất <strong>báo cáo PDF</strong> + lộ trình cải thiện 2-3 năm gửi Sở</div>
+      <div class="nv-tab tm-learneris" data-nv="3">
+        <div class="nv-num">04</div>
+        <div class="nv-mini">
+          <div class="nv-title">Phát triển chương trình &amp; học liệu</div>
+          <div class="nv-badge tm-b-ler">★ Learneris</div>
+        </div>
       </div>
-    </div>
-
-    <div class="tm-item tm-learneris">
-      <div class="tm-num">03</div>
-      <div class="tm-body">
-        <div class="tm-task">Phát triển đội ngũ: đào tạo, khảo thí, tuyển dụng GV</div>
-        <div class="tm-src">QĐ 2371 · Mục III.3 · KH 18/KH-BGDĐT khảo sát 4/2026</div>
+      <div class="nv-tab tm-learneris" data-nv="4">
+        <div class="nv-num">05</div>
+        <div class="nv-mini">
+          <div class="nv-title">Chuyển đổi số &amp; AI</div>
+          <div class="nv-badge tm-b-ler">★ Learneris</div>
+        </div>
       </div>
-      <div class="tm-owner">
-        <div class="tm-badge tm-b-ler">★ Learneris hỗ trợ</div>
-        <div class="tm-who"><strong>Sản phẩm: Thư viện Micro-modules CLIL + Kịch bản Lớp</strong><br>GV tự học 12 khóa ngắn (Phương pháp CLIL, Classroom English, Từ vựng chuyên ngành) · mỗi bài giảng AI tạo kèm <strong>kịch bản 45 phút song ngữ + audio phát âm + câu lệnh quản lý lớp</strong> để GV A2-B1 dạy ngay mà không cần chờ đạt B2<br><em>Bổ trợ — không thay chứng chỉ chính quy của British Council/VNIES</em></div>
-      </div>
-    </div>
-
-    <div class="tm-item tm-learneris">
-      <div class="tm-num">04</div>
-      <div class="tm-body">
-        <div class="tm-task">Phát triển chương trình & học liệu EMI</div>
-        <div class="tm-src">QĐ 2371 · Mục III.4 · Nghị định 222/2025/NĐ-CP</div>
-      </div>
-      <div class="tm-owner">
-        <div class="tm-badge tm-b-ler">★ Learneris</div>
-        <div class="tm-who"><strong>Sản phẩm: AI Content Engine cho EMI Việt Nam</strong><br>GV chọn <strong>môn (11 môn) + lớp (5 cấp) + chủ đề + tỷ lệ tiếng Anh (20-100%)</strong> → AI tinh chỉnh trên ngữ liệu SGK Việt Nam tạo slide + bài tập + đề kiểm tra song ngữ trong <strong>~3 phút, ~2.000đ/bài</strong> · Xuất DOCX/PDF/Google Slides</div>
+      <div class="nv-tab tm-learneris" data-nv="5">
+        <div class="nv-num">06</div>
+        <div class="nv-mini">
+          <div class="nv-title">Thí điểm EMI tại các trường</div>
+          <div class="nv-badge tm-b-ler">★ Learneris</div>
+        </div>
       </div>
     </div>
-
-    <div class="tm-item tm-learneris">
-      <div class="tm-num">05</div>
-      <div class="tm-body">
-        <div class="tm-task">Chuyển đổi số, ứng dụng AI và cơ sở vật chất</div>
-        <div class="tm-src">QĐ 2371 · Mục III.6</div>
-      </div>
-      <div class="tm-owner">
-        <div class="tm-badge tm-b-ler">★ Learneris</div>
-        <div class="tm-who"><strong>Sản phẩm: Learneris LMS</strong><br>Quản lý lớp + giao bài + theo dõi tiến độ · tích hợp sẵn AI Teaching Assistant + Bilingual Chat · đạt chuẩn <strong>An toàn Thông tin Cấp 3</strong> (TT 12/2022/TT-BTTTT) — bắt buộc cho trường công · không yêu cầu trường đầu tư thêm CSVC</div>
-      </div>
+    <!-- RIGHT: Active task details panel -->
+    <div class="nv-panel" id="nvPanel">
+      <!-- Populated by JS -->
     </div>
-
-    <div class="tm-item tm-learneris">
-      <div class="tm-num">06</div>
-      <div class="tm-body">
-        <div class="tm-task">Thí điểm EMI tại các trường</div>
-        <div class="tm-src">Mầm non đăng ký trước 14/5/2026</div>
-      </div>
-      <div class="tm-owner">
-        <div class="tm-badge tm-b-ler">★ Learneris</div>
-        <div class="tm-who"><strong>Sản phẩm: Onboarding Engine + Báo cáo Sở</strong><br>Trường nhập tên → hệ thống tự nhận diện cấp học (Mầm non/Tiểu/THCS/THPT/Sở) + cấu trúc lớp phù hợp · import roster GV/HS từ Excel → tạo tổ chức + tài khoản <strong>hoàn thành trong 1 ngày</strong> · Báo cáo định kỳ xuất DOCX/PDF theo mẫu Sở</div>
-      </div>
-    </div>
-
   </div>
   <div class="pb"><i data-lucide="zap"></i> <strong>5/6 nhiệm vụ</strong> Learneris đóng góp trực tiếp · Nhiệm vụ #01 (nhận thức) do Sở + Báo chí · Nhiệm vụ #03 phần chứng chỉ chính quy do British Council/VNIES</div>
 </div>
@@ -1155,6 +1164,62 @@ function animateChat(scr,delay=200){
 }
 
 // Per-screen animation sequences (demo 2 — phase-driven, 6 screens)
+// === Screen 2: 6 nhiệm vụ task data ===
+const NV_DATA=[
+  {num:'01',task:'Nâng cao nhận thức xã hội về vai trò tiếng Anh',src:'QĐ 2371 · Mục III.1',
+   owner:'partner',badge:'Đối tác khác',name:'Sở GD&ĐT + Báo chí + Truyền thông',
+   mech:'Nhiệm vụ truyền thông xã hội do Sở GD&ĐT phối hợp với cơ quan báo chí và truyền thông thực hiện. <em>Learneris không trực tiếp đóng góp phần này — chỉ hỗ trợ kỹ thuật truyền thông nội bộ trường học (bản tin song ngữ, website trường) khi được yêu cầu.</em>'},
+  {num:'02',task:'Xây dựng thể chế: tiêu chuẩn, tiêu chí đánh giá, quy định',src:'QĐ 2371 · Mục III.2.c — BGDĐT ban hành chuẩn chính thức',
+   owner:'learneris',badge:'★ Learneris',name:'EMI Readiness Assessment',
+   mech:'Hiệu trưởng tạo khảo sát <span class="nv-p-arrow">→</span> hệ thống gửi <strong>17 câu hỏi thang 4 mức</strong> cho HT / PHT / Tổ trưởng EMI qua email <span class="nv-p-arrow">→</span> kết quả tự động tính theo <strong>7 tiêu chí × 30 chỉ báo</strong> <span class="nv-p-arrow">→</span> xuất <strong>báo cáo PDF</strong> + lộ trình cải thiện 2-3 năm gửi Sở.<em>Khung tham chiếu chạy ngay · Sẵn sàng cập nhật khi BGDĐT ban hành chuẩn chi tiết.</em>'},
+  {num:'03',task:'Phát triển đội ngũ: đào tạo, khảo thí, tuyển dụng GV',src:'QĐ 2371 · Mục III.3 · KH 18/KH-BGDĐT khảo sát 4/2026',
+   owner:'learneris',badge:'★ Learneris hỗ trợ',name:'Thư viện Micro-modules CLIL + Kịch bản Lớp',
+   mech:'GV tự học <strong>12 khóa ngắn</strong> trên nền tảng (Phương pháp CLIL, Classroom English, Từ vựng chuyên ngành) <span class="nv-p-arrow">→</span> mỗi bài giảng AI tạo kèm <strong>kịch bản 45 phút song ngữ + audio phát âm + câu lệnh quản lý lớp</strong> <span class="nv-p-arrow">→</span> giáo viên trình độ A2-B1 có thể đứng lớp CLIL ngay mà không cần chờ đạt B2.<em>Bổ trợ — không thay chứng chỉ chính quy của British Council / VNIES / các đơn vị được BGDĐT công nhận.</em>'},
+  {num:'04',task:'Phát triển chương trình & học liệu EMI',src:'QĐ 2371 · Mục III.4 · Nghị định 222/2025/NĐ-CP',
+   owner:'learneris',badge:'★ Learneris',name:'AI Content Engine cho EMI Việt Nam',
+   mech:'GV chọn <strong>môn học</strong> (11 môn: Toán, Lý, Hóa, Sinh, KHTN, Công nghệ, Tin học, Địa, Sử, GDCD, Mỹ thuật) + <strong>lớp</strong> (5 cấp: Mầm non → THPT) + <strong>chủ đề</strong> + <strong>tỷ lệ tiếng Anh</strong> (20-100%) <span class="nv-p-arrow">→</span> AI tinh chỉnh trên ngữ liệu <strong>SGK Việt Nam</strong> tạo slide + bài tập + đề kiểm tra song ngữ trong <strong>~3 phút, ~2.000đ/bài</strong> <span class="nv-p-arrow">→</span> xuất DOCX / PDF / Google Slides.<em>Khung CLIL 4C (Coyle, 2010) · Tham chiếu Cambridge / Oxford.</em>'},
+  {num:'05',task:'Chuyển đổi số, ứng dụng AI và cơ sở vật chất',src:'QĐ 2371 · Mục III.6',
+   owner:'learneris',badge:'★ Learneris',name:'Learneris LMS',
+   mech:'Quản lý lớp + giao bài + theo dõi tiến độ học sinh · tích hợp sẵn <strong>AI Teaching Assistant</strong> + <strong>Bilingual Chat</strong> · đạt chuẩn <strong>An toàn Thông tin Cấp 3</strong> (Thông tư 12/2022/TT-BTTTT) — bắt buộc cho trường công lập.<em>Không yêu cầu trường đầu tư thêm cơ sở vật chất · Triển khai trên hạ tầng cloud của Learneris.</em>'},
+  {num:'06',task:'Thí điểm EMI tại các trường',src:'Mầm non đăng ký trước 14/5/2026',
+   owner:'learneris',badge:'★ Learneris',name:'Onboarding Engine + Báo cáo Sở',
+   mech:'Trường nhập <strong>tên trường</strong> <span class="nv-p-arrow">→</span> hệ thống tự nhận diện <strong>cấp học</strong> (Mầm non / Tiểu học / THCS / THPT / Sở) + cấu trúc lớp phù hợp <span class="nv-p-arrow">→</span> import <strong>roster GV/HS</strong> từ Excel <span class="nv-p-arrow">→</span> tạo tổ chức + tài khoản <strong>hoàn thành trong 1 ngày</strong>.<em>Báo cáo định kỳ xuất DOCX/PDF theo mẫu Sở GD&ĐT · Sẵn sàng cho deadline 14/5/2026.</em>'}
+];
+
+function renderNvPanel(idx){
+  const d=NV_DATA[idx];if(!d)return;
+  const panel=document.getElementById('nvPanel');if(!panel)return;
+  const isPartner=d.owner==='partner';
+  panel.className='nv-panel'+(isPartner?' partner':'');
+  panel.innerHTML=`
+    <div class="nv-p-hd">
+      <div class="nv-p-num">${d.num}</div>
+      <div class="nv-p-task">${d.task}</div>
+    </div>
+    <div class="nv-p-src">${d.src}</div>
+    <div class="nv-p-divider"></div>
+    <div class="nv-p-product">
+      <div class="nv-p-bd">${d.badge}</div>
+      <div class="nv-p-name">${d.name}</div>
+    </div>
+    <div class="nv-p-mech">${d.mech}</div>
+  `;
+}
+
+function selectNv(idx){
+  document.querySelectorAll('#nvSidebar .nv-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  renderNvPanel(idx);
+}
+
+// Wire up click handlers
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('#nvSidebar .nv-tab').forEach((tab,i)=>{
+    tab.addEventListener('click',()=>selectNv(i));
+  });
+  // Initialize with Task 02 (first Learneris task)
+  renderNvPanel(1);
+});
+
 function runScreenAnim(n,scr){
   switch(n){
     case 1: // Khám Phá
