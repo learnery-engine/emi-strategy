@@ -421,6 +421,29 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mk-gf-stat strong{color:var(--teal);font-size:12px;font-weight:800}
 .mk-gf-btn{width:100%;padding:6px;background:var(--teal);color:#fff;border:none;border-radius:5px;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:4px;cursor:default}
 .mk-clil-export{margin-top:6px;padding:4px 6px;background:var(--t50);border-radius:4px;font-size:9px;color:var(--teal);font-weight:600;display:flex;align-items:center;gap:4px}
+/* === NV 02 Assessment animation === */
+.mk-asmt-demo .mk-ar-anim{opacity:0.35;transform:translateX(-4px);transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+.mk-asmt-demo .mk-ar-anim .mk-ar-score{opacity:0;transition:opacity .3s .15s}
+.mk-asmt-demo .mk-ar-anim.done{opacity:1;transform:translateX(0)}
+.mk-asmt-demo .mk-ar-anim.done .mk-ar-score{opacity:1}
+.mk-asmt-demo .mk-radar-data{opacity:0;transition:opacity .6s ease}
+.mk-asmt-demo .mk-radar-data.show{opacity:1}
+.mk-asmt-demo .mk-radar-data > polygon{stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1s .15s ease-out}
+.mk-asmt-demo .mk-radar-data.show > polygon{stroke-dashoffset:0}
+.mk-asmt-demo .mk-radar-data > circle{opacity:0;transition:opacity .3s ease}
+.mk-asmt-demo .mk-radar-data.show > circle{opacity:1;transition-delay:1s}
+/* === NV 04 Content animation === */
+.mk-clil-demo .mk-gf-anim{opacity:0;transform:translateY(6px);transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+.mk-clil-demo .mk-gf-anim.show{opacity:1;transform:translateY(0)}
+.mk-clil-demo .mk-gf-fill{width:0%;transition:width .5s ease-out}
+.mk-clil-demo .mk-gf-fill.animate{width:50%}
+.mk-clil-demo .mk-gf-btn.pulse{animation:gfPulse .6s ease 2}
+@keyframes gfPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(13,148,136,0.4)}50%{transform:scale(1.03);box-shadow:0 0 0 6px rgba(13,148,136,0)}}
+.mk-gf-progress{margin-top:6px;height:3px;background:#e5e7eb;border-radius:2px;overflow:hidden}
+.mk-gf-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--tl),var(--teal));border-radius:2px;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+.mk-gf-progress-fill.animate{width:100%}
+.mk-clil-demo .mk-clil-anim{opacity:0;transform:translateY(8px) scale(0.96);transition:all .4s cubic-bezier(.34,1.56,.64,1)}
+.mk-clil-demo .mk-clil-anim.show{opacity:1;transform:translateY(0) scale(1)}
 @media(max-width:768px){.nv-layout{grid-template-columns:1fr}.nv-tab.active::after{display:none}.nv-p-src{padding-left:0}}
 /* Nested mockups inside right panel */
 .nv-p-mockup{margin-top:14px;padding-top:12px;border-top:1px dashed #e5e7eb}
@@ -1443,17 +1466,17 @@ const NV_DATA=[
   {num:'02',task:'Xây dựng, hoàn thiện thể chế, chính sách',src:'QĐ 2371 · Mục III.2.c "Xây dựng quy định về đánh giá chất lượng các cơ sở giáo dục"',
    owner:'learneris',badge:'★ Learneris',name:'EMI Readiness Assessment',
    mech:'<strong>Mục III.2.đ</strong> nêu rõ: <em>"đặc biệt là các giải pháp ứng dụng công nghệ tiên tiến, trí tuệ nhân tạo"</em> — chính sách mời Learneris.<br><br>HT tạo khảo sát <span class="nv-p-arrow">→</span> hệ thống gửi <strong>17 câu hỏi thang 4 mức</strong> cho HT/PHT/Tổ trưởng EMI <span class="nv-p-arrow">→</span> tính điểm <strong>7 tiêu chí × 30 chỉ báo</strong> <span class="nv-p-arrow">→</span> báo cáo PDF + lộ trình 2-3 năm.<em>Khung tham chiếu chạy ngay · Cập nhật khi BGDĐT ban hành chuẩn chi tiết.</em>',
-   mockup:`<div class="mk-grid mk-grid-2">
+   mockup:`<div class="mk-grid mk-grid-2 mk-asmt-demo">
      <div class="mk-card mk-asmt">
        <div class="mk-asmt-hd"><span><i data-lucide="clipboard-list" style="width:11px;height:11px"></i> ĐÁNH GIÁ · 7 TIÊU CHÍ</span><span class="mk-asmt-live">● LIVE</span></div>
        <div class="mk-asmt-rows">
-         <div class="mk-ar"><span class="mk-ar-num">1</span><span class="mk-ar-name">Môi trường ngôn ngữ</span><span class="mk-ar-score mk-grn2">70%</span></div>
-         <div class="mk-ar"><span class="mk-ar-num">2</span><span class="mk-ar-name">Chương trình &amp; Dạy học</span><span class="mk-ar-score mk-grn2">55%</span></div>
-         <div class="mk-ar"><span class="mk-ar-num">3</span><span class="mk-ar-name">Học liệu</span><span class="mk-ar-score mk-amb2">40%</span></div>
-         <div class="mk-ar"><span class="mk-ar-num">4</span><span class="mk-ar-name">Số hóa &amp; AI</span><span class="mk-ar-score mk-grn2">75%</span></div>
-         <div class="mk-ar"><span class="mk-ar-num">5</span><span class="mk-ar-name">Đội ngũ (CB, GV, HS)</span><span class="mk-ar-score mk-red2">45%</span></div>
-         <div class="mk-ar"><span class="mk-ar-num">6</span><span class="mk-ar-name">Hợp tác quốc tế</span><span class="mk-ar-score mk-red2">30%</span></div>
-         <div class="mk-ar"><span class="mk-ar-num">7</span><span class="mk-ar-name">Nghiên cứu KH &amp; CN</span><span class="mk-ar-score mk-amb2">35%</span></div>
+         <div class="mk-ar mk-ar-anim" data-row="1"><span class="mk-ar-num">1</span><span class="mk-ar-name">Môi trường ngôn ngữ</span><span class="mk-ar-score mk-grn2">70%</span></div>
+         <div class="mk-ar mk-ar-anim" data-row="2"><span class="mk-ar-num">2</span><span class="mk-ar-name">Chương trình &amp; Dạy học</span><span class="mk-ar-score mk-grn2">55%</span></div>
+         <div class="mk-ar mk-ar-anim" data-row="3"><span class="mk-ar-num">3</span><span class="mk-ar-name">Học liệu</span><span class="mk-ar-score mk-amb2">40%</span></div>
+         <div class="mk-ar mk-ar-anim" data-row="4"><span class="mk-ar-num">4</span><span class="mk-ar-name">Số hóa &amp; AI</span><span class="mk-ar-score mk-grn2">75%</span></div>
+         <div class="mk-ar mk-ar-anim" data-row="5"><span class="mk-ar-num">5</span><span class="mk-ar-name">Đội ngũ (CB, GV, HS)</span><span class="mk-ar-score mk-red2">45%</span></div>
+         <div class="mk-ar mk-ar-anim" data-row="6"><span class="mk-ar-num">6</span><span class="mk-ar-name">Hợp tác quốc tế</span><span class="mk-ar-score mk-red2">30%</span></div>
+         <div class="mk-ar mk-ar-anim" data-row="7"><span class="mk-ar-num">7</span><span class="mk-ar-name">Nghiên cứu KH &amp; CN</span><span class="mk-ar-score mk-amb2">35%</span></div>
        </div>
      </div>
      <div class="mk-card mk-radar-card">
@@ -1462,12 +1485,14 @@ const NV_DATA=[
          <g transform="translate(130,105)">
            <polygon points="0,-80 70,-55 86,8 50,68 -50,68 -86,8 -70,-55" fill="none" stroke="#e5e7eb" stroke-width="1"/>
            <polygon points="0,-53 47,-37 57,5 33,45 -33,45 -57,5 -47,-37" fill="none" stroke="#f1f5f9" stroke-width="1"/>
+         </g>
+         <g transform="translate(130,105)" class="mk-radar-data">
            <polygon points="0,-56 38,-30 34,6 15,51 -15,34 -26,3 -49,-39" fill="rgba(13,148,136,0.14)" stroke="var(--teal)" stroke-width="2" stroke-linejoin="round"/>
            <circle cx="0" cy="-56" r="3" fill="var(--teal)"/><circle cx="38" cy="-30" r="3" fill="var(--teal)"/><circle cx="34" cy="6" r="3" fill="var(--amb)"/>
            <circle cx="15" cy="51" r="3" fill="var(--teal)"/><circle cx="-15" cy="34" r="3" fill="var(--red)"/><circle cx="-26" cy="3" r="3" fill="var(--red)"/><circle cx="-49" cy="-39" r="3" fill="var(--amb)"/>
          </g>
        </svg>
-       <div class="mk-radar-score"><strong>50</strong><span>/100</span></div>
+       <div class="mk-radar-score"><strong class="mk-radar-num">50</strong><span>/100</span></div>
        <div class="mk-radar-stage"><span class="mk-radar-pill">Giai đoạn <strong>Nền Tảng</strong></span><small>cần củng cố 2/7 tiêu chí</small></div>
        <div class="mk-radar-ftr"><i data-lucide="file-text" style="width:10px;height:10px"></i> Báo cáo DOCX/PDF + Lộ trình 2-3 năm</div>
      </div>
@@ -1486,32 +1511,33 @@ const NV_DATA=[
   {num:'04',task:'Xây dựng chương trình & học liệu dạy học bằng tiếng Anh',src:'QĐ 2371 · Mục III.4.b "học liệu trực tuyến mở, ứng dụng công nghệ, đào tạo trực tuyến ở quy mô quốc gia"',
    owner:'learneris',badge:'★ Learneris',name:'AI Content Engine cho EMI Việt Nam',
    mech:'GV chọn <strong>môn</strong> (11 môn) + <strong>lớp</strong> (5 cấp) + <strong>chủ đề</strong> + <strong>tỷ lệ TA</strong> (20-100%) <span class="nv-p-arrow">→</span> AI tạo slide + bài tập + đề kiểm tra song ngữ, <strong>neo trên ngữ liệu SGK Việt Nam</strong> (RAG), trong <strong>~3 phút, ~2.000đ/bài</strong> <span class="nv-p-arrow">→</span> xuất DOCX / PDF / Google Slides.<em>Khung CLIL 4C (Coyle, 2010) · Tham chiếu Cambridge / Oxford · Thí điểm và đánh giá trước khi triển khai diện rộng (theo Mục III.4.c).</em>',
-   mockup:`<div class="mk-grid mk-grid-2">
+   mockup:`<div class="mk-grid mk-grid-2 mk-clil-demo">
      <div class="mk-card mk-genform">
        <div class="mk-gf-hd"><i data-lucide="sliders-horizontal" style="width:11px;height:11px"></i> AI CONTENT ENGINE · <em>Input</em></div>
-       <div class="mk-gf-row"><span class="mk-gf-lbl">Môn</span><span class="mk-gf-val">Toán</span></div>
-       <div class="mk-gf-row"><span class="mk-gf-lbl">Lớp</span><span class="mk-gf-val">Lớp 7</span></div>
-       <div class="mk-gf-row"><span class="mk-gf-lbl">Chủ đề</span><span class="mk-gf-val">Phương trình bậc nhất</span></div>
-       <div class="mk-gf-slider">
+       <div class="mk-gf-row mk-gf-anim" data-step="1"><span class="mk-gf-lbl">Môn</span><span class="mk-gf-val">Toán</span></div>
+       <div class="mk-gf-row mk-gf-anim" data-step="2"><span class="mk-gf-lbl">Lớp</span><span class="mk-gf-val">Lớp 7</span></div>
+       <div class="mk-gf-row mk-gf-anim" data-step="3"><span class="mk-gf-lbl">Chủ đề</span><span class="mk-gf-val">Phương trình bậc nhất</span></div>
+       <div class="mk-gf-slider mk-gf-anim" data-step="4">
          <div class="mk-gf-slider-lbl">Tỷ lệ TA<span class="mk-gf-pct">50%</span></div>
          <div class="mk-gf-bar"><div class="mk-gf-fill"></div><div class="mk-gf-dot"></div></div>
        </div>
        <div class="mk-gf-stats"><span class="mk-gf-stat"><strong>~3</strong>phút</span><span class="mk-gf-stat"><strong>~2.000đ</strong>/bài</span><span class="mk-gf-stat"><strong>11</strong>môn</span></div>
-       <button class="mk-gf-btn"><i data-lucide="sparkles" style="width:10px;height:10px"></i> Tạo bài giảng CLIL</button>
+       <button class="mk-gf-btn mk-gf-anim" data-step="5"><i data-lucide="sparkles" style="width:10px;height:10px"></i> Tạo bài giảng CLIL</button>
+       <div class="mk-gf-progress"><div class="mk-gf-progress-fill"></div></div>
      </div>
      <div class="mk-card mk-clil">
        <div class="mk-clil-hd">Đầu ra song ngữ · <em>Output</em> <span class="mk-clil-ratio">50% EN</span></div>
-       <div class="mk-clil-block mk-b-grn">
+       <div class="mk-clil-block mk-b-grn mk-clil-anim" data-step="1">
          <strong>Phương trình bậc nhất</strong> <em>· Linear Equations</em><br>
          <span class="mk-code">ax + b = 0</span> — <em>has the form ax + b = 0</em>
        </div>
-       <div class="mk-clil-block mk-b-teal">
+       <div class="mk-clil-block mk-b-teal mk-clil-anim" data-step="2">
          <strong>Bước 1 · Step 1:</strong> Chuyển <span class="mk-code">b</span> sang vế phải · <em>Move b to the right side</em>
        </div>
-       <div class="mk-clil-block mk-b-amb">
+       <div class="mk-clil-block mk-b-amb mk-clil-anim" data-step="3">
          <strong>Ví dụ · Example:</strong> <span class="mk-code">2x + 4 = 0</span> → <span class="mk-code">x = -2</span>
        </div>
-       <div class="mk-clil-export"><i data-lucide="download" style="width:10px;height:10px"></i> DOCX · PDF · Google Slides</div>
+       <div class="mk-clil-export mk-clil-anim" data-step="4"><i data-lucide="download" style="width:10px;height:10px"></i> DOCX · PDF · Google Slides</div>
      </div>
    </div>`},
   {num:'05',task:'Đổi mới phương pháp dạy học, thi, kiểm tra, đánh giá',src:'QĐ 2371 · Mục III.5.a "dạy học cả bốn kỹ năng nghe, nói, đọc và viết, chú trọng nghe và nói"',
@@ -1723,6 +1749,36 @@ function selectNv(idx){
     const navC=document.getElementById('navC');
     if(navC)navC.textContent=(idx<0)?`3 / ${T}`:`3.${idx+1} / ${T}`;
   }
+  // Trigger NV-specific demo animations after panel render
+  if(idx===1)setTimeout(()=>animateNvAssessment(),250);  // NV 02 — Assessment
+  if(idx===3)setTimeout(()=>animateNvContent(),250);     // NV 04 — Content engine
+}
+
+// NV 02 (Assessment) animation: rows fill in sequence → radar polygon draws → score counts up
+function animateNvAssessment(){
+  const rows=document.querySelectorAll('.mk-asmt-demo .mk-ar-anim');
+  if(!rows.length)return;
+  rows.forEach((r,i)=>setTimeout(()=>r.classList.add('done'),200+i*220));
+  const radar=document.querySelector('.mk-asmt-demo .mk-radar-data');
+  if(radar)setTimeout(()=>radar.classList.add('show'),200+rows.length*220+150);
+  const scoreEl=document.querySelector('.mk-asmt-demo .mk-radar-num');
+  if(scoreEl)countUp(scoreEl,50,1100,200+rows.length*220+250);
+}
+
+// NV 04 (Content) animation: form fields fill → button pulse → progress → output blocks
+function animateNvContent(){
+  const inputs=document.querySelectorAll('.mk-clil-demo .mk-gf-anim');
+  if(!inputs.length)return;
+  inputs.forEach((el,i)=>setTimeout(()=>el.classList.add('show'),200+i*280));
+  const fill=document.querySelector('.mk-clil-demo .mk-gf-fill');
+  if(fill)setTimeout(()=>fill.classList.add('animate'),200+3*280);
+  const progress=document.querySelector('.mk-clil-demo .mk-gf-progress-fill');
+  const btn=document.querySelector('.mk-clil-demo .mk-gf-btn');
+  const after=200+inputs.length*280;
+  if(btn)setTimeout(()=>btn.classList.add('pulse'),after);
+  if(progress)setTimeout(()=>progress.classList.add('animate'),after+200);
+  const outputs=document.querySelectorAll('.mk-clil-demo .mk-clil-anim');
+  outputs.forEach((el,i)=>setTimeout(()=>el.classList.add('show'),after+700+i*400));
 }
 
 // Wire up click handlers
