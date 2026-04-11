@@ -514,6 +514,42 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mk-pron-skills{display:flex;gap:4px;margin-top:6px}
 .mk-skill-pill{flex:1;text-align:center;font-size:9px;padding:3px 6px;border-radius:4px;background:#fff;border:1px solid #e5e7eb;color:var(--mut);font-weight:600;display:flex;align-items:center;justify-content:center;gap:3px}
 .mk-skill-active{background:var(--p50);border-color:var(--pur);color:var(--pur)}
+/* === Screen 1.2 product UI snapshot === */
+.int-prod-shot{margin:8px -12px 8px -12px;height:96px;overflow:hidden;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;background:#f8fafc}
+.int-p-studio .int-prod-shot{background:#0f172a;border-color:#1e293b}
+.int-prod-shot img{width:100%;height:auto;display:block;object-fit:cover;object-position:top}
+/* === NV 08 leaderboard with bars === */
+.mk-awards{padding:11px 13px}
+.mk-aw-hd{font-size:9px;font-weight:800;color:var(--amb);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:4px;padding-bottom:5px;border-bottom:1px dashed #e5e7eb}
+.mk-aw-hd em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500}
+.mk-aw-bars{display:flex;flex-direction:column;gap:6px}
+.mk-aw-brow{display:flex;align-items:center;gap:8px}
+.mk-aw-rank{width:18px;text-align:center;font-size:13px;font-weight:800;color:var(--mut);flex-shrink:0}
+.mk-aw-bcell{flex:1;min-width:0}
+.mk-aw-bname{font-size:10px;font-weight:600;color:var(--txt);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mk-aw-btrack{height:5px;background:#e5e7eb;border-radius:3px;overflow:hidden}
+.mk-aw-bfill{height:100%;border-radius:3px}
+.mk-aw-fg{background:linear-gradient(90deg,#34d399,var(--grn))}
+.mk-aw-fa{background:linear-gradient(90deg,#fbbf24,var(--amb))}
+.mk-aw-fr{background:linear-gradient(90deg,#fca5a5,var(--red))}
+.mk-aw-bsc{font-size:11px;font-weight:800;color:var(--txt);font-variant-numeric:tabular-nums;flex-shrink:0;width:24px;text-align:right}
+/* === NV 08 case study PDF mockup === */
+.mk-casestudy{padding:0;overflow:hidden;background:#f8fafc;border:1px solid #cbd5e1;display:flex;flex-direction:column}
+.mk-cs-tag{font-size:8px;font-weight:800;color:var(--mut);letter-spacing:0.1em;text-align:center;padding:5px 8px;background:#e5e7eb;border-bottom:1px solid #cbd5e1}
+.mk-cs-doc{flex:1;background:#fff;margin:6px 8px;border-radius:4px;border:1px solid #e5e7eb;box-shadow:0 1px 3px rgba(0,0,0,0.06);display:flex;flex-direction:column}
+.mk-cs-hd{background:linear-gradient(135deg,var(--teal),var(--t800));color:#fff;padding:6px 9px;display:flex;align-items:center;gap:6px;border-radius:3px 3px 0 0}
+.mk-cs-logo{width:18px;height:18px;border-radius:4px;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:9px;flex-shrink:0}
+.mk-cs-t1{font-size:9px;font-weight:800;line-height:1.1}
+.mk-cs-t1 em{font-style:italic;opacity:0.85;font-weight:500;font-size:8px}
+.mk-cs-t2{font-size:8px;opacity:0.85;margin-top:1px}
+.mk-cs-body{padding:7px 9px;flex:1}
+.mk-cs-body h5{font-size:11px;font-weight:800;margin:0 0 4px 0;color:var(--txt)}
+.mk-cs-quote{font-size:9px;font-style:italic;color:var(--mut);margin:0 0 6px 0;line-height:1.4;padding-left:6px;border-left:2px solid var(--t100)}
+.mk-cs-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:5px;padding:5px 0;border-top:1px dashed #e5e7eb;border-bottom:1px dashed #e5e7eb}
+.mk-cs-stats>div{text-align:center;font-size:8px;color:var(--mut);display:flex;flex-direction:column;line-height:1.2}
+.mk-cs-stats strong{color:var(--teal);font-size:11px;font-weight:900}
+.mk-cs-cert{display:flex;align-items:center;justify-content:center;gap:4px;padding:5px;background:linear-gradient(135deg,var(--a50),#fff);border:1px dashed var(--amb);border-radius:4px;font-size:9px;font-weight:700;color:#92400e}
+.mk-cs-ftr{padding:5px 8px;font-size:8px;color:var(--mut);text-align:center;display:flex;align-items:center;justify-content:center;gap:4px}
 @media(max-width:768px){.nv-layout{grid-template-columns:1fr}.nv-tab.active::after{display:none}.nv-p-src{padding-left:0}}
 /* Nested mockups inside right panel */
 .nv-p-mockup{margin-top:14px;padding-top:12px;border-top:1px dashed #e5e7eb}
@@ -1707,12 +1743,43 @@ const NV_DATA=[
   {num:'08',task:'Phong trào thi đua, khen thưởng thiết thực',src:'QĐ 2371 · Mục III.8 · "khen thưởng, khuyến khích các sáng kiến tiên phong... nhân rộng mô hình điển hình"',
    owner:'learneris',badge:'★ Learneris',name:'Recognition Dashboard + Student Portfolio + Auto Case Study',
    mech:'<strong>Recognition Dashboard</strong> toàn Sở: tự động phát hiện trường / GV / HS xuất sắc theo 7 tiêu chí · <strong>Student Portfolio</strong> song ngữ theo dõi thành tích HS qua nhiều năm · <strong>Auto Case Study Generator</strong> — AI tổng hợp dữ liệu thành báo cáo "điển hình tiêu biểu" để Sở trao thưởng.<em>Chứng chỉ có URL xác thực công khai · Chia sẻ lên kênh truyền thông Sở (Mục III.8.c).</em>',
-   mockup:`<div class="mk-card mk-awards">
-     <div class="mk-aw-hd"><i data-lucide="trophy" style="width:11px;height:11px"></i> BẢNG XẾP HẠNG TOÀN SỞ · <em>Q1 2026</em></div>
-     <div class="mk-aw-row"><span class="mk-aw-rank">🥇</span><span class="mk-aw-name">THCS Nguyễn Du · Q1</span><span class="mk-aw-sc">92</span></div>
-     <div class="mk-aw-row"><span class="mk-aw-rank">🥈</span><span class="mk-aw-name">Tiểu học Lê Ngọc Hân · Q3</span><span class="mk-aw-sc">88</span></div>
-     <div class="mk-aw-row"><span class="mk-aw-rank">🥉</span><span class="mk-aw-name">THPT Lê Quý Đôn · Q5</span><span class="mk-aw-sc">85</span></div>
-     <div class="mk-aw-ftr">→ Sở trao <strong>Cờ Thi Đua GĐ Nền Tảng 2026</strong> · Case study tự động xuất PDF</div>
+   mockup:`<div class="mk-grid mk-grid-2">
+     <div class="mk-card mk-awards">
+       <div class="mk-aw-hd"><i data-lucide="trophy" style="width:11px;height:11px"></i> BXH TOÀN SỞ · <em>Q1 2026</em></div>
+       <div class="mk-aw-bars">
+         <div class="mk-aw-brow"><span class="mk-aw-rank">🥇</span><div class="mk-aw-bcell"><div class="mk-aw-bname">THCS Nguyễn Du · Q1</div><div class="mk-aw-btrack"><div class="mk-aw-bfill mk-aw-fg" style="width:92%"></div></div></div><span class="mk-aw-bsc">92</span></div>
+         <div class="mk-aw-brow"><span class="mk-aw-rank">🥈</span><div class="mk-aw-bcell"><div class="mk-aw-bname">Tiểu học Lê Ngọc Hân · Q3</div><div class="mk-aw-btrack"><div class="mk-aw-bfill mk-aw-fg" style="width:88%"></div></div></div><span class="mk-aw-bsc">88</span></div>
+         <div class="mk-aw-brow"><span class="mk-aw-rank">🥉</span><div class="mk-aw-bcell"><div class="mk-aw-bname">THPT Lê Quý Đôn · Q5</div><div class="mk-aw-btrack"><div class="mk-aw-bfill mk-aw-fa" style="width:85%"></div></div></div><span class="mk-aw-bsc">85</span></div>
+         <div class="mk-aw-brow"><span class="mk-aw-rank">4</span><div class="mk-aw-bcell"><div class="mk-aw-bname">Tiểu học Trần Quốc Toản</div><div class="mk-aw-btrack"><div class="mk-aw-bfill mk-aw-fa" style="width:78%"></div></div></div><span class="mk-aw-bsc">78</span></div>
+         <div class="mk-aw-brow"><span class="mk-aw-rank">5</span><div class="mk-aw-bcell"><div class="mk-aw-bname">THCS Võ Thị Sáu</div><div class="mk-aw-btrack"><div class="mk-aw-bfill mk-aw-fr" style="width:72%"></div></div></div><span class="mk-aw-bsc">72</span></div>
+       </div>
+     </div>
+     <div class="mk-card mk-casestudy">
+       <div class="mk-cs-tag">PDF · AUTO CASE STUDY</div>
+       <div class="mk-cs-doc">
+         <div class="mk-cs-hd">
+           <div class="mk-cs-logo">L</div>
+           <div>
+             <div class="mk-cs-t1">Điển hình tiêu biểu · <em>Case Study</em></div>
+             <div class="mk-cs-t2">Sở GD&amp;ĐT TP.HCM · Q1 2026</div>
+           </div>
+         </div>
+         <div class="mk-cs-body">
+           <h5>THCS Nguyễn Du · Quận 1</h5>
+           <p class="mk-cs-quote">"Triển khai EMI 30% Toán &amp; KHTN — 71% GV đạt CLIL, HS tăng CEFR +0.4 sau 1 học kỳ."</p>
+           <div class="mk-cs-stats">
+             <div><strong>92</strong>/100</div>
+             <div><strong>71%</strong>GV CLIL</div>
+             <div><strong>+0.4</strong>CEFR</div>
+           </div>
+           <div class="mk-cs-cert">
+             <i data-lucide="award" style="width:11px;height:11px"></i>
+             <span>Cờ Thi Đua GĐ Nền Tảng 2026</span>
+           </div>
+         </div>
+       </div>
+       <div class="mk-cs-ftr"><i data-lucide="share-2" style="width:9px;height:9px"></i> Chia sẻ lên kênh Sở · QR xác thực công khai</div>
+     </div>
    </div>`}
 ];
 
@@ -1784,15 +1851,18 @@ const INTRO_DATA=[
     <div class="int-prods">
       <a href="https://learneris.com" target="_blank" class="int-prod int-p-core">
         <div class="int-p-hd"><div class="int-p-logo"><span>L</span></div><div><div class="int-p-name">Learneris</div><div class="int-p-url">learneris.com</div></div></div>
-        <p class="int-p-desc"><strong>14+ AI tools</strong> cho giáo viên — soạn bài, tạo nội dung, đánh giá học sinh · lớp học & khóa học · nội dung tương tác.</p>
+        <div class="int-prod-shot"><img src="assets/screenshots/learneris-com-section-features.png" alt="Learneris features" loading="lazy"></div>
+        <p class="int-p-desc"><strong>14+ AI tools</strong> cho giáo viên — soạn bài, tạo nội dung, đánh giá học sinh.</p>
       </a>
       <a href="https://studio.learneris.com" target="_blank" class="int-prod int-p-studio">
         <div class="int-p-hd"><div class="int-p-logo int-lg-dark"><span>L</span></div><div><div class="int-p-name">Learneris Studio</div><div class="int-p-url">studio.learneris.com</div></div></div>
-        <p class="int-p-desc"><strong>AI Content Production</strong> cho nhà xuất bản — chương trình → nội dung xuất bản trong vài phút, human-in-the-loop.</p>
+        <div class="int-prod-shot"><img src="assets/screenshots/studio-learneris-section-features.png" alt="Learneris Studio" loading="lazy"></div>
+        <p class="int-p-desc"><strong>AI Content Production</strong> cho nhà xuất bản — chương trình → nội dung xuất bản trong vài phút.</p>
       </a>
       <a href="https://adapt.learneris.com" target="_blank" class="int-prod int-p-adapt">
         <div class="int-p-hd"><div class="int-p-logo int-lg-pur"><span>A</span></div><div><div class="int-p-name">Learneris Adapt</div><div class="int-p-url">adapt.learneris.com</div></div></div>
-        <p class="int-p-desc"><strong>Adaptive Testing Engine</strong> — AI chấm điểm + câu hỏi tự điều chỉnh độ khó theo năng lực học sinh.</p>
+        <div class="int-prod-shot"><img src="assets/screenshots/learneris-com-section-programs.png" alt="Learneris Adapt" loading="lazy"></div>
+        <p class="int-p-desc"><strong>Adaptive Testing Engine</strong> — AI chấm điểm + câu hỏi tự điều chỉnh độ khó.</p>
       </a>
     </div>
   `},
