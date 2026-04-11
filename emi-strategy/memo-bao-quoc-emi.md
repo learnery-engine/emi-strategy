@@ -38,11 +38,11 @@ Chi tiết đầy đủ kèm demo tương tác có tại: **https://emi.learneri
 
 Chúng em xin đề xuất **một trong hai hướng**, tùy theo thời gian và định hướng của anh:
 
-**Hướng A — Thí điểm nhẹ (không cam kết ngân sách):**
+**Hướng A — Thí điểm đánh giá (phạm vi nhỏ):**
 - Sở giới thiệu **1 trường THCS** (ưu tiên trường đã tham gia Chương trình Học cùng AI để tận dụng quan hệ có sẵn)
-- Learneris cung cấp **EMI Readiness Assessment miễn phí** trong Q2/2026
+- Learneris triển khai **EMI Readiness Assessment** trong Q2/2026
 - Kết quả đánh giá có thể dùng làm dữ liệu tham chiếu cho **báo cáo năm 2026 của Sở lên MOET**
-- Rủi ro cho Sở: gần như bằng 0
+- Điều khoản hợp tác cụ thể sẽ được thảo luận trực tiếp với Sở
 
 **Hướng B — Trao đổi sâu hơn:**
 - Xin anh bố trí **30 phút gặp trực tiếp** hoặc họp trực tuyến

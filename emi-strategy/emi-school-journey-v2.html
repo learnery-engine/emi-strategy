@@ -1090,7 +1090,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     </div>
     <div class="cta-card">
       <div class="cta-hd"><div class="cta-n">2</div><h3>Pilot 1 trường</h3></div>
-      <p>Triển khai thử nghiệm miễn phí 1 học kỳ tại 1 trường do Sở chỉ định — thu thập số liệu thực tế theo 7 tiêu chí QĐ 2371.</p>
+      <p>Triển khai thử nghiệm 1 học kỳ tại 1 trường do Sở chỉ định — thu thập số liệu thực tế theo 7 tiêu chí QĐ 2371. Điều khoản cụ thể thảo luận trực tiếp với Sở.</p>
       <div class="cta-note">Cần Sở ký biên bản giới thiệu</div>
     </div>
     <div class="cta-card">
@@ -1119,7 +1119,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <p class="sec-s">Giải đáp về EMI, CLIL và triển khai với Learneris.</p>
   <div class="g2">
     <div style="display:flex;flex-direction:column;gap:7px">
-      <div class="faq-item open" onclick="this.classList.toggle('open')">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
         <div class="faq-q">CLIL là gì, tại sao dùng, và triển khai thế nào?<i data-lucide="chevron-down"></i></div>
         <div class="faq-a">
           <p><strong>Là gì:</strong> <span class="kw">CLIL</span> <em>(Content and Language Integrated Learning, <a href="https://www.cambridge.org/elt/blog/2018/03/19/clil-what-is-it/" target="_blank">Coyle, 2010</a>)</em> — dạy <strong>nội dung môn học</strong> bằng ngoại ngữ.</p>
@@ -1153,11 +1153,11 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     </div>
     <div style="display:flex;flex-direction:column;gap:7px">
       <div class="faq-item" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Chi phí triển khai bao nhiêu?<i data-lucide="chevron-down"></i></div>
+        <div class="faq-q">Mô hình hợp tác &amp; phạm vi triển khai?<i data-lucide="chevron-down"></i></div>
         <div class="faq-a">
-          <p><strong>Nội dung CLIL:</strong> ~<strong>2.000đ/bài</strong> (~$0.08).</p>
-          <p><strong>Bồi dưỡng giáo viên</strong> qua nền tảng: miễn phí.</p>
-          <p><strong>Chi phí chính:</strong> license LMS tùy quy mô. <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> cho phép <strong>xã hội hóa</strong> — huy động nguồn lực ngoài ngân sách.</p>
+          <p>Phạm vi hợp tác tùy <strong>quy mô triển khai</strong> (số trường, thời gian, khối lớp) và <strong>mô hình hỗ trợ</strong> (đánh giá, bồi dưỡng, học liệu, LMS).</p>
+          <p><a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> cho phép <strong>xã hội hóa</strong> — huy động nguồn lực ngoài ngân sách nhà nước để triển khai Đề án.</p>
+          <p>Chi tiết sẽ được thảo luận trực tiếp với Sở trong giai đoạn đề xuất hợp tác chính thức.</p>
         </div>
       </div>
       <div class="faq-item" onclick="this.classList.toggle('open')">
@@ -1223,13 +1223,18 @@ function goTo(n){
   scr.classList.add('on');
   document.getElementById('prevBtn').disabled=n===1;
   const nb=document.getElementById('nextBtn');
-  nb.innerHTML=n===T?'<i data-lucide="check" style="width:14px;height:14px"></i> Hoàn Tất':'Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i>';
-  nb.disabled=n===T;
-  // Counter shows sub-step on screen 1 (intro accordion) and screen 3 (8 nhiệm vụ)
+  // On screen 5, the button stays "Tiếp Theo" until user reaches the last FAQ sub-step
+  const faqCount=document.querySelectorAll('[data-s="5"] .faq-item').length;
+  const atEnd=(n===T && (typeof faqIdx==='undefined' || faqIdx>=faqCount-1));
+  nb.innerHTML=atEnd?'<i data-lucide="check" style="width:14px;height:14px"></i> Hoàn Tất':'Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i>';
+  nb.disabled=atEnd;
+  // Counter shows sub-step on screen 1 (intro accordion), screen 3 (8 nhiệm vụ), screen 5 (FAQ)
   if(n===1 && typeof intIdx!=='undefined'){
     document.getElementById('navC').textContent=`${n}.${intIdx+1} / ${T}`;
   }else if(n===3 && typeof nvIdx!=='undefined' && nvIdx>=0){
     document.getElementById('navC').textContent=`${n}.${nvIdx+1} / ${T}`;
+  }else if(n===5 && typeof faqIdx!=='undefined'){
+    document.getElementById('navC').textContent=`${n}.${faqIdx+1} / ${T}`;
   }else{
     document.getElementById('navC').textContent=`${n} / ${T}`;
   }
@@ -1238,6 +1243,11 @@ function goTo(n){
   // When entering screen 3, start at overview (nvIdx = -1) on first visit
   if(n===3 && !scr.dataset.visited){
     selectNv(-1);
+    scr.dataset.visited='1';
+  }
+  // When entering screen 5, start at first FAQ
+  if(n===5 && !scr.dataset.visited){
+    selectFaq(0);
     scr.dataset.visited='1';
   }
   // Run screen animations
@@ -1697,7 +1707,7 @@ const NV_DATA=[
    </div>`},
   {num:'04',task:'Xây dựng chương trình & học liệu dạy học bằng tiếng Anh',src:'QĐ 2371 · Mục III.4.b "học liệu trực tuyến mở, ứng dụng công nghệ, đào tạo trực tuyến ở quy mô quốc gia"',
    owner:'learneris',badge:'★ Learneris',name:'AI Content Engine cho EMI Việt Nam',
-   mech:'GV chọn <strong>môn</strong> (11 môn) + <strong>lớp</strong> (5 cấp) + <strong>chủ đề</strong> + <strong>tỷ lệ TA</strong> (20-100%) <span class="nv-p-arrow">→</span> AI tạo slide + bài tập + đề kiểm tra song ngữ, <strong>neo trên ngữ liệu SGK Việt Nam</strong> (RAG), trong <strong>~3 phút, ~2.000đ/bài</strong> <span class="nv-p-arrow">→</span> xuất DOCX / PDF / Google Slides.<em>Khung CLIL 4C (Coyle, 2010) · Tham chiếu Cambridge / Oxford · Thí điểm và đánh giá trước khi triển khai diện rộng (theo Mục III.4.c).</em>',
+   mech:'GV chọn <strong>môn</strong> (11 môn) + <strong>lớp</strong> (5 cấp) + <strong>chủ đề</strong> + <strong>tỷ lệ TA</strong> (20-100%) <span class="nv-p-arrow">→</span> AI tạo slide + bài tập + đề kiểm tra song ngữ, <strong>neo trên ngữ liệu SGK Việt Nam</strong> (RAG) <span class="nv-p-arrow">→</span> xuất DOCX / PDF / Google Slides.<em>Khung CLIL 4C (Coyle, 2010) · Tham chiếu Cambridge / Oxford · Thí điểm và đánh giá trước khi triển khai diện rộng (theo Mục III.4.c).</em>',
    mockup:`<div class="mk-grid mk-grid-2 mk-clil-demo">
      <div class="mk-card mk-genform">
        <div class="mk-gf-hd"><i data-lucide="sliders-horizontal" style="width:11px;height:11px"></i> AI CONTENT ENGINE · <em>Input</em></div>
@@ -1708,7 +1718,7 @@ const NV_DATA=[
          <div class="mk-gf-slider-lbl">Tỷ lệ TA<span class="mk-gf-pct">50%</span></div>
          <div class="mk-gf-bar"><div class="mk-gf-fill"></div><div class="mk-gf-dot"></div></div>
        </div>
-       <div class="mk-gf-stats"><span class="mk-gf-stat"><strong>~3</strong>phút</span><span class="mk-gf-stat"><strong>~2.000đ</strong>/bài</span><span class="mk-gf-stat"><strong>11</strong>môn</span></div>
+       <div class="mk-gf-stats"><span class="mk-gf-stat"><strong>11</strong>môn</span><span class="mk-gf-stat"><strong>5</strong>cấp học</span><span class="mk-gf-stat"><strong>Song ngữ</strong>Việt-Anh</span></div>
        <button class="mk-gf-btn mk-gf-anim" data-step="5"><i data-lucide="sparkles" style="width:10px;height:10px"></i> Tạo bài giảng CLIL</button>
        <div class="mk-gf-progress"><div class="mk-gf-progress-fill"></div></div>
      </div>
@@ -2120,6 +2130,11 @@ function next(){
     selectNv(nvIdx + 1);
     return;
   }
+  // Screen 5 (FAQ): step through FAQ items one at a time
+  if(c===5){
+    const faqs=document.querySelectorAll('[data-s="5"] .faq-item');
+    if(faqIdx < faqs.length - 1){selectFaq(faqIdx + 1);return;}
+  }
   if(c<T)goTo(c+1);
 }
 function prev(){
@@ -2133,10 +2148,38 @@ function prev(){
     selectNv(nvIdx - 1);
     return;
   }
+  // Screen 5 (FAQ): step back through FAQ items
+  if(c===5 && faqIdx > 0){
+    selectFaq(faqIdx - 1);
+    return;
+  }
   if(c>1){
     goTo(c-1);
     if(c===3)selectNv(NV_DATA.length - 1);
     if(c===1)selectInt(INTRO_DATA.length - 1);
+    if(c===5)selectFaq(document.querySelectorAll('[data-s="5"] .faq-item').length - 1);
+  }
+}
+let faqIdx=0;
+function selectFaq(idx){
+  faqIdx=idx;
+  const faqs=document.querySelectorAll('[data-s="5"] .faq-item');
+  faqs.forEach((f,i)=>f.classList.toggle('open',i===idx));
+  if(typeof c!=='undefined' && c===5){
+    const navC=document.getElementById('navC');
+    if(navC)navC.textContent=`5.${idx+1} / ${T}`;
+    // Update next button state: on last FAQ, switch to "Hoàn Tất"
+    const nb=document.getElementById('nextBtn');
+    if(nb){
+      const atEnd=(idx>=faqs.length-1);
+      nb.innerHTML=atEnd?'<i data-lucide="check" style="width:14px;height:14px"></i> Hoàn Tất':'Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i>';
+      nb.disabled=atEnd;
+      lucide.createIcons();
+    }
+  }
+  // Scroll the opened FAQ into view if possible
+  if(faqs[idx]){
+    faqs[idx].scrollIntoView({block:'nearest',behavior:'smooth'});
   }
 }
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
