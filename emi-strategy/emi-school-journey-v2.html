@@ -330,6 +330,20 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .vis-tg strong{color:var(--txt)}
 @media(max-width:768px){.tm-item{grid-template-columns:26px 1fr;gap:8px}.tm-owner{grid-column:1/-1;border-left:none;border-top:1px dashed #e5e7eb;padding-left:0;padding-top:8px}.feat-grid{grid-template-columns:1fr}}
 /* === Screen 2 click-through task sidebar === */
+/* Screen 3 collapsible banner states */
+.nv-banner-full{transition:all .3s ease}
+.nv-banner-compact{display:none;align-items:center;gap:10px;padding:6px 14px;background:linear-gradient(90deg,var(--t50),#fff);border-left:3px solid var(--teal);border-radius:6px;font-size:11px;color:var(--txt)}
+.nv-bc-ic{width:20px;height:20px;border-radius:4px;background:var(--teal);color:#fff;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.nv-bc-ic i[data-lucide]{width:11px;height:11px}
+.nv-bc-tag{font-weight:800;color:var(--teal);font-size:11px}
+.nv-bc-sep{color:#cbd5e1;margin:0 2px}
+.nv-bc-meta{color:var(--mut);font-size:10px}
+.nv-bc-target{margin-left:auto;font-size:10px;color:var(--teal);font-weight:700;background:#fff;padding:2px 8px;border-radius:10px;border:1px solid var(--t200)}
+.nv-intro-line{transition:all .25s ease}
+#nvScreen.nv-active .nv-banner-full{display:none}
+#nvScreen.nv-active .nv-banner-compact{display:flex}
+#nvScreen.nv-active .nv-intro-line{display:none}
+#nvScreen.nv-active .nv-panel{min-height:440px}
 .nv-layout{display:grid;grid-template-columns:220px 1fr;gap:14px;margin-top:8px}
 .nv-sidebar{display:flex;flex-direction:column;gap:4px}
 .nv-tab{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #e5e7eb;border-radius:7px;background:#fff;cursor:pointer;transition:all .2s;position:relative}
@@ -362,6 +376,51 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .nv-panel.partner .nv-p-mech strong{color:#475569}
 .nv-p-mech em{font-style:italic;color:var(--mut);font-size:11px;display:block;margin-top:6px}
 .nv-p-arrow{display:inline-block;color:var(--teal);font-weight:900;margin:0 2px}
+/* Overview panel (sub-step 0 of screen 3) */
+.nv-overview{justify-content:flex-start}
+.nv-ov-hd{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.nv-ov-ic{width:44px;height:44px;border-radius:10px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center}
+.nv-ov-ic i[data-lucide]{width:22px;height:22px}
+.nv-ov-tag{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase}
+.nv-ov-title{font-size:18px;font-weight:900;color:var(--txt);margin:2px 0 0 0;letter-spacing:-0.015em}
+.nv-ov-lead{font-size:12px;color:var(--txt);line-height:1.55;margin:0 0 12px 0}
+.nv-ov-lead strong{color:var(--teal);font-weight:700}
+.nv-ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.nv-ov-col{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px}
+.nv-ov-c-lbl{display:block;font-size:9px;font-weight:800;color:var(--mut);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;padding-bottom:5px;border-bottom:1px dashed #e5e7eb}
+.nv-ov-item{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;color:var(--txt);padding:4px 0}
+.nv-ov-n{width:24px;height:20px;border-radius:4px;background:var(--t50);color:var(--teal);font-weight:900;font-size:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-variant-numeric:tabular-nums}
+.nv-ov-cta{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--t50);border:1px dashed var(--teal);border-radius:8px;font-size:11px;color:var(--teal);font-weight:600}
+.nv-ov-cta i[data-lucide]{width:14px;height:14px}
+/* NV 02 radar card */
+.mk-radar-card{background:linear-gradient(180deg,#fafdfc,#fff);border:1px solid var(--t200);padding:10px 12px;text-align:center}
+.mk-radar-hd{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:4px}
+.mk-radar-hd em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500}
+.mk-radar-svg{width:100%;max-width:180px;height:auto;display:block;margin:0 auto}
+.mk-radar-score{font-size:22px;font-weight:900;color:var(--teal);line-height:1}
+.mk-radar-score span{font-size:11px;color:var(--mut)}
+.mk-radar-stage{margin-top:4px}
+.mk-radar-pill{display:inline-block;font-size:9px;background:var(--t50);color:var(--teal);padding:2px 8px;border-radius:10px;font-weight:700}
+.mk-radar-stage small{display:block;font-size:9px;color:var(--mut);margin-top:3px}
+.mk-radar-ftr{margin-top:6px;padding:5px 8px;background:var(--t50);border-radius:5px;font-size:9px;color:var(--teal);font-weight:600;display:flex;align-items:center;justify-content:center;gap:4px}
+/* NV 04 gen form card */
+.mk-genform{background:linear-gradient(180deg,#fafdfc,#fff);border:1px solid var(--t200);padding:10px 12px}
+.mk-gf-hd{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:4px;padding-bottom:5px;border-bottom:1px dashed #e5e7eb}
+.mk-gf-hd em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500}
+.mk-gf-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:10px}
+.mk-gf-lbl{color:var(--mut);font-weight:600}
+.mk-gf-val{color:var(--txt);font-weight:700;font-size:11px}
+.mk-gf-slider{margin:6px 0 4px 0}
+.mk-gf-slider-lbl{display:flex;justify-content:space-between;font-size:10px;color:var(--mut);font-weight:600;margin-bottom:3px}
+.mk-gf-pct{color:var(--teal);font-weight:800}
+.mk-gf-bar{position:relative;height:4px;background:#e5e7eb;border-radius:2px}
+.mk-gf-fill{position:absolute;left:0;top:0;height:100%;width:50%;background:linear-gradient(90deg,var(--tl),var(--teal));border-radius:2px}
+.mk-gf-dot{position:absolute;top:-4px;left:calc(50% - 6px);width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--teal)}
+.mk-gf-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin:8px 0 6px 0;padding:6px 0;border-top:1px dashed #e5e7eb;border-bottom:1px dashed #e5e7eb}
+.mk-gf-stat{text-align:center;font-size:8px;color:var(--mut);display:flex;flex-direction:column;line-height:1.2}
+.mk-gf-stat strong{color:var(--teal);font-size:12px;font-weight:800}
+.mk-gf-btn{width:100%;padding:6px;background:var(--teal);color:#fff;border:none;border-radius:5px;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:4px;cursor:default}
+.mk-clil-export{margin-top:6px;padding:4px 6px;background:var(--t50);border-radius:4px;font-size:9px;color:var(--teal);font-weight:600;display:flex;align-items:center;gap:4px}
 @media(max-width:768px){.nv-layout{grid-template-columns:1fr}.nv-tab.active::after{display:none}.nv-p-src{padding-left:0}}
 /* Nested mockups inside right panel */
 .nv-p-mockup{margin-top:14px;padding-top:12px;border-top:1px dashed #e5e7eb}
@@ -496,6 +555,64 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mk-aw-sc{text-align:right;font-weight:800;color:var(--teal);font-variant-numeric:tabular-nums}
 .mk-aw-ftr{margin-top:8px;padding:6px 9px;background:var(--a50);border-radius:5px;font-size:10px;color:#92400e;line-height:1.4}
 /* === SCREEN 1: LEARNERIS INTRO === */
+/* Screen 1 intro (accordion layout) */
+.intro-head{text-align:center;padding:8px 0 10px}
+.intro-h1{font-size:clamp(20px,2.6vw,26px);font-weight:900;letter-spacing:-0.02em;line-height:1.15;margin:4px 0 4px 0}
+.intro-proof-chip{display:inline-block;font-size:10px;color:var(--mut);background:var(--srf);padding:3px 10px;border-radius:12px;font-weight:600}
+/* Intro panel body */
+.int-panel{padding:16px 20px;min-height:380px}
+.int-p-tag{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px}
+.int-p-title{font-size:18px;font-weight:900;color:var(--txt);margin:0 0 10px 0;letter-spacing:-0.015em;line-height:1.15}
+.int-p-divider{height:1px;background:#e5e7eb;margin-bottom:12px}
+.int-p-body{font-size:12px;color:var(--txt);line-height:1.55}
+.int-lead{margin:0 0 12px 0;font-size:12px;color:var(--txt);line-height:1.55}
+.int-lead strong{color:var(--teal);font-weight:700}
+.int-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.int-meta-item{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#fff;border:1px solid #e5e7eb;border-radius:7px}
+.int-meta-item i[data-lucide]{width:16px;height:16px;color:var(--teal);flex-shrink:0}
+.int-meta-item strong{display:block;font-size:11px;color:var(--txt);font-weight:800}
+.int-meta-item small{font-size:10px;color:var(--mut)}
+.int-callout{display:flex;gap:8px;padding:9px 12px;background:linear-gradient(135deg,#fef3c7,#fff);border-left:3px solid var(--amb);border-radius:6px;margin-top:8px}
+.int-callout i[data-lucide]{color:var(--amb);flex-shrink:0;width:14px;height:14px;margin-top:2px}
+.int-callout p{font-size:11px;color:var(--txt);line-height:1.5;margin:0}
+.int-callout strong{color:#92400e}
+.int-callout em{color:var(--teal);font-weight:600;font-style:italic}
+/* Intro products (3 cards) */
+.int-prods{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.int-prod{display:block;padding:12px;border:1.5px solid #e5e7eb;border-radius:10px;text-decoration:none;color:inherit;transition:all .25s;background:#fff}
+.int-prod:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.int-p-core{border-top:3px solid var(--teal);background:linear-gradient(180deg,var(--t50) 0%,#fff 40%)}
+.int-p-studio{border-top:3px solid #0f172a;background:linear-gradient(180deg,#1e293b 0%,#0f172a 100%);color:#f1f5f9}
+.int-p-adapt{border-top:3px solid var(--pur);background:linear-gradient(180deg,var(--p50) 0%,#fff 40%)}
+.int-p-hd{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.int-p-logo{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--tl),var(--teal));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0}
+.int-lg-dark{background:linear-gradient(135deg,#a855f7,#7c3aed)}
+.int-lg-pur{background:linear-gradient(135deg,#a855f7,var(--pur))}
+.int-p-name{font-size:13px;font-weight:900;letter-spacing:-0.01em;line-height:1.1}
+.int-p-studio .int-p-name{color:#fff}
+.int-p-url{font-size:9px;color:var(--mut);font-family:'SF Mono',Monaco,monospace;margin-top:1px}
+.int-p-studio .int-p-url{color:#94a3b8}
+.int-p-desc{font-size:11px;color:var(--txt);line-height:1.45;margin:0}
+.int-p-studio .int-p-desc{color:#cbd5e1}
+.int-p-desc strong{color:var(--teal);font-weight:700}
+.int-p-studio .int-p-desc strong{color:#c4b5fd}
+.int-p-adapt .int-p-desc strong{color:var(--pur)}
+/* Trust cards */
+.int-trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.int-trust-card{display:flex;gap:10px;padding:10px 12px;background:#fff;border:1px solid #e5e7eb;border-radius:7px;align-items:flex-start}
+.int-trust-primary{background:linear-gradient(135deg,var(--t50),#fff);border-color:var(--t200)}
+.int-trust-ic{width:30px;height:30px;border-radius:7px;background:var(--t50);color:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.int-trust-ic i[data-lucide]{width:15px;height:15px}
+.int-trust-card strong{display:block;font-size:11px;font-weight:800;color:var(--txt);margin-bottom:2px}
+.int-trust-card small{font-size:10px;color:var(--mut);line-height:1.4}
+/* Partner cards */
+.int-partners-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
+.int-partner-card{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#fff;border:1px solid #e5e7eb;border-radius:7px}
+.int-partner-lg{width:34px;height:34px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;flex-shrink:0;color:var(--teal)}
+.int-partner-card strong{display:block;font-size:10px;font-weight:800;color:var(--txt);line-height:1.2}
+.int-partner-card small{font-size:9px;color:var(--mut)}
+@media(max-width:768px){.int-prods{grid-template-columns:1fr}.int-meta,.int-trust-grid{grid-template-columns:1fr}.int-partners-grid{grid-template-columns:1fr 1fr}}
+/* legacy intro-hero kept for fallback */
 .intro-hero{text-align:center;padding:12px 0 14px}
 .intro-badge{display:inline-block;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:var(--teal);background:var(--t50);padding:4px 12px;border-radius:20px;margin-bottom:10px}
 .intro-badge em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500;letter-spacing:0.03em}
@@ -623,66 +740,46 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- ===== 1. DISCOVER ===== -->
 <!-- ===== 1. GIỚI THIỆU LEARNERIS ===== -->
-<div class="scr on" data-s="1">
-  <div class="intro-hero">
+<div class="scr on" data-s="1" id="introScreen">
+  <div class="intro-head">
     <div class="intro-badge">GIỚI THIỆU · <em>Meet Learneris</em></div>
-    <h1 class="intro-title">Nền tảng AI Giáo dục<br><span class="intro-grad">được 10.000+ giáo viên Việt Nam tin dùng</span></h1>
-    <p class="intro-sub">Dạy — Học — Soạn bài cùng AI · Tinh chỉnh riêng cho ngữ cảnh giáo dục Việt Nam · An toàn thông tin Cấp 3</p>
+    <h1 class="intro-h1">Nền tảng AI Giáo dục <span class="intro-grad">tinh chỉnh cho Việt Nam</span></h1>
+    <span class="intro-proof-chip">10.000+ giáo viên đang dùng · ATTT Cấp 3 (TT 12/2022)</span>
   </div>
-
-  <div class="intro-products">
-    <a href="https://learneris.com" target="_blank" class="intro-prod intro-p-core">
-      <div class="intro-p-hd">
-        <div class="intro-p-logo"><span>L</span></div>
-        <div class="intro-p-meta">
-          <div class="intro-p-name">Learneris</div>
-          <div class="intro-p-url">learneris.com</div>
+  <div class="nv-layout">
+    <div class="nv-sidebar" id="introSidebar">
+      <div class="nv-tab tm-learneris active" data-int="0">
+        <div class="nv-num">01</div>
+        <div class="nv-mini">
+          <div class="nv-title">Learneris là ai?</div>
+          <div class="nv-badge tm-b-ler">PROFILE</div>
         </div>
       </div>
-      <p class="intro-p-desc"><strong>14+ AI tools</strong> cho giáo viên · Soạn bài, tạo nội dung, đánh giá HS · Lớp học & Khóa học · Nội dung tương tác</p>
-      <div class="intro-p-tools">Lesson Plan · Quick Quiz · Interactive Content · Smart Diagram · Speaking Evaluator · Essay Master · Study Guide · AI Image Gen · TCR Assessment · Premium QuizMaker</div>
-    </a>
-
-    <a href="https://studio.learneris.com" target="_blank" class="intro-prod intro-p-studio">
-      <div class="intro-p-hd">
-        <div class="intro-p-logo intro-logo-dark"><span>L</span></div>
-        <div class="intro-p-meta">
-          <div class="intro-p-name">Learneris Studio</div>
-          <div class="intro-p-url">studio.learneris.com</div>
+      <div class="nv-tab tm-learneris" data-int="1">
+        <div class="nv-num">02</div>
+        <div class="nv-mini">
+          <div class="nv-title">3 Sản Phẩm Chính</div>
+          <div class="nv-badge tm-b-ler">PRODUCTS</div>
         </div>
       </div>
-      <p class="intro-p-desc"><strong>AI Content Production</strong> cho nhà xuất bản giáo dục · Từ chương trình đến nội dung xuất bản trong vài phút · Human-in-the-loop</p>
-      <div class="intro-p-tools">Bilingual content · Publisher pipeline · Google Docs integration · Quality review workflow</div>
-    </a>
-
-    <a href="https://adapt.learneris.com" target="_blank" class="intro-prod intro-p-adapt">
-      <div class="intro-p-hd">
-        <div class="intro-p-logo intro-logo-pur"><span>A</span></div>
-        <div class="intro-p-meta">
-          <div class="intro-p-name">Learneris Adapt</div>
-          <div class="intro-p-url">adapt.learneris.com</div>
+      <div class="nv-tab tm-learneris" data-int="2">
+        <div class="nv-num">03</div>
+        <div class="nv-mini">
+          <div class="nv-title">Chứng Nhận & Uy Tín</div>
+          <div class="nv-badge tm-b-ler">TRUST</div>
         </div>
       </div>
-      <p class="intro-p-desc"><strong>Adaptive Testing Engine</strong> · Đánh giá thông minh · AI chấm điểm + câu hỏi tự điều chỉnh độ khó theo HS</p>
-      <div class="intro-p-tools">Adaptive Difficulty · AI-Powered Grading · Deep Analytics · Competency Tracking · Curriculum Aligned</div>
-    </a>
-  </div>
-
-  <div class="intro-proof">
-    <div class="intro-proof-stat"><strong>10.000+</strong><span>Giáo viên tin dùng</span></div>
-    <div class="intro-proof-stat"><strong>14+</strong><span>Công cụ AI</span></div>
-    <div class="intro-proof-stat"><strong>Cấp 3</strong><span>An toàn thông tin<br><small>TT 12/2022/TT-BTTTT</small></span></div>
-    <div class="intro-proof-stat"><strong>80%</strong><span>Giảm thời gian soạn bài</span></div>
-  </div>
-
-  <div class="intro-partners">
-    <span class="intro-partners-lbl">Đối tác</span>
-    <span class="intro-partner">Google for Startups</span>
-    <span class="intro-partner">Microsoft for Startups</span>
-    <span class="intro-partner">Google Digital School</span>
-    <span class="intro-partner">KDI Education</span>
-    <span class="intro-partner">LMS360</span>
-    <span class="intro-partner">ECO Vietnam</span>
+      <div class="nv-tab tm-learneris" data-int="3">
+        <div class="nv-num">04</div>
+        <div class="nv-mini">
+          <div class="nv-title">Đối Tác Chiến Lược</div>
+          <div class="nv-badge tm-b-ler">PARTNERS</div>
+        </div>
+      </div>
+    </div>
+    <div class="nv-panel" id="introPanel">
+      <!-- Populated by JS -->
+    </div>
   </div>
 </div>
 
@@ -750,9 +847,10 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <p class="exec-foot">Bấm <strong>Tiếp Theo →</strong> để xem chi tiết Learneris đáp ứng từng nhiệm vụ QĐ 2371 như thế nào</p>
 </div>
 
-<!-- ===== 2. GĐ NỀN TẢNG — NHIỆM VỤ & ĐÓNG GÓP (click-through) ===== -->
-<div class="scr" data-s="3">
-  <div class="phase-banner phase-tl">
+<!-- ===== 3. GĐ NỀN TẢNG — NHIỆM VỤ & ĐÓNG GÓP (click-through) ===== -->
+<div class="scr" data-s="3" id="nvScreen">
+  <!-- Full phase banner (visible on overview) -->
+  <div class="phase-banner phase-tl nv-banner-full" id="phaseBannerFull">
     <div class="phase-hd">
       <div class="phase-ic"><i data-lucide="sprout"></i></div>
       <div class="phase-meta">
@@ -763,7 +861,15 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       <div class="phase-stat"><div class="sv" style="color:var(--teal)">30%</div><div class="slb">trường HCMC<br>đạt chuẩn năm 2030</div></div>
     </div>
   </div>
-  <p class="sub-t" style="margin-top:10px"><i data-lucide="list-checks"></i> <strong>8 nhiệm vụ</strong> theo thứ tự triển khai (QĐ 2371 · Mục III) — bấm để xem Learneris đóng góp gì</p>
+  <!-- Compact phase tag (visible when a task is selected) -->
+  <div class="nv-banner-compact" id="phaseBannerCompact">
+    <span class="nv-bc-ic"><i data-lucide="sprout"></i></span>
+    <span class="nv-bc-tag">GĐ Nền Tảng · 2025-2030</span>
+    <span class="nv-bc-sep">·</span>
+    <span class="nv-bc-meta">8 nhiệm vụ QĐ 2371 Mục III</span>
+    <span class="nv-bc-target">Mục tiêu 30% trường HCMC · 2030</span>
+  </div>
+  <p class="sub-t nv-intro-line" id="nvIntroLine"><i data-lucide="list-checks"></i> <strong>8 nhiệm vụ</strong> theo thứ tự triển khai (QĐ 2371 · Mục III) — bấm <strong>Tiếp Theo →</strong> để xem từng nhiệm vụ Learneris đáp ứng như thế nào</p>
   <div class="nv-layout">
     <!-- LEFT: 8 task sidebar -->
     <div class="nv-sidebar" id="nvSidebar">
@@ -832,172 +938,8 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <div class="pb"><i data-lucide="zap"></i> <strong>8/8 nhiệm vụ QĐ 2371</strong> Learneris có thể hỗ trợ · QĐ 2371 Mục III.2.đ nêu rõ: <em>"đặc biệt là các giải pháp ứng dụng công nghệ tiên tiến, trí tuệ nhân tạo"</em></div>
 </div>
 
-<!-- ===== 3. GĐ NỀN TẢNG · NV 02 — ĐÁNH GIÁ INTERACTIVE ===== -->
+<!-- ===== 4. BƯỚC TIẾP THEO ===== -->
 <div class="scr" data-s="4">
-  <div class="mini-banner mini-tl">
-    <div class="mini-ic"><i data-lucide="sprout"></i></div>
-    <div style="flex:1">
-      <div class="mini-tag">GĐ NỀN TẢNG · NHIỆM VỤ 02 · XÂY DỰNG THỂ CHẾ</div>
-      <h2 class="mini-title">Đánh Giá Sẵn Sàng EMI <span class="mini-en">· Assessment</span></h2>
-    </div>
-    <div class="mini-src">Khung tham chiếu <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> · 7 tiêu chí × 30 chỉ báo</div>
-  </div>
-  <p class="sec-s" style="margin-top:10px">Hệ thống tự phân công đúng người trả lời (Hiệu trưởng, Phó HT Chuyên môn, Tổ trưởng EMI, Cán bộ CNTT) · 17 câu hỏi thang 4 mức · tổng hợp radar 7 tiêu chí.</p>
-  <div class="g2">
-    <!-- LEFT: Survey assignment matrix -->
-    <div style="position:relative">
-      <div class="mock-browser">
-        <div class="mock-bar"><span class="mock-dot" style="background:#f87171"></span><span class="mock-dot" style="background:#fbbf24"></span><span class="mock-dot" style="background:#4ade80"></span><span class="mock-url">lms.learneris.com/emi/survey/assign</span></div>
-        <div class="mock-body" style="padding:10px 12px">
-          <p style="font-weight:700;font-size:12px;margin-bottom:6px;display:flex;align-items:center;gap:5px"><i data-lucide="users" style="width:13px;height:13px;color:var(--teal)"></i> Phân công khảo sát</p>
-          <table class="svy-tbl">
-            <thead><tr><th style="width:16px">#</th><th>Tiêu chí</th><th style="width:40px;text-align:center">Trọng số</th><th>Người trả lời</th><th style="width:16px;text-align:center"></th></tr></thead>
-            <tbody id="svyTbody">
-              <tr class="svy-row" data-row="1"><td>1</td><td>Môi trường ngôn ngữ</td><td class="wt">10%</td><td><span class="r-tag r-ht">Hiệu trưởng</span></td><td class="svy-check"></td></tr>
-              <tr class="svy-row" data-row="2"><td>2</td><td>Chương trình &amp; Dạy học</td><td class="wt hi">25%</td><td><span class="r-tag r-pht">Phó HT CM</span></td><td class="svy-check"></td></tr>
-              <tr class="svy-row" data-row="3"><td>3</td><td>Học liệu</td><td class="wt">10%</td><td><span class="r-tag r-tt">Tổ trưởng EMI</span></td><td class="svy-check"></td></tr>
-              <tr class="svy-row" data-row="4"><td>4</td><td>Số hóa &amp; AI</td><td class="wt">15%</td><td><span class="r-tag r-it">Cán bộ CNTT</span></td><td class="svy-check"></td></tr>
-              <tr class="svy-row" data-row="5"><td>5</td><td>Đội ngũ (CB, GV, HS)</td><td class="wt hi">25%</td><td><span class="r-tag r-ht">Hiệu trưởng</span></td><td class="svy-check"></td></tr>
-              <tr class="svy-row" data-row="6"><td>6</td><td>Hợp tác quốc tế</td><td class="wt">10%</td><td><span class="r-tag r-ht">Hiệu trưởng</span></td><td class="svy-check"></td></tr>
-              <tr class="svy-row" data-row="7"><td>7</td><td>Nghiên cứu khoa học &amp; công nghệ</td><td class="wt">5%</td><td><span class="r-tag r-tt">Tổ trưởng EMI</span></td><td class="svy-check"></td></tr>
-            </tbody>
-          </table>
-          <div style="display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid #f1f5f9">
-            <div style="flex:1"><div class="pt"><div class="pf fg" id="svyProgressBar" style="width:0%;transition:width .5s ease"></div></div></div>
-            <span style="font-size:11px;font-weight:700;color:var(--teal);white-space:nowrap" id="svyProgressLabel">0/7 tiêu chí</span>
-          </div>
-        </div>
-      </div>
-      <div class="svy-cursor" id="svyCursor"><i data-lucide="mouse-pointer-2"></i></div>
-    </div>
-    <div>
-      <div class="mock-browser svy-panel" id="svyFormPanel">
-        <div class="mock-bar"><span class="mock-dot" style="background:#f87171"></span><span class="mock-dot" style="background:#fbbf24"></span><span class="mock-dot" style="background:#4ade80"></span><span class="mock-url" id="svyFormUrl">lms.learneris.com/emi/survey</span></div>
-        <div class="mock-body" style="padding:12px 14px;min-height:280px">
-          <div id="svyFormEmpty" style="text-align:center;padding:40px 20px;color:var(--mut);font-size:12px">
-            <i data-lucide="clipboard-list" style="width:32px;height:32px;color:#cbd5e1;margin-bottom:8px"></i>
-            <p style="font-weight:600">Đang chờ người trả lời khảo sát...</p>
-          </div>
-          <div id="svyFormContent" style="display:none">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-              <div style="display:flex;align-items:center;gap:6px"><span class="tag tt" style="font-size:10px" id="svyFormTc">Tiêu chí 1</span><span style="font-size:10px;color:var(--mut)" id="svyFormQnum">Câu 1/3</span></div>
-              <span class="r-tag r-ht" id="svyFormRole" style="font-size:9px">Hiệu trưởng</span>
-            </div>
-            <p style="font-size:12px;font-weight:700;margin-bottom:8px;line-height:1.4" id="svyFormQ">Câu hỏi...</p>
-            <div id="svyFormOpts" style="display:flex;flex-direction:column;gap:5px;font-size:11px;margin-bottom:10px"></div>
-            <button class="svy-submit" id="svyFormSubmit">
-              <i data-lucide="send" style="width:11px;height:11px"></i> Nộp câu trả lời
-            </button>
-            <div id="svyFormDone" style="display:none;text-align:center;padding:4px;font-size:11px;color:var(--grn);font-weight:700;margin-top:6px">
-              <i data-lucide="check-circle" style="width:12px;height:12px"></i> Đã lưu · Điểm: <span id="svyFormScore">2</span>/3
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mock-browser svy-panel" id="svyResultPanel" style="display:none">
-        <div class="mock-bar"><span class="mock-dot" style="background:#f87171"></span><span class="mock-dot" style="background:#fbbf24"></span><span class="mock-dot" style="background:#4ade80"></span><span class="mock-url">lms.learneris.com/emi/result</span></div>
-        <div class="mock-body" style="text-align:center;padding:8px">
-          <p style="font-size:11px;font-weight:700;color:var(--teal);margin-bottom:4px;display:flex;align-items:center;justify-content:center;gap:5px"><i data-lucide="bar-chart-3" style="width:12px;height:12px"></i> Tổng hợp kết quả</p>
-          <svg width="240" height="195" viewBox="0 0 260 210" style="margin:0 auto;display:block">
-            <defs><style>text.rl{font-size:11px;font-weight:600;font-family:Inter,sans-serif}</style></defs>
-            <g transform="translate(130,105)">
-              <polygon points="0,-80 70,-55 86,8 50,68 -50,68 -86,8 -70,-55" fill="none" stroke="#e5e7eb" stroke-width="1"/>
-              <polygon points="0,-53 47,-37 57,5 33,45 -33,45 -57,5 -47,-37" fill="none" stroke="#f1f5f9" stroke-width="1"/>
-            </g>
-            <g transform="translate(130,105)" class="radar-data">
-              <polygon points="0,-56 38,-30 34,6 15,51 -15,34 -26,3 -49,-39" fill="rgba(13,148,136,0.12)" stroke="var(--teal)" stroke-width="2" stroke-linejoin="round"/>
-              <circle cx="0" cy="-56" r="3" fill="var(--teal)"/><circle cx="38" cy="-30" r="3" fill="var(--teal)"/><circle cx="34" cy="6" r="3" fill="var(--amb)"/>
-              <circle cx="15" cy="51" r="3" fill="var(--teal)"/><circle cx="-15" cy="34" r="3" fill="var(--red)"/><circle cx="-26" cy="3" r="3" fill="var(--red)"/><circle cx="-49" cy="-39" r="3" fill="var(--amb)"/>
-            </g>
-            <text x="130" y="12" text-anchor="middle" class="rl" fill="var(--teal)">Ngôn ngữ 70%</text>
-            <text x="222" y="55" text-anchor="start" class="rl" fill="var(--teal)">Chương trình 55%</text>
-            <text x="235" y="120" text-anchor="start" class="rl" fill="var(--amb)">Học liệu 40%</text>
-            <text x="195" y="185" text-anchor="middle" class="rl" fill="var(--teal)">Số hóa 75%</text>
-            <text x="65" y="185" text-anchor="middle" class="rl" fill="var(--red)">Đội ngũ 45%</text>
-            <text x="10" y="120" text-anchor="end" class="rl" fill="var(--red)">Quốc tế 30%</text>
-            <text x="22" y="55" text-anchor="end" class="rl" fill="var(--amb)">Nghiên cứu 35%</text>
-          </svg>
-          <div style="font-size:28px;font-weight:900;color:var(--teal);line-height:1"><span class="count-target">0</span><span style="font-size:13px;color:var(--mut)">/100</span></div>
-          <div class="tag tt" style="margin-top:3px;font-size:10px">Giai đoạn <strong>Nền Tảng</strong> · cần củng cố 2 tiêu chí</div>
-          <div style="margin-top:8px;padding:6px 8px;background:var(--t50);border-radius:6px;font-size:10px;color:var(--teal);font-weight:600;display:flex;align-items:center;justify-content:center;gap:5px">
-            <i data-lucide="file-text" style="width:11px;height:11px"></i>
-            <span>Báo cáo chi tiết + lộ trình cải thiện 2-3 năm</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== 4. GĐ NỀN TẢNG · NV 04 — AI CONTENT ===== -->
-<div class="scr" data-s="5">
-  <div class="mini-banner mini-tl">
-    <div class="mini-ic"><i data-lucide="sprout"></i></div>
-    <div style="flex:1">
-      <div class="mini-tag">GĐ NỀN TẢNG · NHIỆM VỤ 04 · PHÁT TRIỂN HỌC LIỆU</div>
-      <h2 class="mini-title">AI Tạo Nội Dung CLIL <span class="mini-en">· Content Engine</span></h2>
-    </div>
-    <div class="mini-src">Tham chiếu <a href="https://luatvietnam.vn/giao-duc/quyet-dinh-2371-qd-ttg-2025-phe-duyet-de-an-tieng-anh-thanh-ngon-ngu-thu-hai-trong-truong-hoc-416990-d1.html" target="_blank">QĐ 2371</a> · <em>Nghị định 222/2025/NĐ-CP</em></div>
-  </div>
-  <p class="sec-s" style="margin-top:10px">Mô hình AI tinh chỉnh trên ngữ liệu SGK Việt Nam + khung CLIL 4C (Coyle, 2010). 11 môn nội dung × 5 cấp học · ~3 phút/bài · ~2.000đ.</p>
-  <div class="g2">
-    <div class="card" style="padding:14px">
-      <div style="margin-bottom:8px"><label class="fl">Môn học</label><select class="fi">
-        <option selected>Toán (Math)</option>
-        <option>Vật Lý (Physics)</option>
-        <option>Hóa Học (Chemistry)</option>
-        <option>Sinh Học (Biology)</option>
-        <option>Khoa Học Tự Nhiên (Natural Science)</option>
-        <option>Công Nghệ (Technology)</option>
-        <option>Tin Học (IT / Computer Science)</option>
-        <option>Địa Lý (Geography)</option>
-        <option>Lịch Sử (History)</option>
-        <option>Giáo Dục Công Dân (Civics)</option>
-        <option>Mỹ Thuật (Art)</option>
-      </select></div>
-      <div style="margin-bottom:8px"><label class="fl">Lớp</label><select class="fi"><option>Lớp 6</option><option selected>Lớp 7</option><option>Lớp 8</option></select></div>
-      <div style="margin-bottom:8px"><label class="fl">Chủ đề</label><input class="fi" value="Phương trình bậc nhất một ẩn"></div>
-      <div style="margin-bottom:12px">
-        <label class="fl">Tỷ lệ Tiếng Anh trong bài</label>
-        <div style="position:relative;margin:10px 0">
-          <div style="width:100%;height:5px;background:#e5e7eb;border-radius:3px;position:relative"><div style="height:100%;background:linear-gradient(90deg,var(--tl),var(--teal));border-radius:3px;width:50%"></div><div style="width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--teal);box-shadow:0 2px 6px rgba(0,0,0,0.15);position:absolute;top:-6px;left:calc(50% - 8px)"></div></div>
-          <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:11px;color:#cbd5e1;font-weight:600"><span>20%</span><span style="color:var(--teal);font-weight:700">50%</span><span>80%</span><span>100%</span></div>
-        </div>
-      </div>
-      <button class="cta" style="width:100%;justify-content:center;padding:9px"><i data-lucide="sparkles"></i> Tạo Bài Giảng Song Ngữ</button>
-      <p style="text-align:center;margin-top:6px"><span class="tag tt" style="font-size:11px">~2.000đ / bài (~$0.08)</span></p>
-    </div>
-    <div>
-      <div class="mock-browser" style="margin-bottom:10px">
-        <div class="mock-bar"><span class="mock-dot" style="background:#f87171"></span><span class="mock-dot" style="background:#fbbf24"></span><span class="mock-dot" style="background:#4ade80"></span><span class="mock-url">ai.learneris.com/clil/preview</span></div>
-        <div class="mock-body" style="padding:12px">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><p style="font-weight:700;font-size:11px;display:flex;align-items:center;gap:5px"><i data-lucide="file-text" style="width:12px;height:12px;color:var(--teal)"></i> Preview</p><div style="display:flex;align-items:center;gap:4px;font-size:10px"><span style="color:var(--mut)">VN</span><div style="width:22px;height:12px;background:var(--teal);border-radius:10px;position:relative"><div style="width:8px;height:8px;background:#fff;border-radius:50%;position:absolute;top:2px;right:2px"></div></div><span style="color:var(--teal);font-weight:700">EN</span></div></div>
-          <div class="gen-item" style="padding:7px 10px;background:var(--g50);border-left:3px solid var(--grn);border-radius:5px;margin-bottom:5px">
-            <p style="font-weight:700;font-size:11px">Phương trình bậc nhất / <em style="color:var(--grn)">Linear Equations</em></p>
-            <p style="font-size:11px;color:var(--mut);margin-top:2px">Có dạng <code style="background:#fff;padding:1px 4px;border-radius:3px;font-size:10px">ax + b = 0</code></p>
-            <p style="font-size:11px;color:var(--grn);font-style:italic;margin-top:2px">A linear equation has the form <code style="background:#fff;padding:1px 4px;border-radius:3px;font-size:10px">ax + b = 0</code></p>
-          </div>
-          <div class="gen-item" style="padding:7px 10px;background:var(--t50);border-left:3px solid var(--teal);border-radius:5px;margin-bottom:5px">
-            <p style="font-size:11px"><strong>Bước 1 / <em style="color:var(--teal)">Step 1</em>:</strong> Chuyển <code style="background:#fff;padding:1px 4px;border-radius:3px;font-size:10px">b</code> sang vế phải · <em style="color:var(--teal)">Move <code>b</code> to the right side</em></p>
-          </div>
-          <div class="gen-item" style="padding:7px 10px;background:var(--a50);border-left:3px solid var(--amb);border-radius:5px">
-            <p style="font-size:11px"><strong>Ví dụ / <em style="color:var(--amb)">Example</em>:</strong> <code style="background:#fff;padding:1px 4px;border-radius:3px;font-size:10px">2x + 4 = 0</code> → <code style="background:#fff;padding:1px 4px;border-radius:3px;font-size:10px">x = -2</code></p>
-          </div>
-        </div>
-      </div>
-      <div class="card" style="padding:10px">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><p style="font-size:11px;font-weight:700">Đang tạo bài giảng...</p><span style="font-size:11px;color:var(--mut)">5 thành phần · ~3 phút</span></div>
-        <div class="pt"><div class="pf ft gen-progress" style="width:0%"></div></div>
-        <p class="gen-item" style="opacity:0;transform:scale(0.85);transition:all .35s cubic-bezier(.34,1.56,.64,1);font-size:11px;color:var(--grn);font-weight:600;margin-top:5px;display:flex;align-items:center;justify-content:center;gap:3px"><i data-lucide="check" style="width:10px;height:10px"></i> Sẵn sàng giao cho giáo viên</p>
-      </div>
-    </div>
-  </div>
-  <div class="pb"><i data-lucide="zap"></i> Mô hình AI độc quyền · Tinh chỉnh trên ngữ liệu SGK Việt Nam + CLIL 4C framework</div>
-</div>
-
-
-<!-- ===== 5. BƯỚC TIẾP THEO ===== -->
-<div class="scr" data-s="6">
   <h2 class="sec-t"><i data-lucide="calendar-check"></i> Bước Tiếp Theo</h2>
   <p class="sec-s">Demo chỉ thể hiện nền tảng tiêu chuẩn. Triển khai thực tế tại HCMC cần <strong>tùy chỉnh theo đặc thù Sở và chính sách địa phương</strong> — bước này cần một cuộc trao đổi trực tiếp.</p>
   <div class="g3" style="margin-top:8px">
@@ -1032,8 +974,8 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <div class="pb"><i data-lucide="zap"></i> Learneris Pte. Ltd. (Singapore) · Vietlearn JSC (Vietnam) · hello@learneris.com</div>
 </div>
 
-<!-- ===== 6. FAQ ===== -->
-<div class="scr" data-s="7">
+<!-- ===== 5. FAQ ===== -->
+<div class="scr" data-s="5">
   <h2 class="sec-t"><i data-lucide="message-circle-question"></i> Câu Hỏi Thường Gặp</h2>
   <p class="sec-s">Giải đáp về EMI, CLIL và triển khai với Learneris.</p>
   <div class="g2">
@@ -1123,13 +1065,13 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <nav class="bnav">
   <button class="nb s" id="prevBtn" onclick="prev()" disabled><i data-lucide="arrow-left" style="width:14px;height:14px"></i> Trước</button>
-  <span class="nc" id="navC">1 / 7</span>
+  <span class="nc" id="navC">1 / 5</span>
   <button class="nb p" id="nextBtn" onclick="next()">Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i></button>
 </nav>
 
 <script>
-const S=[{l:'Giới Thiệu'},{l:'Đề Xuất'},{l:'8 Nhiệm Vụ'},{l:'Đánh Giá'},{l:'Nội Dung'},{l:'Bước Tiếp'},{l:'FAQ'}];
-let c=1;const T=7;
+const S=[{l:'Giới Thiệu'},{l:'Đề Xuất'},{l:'8 Nhiệm Vụ'},{l:'Bước Tiếp'},{l:'FAQ'}];
+let c=1;const T=5;
 let screenAnimated={};
 
 function buildS(){
@@ -1148,17 +1090,19 @@ function goTo(n){
   const nb=document.getElementById('nextBtn');
   nb.innerHTML=n===T?'<i data-lucide="check" style="width:14px;height:14px"></i> Hoàn Tất':'Tiếp Theo <i data-lucide="arrow-right" style="width:14px;height:14px"></i>';
   nb.disabled=n===T;
-  // Counter shows sub-step on screen 3 (8 nhiệm vụ click-through)
-  if(n===3 && typeof nvIdx!=='undefined'){
+  // Counter shows sub-step on screen 1 (intro accordion) and screen 3 (8 nhiệm vụ)
+  if(n===1 && typeof intIdx!=='undefined'){
+    document.getElementById('navC').textContent=`${n}.${intIdx+1} / ${T}`;
+  }else if(n===3 && typeof nvIdx!=='undefined' && nvIdx>=0){
     document.getElementById('navC').textContent=`${n}.${nvIdx+1} / ${T}`;
   }else{
     document.getElementById('navC').textContent=`${n} / ${T}`;
   }
   buildS();document.querySelector('.wrap').scrollTop=0;
   lucide.createIcons();
-  // Reset to first task when entering screen 3 (8 nhiệm vụ) unless already set
-  if(n===3 && typeof nvIdx!=='undefined' && !scr.dataset.visited){
-    selectNv(0);
+  // When entering screen 3, start at overview (nvIdx = -1) on first visit
+  if(n===3 && !scr.dataset.visited){
+    selectNv(-1);
     scr.dataset.visited='1';
   }
   // Run screen animations
@@ -1505,18 +1449,34 @@ const NV_DATA=[
   {num:'02',task:'Xây dựng, hoàn thiện thể chế, chính sách',src:'QĐ 2371 · Mục III.2.c "Xây dựng quy định về đánh giá chất lượng các cơ sở giáo dục"',
    owner:'learneris',badge:'★ Learneris',name:'EMI Readiness Assessment',
    mech:'<strong>Mục III.2.đ</strong> nêu rõ: <em>"đặc biệt là các giải pháp ứng dụng công nghệ tiên tiến, trí tuệ nhân tạo"</em> — chính sách mời Learneris.<br><br>HT tạo khảo sát <span class="nv-p-arrow">→</span> hệ thống gửi <strong>17 câu hỏi thang 4 mức</strong> cho HT/PHT/Tổ trưởng EMI <span class="nv-p-arrow">→</span> tính điểm <strong>7 tiêu chí × 30 chỉ báo</strong> <span class="nv-p-arrow">→</span> báo cáo PDF + lộ trình 2-3 năm.<em>Khung tham chiếu chạy ngay · Cập nhật khi BGDĐT ban hành chuẩn chi tiết.</em>',
-   mockup:`<div class="mk-card mk-asmt">
-     <div class="mk-asmt-hd"><span><i data-lucide="clipboard-list" style="width:11px;height:11px"></i> ĐÁNH GIÁ ĐANG CHẠY · <em>Running</em></span><span class="mk-asmt-live">● LIVE</span></div>
-     <div class="mk-asmt-rows">
-       <div class="mk-ar"><span class="mk-ar-num">1</span><span class="mk-ar-name">Môi trường ngôn ngữ</span><span class="mk-ar-score mk-grn2">70%</span></div>
-       <div class="mk-ar"><span class="mk-ar-num">2</span><span class="mk-ar-name">Chương trình &amp; Dạy học</span><span class="mk-ar-score mk-grn2">55%</span></div>
-       <div class="mk-ar"><span class="mk-ar-num">3</span><span class="mk-ar-name">Học liệu</span><span class="mk-ar-score mk-amb2">40%</span></div>
-       <div class="mk-ar"><span class="mk-ar-num">4</span><span class="mk-ar-name">Số hóa &amp; AI</span><span class="mk-ar-score mk-grn2">75%</span></div>
-       <div class="mk-ar"><span class="mk-ar-num">5</span><span class="mk-ar-name">Đội ngũ (CB, GV, HS)</span><span class="mk-ar-score mk-red2">45%</span></div>
-       <div class="mk-ar"><span class="mk-ar-num">6</span><span class="mk-ar-name">Hợp tác quốc tế</span><span class="mk-ar-score mk-red2">30%</span></div>
-       <div class="mk-ar"><span class="mk-ar-num">7</span><span class="mk-ar-name">Nghiên cứu KH &amp; CN</span><span class="mk-ar-score mk-amb2">35%</span></div>
+   mockup:`<div class="mk-grid mk-grid-2">
+     <div class="mk-card mk-asmt">
+       <div class="mk-asmt-hd"><span><i data-lucide="clipboard-list" style="width:11px;height:11px"></i> ĐÁNH GIÁ · 7 TIÊU CHÍ</span><span class="mk-asmt-live">● LIVE</span></div>
+       <div class="mk-asmt-rows">
+         <div class="mk-ar"><span class="mk-ar-num">1</span><span class="mk-ar-name">Môi trường ngôn ngữ</span><span class="mk-ar-score mk-grn2">70%</span></div>
+         <div class="mk-ar"><span class="mk-ar-num">2</span><span class="mk-ar-name">Chương trình &amp; Dạy học</span><span class="mk-ar-score mk-grn2">55%</span></div>
+         <div class="mk-ar"><span class="mk-ar-num">3</span><span class="mk-ar-name">Học liệu</span><span class="mk-ar-score mk-amb2">40%</span></div>
+         <div class="mk-ar"><span class="mk-ar-num">4</span><span class="mk-ar-name">Số hóa &amp; AI</span><span class="mk-ar-score mk-grn2">75%</span></div>
+         <div class="mk-ar"><span class="mk-ar-num">5</span><span class="mk-ar-name">Đội ngũ (CB, GV, HS)</span><span class="mk-ar-score mk-red2">45%</span></div>
+         <div class="mk-ar"><span class="mk-ar-num">6</span><span class="mk-ar-name">Hợp tác quốc tế</span><span class="mk-ar-score mk-red2">30%</span></div>
+         <div class="mk-ar"><span class="mk-ar-num">7</span><span class="mk-ar-name">Nghiên cứu KH &amp; CN</span><span class="mk-ar-score mk-amb2">35%</span></div>
+       </div>
      </div>
-     <div class="mk-asmt-total"><span>Tổng:</span><strong>50</strong><span class="mk-asmt-t-of">/100</span><span class="mk-asmt-stage">Giai đoạn <strong style="color:var(--teal)">Nền Tảng</strong></span></div>
+     <div class="mk-card mk-radar-card">
+       <div class="mk-radar-hd"><i data-lucide="bar-chart-3" style="width:11px;height:11px"></i> BÁO CÁO RADAR · <em>Dashboard</em></div>
+       <svg viewBox="0 0 260 210" class="mk-radar-svg">
+         <g transform="translate(130,105)">
+           <polygon points="0,-80 70,-55 86,8 50,68 -50,68 -86,8 -70,-55" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+           <polygon points="0,-53 47,-37 57,5 33,45 -33,45 -57,5 -47,-37" fill="none" stroke="#f1f5f9" stroke-width="1"/>
+           <polygon points="0,-56 38,-30 34,6 15,51 -15,34 -26,3 -49,-39" fill="rgba(13,148,136,0.14)" stroke="var(--teal)" stroke-width="2" stroke-linejoin="round"/>
+           <circle cx="0" cy="-56" r="3" fill="var(--teal)"/><circle cx="38" cy="-30" r="3" fill="var(--teal)"/><circle cx="34" cy="6" r="3" fill="var(--amb)"/>
+           <circle cx="15" cy="51" r="3" fill="var(--teal)"/><circle cx="-15" cy="34" r="3" fill="var(--red)"/><circle cx="-26" cy="3" r="3" fill="var(--red)"/><circle cx="-49" cy="-39" r="3" fill="var(--amb)"/>
+         </g>
+       </svg>
+       <div class="mk-radar-score"><strong>50</strong><span>/100</span></div>
+       <div class="mk-radar-stage"><span class="mk-radar-pill">Giai đoạn <strong>Nền Tảng</strong></span><small>cần củng cố 2/7 tiêu chí</small></div>
+       <div class="mk-radar-ftr"><i data-lucide="file-text" style="width:10px;height:10px"></i> Báo cáo DOCX/PDF + Lộ trình 2-3 năm</div>
+     </div>
    </div>`},
   {num:'03',task:'Phát triển đội ngũ cán bộ quản lý, giáo viên',src:'QĐ 2371 · Mục III.3 · "bồi dưỡng năng lực tiếng Anh cho đội ngũ"',
    owner:'learneris',badge:'★ Learneris hỗ trợ',name:'Micro-modules CLIL + Kịch bản Lớp + AI Luyện Nói',
@@ -1532,17 +1492,32 @@ const NV_DATA=[
   {num:'04',task:'Xây dựng chương trình & học liệu dạy học bằng tiếng Anh',src:'QĐ 2371 · Mục III.4.b "học liệu trực tuyến mở, ứng dụng công nghệ, đào tạo trực tuyến ở quy mô quốc gia"',
    owner:'learneris',badge:'★ Learneris',name:'AI Content Engine cho EMI Việt Nam',
    mech:'GV chọn <strong>môn</strong> (11 môn) + <strong>lớp</strong> (5 cấp) + <strong>chủ đề</strong> + <strong>tỷ lệ TA</strong> (20-100%) <span class="nv-p-arrow">→</span> AI tinh chỉnh trên ngữ liệu SGK VN tạo slide + bài tập + đề kiểm tra song ngữ trong <strong>~3 phút, ~2.000đ/bài</strong> <span class="nv-p-arrow">→</span> xuất DOCX / PDF / Google Slides.<em>Khung CLIL 4C (Coyle, 2010) · Tham chiếu Cambridge / Oxford · Thí điểm và đánh giá trước khi triển khai diện rộng (theo Mục III.4.c).</em>',
-   mockup:`<div class="mk-card mk-clil">
-     <div class="mk-clil-hd">Toán 7 · Phương trình bậc nhất <span class="mk-clil-ratio">50% EN</span></div>
-     <div class="mk-clil-block mk-b-grn">
-       <strong>Phương trình bậc nhất</strong> <em>· Linear Equations</em><br>
-       <span class="mk-code">ax + b = 0</span> — <em>has the form ax + b = 0</em>
+   mockup:`<div class="mk-grid mk-grid-2">
+     <div class="mk-card mk-genform">
+       <div class="mk-gf-hd"><i data-lucide="sliders-horizontal" style="width:11px;height:11px"></i> AI CONTENT ENGINE · <em>Input</em></div>
+       <div class="mk-gf-row"><span class="mk-gf-lbl">Môn</span><span class="mk-gf-val">Toán</span></div>
+       <div class="mk-gf-row"><span class="mk-gf-lbl">Lớp</span><span class="mk-gf-val">Lớp 7</span></div>
+       <div class="mk-gf-row"><span class="mk-gf-lbl">Chủ đề</span><span class="mk-gf-val">Phương trình bậc nhất</span></div>
+       <div class="mk-gf-slider">
+         <div class="mk-gf-slider-lbl">Tỷ lệ TA<span class="mk-gf-pct">50%</span></div>
+         <div class="mk-gf-bar"><div class="mk-gf-fill"></div><div class="mk-gf-dot"></div></div>
+       </div>
+       <div class="mk-gf-stats"><span class="mk-gf-stat"><strong>~3</strong>phút</span><span class="mk-gf-stat"><strong>~2.000đ</strong>/bài</span><span class="mk-gf-stat"><strong>11</strong>môn</span></div>
+       <button class="mk-gf-btn"><i data-lucide="sparkles" style="width:10px;height:10px"></i> Tạo bài giảng CLIL</button>
      </div>
-     <div class="mk-clil-block mk-b-teal">
-       <strong>Bước 1 · Step 1:</strong> Chuyển <span class="mk-code">b</span> sang vế phải · <em>Move b to the right side</em>
-     </div>
-     <div class="mk-clil-block mk-b-amb">
-       <strong>Ví dụ · Example:</strong> <span class="mk-code">2x + 4 = 0</span> → <span class="mk-code">x = -2</span>
+     <div class="mk-card mk-clil">
+       <div class="mk-clil-hd">Đầu ra song ngữ · <em>Output</em> <span class="mk-clil-ratio">50% EN</span></div>
+       <div class="mk-clil-block mk-b-grn">
+         <strong>Phương trình bậc nhất</strong> <em>· Linear Equations</em><br>
+         <span class="mk-code">ax + b = 0</span> — <em>has the form ax + b = 0</em>
+       </div>
+       <div class="mk-clil-block mk-b-teal">
+         <strong>Bước 1 · Step 1:</strong> Chuyển <span class="mk-code">b</span> sang vế phải · <em>Move b to the right side</em>
+       </div>
+       <div class="mk-clil-block mk-b-amb">
+         <strong>Ví dụ · Example:</strong> <span class="mk-code">2x + 4 = 0</span> → <span class="mk-code">x = -2</span>
+       </div>
+       <div class="mk-clil-export"><i data-lucide="download" style="width:10px;height:10px"></i> DOCX · PDF · Google Slides</div>
      </div>
    </div>`},
   {num:'05',task:'Đổi mới phương pháp dạy học, thi, kiểm tra, đánh giá',src:'QĐ 2371 · Mục III.5.a "dạy học cả bốn kỹ năng nghe, nói, đọc và viết, chú trọng nghe và nói"',
@@ -1598,8 +1573,39 @@ const NV_DATA=[
 ];
 
 function renderNvPanel(idx){
-  const d=NV_DATA[idx];if(!d)return;
   const panel=document.getElementById('nvPanel');if(!panel)return;
+  // Overview state (idx === -1): no task selected yet
+  if(idx<0){
+    panel.className='nv-panel nv-overview';
+    panel.innerHTML=`
+      <div class="nv-ov-hd">
+        <div class="nv-ov-ic"><i data-lucide="list-checks"></i></div>
+        <div>
+          <div class="nv-ov-tag">KHUNG CHÍNH SÁCH · QĐ 2371 MỤC III</div>
+          <h3 class="nv-ov-title">8 Nhiệm Vụ Giai Đoạn Nền Tảng</h3>
+        </div>
+      </div>
+      <p class="nv-ov-lead">Sở triển khai <strong>8 nhóm nhiệm vụ</strong> song song trong giai đoạn 2025-2030 để đạt mục tiêu <strong>30% cơ sở giáo dục HCMC đạt Mức 1 EMI</strong>. Learneris có sản phẩm AI đáp ứng <strong>8/8 nhiệm vụ</strong>.</p>
+      <div class="nv-ov-grid">
+        <div class="nv-ov-col"><span class="nv-ov-c-lbl">TẬP TRUNG LỚN</span>
+          <div class="nv-ov-item"><span class="nv-ov-n">02</span>Thể chế & Đánh giá</div>
+          <div class="nv-ov-item"><span class="nv-ov-n">04</span>Chương trình & Học liệu</div>
+          <div class="nv-ov-item"><span class="nv-ov-n">05</span>Đổi mới PP dạy & đánh giá</div>
+          <div class="nv-ov-item"><span class="nv-ov-n">06</span>CNTT, AI, CSVC</div>
+        </div>
+        <div class="nv-ov-col"><span class="nv-ov-c-lbl">HỖ TRỢ VẬN HÀNH</span>
+          <div class="nv-ov-item"><span class="nv-ov-n">01</span>Truyền thông nhận thức</div>
+          <div class="nv-ov-item"><span class="nv-ov-n">03</span>Phát triển đội ngũ GV</div>
+          <div class="nv-ov-item"><span class="nv-ov-n">07</span>Hợp tác quốc tế</div>
+          <div class="nv-ov-item"><span class="nv-ov-n">08</span>Thi đua, khen thưởng</div>
+        </div>
+      </div>
+      <div class="nv-ov-cta"><i data-lucide="arrow-right-circle"></i>Bấm <strong>Tiếp Theo →</strong> để đi qua từng nhiệm vụ và xem demo Learneris đáp ứng</div>
+    `;
+    lucide.createIcons();
+    return;
+  }
+  const d=NV_DATA[idx];if(!d)return;
   panel.className='nv-panel';
   panel.innerHTML=`
     <div class="nv-p-hd">
@@ -1618,15 +1624,121 @@ function renderNvPanel(idx){
   lucide.createIcons();
 }
 
-let nvIdx=0;
+// === INTRO ACCORDION (Screen 1) ===
+const INTRO_DATA=[
+  {tag:'HỒ SƠ · Profile',title:'Learneris là ai?',content:`
+    <p class="int-lead">Learneris là nền tảng <strong>AI Giáo dục</strong> được tinh chỉnh trên <strong>ngữ liệu sách giáo khoa Việt Nam</strong>, với sứ mệnh giúp giáo viên <strong>Dạy — Học — Soạn bài</strong> hiệu quả hơn bằng AI.</p>
+    <div class="int-meta">
+      <div class="int-meta-item"><i data-lucide="map-pin"></i><div><strong>Trụ sở</strong><small>Singapore + Việt Nam</small></div></div>
+      <div class="int-meta-item"><i data-lucide="calendar"></i><div><strong>Thành lập</strong><small>2022 · 3 năm phát triển</small></div></div>
+      <div class="int-meta-item"><i data-lucide="users"></i><div><strong>Quy mô</strong><small>10.000+ GV đang dùng</small></div></div>
+      <div class="int-meta-item"><i data-lucide="globe"></i><div><strong>Ngôn ngữ</strong><small>Tiếng Việt song ngữ</small></div></div>
+    </div>
+    <div class="int-callout"><i data-lucide="quote"></i><p>Không phải "ChatGPT gói lại" — mô hình AI riêng, <strong>tinh chỉnh cho ngữ cảnh giáo dục Việt Nam</strong>, sẵn sàng đáp ứng khung QĐ 2371.</p></div>
+  `},
+  {tag:'SẢN PHẨM · Products',title:'3 sản phẩm chính của Learneris',content:`
+    <div class="int-prods">
+      <a href="https://learneris.com" target="_blank" class="int-prod int-p-core">
+        <div class="int-p-hd"><div class="int-p-logo"><span>L</span></div><div><div class="int-p-name">Learneris</div><div class="int-p-url">learneris.com</div></div></div>
+        <p class="int-p-desc"><strong>14+ AI tools</strong> cho giáo viên — soạn bài, tạo nội dung, đánh giá học sinh · lớp học & khóa học · nội dung tương tác.</p>
+      </a>
+      <a href="https://studio.learneris.com" target="_blank" class="int-prod int-p-studio">
+        <div class="int-p-hd"><div class="int-p-logo int-lg-dark"><span>L</span></div><div><div class="int-p-name">Learneris Studio</div><div class="int-p-url">studio.learneris.com</div></div></div>
+        <p class="int-p-desc"><strong>AI Content Production</strong> cho nhà xuất bản — chương trình → nội dung xuất bản trong vài phút, human-in-the-loop.</p>
+      </a>
+      <a href="https://adapt.learneris.com" target="_blank" class="int-prod int-p-adapt">
+        <div class="int-p-hd"><div class="int-p-logo int-lg-pur"><span>A</span></div><div><div class="int-p-name">Learneris Adapt</div><div class="int-p-url">adapt.learneris.com</div></div></div>
+        <p class="int-p-desc"><strong>Adaptive Testing Engine</strong> — AI chấm điểm + câu hỏi tự điều chỉnh độ khó theo năng lực học sinh.</p>
+      </a>
+    </div>
+  `},
+  {tag:'CHỨNG NHẬN · Trust',title:'Chứng nhận & uy tín pháp lý',content:`
+    <p class="int-lead">Learneris đạt các chuẩn bắt buộc cho <strong>trường công Việt Nam</strong> và được lựa chọn bởi các tổ chức giáo dục uy tín.</p>
+    <div class="int-trust-grid">
+      <div class="int-trust-card int-trust-primary">
+        <div class="int-trust-ic"><i data-lucide="shield-check"></i></div>
+        <div>
+          <strong>An Toàn Thông Tin Cấp 3</strong>
+          <small>Theo Thông tư 12/2022/TT-BTTTT — bắt buộc cho hệ thống thông tin trường công</small>
+        </div>
+      </div>
+      <div class="int-trust-card">
+        <div class="int-trust-ic"><i data-lucide="cpu"></i></div>
+        <div>
+          <strong>Mô hình AI tự chủ</strong>
+          <small>Tinh chỉnh trên ngữ liệu SGK Việt Nam · Không phụ thuộc API nước ngoài</small>
+        </div>
+      </div>
+      <div class="int-trust-card">
+        <div class="int-trust-ic"><i data-lucide="book-open"></i></div>
+        <div>
+          <strong>Căn chỉnh chính sách</strong>
+          <small>QĐ 2371 · Nghị định 222/2025/NĐ-CP · Đề án HCMC 2025-2035</small>
+        </div>
+      </div>
+      <div class="int-trust-card">
+        <div class="int-trust-ic"><i data-lucide="trending-up"></i></div>
+        <div>
+          <strong>Hiệu quả đã đo</strong>
+          <small>Giảm 80% thời gian soạn bài · ~2.000đ/bài CLIL · 14+ công cụ AI</small>
+        </div>
+      </div>
+    </div>
+  `},
+  {tag:'ĐỐI TÁC · Partners',title:'Đối tác chiến lược',content:`
+    <p class="int-lead">Learneris đồng hành cùng các <strong>tổ chức công nghệ và giáo dục hàng đầu</strong> — phù hợp với lời mời của QĐ 2371 Mục III.6.c về hợp tác công-tư trong giáo dục số.</p>
+    <div class="int-partners-grid">
+      <div class="int-partner-card"><div class="int-partner-lg" style="background:#fff;border:1px solid #e5e7eb">G</div><div><strong>Google for Startups</strong><small>AI credits · Infrastructure</small></div></div>
+      <div class="int-partner-card"><div class="int-partner-lg" style="background:#fff;border:1px solid #e5e7eb">M</div><div><strong>Microsoft for Startups</strong><small>Azure credits · Technical advisory</small></div></div>
+      <div class="int-partner-card"><div class="int-partner-lg" style="background:var(--t50);color:var(--teal)">GDS</div><div><strong>Google Digital School</strong><small>EdTech partner</small></div></div>
+      <div class="int-partner-card"><div class="int-partner-lg" style="background:var(--p50);color:var(--pur)">KDI</div><div><strong>KDI Education</strong><small>Học liệu STEM</small></div></div>
+      <div class="int-partner-card"><div class="int-partner-lg" style="background:var(--g50);color:var(--grn)">LMS</div><div><strong>LMS360</strong><small>Hạ tầng LMS</small></div></div>
+      <div class="int-partner-card"><div class="int-partner-lg" style="background:var(--a50);color:var(--amb)">ECO</div><div><strong>ECO Vietnam</strong><small>Chương trình giáo dục bền vững</small></div></div>
+    </div>
+    <div class="int-callout"><i data-lucide="quote"></i><p><strong>QĐ 2371 Mục III.6.c:</strong> <em>"khuyến khích hợp tác giữa ngành giáo dục và các tổ chức công nghệ, các doanh nghiệp giáo dục số"</em> — chính sách trực tiếp mời Learneris đồng hành cùng Sở.</p></div>
+  `}
+];
+let intIdx=0;
+function renderIntroPanel(idx){
+  const panel=document.getElementById('introPanel');if(!panel)return;
+  const d=INTRO_DATA[idx];if(!d)return;
+  panel.className='nv-panel int-panel';
+  panel.innerHTML=`
+    <div class="int-p-tag">${d.tag}</div>
+    <h2 class="int-p-title">${d.title}</h2>
+    <div class="int-p-divider"></div>
+    <div class="int-p-body">${d.content}</div>
+  `;
+  lucide.createIcons();
+}
+function selectInt(idx){
+  intIdx=idx;
+  document.querySelectorAll('#introSidebar .nv-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+  renderIntroPanel(idx);
+  if(typeof c!=='undefined' && c===1){
+    const navC=document.getElementById('navC');
+    if(navC)navC.textContent=`1.${idx+1} / ${T}`;
+  }
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('#introSidebar .nv-tab').forEach((tab,i)=>tab.addEventListener('click',()=>selectInt(i)));
+  selectInt(0);
+});
+
+let nvIdx=-1;
 function selectNv(idx){
   nvIdx=idx;
+  const scr=document.getElementById('nvScreen');
+  if(scr){
+    if(idx<0){scr.classList.remove('nv-active');}
+    else{scr.classList.add('nv-active');}
+  }
   document.querySelectorAll('#nvSidebar .nv-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
   renderNvPanel(idx);
   // Update counter if we're currently on screen 3 (8 nhiệm vụ)
   if(typeof c!=='undefined' && c===3){
     const navC=document.getElementById('navC');
-    if(navC)navC.textContent=`3.${idx+1} / ${T}`;
+    if(navC)navC.textContent=(idx<0)?`3 / ${T}`:`3.${idx+1} / ${T}`;
   }
 }
 
@@ -1635,80 +1747,37 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('#nvSidebar .nv-tab').forEach((tab,i)=>{
     tab.addEventListener('click',()=>selectNv(i));
   });
-  // Initialize with Task 01 (starts from first)
-  selectNv(0);
+  // Initialize overview (no task selected, banner full)
+  selectNv(-1);
 });
 
 function runScreenAnim(n,scr){
   switch(n){
-    case 1: // Khám Phá
+    case 1: // Giới Thiệu
       revealStagger(scr,180,100);
       break;
-    case 2: // GĐ1 Tổng Quan (task mapping)
+    case 2: // Đề Xuất
       revealStagger(scr,120,100);
       break;
-    case 3:{ // GĐ1 Đánh Giá — interactive survey
-      resetSurveyState();
-      const Q_TIME=800;
-      const SUBMIT_TIME=350;
-      const ROW_DONE_TIME=250;
-      const INTER_ROW=250;
-      const START=600;
-      let t=START;
-      SURVEY_DATA.forEach((c,i)=>{
-        const rowN=i+1;
-        setTimeout(()=>moveCursorToRow(rowN),t);
-        t+=350;
-        setTimeout(()=>{pulseCursor();highlightRow(rowN,true);},t);
-        t+=100;
-        c.qs.forEach((_,qIdx)=>{
-          setTimeout(()=>showSurveyQuestion(i,qIdx),t);
-          t+=300;
-          setTimeout(()=>answerSurveyQuestion(i,qIdx),t);
-          t+=Q_TIME-300;
-        });
-        setTimeout(()=>submitSurveyCriterion(i),t);
-        t+=SUBMIT_TIME;
-        setTimeout(()=>{markRowDone(rowN);updateSvyProgress(rowN);},t);
-        t+=ROW_DONE_TIME+INTER_ROW;
-      });
-      const afterAll=t+100;
-      setTimeout(()=>{
-        document.getElementById('svyFormPanel').classList.add('fade-out');
-        document.getElementById('svyCursor').classList.remove('on');
-      },afterAll);
-      setTimeout(()=>{
-        document.getElementById('svyFormPanel').style.display='none';
-        const result=document.getElementById('svyResultPanel');
-        result.style.display='block';
-        result.classList.add('fade-in');
-        animateRadar(scr,200);
-        const scoreEl=result.querySelector('.count-target');
-        if(scoreEl)countUp(scoreEl,50,1000,400);
-        lucide.createIcons();
-      },afterAll+400);
-      break;}
-    case 4: // GĐ1 Nội Dung — AI content generation
-      revealStagger(scr,200,100);
-      const genBar=scr.querySelector('.gen-progress');
-      if(genBar){
-        genBar.style.width='0%';
-        setTimeout(()=>{genBar.style.transition='width 2.5s cubic-bezier(.4,0,.2,1)';genBar.style.width='100%';},800);
-      }
-      const genItems=scr.querySelectorAll('.gen-item');
-      genItems.forEach((g,i)=>{setTimeout(()=>g.classList.add('show'),1200+i*500);});
+    case 3: // 8 Nhiệm Vụ click-through (selectNv handles the content)
+      revealStagger(scr,120,100);
       break;
-    case 5: // Bước Tiếp Theo
+    case 4: // Bước Tiếp Theo
       revealStagger(scr,150,100);
       break;
-    case 6: // FAQ
+    case 5: // FAQ
       revealStagger(scr,100,100);
       break;
   }
 }
 
 function next(){
-  // On screen 3 (8 nhiệm vụ), step through the sub-tasks before advancing
+  // Screen 1 (intro accordion): step through INTRO_DATA
+  if(c===1 && intIdx < INTRO_DATA.length - 1){
+    selectInt(intIdx + 1);
+    return;
+  }
+  // Screen 3 (8 nhiệm vụ): step: overview → NV 01 → ... → NV 08
   if(c===3 && nvIdx < NV_DATA.length - 1){
     selectNv(nvIdx + 1);
     return;
@@ -1716,15 +1785,20 @@ function next(){
   if(c<T)goTo(c+1);
 }
 function prev(){
-  // On screen 3, step back through sub-tasks before going to screen 2
-  if(c===3 && nvIdx > 0){
+  // Screen 1: step back through intro items
+  if(c===1 && intIdx > 0){
+    selectInt(intIdx - 1);
+    return;
+  }
+  // Screen 3: step back: NV 08 → ... → NV 01 → overview → screen 2
+  if(c===3 && nvIdx >= 0){
     selectNv(nvIdx - 1);
     return;
   }
   if(c>1){
     goTo(c-1);
-    // When entering screen 3 from screen 4 via Prev, jump to last sub-task
     if(c===3)selectNv(NV_DATA.length - 1);
+    if(c===1)selectInt(INTRO_DATA.length - 1);
   }
 }
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
