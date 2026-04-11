@@ -513,6 +513,23 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mk-pron-skills{display:flex;gap:4px;margin-top:6px}
 .mk-skill-pill{flex:1;text-align:center;font-size:9px;padding:3px 6px;border-radius:4px;background:#fff;border:1px solid #e5e7eb;color:var(--mut);font-weight:600;display:flex;align-items:center;justify-content:center;gap:3px}
 .mk-skill-active{background:var(--p50);border-color:var(--pur);color:var(--pur)}
+/* NV 05 Adaptive learning path */
+.mk-adapt-path{background:linear-gradient(180deg,#fdf4ff,#fff);padding:11px 13px;border:1px solid var(--p100)}
+.mk-ap-hd{font-size:9px;font-weight:800;color:var(--pur);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:4px;padding-bottom:5px;border-bottom:1px dashed var(--p100)}
+.mk-ap-hd em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500}
+.mk-ap-student{font-size:10px;font-weight:700;color:var(--txt);margin-bottom:6px;padding:4px 8px;background:#fff;border-radius:4px;border:1px solid var(--p100)}
+.mk-ap-track{display:flex;flex-direction:column;gap:4px;margin-bottom:6px}
+.mk-ap-step{display:flex;align-items:center;gap:7px;padding:4px 6px;border-radius:4px;background:#fff;border:1px solid #e5e7eb}
+.mk-ap-step span{width:18px;height:18px;border-radius:50%;background:var(--srf);color:var(--mut);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;flex-shrink:0}
+.mk-ap-step{font-size:10px;color:var(--txt);font-weight:600;flex-wrap:wrap}
+.mk-ap-step small{font-size:8px;color:var(--mut);margin-left:auto;font-weight:500}
+.mk-ap-done{background:var(--g50);border-color:#bbf7d0}
+.mk-ap-done span{background:var(--grn);color:#fff}
+.mk-ap-done small{color:var(--grn);font-weight:700}
+.mk-ap-curr{background:var(--p50);border-color:var(--pur)}
+.mk-ap-curr span{background:var(--pur);color:#fff}
+.mk-ap-curr small{color:var(--pur);font-weight:700}
+.mk-ap-note{margin-top:5px;padding:5px 7px;background:#fff;border-radius:4px;font-size:9px;color:var(--pur);font-weight:600;display:flex;align-items:center;gap:4px}
 /* === Screen 1.2 product UI snapshot === */
 .int-prod-shot{margin:8px -12px 8px -12px;height:96px;overflow:hidden;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;background:#f8fafc}
 .int-prod-shot img{width:100%;height:auto;display:block;object-fit:cover;object-position:top}
@@ -1738,11 +1755,11 @@ const NV_DATA=[
      </div>
    </div>`},
   {num:'05',task:'Đổi mới phương pháp dạy học, thi, kiểm tra, đánh giá',src:'QĐ 2371 · Mục III.5 — Đổi mới phương pháp dạy học',
-   owner:'learneris',badge:'★ Learneris',name:'4-Skill Activity Library + AI Speaking Coach + Bilingual Rubrics',
-   mech:'<strong>Thư viện hoạt động 4 kỹ năng</strong> (nghe/nói/đọc/viết) — GV chọn theo bài giảng, không cần tự soạn · <strong>AI Speaking Coach</strong> cho HS luyện phát âm + hội thoại real-time · <strong>Rubric song ngữ</strong> tự động chấm điểm bài viết + bài nói theo thang 4 kỹ năng.<em>Đánh giá formative liên tục · Thúc đẩy giao tiếp tự nhiên theo định hướng Mục III.5.</em>',
+   owner:'learneris',badge:'★ Learneris',name:'AI Đánh giá Formative + Lộ trình Học Cá nhân hóa (đa môn)',
+   mech:'EMI là dạy <strong>nội dung môn học</strong> (Toán, KHTN, Lý, Hóa…) bằng tiếng Anh — không phải dạy tiếng Anh. Learneris hỗ trợ <strong>đổi mới PPDH &amp; đánh giá đa môn</strong>:<br>▸ <strong>AI tutor đa môn</strong> — HS hỏi nội dung môn học bằng song ngữ, AI giải thích theo chuẩn SGK<br>▸ <strong>Đánh giá formative tự động</strong> — chấm rubric song ngữ theo 3 chiều: Content / Language / Communication<br>▸ <strong>Adaptive learning path</strong> (Learneris Adapt) — tự điều chỉnh độ khó theo năng lực từng HS qua các môn nội dung<em>Chuyên môn TEFL/ESL (giảng dạy ngôn ngữ chuyên sâu) thuộc về British Council, Cambridge, các đơn vị ngoại ngữ chuyên ngành. Learneris bổ sung công cụ AI cho việc dạy &amp; đánh giá nội dung môn học bằng tiếng Anh.</em>',
    mockup:`<div class="mk-grid mk-grid-2">
      <div class="mk-card mk-mathtutor">
-       <div class="mk-mt-hd"><i data-lucide="bot" style="width:11px;height:11px"></i> AI MATH TUTOR · <em>Học sinh hỏi · AI giải song ngữ</em></div>
+       <div class="mk-mt-hd"><i data-lucide="bot" style="width:11px;height:11px"></i> AI TUTOR ĐA MÔN · <em>HS hỏi nội dung môn · AI giải song ngữ</em></div>
        <div class="mk-mt-chat">
          <div class="mk-mt-bub mk-mt-user">How do I solve <strong>2x + 3 = 7</strong>?</div>
          <div class="mk-mt-bub mk-mt-ai">
@@ -1750,23 +1767,20 @@ const NV_DATA=[
            <strong>Step 2:</strong> x = 2<br>
            <em>Mẹo: Cùng phép tính ở cả hai vế!</em>
          </div>
-         <div class="mk-mt-bub mk-mt-user">Cảm ơn! Test thử nhé?</div>
+         <div class="mk-mt-bub mk-mt-user">Why does Newton's 2nd law use F=ma?</div>
        </div>
        <div class="mk-mt-rubric"><strong>AI rubric song ngữ:</strong> Content 4/5 · Language 3/5 · Communication 5/5</div>
      </div>
-     <div class="mk-card mk-pron">
-       <div class="mk-pron-hd"><i data-lucide="volume-2" style="width:11px;height:11px"></i> PHÁT ÂM CHUYÊN NGÀNH · <em>Speaking Coach</em></div>
-       <div class="mk-pron-row"><strong>equation</strong><span class="mk-pron-ipa">/ɪˈkweɪ.ʒən/</span><span class="mk-pron-play">▶</span></div>
-       <div class="mk-pron-row"><strong>variable</strong><span class="mk-pron-ipa">/ˈver.i.ə.bəl/</span><span class="mk-pron-play">▶</span></div>
-       <div class="mk-pron-row"><strong>subtract</strong><span class="mk-pron-ipa">/səbˈtrækt/</span><span class="mk-pron-play">▶</span></div>
-       <div class="mk-pron-row"><strong>solve</strong><span class="mk-pron-ipa">/sɒlv/</span><span class="mk-pron-play">▶</span></div>
-       <div class="mk-pron-note"><i data-lucide="info" style="width:9px;height:9px"></i> Mục tiêu: <strong>intelligibility</strong> — không cần giống bản ngữ <em>(Jenkins LFC)</em></div>
-       <div class="mk-pron-skills">
-         <span class="mk-skill-pill"><i data-lucide="ear" style="width:9px;height:9px"></i> Nghe</span>
-         <span class="mk-skill-pill mk-skill-active"><i data-lucide="mic" style="width:9px;height:9px"></i> Nói</span>
-         <span class="mk-skill-pill"><i data-lucide="book" style="width:9px;height:9px"></i> Đọc</span>
-         <span class="mk-skill-pill"><i data-lucide="pen" style="width:9px;height:9px"></i> Viết</span>
+     <div class="mk-card mk-adapt-path">
+       <div class="mk-ap-hd"><i data-lucide="trending-up" style="width:11px;height:11px"></i> LỘ TRÌNH HỌC CÁ NHÂN HÓA · <em>Adaptive Path</em></div>
+       <div class="mk-ap-student">HS · Nguyễn Minh An · Toán 7</div>
+       <div class="mk-ap-track">
+         <div class="mk-ap-step mk-ap-done"><span>1</span>Khái niệm phương trình<small>✓ Đạt 90%</small></div>
+         <div class="mk-ap-step mk-ap-done"><span>2</span>Phương trình bậc 1<small>✓ Đạt 75%</small></div>
+         <div class="mk-ap-step mk-ap-curr"><span>3</span>Bài toán có lời văn<small>● Đang học · AI tăng độ khó</small></div>
+         <div class="mk-ap-step"><span>4</span>Phương trình &amp; bất đẳng thức<small>Đề xuất tiếp theo</small></div>
        </div>
+       <div class="mk-ap-note"><i data-lucide="sparkles" style="width:9px;height:9px"></i> AI đề xuất bài tập sửa các điểm yếu cụ thể của An</div>
      </div>
    </div>`},
   {num:'06',task:'Ứng dụng CNTT, AI, tăng cường CSVC',src:'QĐ 2371 · Mục III.6.a (trích nguyên văn): "Đầu tư phát triển các nền tảng học tập số, ứng dụng trí tuệ nhân tạo (AI) có khả năng phân tích trình độ, nhu cầu của người học"',
