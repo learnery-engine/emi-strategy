@@ -363,6 +363,72 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .nv-p-mech em{font-style:italic;color:var(--mut);font-size:11px;display:block;margin-top:6px}
 .nv-p-arrow{display:inline-block;color:var(--teal);font-weight:900;margin:0 2px}
 @media(max-width:768px){.nv-layout{grid-template-columns:1fr}.nv-tab.active::after{display:none}.nv-p-src{padding-left:0}}
+/* Nested mockups inside right panel */
+.nv-p-mockup{margin-top:14px;padding-top:12px;border-top:1px dashed #e5e7eb}
+.nv-p-mk-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--mut);margin-bottom:8px}
+.nv-p-mk-label em{font-style:italic;text-transform:none;letter-spacing:0;font-size:10px}
+.mk-grid{display:grid;gap:8px}
+.mk-grid-2{grid-template-columns:1fr 1fr}
+.mk-card{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px 12px;font-size:11px;line-height:1.45}
+/* Task 01 — poster + news */
+.mk-poster{background:linear-gradient(135deg,var(--t50),#fff);border-left:3px solid var(--teal)}
+.mk-poster-top{font-size:8px;font-weight:800;color:var(--teal);letter-spacing:0.1em;margin-bottom:6px}
+.mk-poster h5{font-size:10px;font-weight:600;color:var(--mut);margin:0 0 3px 0}
+.mk-poster h5 em{color:var(--teal);font-style:italic}
+.mk-poster h4{font-size:13px;font-weight:800;color:var(--txt);margin:0;line-height:1.2}
+.mk-poster h4.mk-en{color:var(--teal);font-style:italic;font-weight:500;font-size:11px;margin-top:2px}
+.mk-poster-stat{margin-top:8px;padding-top:6px;border-top:1px dashed #cbd5e1;font-size:10px;color:var(--mut)}
+.mk-poster-stat strong{color:var(--teal);font-size:13px}
+.mk-news{border-left:3px solid var(--pur)}
+.mk-news-top{font-size:8px;font-weight:800;color:var(--pur);letter-spacing:0.08em;margin-bottom:5px;display:flex;align-items:center;gap:4px}
+.mk-news-title{font-size:11px;font-weight:800;color:var(--txt);margin:0 0 4px 0;line-height:1.3}
+.mk-news-p{font-size:10px;color:var(--mut);margin:0 0 4px 0;line-height:1.45}
+.mk-news-p.mk-en em{color:var(--pur)}
+/* Task 03 — lesson script */
+.mk-script{padding:10px 12px}
+.mk-script-hd{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:4px;padding-bottom:6px;border-bottom:1px dashed #e5e7eb}
+.mk-script-hd em{text-transform:none;font-style:italic;color:var(--mut);font-weight:500}
+.mk-script-row{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:11px;color:var(--txt);line-height:1.4}
+.mk-script-row+.mk-script-row{border-top:1px dashed #f1f5f9}
+.mk-t{font-size:9px;font-weight:800;color:var(--teal);min-width:36px;font-variant-numeric:tabular-nums}
+.mk-lang{display:inline-block;font-size:8px;font-weight:800;padding:2px 5px;border-radius:3px;min-width:18px;text-align:center}
+.mk-lang.en{background:var(--t50);color:var(--teal)}
+.mk-lang.vn{background:#fef2f2;color:var(--red)}
+.mk-script-row em{font-style:italic;color:var(--teal)}
+/* Task 04 — CLIL content blocks */
+.mk-clil-hd{font-size:10px;font-weight:700;color:var(--txt);margin-bottom:8px;padding-bottom:6px;border-bottom:1px dashed #e5e7eb;display:flex;align-items:center;justify-content:space-between}
+.mk-clil-ratio{font-size:9px;font-weight:800;background:var(--t50);color:var(--teal);padding:2px 6px;border-radius:3px;letter-spacing:0.03em}
+.mk-clil-block{padding:6px 10px;border-radius:5px;margin-bottom:5px;font-size:11px;line-height:1.4}
+.mk-clil-block:last-child{margin-bottom:0}
+.mk-clil-block.mk-b-grn{background:var(--g50);border-left:3px solid var(--grn)}
+.mk-clil-block.mk-b-teal{background:var(--t50);border-left:3px solid var(--teal)}
+.mk-clil-block.mk-b-amb{background:var(--a50);border-left:3px solid var(--amb)}
+.mk-clil-block em{font-style:italic;color:var(--teal)}
+.mk-clil-block .mk-b-grn em{color:var(--grn)}
+.mk-clil-block .mk-b-amb em{color:var(--amb)}
+.mk-code{background:#fff;padding:1px 5px;border-radius:3px;font-family:'SF Mono',Monaco,monospace;font-size:10px;color:var(--txt);border:1px solid #e5e7eb}
+/* Task 05 — LMS dashboard */
+.mk-dash-hd{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:4px;padding-bottom:6px;border-bottom:1px dashed #e5e7eb}
+.mk-dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
+.mk-stat{text-align:center;padding:6px 4px;background:var(--srf);border-radius:5px}
+.mk-sv{font-size:16px;font-weight:900;color:var(--txt);line-height:1;font-variant-numeric:tabular-nums}
+.mk-sv.mk-tl{color:var(--teal)}
+.mk-sl{font-size:9px;color:var(--mut);margin-top:2px}
+.mk-dash-badges{display:flex;gap:5px;flex-wrap:wrap}
+.mk-badge{display:inline-flex;align-items:center;gap:3px;font-size:9px;font-weight:700;padding:3px 6px;border-radius:4px}
+.mk-b-grn2{background:var(--g50);color:var(--grn)}
+.mk-b-pur2{background:var(--p50);color:var(--pur)}
+.mk-b-tl2{background:var(--t50);color:var(--teal)}
+/* Task 06 — onboarding form */
+.mk-on-hd{font-size:9px;font-weight:800;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:4px;padding-bottom:6px;border-bottom:1px dashed #e5e7eb}
+.mk-on-field{margin-bottom:7px}
+.mk-on-field label{display:block;font-size:9px;font-weight:700;color:var(--mut);margin-bottom:3px;text-transform:uppercase;letter-spacing:0.04em}
+.mk-on-auto{font-weight:500;color:var(--teal);font-style:italic;text-transform:none;letter-spacing:0}
+.mk-on-input{padding:5px 9px;border:1px solid #e5e7eb;border-radius:5px;font-size:11px;background:#fff;display:flex;align-items:center;justify-content:space-between}
+.mk-on-chips{display:flex;gap:4px;flex-wrap:wrap}
+.mk-on-chip{font-size:10px;padding:3px 8px;border:1px solid #e5e7eb;border-radius:5px;background:#fff;color:var(--mut)}
+.mk-on-chip.on{background:var(--teal);color:#fff;border-color:var(--teal);font-weight:700}
+.mk-on-status{margin-top:7px;padding:5px 8px;background:var(--g50);border-radius:5px;font-size:10px;color:#065f46;display:flex;align-items:center;gap:5px}
 /* Mini-banner for phase-framed interactive screens */
 .mini-banner{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;border-left:3px solid var(--teal);background:linear-gradient(90deg,var(--t50),#fff 60%);margin-bottom:4px}
 .mini-banner.mini-tl{border-left-color:var(--teal);background:linear-gradient(90deg,var(--t50),#fff 60%)}
@@ -473,11 +539,11 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <div class="nv-layout">
     <!-- LEFT: Compact task sidebar -->
     <div class="nv-sidebar" id="nvSidebar">
-      <div class="nv-tab tm-partner" data-nv="0">
+      <div class="nv-tab tm-learneris" data-nv="0">
         <div class="nv-num">01</div>
         <div class="nv-mini">
           <div class="nv-title">Nâng cao nhận thức xã hội</div>
-          <div class="nv-badge tm-b-partner">Đối tác khác</div>
+          <div class="nv-badge tm-b-ler">★ Hỗ trợ</div>
         </div>
       </div>
       <div class="nv-tab tm-learneris active" data-nv="1">
@@ -521,7 +587,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
       <!-- Populated by JS -->
     </div>
   </div>
-  <div class="pb"><i data-lucide="zap"></i> <strong>5/6 nhiệm vụ</strong> Learneris đóng góp trực tiếp · Nhiệm vụ #01 (nhận thức) do Sở + Báo chí · Nhiệm vụ #03 phần chứng chỉ chính quy do British Council/VNIES</div>
+  <div class="pb"><i data-lucide="zap"></i> <strong>6/6 nhiệm vụ</strong> Learneris đóng góp · Nhiệm vụ #01 &amp; #03 là vai trò hỗ trợ (Sở + Báo chí / British Council / VNIES giữ vai trò chính)</div>
 </div>
 
 <!-- ===== 3. GĐ NỀN TẢNG · NV 02 — ĐÁNH GIÁ INTERACTIVE ===== -->
@@ -1164,33 +1230,89 @@ function animateChat(scr,delay=200){
 }
 
 // Per-screen animation sequences (demo 2 — phase-driven, 6 screens)
-// === Screen 2: 6 nhiệm vụ task data ===
+// === Screen 2: 6 nhiệm vụ task data (with nested mockups) ===
 const NV_DATA=[
-  {num:'01',task:'Nâng cao nhận thức xã hội về vai trò tiếng Anh',src:'QĐ 2371 · Mục III.1',
-   owner:'partner',badge:'Đối tác khác',name:'Sở GD&ĐT + Báo chí + Truyền thông',
-   mech:'Nhiệm vụ truyền thông xã hội do Sở GD&ĐT phối hợp với cơ quan báo chí và truyền thông thực hiện. <em>Learneris không trực tiếp đóng góp phần này — chỉ hỗ trợ kỹ thuật truyền thông nội bộ trường học (bản tin song ngữ, website trường) khi được yêu cầu.</em>'},
+  {num:'01',task:'Nâng cao nhận thức xã hội về vai trò tiếng Anh',src:'QĐ 2371 · Mục III.1 · Sở + Báo chí chủ trì',
+   owner:'learneris',badge:'★ Learneris hỗ trợ',name:'AI Content Generator cho Truyền Thông',
+   mech:'Sở có thể dùng AI để tạo nhanh <strong>nội dung truyền thông song ngữ</strong>: poster chiến dịch, infographic dữ liệu, bản tin phụ huynh hàng tháng, caption mạng xã hội, tài liệu briefing cho hiệu trưởng.<em>Đồng bộ thông điệp · Song ngữ sẵn sàng · Giảm 80% công soạn thảo.</em>',
+   mockup:`<div class="mk-grid mk-grid-2">
+     <div class="mk-card mk-poster">
+       <div class="mk-poster-top">POSTER · EMI 2025</div>
+       <h5>Tiếng Anh <em>· English</em></h5>
+       <h4>Là ngôn ngữ thứ hai</h4>
+       <h4 class="mk-en">The second language</h4>
+       <div class="mk-poster-stat"><strong>30%</strong> trường HCMC · <em>by 2030</em></div>
+     </div>
+     <div class="mk-card mk-news">
+       <div class="mk-news-top"><i data-lucide="newspaper" style="width:11px;height:11px"></i> BẢN TIN PHỤ HUYNH · THÁNG 3</div>
+       <p class="mk-news-title">Con em học EMI — hành trình 2026</p>
+       <p class="mk-news-p"><strong>Tháng này:</strong> Lớp 7 triển khai thí điểm Toán bằng tiếng Anh · Phụ huynh có thể theo dõi qua app…</p>
+       <p class="mk-news-p mk-en"><em>This month: Grade 7 pilots Math in English. Parents can track progress via app…</em></p>
+     </div>
+   </div>`},
   {num:'02',task:'Xây dựng thể chế: tiêu chuẩn, tiêu chí đánh giá, quy định',src:'QĐ 2371 · Mục III.2.c — BGDĐT ban hành chuẩn chính thức',
    owner:'learneris',badge:'★ Learneris',name:'EMI Readiness Assessment',
-   mech:'Hiệu trưởng tạo khảo sát <span class="nv-p-arrow">→</span> hệ thống gửi <strong>17 câu hỏi thang 4 mức</strong> cho HT / PHT / Tổ trưởng EMI qua email <span class="nv-p-arrow">→</span> kết quả tự động tính theo <strong>7 tiêu chí × 30 chỉ báo</strong> <span class="nv-p-arrow">→</span> xuất <strong>báo cáo PDF</strong> + lộ trình cải thiện 2-3 năm gửi Sở.<em>Khung tham chiếu chạy ngay · Sẵn sàng cập nhật khi BGDĐT ban hành chuẩn chi tiết.</em>'},
+   mech:'HT tạo khảo sát <span class="nv-p-arrow">→</span> hệ thống gửi <strong>17 câu hỏi thang 4 mức</strong> cho HT/PHT/Tổ trưởng EMI <span class="nv-p-arrow">→</span> tính điểm <strong>7 tiêu chí × 30 chỉ báo</strong> <span class="nv-p-arrow">→</span> báo cáo PDF + lộ trình 2-3 năm.<em>Chạy ngay · Sẵn sàng cập nhật khi BGDĐT ban hành chuẩn chi tiết.</em>'},
   {num:'03',task:'Phát triển đội ngũ: đào tạo, khảo thí, tuyển dụng GV',src:'QĐ 2371 · Mục III.3 · KH 18/KH-BGDĐT khảo sát 4/2026',
    owner:'learneris',badge:'★ Learneris hỗ trợ',name:'Thư viện Micro-modules CLIL + Kịch bản Lớp',
-   mech:'GV tự học <strong>12 khóa ngắn</strong> trên nền tảng (Phương pháp CLIL, Classroom English, Từ vựng chuyên ngành) <span class="nv-p-arrow">→</span> mỗi bài giảng AI tạo kèm <strong>kịch bản 45 phút song ngữ + audio phát âm + câu lệnh quản lý lớp</strong> <span class="nv-p-arrow">→</span> giáo viên trình độ A2-B1 có thể đứng lớp CLIL ngay mà không cần chờ đạt B2.<em>Bổ trợ — không thay chứng chỉ chính quy của British Council / VNIES / các đơn vị được BGDĐT công nhận.</em>'},
+   mech:'GV tự học <strong>12 khóa ngắn</strong> (CLIL methodology, Classroom English, từ vựng chuyên ngành). Mỗi bài giảng kèm <strong>kịch bản 45 phút song ngữ + audio phát âm</strong> để GV A2-B1 đứng lớp ngay.<em>Bổ trợ — không thay chứng chỉ chính quy British Council / VNIES.</em>',
+   mockup:`<div class="mk-card mk-script">
+     <div class="mk-script-hd"><i data-lucide="clock" style="width:11px;height:11px"></i> KỊCH BẢN 45 PHÚT · <em>Lesson Script</em></div>
+     <div class="mk-script-row"><span class="mk-t">0-3p</span><span class="mk-lang en">EN</span><span>Vocabulary: <em>equation, variable, solve</em></span></div>
+     <div class="mk-script-row"><span class="mk-t">3-15p</span><span class="mk-lang vn">VN</span><span>Giảng bài chính bằng tiếng Việt</span></div>
+     <div class="mk-script-row"><span class="mk-t">15-20p</span><span class="mk-lang en">EN</span><span>GV giải mẫu: <em>"subtract from both sides"</em> <i data-lucide="volume-2" style="width:10px;height:10px"></i></span></div>
+     <div class="mk-script-row"><span class="mk-t">20-32p</span><span class="mk-lang vn">VN</span><span>HS thực hành · dùng thuật ngữ EN</span></div>
+     <div class="mk-script-row"><span class="mk-t">32-38p</span><span class="mk-lang en">EN</span><span>HS trình bày: <em>"x equals 2, I solved by..."</em></span></div>
+   </div>`},
   {num:'04',task:'Phát triển chương trình & học liệu EMI',src:'QĐ 2371 · Mục III.4 · Nghị định 222/2025/NĐ-CP',
    owner:'learneris',badge:'★ Learneris',name:'AI Content Engine cho EMI Việt Nam',
-   mech:'GV chọn <strong>môn học</strong> (11 môn: Toán, Lý, Hóa, Sinh, KHTN, Công nghệ, Tin học, Địa, Sử, GDCD, Mỹ thuật) + <strong>lớp</strong> (5 cấp: Mầm non → THPT) + <strong>chủ đề</strong> + <strong>tỷ lệ tiếng Anh</strong> (20-100%) <span class="nv-p-arrow">→</span> AI tinh chỉnh trên ngữ liệu <strong>SGK Việt Nam</strong> tạo slide + bài tập + đề kiểm tra song ngữ trong <strong>~3 phút, ~2.000đ/bài</strong> <span class="nv-p-arrow">→</span> xuất DOCX / PDF / Google Slides.<em>Khung CLIL 4C (Coyle, 2010) · Tham chiếu Cambridge / Oxford.</em>'},
+   mech:'GV chọn <strong>môn</strong> (11 môn) + <strong>lớp</strong> (5 cấp) + <strong>chủ đề</strong> + <strong>tỷ lệ TA</strong> (20-100%) <span class="nv-p-arrow">→</span> AI tinh chỉnh trên ngữ liệu SGK VN tạo slide + bài tập + đề kiểm tra song ngữ trong <strong>~3 phút, ~2.000đ/bài</strong>.<em>Khung CLIL 4C (Coyle, 2010) · Tham chiếu Cambridge / Oxford.</em>',
+   mockup:`<div class="mk-card mk-clil">
+     <div class="mk-clil-hd">Toán 7 · Phương trình bậc nhất <span class="mk-clil-ratio">50% EN</span></div>
+     <div class="mk-clil-block mk-b-grn">
+       <strong>Phương trình bậc nhất</strong> <em>· Linear Equations</em><br>
+       <span class="mk-code">ax + b = 0</span> — <em>has the form ax + b = 0</em>
+     </div>
+     <div class="mk-clil-block mk-b-teal">
+       <strong>Bước 1 · Step 1:</strong> Chuyển <span class="mk-code">b</span> sang vế phải · <em>Move b to the right side</em>
+     </div>
+     <div class="mk-clil-block mk-b-amb">
+       <strong>Ví dụ · Example:</strong> <span class="mk-code">2x + 4 = 0</span> → <span class="mk-code">x = -2</span>
+     </div>
+   </div>`},
   {num:'05',task:'Chuyển đổi số, ứng dụng AI và cơ sở vật chất',src:'QĐ 2371 · Mục III.6',
    owner:'learneris',badge:'★ Learneris',name:'Learneris LMS',
-   mech:'Quản lý lớp + giao bài + theo dõi tiến độ học sinh · tích hợp sẵn <strong>AI Teaching Assistant</strong> + <strong>Bilingual Chat</strong> · đạt chuẩn <strong>An toàn Thông tin Cấp 3</strong> (Thông tư 12/2022/TT-BTTTT) — bắt buộc cho trường công lập.<em>Không yêu cầu trường đầu tư thêm cơ sở vật chất · Triển khai trên hạ tầng cloud của Learneris.</em>'},
+   mech:'Quản lý lớp + giao bài + theo dõi tiến độ · tích hợp sẵn <strong>AI Teaching Assistant</strong> + <strong>Bilingual Chat</strong> · đạt chuẩn <strong>An toàn Thông tin Cấp 3</strong> (TT 12/2022/TT-BTTTT) bắt buộc cho trường công.<em>Không yêu cầu trường đầu tư thêm CSVC · Triển khai trên hạ tầng cloud Learneris.</em>',
+   mockup:`<div class="mk-card mk-dash">
+     <div class="mk-dash-hd"><i data-lucide="layout-dashboard" style="width:11px;height:11px"></i> DASHBOARD TRƯỜNG · THCS NGUYỄN DU</div>
+     <div class="mk-dash-stats">
+       <div class="mk-stat"><div class="mk-sv">45</div><div class="mk-sl">GV</div></div>
+       <div class="mk-stat"><div class="mk-sv">620</div><div class="mk-sl">HS</div></div>
+       <div class="mk-stat"><div class="mk-sv">156</div><div class="mk-sl">Bài CLIL</div></div>
+       <div class="mk-stat"><div class="mk-sv mk-tl">71%</div><div class="mk-sl">GV active</div></div>
+     </div>
+     <div class="mk-dash-badges">
+       <span class="mk-badge mk-b-grn2"><i data-lucide="shield-check" style="width:9px;height:9px"></i> ATTT Cấp 3</span>
+       <span class="mk-badge mk-b-pur2"><i data-lucide="bot" style="width:9px;height:9px"></i> AI Assistant</span>
+       <span class="mk-badge mk-b-tl2"><i data-lucide="message-circle" style="width:9px;height:9px"></i> Bilingual Chat</span>
+     </div>
+   </div>`},
   {num:'06',task:'Thí điểm EMI tại các trường',src:'Mầm non đăng ký trước 14/5/2026',
    owner:'learneris',badge:'★ Learneris',name:'Onboarding Engine + Báo cáo Sở',
-   mech:'Trường nhập <strong>tên trường</strong> <span class="nv-p-arrow">→</span> hệ thống tự nhận diện <strong>cấp học</strong> (Mầm non / Tiểu học / THCS / THPT / Sở) + cấu trúc lớp phù hợp <span class="nv-p-arrow">→</span> import <strong>roster GV/HS</strong> từ Excel <span class="nv-p-arrow">→</span> tạo tổ chức + tài khoản <strong>hoàn thành trong 1 ngày</strong>.<em>Báo cáo định kỳ xuất DOCX/PDF theo mẫu Sở GD&ĐT · Sẵn sàng cho deadline 14/5/2026.</em>'}
+   mech:'Trường nhập <strong>tên</strong> <span class="nv-p-arrow">→</span> auto-detect <strong>cấp học</strong> (Mầm non/Tiểu/THCS/THPT/Sở) + cấu trúc lớp <span class="nv-p-arrow">→</span> import <strong>roster Excel</strong> <span class="nv-p-arrow">→</span> tạo tổ chức + tài khoản <strong>trong 1 ngày</strong>.<em>Báo cáo định kỳ xuất DOCX/PDF mẫu Sở · Sẵn sàng deadline 14/5/2026.</em>',
+   mockup:`<div class="mk-card mk-onboard">
+     <div class="mk-on-hd"><i data-lucide="school" style="width:11px;height:11px"></i> ĐĂNG KÝ THÍ ĐIỂM EMI</div>
+     <div class="mk-on-field"><label>Tên trường</label><div class="mk-on-input">Trường THCS Nguyễn Du <i data-lucide="check" style="width:10px;height:10px;color:var(--grn)"></i></div></div>
+     <div class="mk-on-field"><label>Cấp học <span class="mk-on-auto">← tự nhận diện</span></label><div class="mk-on-chips"><span class="mk-on-chip">Mầm non</span><span class="mk-on-chip">Tiểu học</span><span class="mk-on-chip on">THCS</span><span class="mk-on-chip">THPT</span></div></div>
+     <div class="mk-on-field"><label>Khối lớp triển khai</label><div class="mk-on-chips"><span class="mk-on-chip">L6</span><span class="mk-on-chip on">L7 ✓</span><span class="mk-on-chip on">L8 ✓</span><span class="mk-on-chip">L9</span></div></div>
+     <div class="mk-on-status"><i data-lucide="file-check" style="width:11px;height:11px;color:var(--grn)"></i> roster_thcs_nguyendu.xlsx · <strong>620 HS · 45 GV</strong> đã tạo</div>
+   </div>`}
 ];
 
 function renderNvPanel(idx){
   const d=NV_DATA[idx];if(!d)return;
   const panel=document.getElementById('nvPanel');if(!panel)return;
-  const isPartner=d.owner==='partner';
-  panel.className='nv-panel'+(isPartner?' partner':'');
+  panel.className='nv-panel';
   panel.innerHTML=`
     <div class="nv-p-hd">
       <div class="nv-p-num">${d.num}</div>
@@ -1203,7 +1325,9 @@ function renderNvPanel(idx){
       <div class="nv-p-name">${d.name}</div>
     </div>
     <div class="nv-p-mech">${d.mech}</div>
+    ${d.mockup?`<div class="nv-p-mockup"><div class="nv-p-mk-label">▾ Hình dung cụ thể · <em>What it looks like</em></div>${d.mockup}</div>`:''}
   `;
+  lucide.createIcons();
 }
 
 function selectNv(idx){
