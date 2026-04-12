@@ -609,7 +609,7 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mk-cs-stats strong{color:var(--teal);font-size:11px;font-weight:900}
 .mk-cs-cert{display:flex;align-items:center;justify-content:center;gap:4px;padding:5px;background:linear-gradient(135deg,var(--a50),#fff);border:1px dashed var(--amb);border-radius:4px;font-size:9px;font-weight:700;color:#92400e}
 .mk-cs-ftr{padding:5px 8px;font-size:8px;color:var(--mut);text-align:center;display:flex;align-items:center;justify-content:center;gap:4px}
-@media(max-width:768px){.nv-layout{grid-template-columns:1fr}.nv-tab.active::after{display:none}.nv-p-src{padding-left:0}}
+@media(max-width:768px){.nv-layout{grid-template-columns:180px 1fr}.nv-tab.active::after{display:none}.nv-p-src{padding-left:0}}
 /* Nested mockups inside right panel */
 .nv-p-mockup{margin-top:14px;padding-top:12px;border-top:1px dashed #e5e7eb}
 .nv-p-mk-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--mut);margin-bottom:8px}
@@ -954,13 +954,13 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   .sec-t{font-size:16px;gap:6px}
   .sec-s{font-size:12px;margin-bottom:8px}
 
-  /* NV sidebar → horizontal scroll tabs on mobile */
-  .nv-layout{grid-template-columns:1fr;gap:8px}
-  .nv-sidebar{flex-direction:row;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:6px;padding-bottom:4px;scroll-snap-type:x mandatory}
-  .nv-tab{min-width:auto;white-space:nowrap;flex-shrink:0;padding:6px 10px;font-size:11px;scroll-snap-align:start}
+  /* NV sidebar — stays sidebar, just narrower */
+  .nv-layout{grid-template-columns:140px 1fr;gap:6px}
+  .nv-sidebar{gap:2px}
+  .nv-tab{padding:5px 6px;gap:5px}
   .nv-tab.active::after{display:none}
-  .nv-num{font-size:10px;width:20px;height:20px}
-  .nv-lbl{font-size:10px}
+  .nv-num{font-size:9px;width:18px;height:18px}
+  .nv-lbl{font-size:9px}
   .nv-sub{display:none}
 
   /* NV panel */
