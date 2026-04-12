@@ -15,7 +15,7 @@ Cảm ơn anh đã phản hồi với đề nghị của chúng em qua anh [BD N
 
 Tiếp theo **Chương trình Học cùng AI cho THCS** mà Sở GD&ĐT TP.HCM đã thẩm định và anh đã ký xác nhận [trong [tháng/quý gần đây]], Learneris mong muốn mở rộng phạm vi hỗ trợ sang triển khai **Đề án "Tiếng Anh trở thành ngôn ngữ thứ hai trong trường học"** theo Quyết định 2371/QĐ-TTg.
 
-Nền tảng AI đang phục vụ Chương trình Học cùng AI cũng chính là nền tảng có thể hỗ trợ triển khai EMI. Cụ thể, hai chương trình chia sẻ chung:
+Nền tảng AI đang phục vụ Chương trình Học cùng AI — hiện được sử dụng bởi hơn 10.000 giáo viên tại Việt Nam và quốc tế — cũng chính là nền tảng có thể hỗ trợ triển khai EMI. Cụ thể, hai chương trình chia sẻ chung:
 
 - **Cùng một hệ AI** và đội ngũ kỹ thuật đã được Sở thẩm định
 - **Cùng một khung tuân thủ:** An toàn Thông tin Cấp 3 (TT 12/2022/TT-BTTTT) + VNIES thẩm định khung chương trình Lớp 1 → Lớp 12
