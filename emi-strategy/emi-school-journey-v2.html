@@ -912,6 +912,144 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mini-src{font-size:10px;color:var(--mut);text-align:right;max-width:200px;line-height:1.4;flex-shrink:0}
 .mini-src a{color:var(--teal);text-decoration:underline}
 @media(max-width:768px){.mini-banner{flex-wrap:wrap}.mini-src{display:none}}
+
+/* ===== MOBILE OPTIMISATION (≤480px) ===== */
+@media(max-width:480px){
+  :root{--hh:40px;--sh:46px;--nh:44px;--r:10px;--rs:8px}
+  body{font-size:14px}
+
+  /* Header */
+  .hdr{padding:0 10px;gap:6px}
+  .logo{width:24px;height:24px;border-radius:5px}.logo span{font-size:11px}
+  .hdr-t{font-size:13px}
+  .hdr-b{font-size:10px;padding:3px 8px}
+
+  /* Steps bar — horizontal scroll friendly */
+  .sbar{height:var(--sh);padding:0 8px}
+  .si{min-width:36px}
+  .sc{width:22px;height:22px;font-size:9px;border-width:1.5px}
+  .sl{font-size:8px;margin-top:1px;max-width:52px;overflow:hidden;text-overflow:ellipsis}
+  .sln{min-width:6px;max-width:20px;top:-7px}
+
+  /* Content area */
+  .wrap{top:calc(var(--hh) + var(--sh));bottom:var(--nh)}
+  .scr{padding:8px 10px 12px}
+
+  /* Bottom nav */
+  .bnav{height:var(--nh);padding:0 10px}
+  .nb{padding:6px 12px;font-size:11px;border-radius:6px}
+  .nb.p{padding:8px 16px;font-size:12px}
+  .nc{font-size:10px}
+
+  /* Cards & grids */
+  .card{padding:10px;border-radius:var(--r)}
+  .g2,.g3,.g4{grid-template-columns:1fr;gap:8px}
+
+  /* Stats */
+  .st{padding:8px}
+  .sv{font-size:18px}
+  .slb{font-size:10px}
+
+  /* Section headings */
+  .sec-t{font-size:16px;gap:6px}
+  .sec-s{font-size:12px;margin-bottom:8px}
+
+  /* NV sidebar → horizontal scroll tabs on mobile */
+  .nv-layout{grid-template-columns:1fr;gap:8px}
+  .nv-sidebar{flex-direction:row;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:6px;padding-bottom:4px;scroll-snap-type:x mandatory}
+  .nv-tab{min-width:auto;white-space:nowrap;flex-shrink:0;padding:6px 10px;font-size:11px;scroll-snap-align:start}
+  .nv-tab.active::after{display:none}
+  .nv-num{font-size:10px;width:20px;height:20px}
+  .nv-lbl{font-size:10px}
+  .nv-sub{display:none}
+
+  /* NV panel */
+  .nv-panel{padding:10px}
+  .nv-p-tag{font-size:8px}
+  .nv-p-title{font-size:15px}
+  .nv-p-lead{font-size:11px}
+  .nv-p-src{font-size:10px;padding-left:0}
+
+  /* Intro accordion tabs */
+  .int-acc-tab{padding:6px 10px;font-size:11px}
+
+  /* Product cards */
+  .int-prods{grid-template-columns:1fr;gap:8px}
+  .int-p-name{font-size:13px}
+  .int-p-url{font-size:9px}
+  .int-p-desc{font-size:10px}
+  .int-flagship{grid-template-columns:1fr}
+  .int-flag-right{border-left:none;border-top:1px dashed var(--t200);padding-left:0;padding-top:8px}
+
+  /* Trust grid */
+  .int-trust-grid{grid-template-columns:1fr;gap:8px}
+  .int-trust-card{padding:10px 12px;gap:10px}
+  .int-trust-card strong{font-size:12px}
+  .int-trust-card small{font-size:11px}
+  .int-trust-ic{width:32px;height:32px;border-radius:7px}
+  .int-trust-ic i[data-lucide]{width:16px;height:16px}
+
+  /* Meta grid */
+  .int-meta{grid-template-columns:1fr}
+  .int-partners-grid{grid-template-columns:1fr;gap:6px}
+
+  /* Intro hero & products */
+  .intro-title{font-size:22px}
+  .intro-sub{font-size:11px}
+  .intro-products{grid-template-columns:1fr;gap:8px}
+  .intro-p-name{font-size:13px}
+  .intro-proof{grid-template-columns:1fr 1fr;gap:6px;padding:8px}
+  .intro-proof-stat strong{font-size:18px}
+
+  /* Executive proposal */
+  .exec-head{grid-template-columns:1fr;gap:8px;padding:10px 12px}
+  .exec-ttl{border-left:none;border-right:none;padding:0;border-top:1px dashed #e5e7eb;padding-top:8px}
+  .exec-ttl-h{font-size:16px}
+  .exec-value{grid-template-columns:1fr;gap:6px}
+  .exec-v-big{padding:10px 8px}
+  .exec-v-big strong{font-size:24px}
+  .exec-pillars{grid-template-columns:1fr;gap:6px}
+  .exec-callout{padding:8px 10px}
+
+  /* Phase cards */
+  .s1-phases{grid-template-columns:1fr;gap:8px}
+  .s1-title{font-size:22px}
+  .s1-p-name{font-size:16px}
+  .s1-p-v{font-size:24px}
+
+  /* Mini banner */
+  .mini-banner{padding:8px 10px;gap:8px}
+  .mini-ic{width:28px;height:28px}
+  .mini-title{font-size:15px}
+
+  /* Mockup grids inside NV panels */
+  .mk-grid-2{grid-template-columns:1fr}
+  .mk-sk-grid{grid-template-columns:1fr}
+  .mk-intl-row{grid-template-columns:1fr 20px 1fr;font-size:9px}
+
+  /* Phase stats */
+  .phase-title{font-size:16px}
+  .phase-stat .sv{font-size:18px}
+  .phase-hd{gap:8px}
+  .phase-ic{width:34px;height:34px}
+
+  /* Timeline items */
+  .tm-item{grid-template-columns:22px 1fr;gap:6px}
+  .tm-owner{grid-column:1/-1;border-left:none;border-top:1px dashed #e5e7eb;padding-left:0;padding-top:6px}
+  .feat-grid{grid-template-columns:1fr}
+
+  /* Browser chrome mockups */
+  .bchrome{border-radius:6px}
+  .bchrome-bar{padding:4px 8px}
+
+  /* FAQ items */
+  .faq-q{font-size:12px;padding:8px 10px}
+  .faq-a{padding:8px 10px}
+  .faq-a p{font-size:11px}
+
+  /* Touch-friendly tap targets */
+  .nv-tab,.int-acc-tab,.si,.nb,.lvl-chip,.cbx,.faq-q{min-height:36px}
+}
 </style>
 </head>
 <body>
