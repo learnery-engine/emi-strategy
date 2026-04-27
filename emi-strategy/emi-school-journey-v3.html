@@ -615,7 +615,16 @@ select.fi{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .mk-cs-stats strong{color:var(--teal);font-size:11px;font-weight:900}
 .mk-cs-cert{display:flex;align-items:center;justify-content:center;gap:4px;padding:5px;background:linear-gradient(135deg,var(--a50),#fff);border:1px dashed var(--amb);border-radius:4px;font-size:9px;font-weight:700;color:#92400e}
 .mk-cs-ftr{padding:5px 8px;font-size:8px;color:var(--mut);text-align:center;display:flex;align-items:center;justify-content:center;gap:4px}
-@media(max-width:768px){.nv-layout{grid-template-columns:180px 1fr}.nv-tab.active::after{display:none}.nv-p-src{padding-left:0}
+@media(max-width:768px){
+  /* Sidebar → horizontal scrollable tab strip on top, right panel takes full width */
+  .nv-layout{display:flex;flex-direction:column;gap:8px;grid-template-columns:none}
+  .nv-sidebar{display:flex;flex-direction:row;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;gap:5px;padding:2px 2px 6px;scrollbar-width:thin}
+  .nv-sidebar::-webkit-scrollbar{height:3px}
+  .nv-sidebar::-webkit-scrollbar-thumb{background:var(--t200);border-radius:2px}
+  .nv-tab{flex:0 0 auto;min-width:128px;padding:6px 9px;gap:6px}
+  .nv-tab.active::after{display:none}
+  .nv-p-src{padding-left:0}
+  /* Mech text becomes a tap-to-expand block so animation lands on screen */
   .nv-p-mech-block{margin:6px 0 4px}
   .nv-p-mech-toggle{display:flex;align-items:center;gap:6px;width:100%;padding:7px 10px;background:var(--t50);border:1px solid var(--t100);border-radius:6px;font-size:11px;font-weight:700;color:var(--teal);cursor:pointer;font-family:inherit;text-align:left}
   .nv-p-mech-toggle i{width:12px;height:12px;transition:transform .2s}
@@ -2237,6 +2246,11 @@ function selectNv(idx){
   }
   document.querySelectorAll('#nvSidebar .nv-tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
   renderNvPanel(idx);
+  // On mobile (sidebar is a horizontal strip), scroll the active tab into view
+  const activeTab=document.querySelector('#nvSidebar .nv-tab.active');
+  if(activeTab && window.matchMedia('(max-width:768px)').matches){
+    activeTab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  }
   // Update counter if we're currently on screen 3 (8 nhiệm vụ)
   if(typeof c!=='undefined' && c===3){
     const navC=document.getElementById('navC');
